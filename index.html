@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Erian Academy | Aprende a Hablar Inglés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0B1120;
+            --bg-card: #1E293B;
+            --gold: #D4AF37;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --sky-blue: #0EA5E9;
+            --nvidia-green: #76B900;
+            --usa-red: #B22234;
+            --usa-blue: #3C3B6E;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
+        
+        .serif { font-family: 'Playfair Display', serif; }
+        .gold-text { color: var(--gold); }
+
+        /* Bandera USA CSS */
+        .us-flag {
+            width: 40px; height: 26px; background-image: linear-gradient(180deg, #B22234 8.33%, #FFFFFF 8.33%, #FFFFFF 16.66%, #B22234 16.66%, #B22234 25%, #FFFFFF 25%, #FFFFFF 33.33%, #B22234 33.33%, #B22234 41.66%, #FFFFFF 41.66%, #FFFFFF 50%, #B22234 50%, #B22234 58.33%, #FFFFFF 58.33%, #FFFFFF 66.66%, #B22234 66.66%, #B22234 75%, #FFFFFF 75%, #FFFFFF 83.33%, #B22234 83.33%, #B22234 91.66%, #FFFFFF 91.66%, #FFFFFF 100%);
+            position: relative; border-radius: 3px; display: inline-block; vertical-align: middle; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .us-flag::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 53.84%; background-color: var(--usa-blue); background-image: radial-gradient(#FFF 15%, transparent 16%); background-size: 5px 5px; }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #B48A2A);
+            color: #000; padding: 18px 40px; border-radius: 4px;
+            font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            text-decoration: none; display: inline-block; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); transition: 0.4s;
+            border: none; cursor: pointer; text-align: center;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; border-bottom: 1px solid #1E293B; }
+        .section-title { font-size: 38px; margin-bottom: 15px; text-align: center; }
+        .section-subtitle { font-size: 16px; color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 50px auto; }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: radial-gradient(circle at top, #1E293B 0%, #0B1120 70%); position: relative;
+        }
+        .hero-badge {
+            border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px;
+            font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6; }
+        .local-pride { margin-top: 40px; font-size: 13px; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
+
+        /* PEDAGOGÍA */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .pedagogy-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border-top: 4px solid var(--sky-blue); transition: 0.3s; }
+        .pedagogy-card:hover { transform: translateY(-5px); background: #27364d; }
+        .pedagogy-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-main); }
+        .pedagogy-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <div class="us-flag"></div> American English Standard
+            </div>
+            <h1 class="serif">Domine el Inglés. <br><span class="gold-text">El Idioma del Éxito.</span></h1>
+            <p>El sistema de inmersión lingüística más avanzado de Venezuela. Diseñado exclusivamente para las familias de élite de Socopó y Barinas, combinando pedagogía de vanguardia con Inteligencia Artificial de Silicon Valley.</p>
+            <a href="#contacto" class="btn-gold">Solicitar Entrevista Privada</a>
+            <div class="local-pride">Socopó • Barinas • Venezuela</div>
+        </div>
+    </section>
+
+    <!-- PEDAGOGÍA -->
+    <section>
+        <div class="container">
+            <h2 class="section-title serif">Nuestra Pedagogía de <span class="gold-text">Inmersión Total</span></h2>
+            <p class="section-subtitle">No enseñamos con libros viejos. Utilizamos el método comunicativo (Communicative Approach) y la repetición espaciada, potenciados al máximo por la IA.</p>
+
+            <div class="grid-3">
+                <div class="pedagogy-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">🎯</div>
+                    <h3>Enfoque Comunicativo</h3>
+                    <p>Desde el primer día, su hijo hablará. La gramática y el vocabulario se aprenden en contexto, resolviendo situaciones reales, no memorizando listas aburridas.</p>
+                </div>
+                <div class="pedagogy-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">🧠</div>
+                    <h3>Repetición Espaciada</h3>
+                    <p>La IA calcula exactamente cuándo su hijo está a punto de olvidar una palabra y se la vuelve a mostrar, garantizando que el conocimiento pase a la memoria a largo plazo.</p>
+                </div>
+                <div class="pedagogy-card">
+                    <div style="font-size: 30px; margin-bottom: 15px;">🌍</div>
+                    <h3>Inmersión Cultural</h3>
+                    <p>A través de videos nativos (Crossroads Café) y juegos interactivos, el alumno no solo aprende el idioma, sino la cultura americana y las expresiones del día a día.</p>
+                </div>
+            </div>
+        </div>    <!-- EL DÍA A DÍA DEL ALUMNO -->
+    <section style="background: #0F172A;">
+        <div class="container">
+            <h2 class="section-title serif">¿Qué hace la IA <span class="gold-text">todos los días?</span></h2>
+            <p class="section-subtitle">Un ecosistema diseñado para que el alumno tenga contacto con el inglés 365 días al año.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 0 auto;">
+                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid var(--gold);">
+                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(212,175,55,0.1); font-weight: 800; color: var(--gold); display: flex; align-items: center; justify-content: center;">Mañana</div>
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 5px;">Calentamiento y Vocabulario (15 min)</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">El alumno recibe 5 palabras nuevas (Flashcards) con audio nativo y las practica en el Cyber Arcade.</p>
+                    </div>
+                </div>
+                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid var(--sky-blue);">
+                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(14,165,233,0.1); font-weight: 800; color: var(--sky-blue); display: flex; align-items: center; justify-content: center;">Tarde</div>
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 5px;">Práctica de Speaking con Sofía (20 min)</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Conversación en vivo. Sofía (la IA de voz) le hace preguntas, escucha su pronunciación y lo corrige en tiempo real sin juzgarlo.</p>
+                    </div>
+                </div>
+                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid #8B5CF6;">
+                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(139,92,246,0.1); font-weight: 800; color: #8B5CF6; display: flex; align-items: center; justify-content: center;">Noche</div>
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 5px;">Misión Diaria (10 min)</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Se le asigna una micro-tarea (escribir 3 oraciones o ver un clip de 2 minutos). El sistema envía el reporte diario a la nube.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFRAESTRUCTURA DE ÉLITE (MAC, ASUS, NVIDIA) -->
+    <section>
+        <div class="container">
+            <h2 class="section-title serif">El Poder Detrás de la IA: <span class="gold-text">Nuestra Infraestructura</span></h2>
+            <p class="section-subtitle">No dependemos de servidores gratuitos. Para garantizar un aprendizaje personalizado y sin interrupciones, hemos integrado un ecosistema de hardware de más de $100,000 USD, desarrollado con las tres tecnologías más avanzadas del mundo.</p>
+
+            <div class="grid-3">
+                <div class="pedagogy-card" style="border-top: 4px solid #A2AAAD;">
+                    <h3 style="color: #A2AAAD;">🍏 Tecnología Mac (Apple)</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Utilizamos estaciones de trabajo Mac Studio con chips de silicio unificados para procesar los modelos de lenguaje de IA de forma local, garantizando la máxima privacidad de los datos del alumno y una velocidad de respuesta instantánea en las tutorías.</p>
+                </div>
+                <div class="pedagogy-card" style="border-top: 4px solid #00539B;">
+                    <h3 style="color: #00539B;">💻 Tecnología ASUS</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Nuestras estaciones de diseño y desarrollo ASUS nos permiten renderizar los entornos 3D del Cyber Arcade y desarrollar el código de las aplicaciones con precisión quirúrgica, asegurando un ecosistema libre de errores.</p>
+                </div>
+                <div class="pedagogy-card" style="border-top: 4px solid var(--nvidia-green);">
+                    <h3 style="color: var(--nvidia-green);">🟩 Rack de Servidores NVIDIA</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;"><strong>Proyección de Expansión:</strong> Estamos integrando un rack de servidores con GPUs NVIDIA de alta gama. Este poder de cómputo masivo nos permitirá medir cientos de parámetros pedagógicos en tiempo real y entrenar modelos de IA exclusivos para el código de aprendizaje de cada individuo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO HUMANO -->
+    <section style="background: #0F172A;">
+        <div class="container">
+            <h2 class="section-title serif">La Fuerza Detrás de la IA: <span class="gold-text">Nuestro Equipo Humano</span></h2>
+            <p class="section-subtitle">La tecnología no lo es todo. En Erian Academy, el equipo directivo se reúne todos los días para auditar a la IA y planificar las estrategias pedagógicas.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--gold);">
+                    <h3 style="color: var(--gold); margin-bottom: 15px; font-size: 22px;">🔄 El Ciclo Semanal</h3>
+                    <ul style="color: var(--text-muted); font-size: 14px; line-height: 1.8; padding-left: 20px;">
+                        <li><strong>Viernes de Auditoría:</strong> Revisamos las métricas de progreso de su hijo, asegurando que no esté estancado.</li>
+                        <li><strong>Reporte Ejecutivo VIP:</strong> Recibirá un informe por WhatsApp y Correo con la evolución, notas y recomendaciones.</li>
+                        <li><strong>Actualización de Contenido:</strong> Agregamos nuevos desafíos basados en el desempeño de los alumnos.</li>
+                    </ul>
+                </div>
+                <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--sky-blue);">
+                    <h3 style="color: var(--sky-blue); margin-bottom: 15px; font-size: 22px;">👨‍💻 Reunión Diaria (Humanos + IA)</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.8;">
+                        Todos los días, analizamos los datos que la IA recopila. Si detectamos que un grupo de alumnos tiene problemas con el Pasado Simple, ajustamos el plan de estudios para el día siguiente. 
+                        <br><br>
+                        <strong>La IA procesa, nosotros dirigimos.</strong> Esa es la garantía de una educación actualizada y personalizada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO VIP -->
+    <section id="contacto" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title serif">Solicite su <span class="gold-text">Entrevista Privada</span></h2>
+            <p class="section-subtitle">Déjenos sus datos. Nuestro equipo directivo se comunicará con usted en menos de 24 horas para agendar su demostración en vivo en Socopó.</p>
+
+            <form action="https://formsubmit.co/erianingles@gmail.com" method="POST" style="max-width: 500px; margin: 0 auto; background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid #334155; text-align: left;">
+                <input type="hidden" name="_subject" value="Nuevo Candidato VIP - Erian Academy Socopó">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Nombre del Representante</label>
+                    <input type="text" name="Nombre" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #475569; background: #0F172A; color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Correo Electrónico</label>
+                    <input type="email" name="Email" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #475569; background: #0F172A; color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Número de WhatsApp</label>
+                    <input type="tel" name="WhatsApp" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #475569; background: #0F172A; color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Nombre y Edad de su Hijo(a)</label>
+                    <input type="text" name="Hijo" required style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #475569; background: #0F172A; color: white; font-size: 15px; outline: none;">
+                </div>
+
+                <button type="submit" class="btn-gold" style="width: 100%; border-radius: 8px;">Solicitar Contacto VIP</button>
+                <p style="text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 20px;">🔒 Sus datos están protegidos.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20deseo%20agendar%20una%20entrevista%20VIP%20para%20Erian%20Academy%20en%20Socopó." style="position: fixed; bottom: 30px; right: 30px; background: #0EA5E9; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4); z-index: 1000; text-decoration: none;">
+        <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+</body>
+</html>
+    </section>
