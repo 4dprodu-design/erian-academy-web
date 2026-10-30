@@ -13,7 +13,6 @@
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --sky-blue: #0EA5E9;
-            --nvidia-green: #76B900;
             --usa-red: #B22234;
             --usa-blue: #3C3B6E;
         }
@@ -58,17 +57,45 @@
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6; }
         .local-pride { margin-top: 40px; font-size: 13px; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
 
-        /* PEDAGOGÍA */
+        /* PEDAGOGÍA Y MÓDULOS */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .pedagogy-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border-top: 4px solid var(--sky-blue); transition: 0.3s; }
         .pedagogy-card:hover { transform: translateY(-5px); background: #27364d; }
         .pedagogy-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-main); }
         .pedagogy-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* SECCIÓN DE PRECIOS (NUEVO) */
+        .pricing-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: stretch; margin-top: 40px; }
+        
+        .price-card {
+            background: var(--bg-card); border-radius: 16px; padding: 40px 30px; flex: 1; min-width: 300px; max-width: 450px;
+            position: relative; border: 1px solid #334155; text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        
+        .price-card.founder {
+            border: 2px solid var(--gold); background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15); transform: scale(1.05); z-index: 2;
+        }
+
+        .badge-founder {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: #000; font-weight: 900; font-size: 12px;
+            padding: 5px 20px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .price-title { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+        .price-amount { font-size: 48px; font-weight: 900; color: var(--text-main); margin-bottom: 5px; }
+        .price-amount span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+        
+        .price-features { list-style: none; text-align: left; margin: 30px 0; font-size: 15px; line-height: 1.8; color: var(--text-muted); }
+        .price-features li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .price-features li::before { content: '✓'; color: var(--gold); font-weight: bold; font-size: 18px; }
+        
+        .price-card.normal .price-features li::before { color: var(--text-muted); }
+        .strikethrough { text-decoration: line-through; color: #EF4444; opacity: 0.7; }
     </style>
 </head>
-<body>
-
-    <!-- HERO -->
+<body>    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">
@@ -85,103 +112,111 @@
     <section>
         <div class="container">
             <h2 class="section-title serif">Nuestra Pedagogía de <span class="gold-text">Inmersión Total</span></h2>
-            <p class="section-subtitle">No enseñamos con libros viejos. Utilizamos el método comunicativo (Communicative Approach) y la repetición espaciada, potenciados al máximo por la IA.</p>
-
+            <p class="section-subtitle">No enseñamos con libros viejos. Utilizamos el método comunicativo y la repetición espaciada, potenciados al máximo por la IA.</p>
             <div class="grid-3">
                 <div class="pedagogy-card">
                     <div style="font-size: 30px; margin-bottom: 15px;">🎯</div>
                     <h3>Enfoque Comunicativo</h3>
-                    <p>Desde el primer día, su hijo hablará. La gramática y el vocabulario se aprenden en contexto, resolviendo situaciones reales, no memorizando listas aburridas.</p>
+                    <p>Desde el primer día, su hijo hablará. La gramática se aprende resolviendo situaciones reales, no memorizando listas aburridas.</p>
                 </div>
                 <div class="pedagogy-card">
                     <div style="font-size: 30px; margin-bottom: 15px;">🧠</div>
                     <h3>Repetición Espaciada</h3>
-                    <p>La IA calcula exactamente cuándo su hijo está a punto de olvidar una palabra y se la vuelve a mostrar, garantizando que el conocimiento pase a la memoria a largo plazo.</p>
+                    <p>La IA calcula exactamente cuándo su hijo está a punto de olvidar una palabra y se la vuelve a mostrar para garantizar la memoria a largo plazo.</p>
                 </div>
                 <div class="pedagogy-card">
                     <div style="font-size: 30px; margin-bottom: 15px;">🌍</div>
                     <h3>Inmersión Cultural</h3>
-                    <p>A través de videos nativos (Crossroads Café) y juegos interactivos, el alumno no solo aprende el idioma, sino la cultura americana y las expresiones del día a día.</p>
-                </div>
-            </div>
-        </div>    <!-- EL DÍA A DÍA DEL ALUMNO -->
-    <section style="background: #0F172A;">
-        <div class="container">
-            <h2 class="section-title serif">¿Qué hace la IA <span class="gold-text">todos los días?</span></h2>
-            <p class="section-subtitle">Un ecosistema diseñado para que el alumno tenga contacto con el inglés 365 días al año.</p>
-
-            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 0 auto;">
-                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid var(--gold);">
-                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(212,175,55,0.1); font-weight: 800; color: var(--gold); display: flex; align-items: center; justify-content: center;">Mañana</div>
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 5px;">Calentamiento y Vocabulario (15 min)</h4>
-                        <p style="font-size: 14px; color: var(--text-muted);">El alumno recibe 5 palabras nuevas (Flashcards) con audio nativo y las practica en el Cyber Arcade.</p>
-                    </div>
-                </div>
-                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid var(--sky-blue);">
-                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(14,165,233,0.1); font-weight: 800; color: var(--sky-blue); display: flex; align-items: center; justify-content: center;">Tarde</div>
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 5px;">Práctica de Speaking con Sofía (20 min)</h4>
-                        <p style="font-size: 14px; color: var(--text-muted);">Conversación en vivo. Sofía (la IA de voz) le hace preguntas, escucha su pronunciación y lo corrige en tiempo real sin juzgarlo.</p>
-                    </div>
-                </div>
-                <div style="display: flex; background: var(--bg-card); border-radius: 10px; overflow: hidden; border-left: 4px solid #8B5CF6;">
-                    <div style="padding: 20px; min-width: 100px; text-align: center; background: rgba(139,92,246,0.1); font-weight: 800; color: #8B5CF6; display: flex; align-items: center; justify-content: center;">Noche</div>
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 5px;">Misión Diaria (10 min)</h4>
-                        <p style="font-size: 14px; color: var(--text-muted);">Se le asigna una micro-tarea (escribir 3 oraciones o ver un clip de 2 minutos). El sistema envía el reporte diario a la nube.</p>
-                    </div>
+                    <p>A través de videos nativos (Crossroads Café) y juegos interactivos, el alumno aprende la cultura americana y las expresiones del día a día.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- INFRAESTRUCTURA DE ÉLITE (MAC, ASUS, NVIDIA) -->
+    <!-- INFRAESTRUCTURA -->
     <section>
         <div class="container">
             <h2 class="section-title serif">El Poder Detrás de la IA: <span class="gold-text">Nuestra Infraestructura</span></h2>
-            <p class="section-subtitle">No dependemos de servidores gratuitos. Para garantizar un aprendizaje personalizado y sin interrupciones, hemos integrado un ecosistema de hardware de más de $100,000 USD, desarrollado con las tres tecnologías más avanzadas del mundo.</p>
-
+            <p class="section-subtitle">Hemos integrado un ecosistema de hardware de más de $100,000 USD, desarrollado con las tres tecnologías más avanzadas del mundo.</p>
             <div class="grid-3">
                 <div class="pedagogy-card" style="border-top: 4px solid #A2AAAD;">
                     <h3 style="color: #A2AAAD;">🍏 Tecnología Mac (Apple)</h3>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Utilizamos estaciones de trabajo Mac Studio con chips de silicio unificados para procesar los modelos de lenguaje de IA de forma local, garantizando la máxima privacidad de los datos del alumno y una velocidad de respuesta instantánea en las tutorías.</p>
+                    <p>Estaciones Mac Studio para procesar modelos de IA localmente, garantizando privacidad y velocidad instantánea en las tutorías.</p>
                 </div>
                 <div class="pedagogy-card" style="border-top: 4px solid #00539B;">
                     <h3 style="color: #00539B;">💻 Tecnología ASUS</h3>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Nuestras estaciones de diseño y desarrollo ASUS nos permiten renderizar los entornos 3D del Cyber Arcade y desarrollar el código de las aplicaciones con precisión quirúrgica, asegurando un ecosistema libre de errores.</p>
+                    <p>Estaciones de diseño y desarrollo ASUS para renderizar los entornos 3D del Cyber Arcade y desarrollar el código con precisión quirúrgica.</p>
                 </div>
-                <div class="pedagogy-card" style="border-top: 4px solid var(--nvidia-green);">
-                    <h3 style="color: var(--nvidia-green);">🟩 Rack de Servidores NVIDIA</h3>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;"><strong>Proyección de Expansión:</strong> Estamos integrando un rack de servidores con GPUs NVIDIA de alta gama. Este poder de cómputo masivo nos permitirá medir cientos de parámetros pedagógicos en tiempo real y entrenar modelos de IA exclusivos para el código de aprendizaje de cada individuo.</p>
+                <div class="pedagogy-card" style="border-top: 4px solid #76B900;">
+                    <h3 style="color: #76B900;">🟩 Servidores NVIDIA</h3>
+                    <p>Proyección de Rack de Servidores con GPUs NVIDIA de alta gama para medir parámetros pedagógicos y entrenar modelos de IA exclusivos.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRECIOS (EL CORAZÓN DE LA VENTA) -->
+    <section id="precios" style="background: #0F172A;">
+        <div class="container">
+            <h2 class="section-title serif">Inversión y <span class="gold-text">Beneficios de Fundador</span></h2>
+            <p class="section-subtitle">Estamos seleccionando estrictamente a los primeros <strong>300 alumnos</strong>. Quienes entren ahora, aseguran un precio histórico de por vida y beneficios exclusivos.</p>
+
+            <div class="pricing-container">
+                
+                <!-- Tarjeta 1: Futuro (Normal) -->
+                <div class="price-card normal">
+                    <div>
+                        <h3 class="price-title">Precio Regular</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;">Después de los primeros 300 alumnos</p>
+                        
+                        <div class="price-amount" style="margin-top: 30px;">$99.99<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Por módulo de idioma</p>
+                        
+                        <ul class="price-features">
+                            <li>Módulo de Inglés (Nivel A1-C2)</li>
+                            <li>Acceso a tutoría IA 24/7</li>
+                            <li>Módulos futuros (Francés, Mandarín, etc.) a <strong>$79.99 c/u</strong></li>
+                            <li>Sin bloqueo de precio a largo plazo</li>
+                            <li>Sujeto a disponibilidad de cupos</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" style="display: block; padding: 15px; border: 1px solid #475569; color: var(--text-main); text-decoration: none; border-radius: 8px; font-weight: 600;">Esperar a la siguiente fase</a>
+                </div>
+
+                <!-- Tarjeta 2: Fundador (La Oferta Irresistible) -->
+                <div class="price-card founder">
+                    <div class="badge-founder">Solo 300 Cupos</div>
+                    <div>
+                        <h3 class="price-title gold-text">Membresía Fundador</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;">Exclusivo para la primera generación</p>
+                        
+                        <div class="price-amount" style="margin-top: 30px;">$70<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Precio congelado de por vida</p>
+                        
+                        <ul class="price-features" style="color: var(--text-main);">
+                            <li><strong>Inscripción de $150</strong> (Única vez) + Instalación VIP</li>
+                            <li><strong>Precio de $70/mes congelado de por vida</strong></li>
+                            <li>Acceso completo al Módulo de Inglés</li>
+                            <li style="color: var(--gold);"><strong>BONO FUNDADOR:</strong> Nuevos idiomas (Francés, Mandarín, Alemán) por solo <strong>$14.99/mes</strong> en lugar de $79.99.</li>
+                            <li style="color: var(--gold);"><strong>BONO FUNDADOR:</strong> Reportes ejecutivos semanales VIP.</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="btn-gold" style="display: block; width: 100%;">Asegurar mi Cupo Ahora</a>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- EQUIPO HUMANO -->
-    <section style="background: #0F172A;">
+    <section>
         <div class="container">
-            <h2 class="section-title serif">La Fuerza Detrás de la IA: <span class="gold-text">Nuestro Equipo Humano</span></h2>
-            <p class="section-subtitle">La tecnología no lo es todo. En Erian Academy, el equipo directivo se reúne todos los días para auditar a la IA y planificar las estrategias pedagógicas.</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--gold);">
-                    <h3 style="color: var(--gold); margin-bottom: 15px; font-size: 22px;">🔄 El Ciclo Semanal</h3>
-                    <ul style="color: var(--text-muted); font-size: 14px; line-height: 1.8; padding-left: 20px;">
-                        <li><strong>Viernes de Auditoría:</strong> Revisamos las métricas de progreso de su hijo, asegurando que no esté estancado.</li>
-                        <li><strong>Reporte Ejecutivo VIP:</strong> Recibirá un informe por WhatsApp y Correo con la evolución, notas y recomendaciones.</li>
-                        <li><strong>Actualización de Contenido:</strong> Agregamos nuevos desafíos basados en el desempeño de los alumnos.</li>
-                    </ul>
-                </div>
-                <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--sky-blue);">
-                    <h3 style="color: var(--sky-blue); margin-bottom: 15px; font-size: 22px;">👨‍💻 Reunión Diaria (Humanos + IA)</h3>
-                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.8;">
-                        Todos los días, analizamos los datos que la IA recopila. Si detectamos que un grupo de alumnos tiene problemas con el Pasado Simple, ajustamos el plan de estudios para el día siguiente. 
-                        <br><br>
-                        <strong>La IA procesa, nosotros dirigimos.</strong> Esa es la garantía de una educación actualizada y personalizada.
-                    </p>
-                </div>
+            <h2 class="section-title serif">Nuestro <span class="gold-text">Compromiso Humano</span></h2>
+            <p class="section-subtitle">La tecnología no lo es todo. Nuestro equipo directivo se reúne todos los días para auditar a la IA y planificar las estrategias pedagógicas.</p>
+            <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--sky-blue); max-width: 800px; margin: 0 auto;">
+                <p style="color: var(--text-muted); font-size: 15px; line-height: 1.8; text-align: center;">
+                    Todos los días, el equipo de Erian Academy analiza los datos de progreso. Si detectamos que un alumno tiene problemas con una lección, ajustamos el plan de estudios para el día siguiente. <strong>La IA procesa, nosotros dirigimos.</strong> Cada viernes, usted recibirá un reporte por WhatsApp y Correo detallando la evolución de su hijo.
+                </p>
             </div>
         </div>
     </section>
@@ -226,4 +261,3 @@
     </a>
 </body>
 </html>
-    </section>
