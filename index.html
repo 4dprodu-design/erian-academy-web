@@ -57,14 +57,14 @@
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6; }
         .local-pride { margin-top: 40px; font-size: 13px; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
 
-        /* PEDAGOGÍA Y MÓDULOS */
+        /* PEDAGOGÍA E INFRAESTRUCTURA */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .pedagogy-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border-top: 4px solid var(--sky-blue); transition: 0.3s; }
         .pedagogy-card:hover { transform: translateY(-5px); background: #27364d; }
         .pedagogy-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-main); }
         .pedagogy-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        /* SECCIÓN DE PRECIOS (NUEVO) */
+        /* SECCIÓN DE PRECIOS CORREGIDA */
         .pricing-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: stretch; margin-top: 40px; }
         
         .price-card {
@@ -74,7 +74,7 @@
         
         .price-card.founder {
             border: 2px solid var(--gold); background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15); transform: scale(1.05); z-index: 2;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
         }
 
         .badge-founder {
@@ -87,15 +87,18 @@
         .price-amount { font-size: 48px; font-weight: 900; color: var(--text-main); margin-bottom: 5px; }
         .price-amount span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
         
-        .price-features { list-style: none; text-align: left; margin: 30px 0; font-size: 15px; line-height: 1.8; color: var(--text-muted); }
-        .price-features li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
-        .price-features li::before { content: '✓'; color: var(--gold); font-weight: bold; font-size: 18px; }
-        
+        /* LISTAS CORREGIDAS PARA QUE NO SE ROMPAN EN EL TELÉFONO */
+        .price-features { list-style: none; text-align: left; margin: 30px 0; font-size: 15px; line-height: 1.5; color: var(--text-muted); }
+        .price-features li { margin-bottom: 16px; position: relative; padding-left: 25px; }
+        .price-features li::before { content: '✓'; color: var(--gold); font-weight: bold; font-size: 18px; position: absolute; left: 0; top: 0; }
         .price-card.normal .price-features li::before { color: var(--text-muted); }
-        .strikethrough { text-decoration: line-through; color: #EF4444; opacity: 0.7; }
+        
+        .highlight-text { color: var(--gold); font-weight: 700; }
     </style>
 </head>
-<body>    <!-- HERO -->
+<body>
+
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">
@@ -103,7 +106,7 @@
             </div>
             <h1 class="serif">Domine el Inglés. <br><span class="gold-text">El Idioma del Éxito.</span></h1>
             <p>El sistema de inmersión lingüística más avanzado de Venezuela. Diseñado exclusivamente para las familias de élite de Socopó y Barinas, combinando pedagogía de vanguardia con Inteligencia Artificial de Silicon Valley.</p>
-            <a href="#contacto" class="btn-gold">Solicitar Entrevista Privada</a>
+            <a href="#precios" class="btn-gold">Ver Beneficios de Fundador</a>
             <div class="local-pride">Socopó • Barinas • Venezuela</div>
         </div>
     </section>
@@ -155,7 +158,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE PRECIOS (EL CORAZÓN DE LA VENTA) -->
+    <!-- SECCIÓN DE PRECIOS (ACTUALIZADA CON TU LÓGICA) -->
     <section id="precios" style="background: #0F172A;">
         <div class="container">
             <h2 class="section-title serif">Inversión y <span class="gold-text">Beneficios de Fundador</span></h2>
@@ -169,15 +172,15 @@
                         <h3 class="price-title">Precio Regular</h3>
                         <p style="color: var(--text-muted); font-size: 14px;">Después de los primeros 300 alumnos</p>
                         
-                        <div class="price-amount" style="margin-top: 30px;">$99.99<span>/mes</span></div>
-                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Por módulo de idioma</p>
+                        <div class="price-amount" style="margin-top: 30px;">$99<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Por idioma base</p>
                         
                         <ul class="price-features">
-                            <li>Módulo de Inglés (Nivel A1-C2)</li>
+                            <li>Acceso al idioma principal (Inglés)</li>
                             <li>Acceso a tutoría IA 24/7</li>
-                            <li>Módulos futuros (Francés, Mandarín, etc.) a <strong>$79.99 c/u</strong></li>
+                            <li>Módulos de Francés, Mandarín y Alemán disponibles después del mes 6</li>
+                            <li>Idiomas adicionales: <strong>$79/mes por cada uno</strong></li>
                             <li>Sin bloqueo de precio a largo plazo</li>
-                            <li>Sujeto a disponibilidad de cupos</li>
                         </ul>
                     </div>
                     <a href="#contacto" style="display: block; padding: 15px; border: 1px solid #475569; color: var(--text-main); text-decoration: none; border-radius: 8px; font-weight: 600;">Esperar a la siguiente fase</a>
@@ -196,27 +199,14 @@
                         <ul class="price-features" style="color: var(--text-main);">
                             <li><strong>Inscripción de $150</strong> (Única vez) + Instalación VIP</li>
                             <li><strong>Precio de $70/mes congelado de por vida</strong></li>
-                            <li>Acceso completo al Módulo de Inglés</li>
-                            <li style="color: var(--gold);"><strong>BONO FUNDADOR:</strong> Nuevos idiomas (Francés, Mandarín, Alemán) por solo <strong>$14.99/mes</strong> en lugar de $79.99.</li>
-                            <li style="color: var(--gold);"><strong>BONO FUNDADOR:</strong> Reportes ejecutivos semanales VIP.</li>
+                            <li>Acceso completo al módulo de Inglés</li>
+                            <li><span class="highlight-text">BONO FUNDADOR:</span> A partir del <strong>mes 6</strong>, acceso a Francés, Mandarín y Alemán por solo <strong>$14.99/mes adicionales</strong> por cada idioma (en lugar de $79).</li>
+                            <li><span class="highlight-text">BONO FUNDADOR:</span> Reportes ejecutivos semanales VIP.</li>
                         </ul>
                     </div>
                     <a href="#contacto" class="btn-gold" style="display: block; width: 100%;">Asegurar mi Cupo Ahora</a>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- EQUIPO HUMANO -->
-    <section>
-        <div class="container">
-            <h2 class="section-title serif">Nuestro <span class="gold-text">Compromiso Humano</span></h2>
-            <p class="section-subtitle">La tecnología no lo es todo. Nuestro equipo directivo se reúne todos los días para auditar a la IA y planificar las estrategias pedagógicas.</p>
-            <div style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--sky-blue); max-width: 800px; margin: 0 auto;">
-                <p style="color: var(--text-muted); font-size: 15px; line-height: 1.8; text-align: center;">
-                    Todos los días, el equipo de Erian Academy analiza los datos de progreso. Si detectamos que un alumno tiene problemas con una lección, ajustamos el plan de estudios para el día siguiente. <strong>La IA procesa, nosotros dirigimos.</strong> Cada viernes, usted recibirá un reporte por WhatsApp y Correo detallando la evolución de su hijo.
-                </p>
             </div>
         </div>
     </section>
@@ -250,14 +240,9 @@
                 </div>
 
                 <button type="submit" class="btn-gold" style="width: 100%; border-radius: 8px;">Solicitar Contacto VIP</button>
-                <p style="text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 20px;">🔒 Sus datos están protegidos.</p>
             </form>
         </div>
     </section>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20deseo%20agendar%20una%20entrevista%20VIP%20para%20Erian%20Academy%20en%20Socopó." style="position: fixed; bottom: 30px; right: 30px; background: #0EA5E9; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.4); z-index: 1000; text-decoration: none;">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </a>
 </body>
 </html>
