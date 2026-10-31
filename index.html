@@ -1,557 +1,444 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erian Academy — Universidad Privada de Élite</title>
-<meta name="description" content="El único ecosistema educativo de élite en Barinas. Más de $100,000 USD en infraestructura dedicada exclusivamente a 300 personas.">
-<style>
-  :root {
-    --bg-main: #0b1320;       
-    --bg-card: #111c2e;       
-    --bg-maroon: #3b1616;     
-    --border-maroon: #642525;
-    --gold: #dfb646;          
-    --cyan: #38bdf8;          
-    --coral: #fda4af;         
-    --text-main: #e2e8f0;     
-    --text-muted: #94a3b8;    
-    --glass: rgba(255,255,255,0.03);
-    --border-glass: rgba(255,255,255,0.08);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-main); 
-    color: var(--text-main);
-    overflow-x: hidden; line-height: 1.7;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-  
-  /* HEADER */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    padding: 15px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(11, 19, 32, 0.85);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-glass);
-  }
-  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
-  .logo-mark {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: var(--gold); color: var(--bg-main);
-    display: grid; place-items: center; font-size: 16px; font-weight: 900;
-  }
-  .header-cta {
-    padding: 8px 16px; border-radius: 8px;
-    background: transparent; border: 1px solid var(--gold);
-    color: var(--gold); font-weight: 600; text-decoration: none; font-size: 13px;
-    transition: all 0.3s;
-  }
-  .header-cta:hover { background: var(--gold); color: var(--bg-main); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Erian Academy | Exclusivo Barinas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050814;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --gold: #D4AF37;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --sky-blue: #0EA5E9;
+            --nvidia-green: #76B900;
+            --empire-red: #991B1B;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glow: 0 0 20px rgba(14, 165, 233, 0.3);
+        }
 
-  /* HERO */
-  .hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
-  .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
-  .hero h1 .gold-text { color: var(--gold); }
-  .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-  
-  .btn {
-    padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px;
-    text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block;
-  }
-  .btn-primary { background: var(--cyan); color: #000; box-shadow: 0 4px 15px rgba(56,189,248,0.3); }
-  .btn-primary:hover { background: #7dd3fc; }
-  .btn-secondary { background: var(--glass); border: 1px solid var(--border-glass); color: var(--text-main); backdrop-filter: blur(5px); }
-  .btn-secondary:hover { border-color: var(--text-muted); }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; position: relative; }
 
-  /* SECCIONES */
-  section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-  .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--gold); line-height: 1.2; }
-  .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
-  
-  /* TEXTO DECISIÓN */
-  .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
-  .decision-box p { margin-bottom: 25px; }
-  .text-cyan { color: var(--cyan); font-weight: 600; }
-  .text-gold { color: var(--gold); font-weight: 600; }
+        /* FONDO DE REJILLA FUTURISTA */
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background-image: 
+                linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            animation: gridMove 20s linear infinite;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
+        }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 50px; } }
 
-  /* INFRAESTRUCTURA ($100,000 USD) */
-  .infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .infra-card {
-    background: var(--bg-card); border: 1px solid var(--border-glass);
-    padding: 30px 20px; border-radius: 12px; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .infra-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--cyan));
-  }
-  .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
-  .infra-card p { font-size: 14px; color: var(--text-muted); }
+        .serif { font-family: 'Playfair Display', serif; }
+        .gold-text { color: var(--gold); }
+        .tech-font { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-  /* ECOSISTEMA (1,001 formas) */
-  .method-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .method-grid { grid-template-columns: 1fr 1fr; } }
-  .method-card {
-    background: var(--bg-card); border: 1px solid var(--border-glass);
-    padding: 20px; border-radius: 12px; display: flex; gap: 15px; align-items: flex-start;
-    transition: transform 0.3s;
-  }
-  .method-card:hover { transform: translateY(-3px); border-color: var(--cyan); }
-  .method-icon { font-size: 24px; }
-  .method-card h4 { color: #fff; font-size: 16px; margin-bottom: 5px; }
-  .method-card p { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+        /* BOTONES */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #B48A2A);
+            color: #000; padding: 18px 40px; border-radius: 8px;
+            font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            text-decoration: none; display: inline-block; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3); transition: 0.4s;
+            border: none; cursor: pointer; text-align: center; position: relative; overflow: hidden;
+        }
+        .btn-gold::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5); }
 
-  /* TIMELINE (Meses 9 al 12) */
-  .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
-  .month-card {
-    background: var(--bg-card); border: 1px solid var(--border-maroon);
-    border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px);
-  }
-  .month-header {
-    background: var(--bg-maroon); padding: 12px; text-align: center;
-    font-weight: 700; color: var(--coral); font-size: 16px; border-bottom: 1px solid var(--border-maroon);
-  }
-  .month-body { padding: 24px; }
-  .month-body h3 { font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; }
-  .month-body p { color: var(--text-muted); font-size: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .section-title { font-size: 42px; margin-bottom: 15px; text-align: center; }
+        .section-subtitle { font-size: 18px; color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 60px auto; line-height: 1.6; }
 
-  /* PRECIOS */
-  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
-  @media(min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
-  .price-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px; text-align: center; }
-  .price-card.premium { border-color: rgba(223,182,70,0.4); background: linear-gradient(180deg, rgba(223,182,70,0.05), var(--bg-card)); }
-  .price-card h3 { font-size: 18px; color: var(--cyan); margin-bottom: 10px; }
-  .price-card.premium h3 { color: var(--gold); }
-  .price-val { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-  .price-val span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
-  .price-note { font-size: 12px; color: var(--gold); margin-bottom: 20px; }
-  .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 14px; display: grid; gap: 10px; color: var(--text-muted); }
-  .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
-  .price-card.premium .price-features li::before { color: var(--gold); }
+        /* ANIMACIONES SCROLL */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-  /* BECAS */
-  .beca-container {
-    background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%);
-    border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px;
-    max-width: 700px; margin: 40px auto 0; backdrop-filter: blur(10px);
-  }
-  .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-  .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
-  .badge { padding: 6px 12px; border-radius: 20px; background: rgba(223,182,70,0.1); color: var(--gold); font-size: 12px; font-weight: 700; }
-  
-  .progress-wrap { margin: 20px 0 30px; }
-  .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
-  .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 1s ease; }
-  .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 60%);
+            transform: translate(-50%, -50%); z-index: -1; animation: pulseGlow 4s infinite alternate;
+        }
+        @keyframes pulseGlow { 0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; } 100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; } }
+        
+        .hero-badge {
+            background: rgba(14, 165, 233, 0.1); border: 1px solid var(--sky-blue); color: var(--sky-blue); padding: 8px 25px; border-radius: 30px;
+            font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px;
+            backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+        }
+        .hero h1 { font-size: 64px; font-weight: 900; line-height: 1.05; margin-bottom: 25px; letter-spacing: -2px; }
+        .hero p { font-size: 22px; color: var(--text-muted); max-width: 750px; margin: 0 auto 50px auto; line-height: 1.6; font-weight: 300; }
 
-  .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
-  .req-list li { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--gold); }
+        /* GLASSMORPHISM CARDS */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--glow);
+        }
 
-  /* FRASE FINAL Y FOOTER */
-  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px 20px; line-height: 1.4; }
-  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); margin-top: 40px; }
+        /* GRIDS */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto; }
 
-  /* WHATSAPP BUTTON */
-  .wa-btn {
-    position: fixed; bottom: 25px; right: 25px; z-index: 999;
-    width: 60px; height: 60px; border-radius: 50%; background: #25D366;
-    display: grid; place-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    transition: transform 0.3s;
-  }
-  .wa-btn:hover { transform: scale(1.1); }
-  .wa-btn svg { width: 35px; height: 35px; fill: #fff; }
+        .icon-box { font-size: 50px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+        .glass-card h3 { font-size: 24px; margin-bottom: 15px; color: var(--text-main); font-weight: 800; }
+        .glass-card p { font-size: 16px; color: var(--text-muted); line-height: 1.7; }
 
-  /* MODALES */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; overflow-y: auto; padding: 20px; }
-  .modal-overlay.active { display: flex; }
-  .modal {
-    background: var(--bg-main); border: 1px solid var(--border-glass);
-    border-radius: 16px; padding: 30px; max-width: 480px; width: 100%;
-    margin: auto; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  }
-  .modal-close { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
-  .modal h3 { font-size: 22px; margin-bottom: 10px; color: #fff; }
-  .modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
-  .form-group { margin-bottom: 15px; }
-  .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 12px; border-radius: 8px; background: var(--bg-card);
-    border: 1px solid var(--border-glass); color: #fff; font-family: inherit; font-size: 14px;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--cyan); }
-  .form-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--cyan); color: #000; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
-  .form-submit.gold { background: var(--gold); }
-</style>
+        /* TECH STACK LIST */
+        .tech-list { list-style: none; text-align: left; margin-top: 20px; }
+        .tech-list li { margin-bottom: 15px; font-size: 15px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .tech-list li span { color: var(--sky-blue); font-weight: bold; }
+
+        /* PRECIOS */
+        .pricing-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: stretch; margin-top: 50px; }
+        .price-card {
+            background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+            border-radius: 20px; padding: 45px 35px; flex: 1; min-width: 300px; max-width: 380px;
+            position: relative; text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+            transition: 0.4s;
+        }
+        .price-card.founder { border: 2px solid var(--gold); box-shadow: 0 0 40px rgba(212, 175, 55, 0.15); transform: scale(1.03); z-index: 2; }
+        .price-card.pack { border: 2px solid var(--sky-blue); box-shadow: 0 0 40px rgba(14, 165, 233, 0.15); }
+
+        .badge-founder { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-weight: 900; font-size: 13px; padding: 6px 25px; border-radius: 30px; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        .badge-pack { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--sky-blue); color: #fff; font-weight: 900; font-size: 13px; padding: 6px 25px; border-radius: 30px; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4); }
+
+        .price-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .price-amount { font-size: 56px; font-weight: 900; color: var(--text-main); margin-bottom: 5px; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .price-amount span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+        
+        .price-features { list-style: none; text-align: left; margin: 30px 0; font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+        .price-features li { margin-bottom: 15px; position: relative; padding-left: 30px; }
+        .price-features li::before { content: '⚡'; color: var(--gold); font-weight: bold; font-size: 16px; position: absolute; left: 0; top: 0; }
+        .price-card.pack .price-features li::before { color: var(--sky-blue); }
+        
+        .highlight-text { color: var(--gold); font-weight: 700; }
+        .highlight-blue { color: var(--sky-blue); font-weight: 700; }
+
+        /* TIMELINE ÉLITE */
+        .empire-box { background: linear-gradient(135deg, rgba(153, 27, 27, 0.2), rgba(15, 23, 42, 0.8)); padding: 60px 40px; border-radius: 24px; border: 1px solid var(--empire-red); max-width: 1000px; margin: 0 auto; backdrop-filter: blur(20px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .empire-box h2 { text-align: center; font-size: 42px; margin-bottom: 25px; color: #FCA5A5; }
+        .empire-box p { font-size: 18px; line-height: 1.8; color: var(--text-main); margin-bottom: 20px; text-align: center; font-weight: 300; }
+        
+        .future-timeline { display: flex; flex-direction: column; gap: 20px; margin-top: 50px; }
+        .timeline-item { display: flex; background: rgba(0,0,0,0.3); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .timeline-item:hover { border-color: #FCA5A5; transform: translateX(10px); }
+        .timeline-phase {
+            background: rgba(153, 27, 27, 0.4); color: #FCA5A5; padding: 25px; font-weight: 800; font-family: 'Rajdhani', sans-serif; font-size: 20px;
+            display: flex; align-items: center; justify-content: center; min-width: 160px; border-right: 1px solid rgba(255,255,255,0.1); text-align: center;
+        }
+        .timeline-content { padding: 25px; }
+        .timeline-content h3 { font-size: 22px; margin-bottom: 10px; color: #FFF; font-weight: 800; }
+        .timeline-content p { font-size: 16px; color: var(--text-muted); line-height: 1.6; text-align: left; margin-bottom: 0; }
+
+        /* TECH CAPACITY ALERT (AL FINAL) */
+        .capacity-alert {
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.4), rgba(15, 23, 42, 0.9));
+            border: 2px solid var(--empire-red); border-radius: 20px; padding: 60px 40px; max-width: 1000px; margin: 0 auto;
+            text-align: center; box-shadow: 0 0 50px rgba(153, 27, 27, 0.4); backdrop-filter: blur(10px);
+        }
+        .capacity-alert h2 { font-size: 38px; color: #FCA5A5; margin-bottom: 20px; }
+        .capacity-alert p { font-size: 18px; color: var(--text-main); line-height: 1.8; margin-bottom: 20px; }
+        .capacity-alert strong { color: #FCA5A5; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; }
+            .price-card.founder { transform: none; }
+            .timeline-item { flex-direction: column; }
+            .timeline-phase { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body><!-- HEADER -->
-<header>
-  <div class="logo"><div class="logo-mark">E</div> ERIAN ACADEMY</div>
-  <a href="#precios" class="header-cta">Reservar Cupo</a>
-</header>
+<body>
+    <!-- Fondo de rejilla 3D -->
+    <div class="grid-bg"></div>    <!-- HERO -->
+    <section class="hero">
+        <div class="container reveal">
+            <div class="hero-badge">Exclusivo para la Élite de Barinas</div>
+            <h1 class="serif">No es un Curso. <br>Es la Arquitectura de tu <span class="gold-text">Imperio.</span></h1>
+            <p>El ecosistema de inmersión lingüística y tecnológica más avanzado del mundo. Diseñado única y exclusivamente para la sociedad élite del estado Barinas y Socopó.</p>
+            <a href="#precios" class="btn-gold">Desbloquear mi Acceso Ahora</a>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>La Única Universidad Privada<br>de <span class="gold-text">Élite</span> en Barinas.</h1>
-  <p class="sub">Un privilegio único para muy pocas personas. No formamos empleados. Formamos Reyes de Imperios y Administradores de Riquezas con Inteligencia Artificial de nivel global.</p>
-  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-    <a href="#precios" class="btn btn-primary">Asegurar mi Cupo</a>
-  </div>
-</section>
+    <!-- POR QUÉ AHORA -->
+    <section style="background: rgba(5, 8, 20, 0.8);">
+        <div class="container reveal">
+            <div class="glass-card" style="max-width: 900px; margin: 0 auto; text-align: center; border-color: var(--gold);">
+                <h3 class="tech-font" style="color: var(--gold); font-size: 28px; margin-bottom: 20px;">¿Por qué entrar HOY es la mejor decisión?</h3>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-main); margin-bottom: 15px;">
+                    El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <strong>El inglés ya no es un lujo, es el código fuente del futuro.</strong>
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-muted);">
+                    Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <strong>entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</strong> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- ¿POR QUÉ ENTRAR HOY? -->
-<section>
-  <h2 class="sec-title">¿Por qué entrar HOY es la mejor decisión?</h2>
-  <div class="decision-box">
-    <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <span class="text-cyan">El inglés ya no es un lujo, es el código fuente del futuro.</span></p>
-    <p>Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <span class="text-cyan">entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</span> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.</p>
-  </div>
-</section>
+    <!-- EL MÉTODO -->
+    <section style="background: rgba(15, 23, 42, 0.4);">
+        <div class="container">
+            <h2 class="section-title serif reveal">Ingeniería del <span class="gold-text">Aprendizaje</span></h2>
+            <p class="section-subtitle reveal">No memorizamos, construimos. Nuestra IA, Sofía, te acompañará en un proceso de inmersión real.</p>
+            
+            <div class="grid-3">
+                <div class="glass-card reveal">
+                    <div class="icon-box">🗣️</div>
+                    <h3>Conversación 24/7</h3>
+                    <p>Tendrás un tutor de IA con voz humana disponible a cualquier hora. Habla, equivócate, y recibe correcciones en tiempo real.</p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 0.1s;">
+                    <div class="icon-box">🧠</div>
+                    <h3>Repetición Inteligente</h3>
+                    <p>El sistema analiza tus errores y diseña lecciones personalizadas para asegurar que el vocabulario se quede en tu memoria.</p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 0.2s;">
+                    <div class="icon-box">🌎</div>
+                    <h3>Acento Americano</h3>
+                    <p>Desde tu primer saludo, practicarás con el estándar American English. Te enseñamos a pensar en inglés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- LA INFRAESTRUCTURA DE $100,000 USD (El gran diferenciador) -->
-<section>
-  <h2 class="sec-title">Tecnología de Nivel Dios</h2>
-  <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura dedicada exclusivamente para los alumnos de Erian Academy:</p>
-  
-  <div class="infra-grid">
-    <div class="infra-card">
-      <h4>Mac Studio M4/M5</h4>
-      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia que usan los estudios de Silicon Valley.</p>
-    </div>
-    <div class="infra-card">
-      <h4>Racks NVIDIA</h4>
-      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
-    </div>
-    <div class="infra-card">
-      <h4>Laptops ASUS</h4>
-      <p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
-    </div>
-  </div>
-</section>
+    <!-- ARQUITECTURA DE IA Y RESPALDOS -->
+    <section>
+        <div class="container">
+            <h2 class="section-title serif reveal">Arquitectura de <span class="gold-text">Nivel Dios</span></h2>
+            <p class="section-subtitle reveal">Mientras otras apps usan un solo motor genérico, nosotros hemos construido una sinfonía tecnológica respaldada por los gigantes de Silicon Valley.</p>
+            
+            <div class="grid-2">
+                <!-- IAs y Voces -->
+                <div class="glass-card reveal" style="border-left: 4px solid var(--sky-blue);">
+                    <h3 style="color: var(--sky-blue);">Sinergia de IAs Globales</h3>
+                    <p>No dependemos de una sola IA. Hemos enlazado los cerebros más potentes del mundo para crear un tutor híbrido superior:</p>
+                    <ul class="tech-list">
+                        <li><span>DeepSeek:</span> Razonamiento lógico profundo.</li>
+                        <li><span>OpenAI (GPT):</span> Creatividad y comprensión contextual.</li>
+                        <li><span>Groq:</span> Velocidad de procesamiento en milisegundos.</li>
+                    </ul>
+                </div>
 
-<!-- LAS 1,001 FORMAS DE APRENDER INGLÉS (El Ecosistema) -->
-<section>
-  <h2 class="sec-title">1,001 Formas de Aprender</h2>
-  <p class="sec-subtitle">Olvídate de los libros aburridos. Nuestro ecosistema de Inteligencia Artificial (DeepSeek, OpenAI, Groq) se adapta a tu hijo para que aprenda inglés de la forma que más le apasione. Diseñado para edades de 9 a 80 años (solo necesitas leer y escribir).</p>
-  
-  <div class="method-grid">
-    <div class="method-card">
-      <div class="method-icon">🗣️</div>
-      <div>
-        <h4>Asistente "Sofía" (Voice)</h4>
-        <p>Práctica de conversación con voces neuronales premium (Edge TTS / ElevenLabs). Habla con una IA indistinguible de un humano real.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">🧠</div>
-      <div>
-        <h4>Flashcards Inteligentes</h4>
-        <p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">🎬</div>
-      <div>
-        <h4>Inmersión Cinematográfica</h4>
-        <p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">💬</div>
-      <div>
-        <h4>Chat con IA (DeepSeek)</h4>
-        <p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con la IA y recibir evaluaciones instantáneas.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">🎮</div>
-      <div>
-        <h4>Cyber Arcade</h4>
-        <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">✍️</div>
-      <div>
-        <h4>Módulo de Escritura</h4>
-        <p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Voces Premium -->
+                <div class="glass-card reveal" style="border-left: 4px solid var(--gold);">
+                    <h3 style="color: var(--gold);">Voces Neuronales Premium</h3>
+                    <p>Olvídarte de las voces robóticas. Utilizamos modelos de voz de última generación:</p>
+                    <ul class="tech-list">
+                        <li><span>Entonación Humana:</span> Voces con respiración y emociones reales.</li>
+                        <li><span>Modulación Adaptativa:</span> La IA habla más despacio si detecta confusión.</li>
+                        <li><span>Multi-Acento:</span> Práctica con acento Americano, Británico y Australiano.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- EL FUTURO: MÓDULOS DE ÉLITE (Timeline) -->
-<section>
-  <h2 class="sec-title">Las Carreras del Futuro</h2>
-  <p class="sec-subtitle">Aprender inglés es solo el comienzo. A partir del mes 9, tu hijo accede a los módulos exclusivos de tecnología y negocios:</p>
-  
-  <div class="timeline">
-    <div class="month-card">
-      <div class="month-header">Mes 9</div>
-      <div class="month-body">
-        <h3>🛡️ Ciberseguridad</h3>
-        <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
-      </div>
-    </div>
-    <div class="month-card">
-      <div class="month-header">Mes 10</div>
-      <div class="month-body">
-        <h3>📊 Inteligencia de Datos y Finanzas Digitales</h3>
-        <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
-      </div>
-    </div>
-    <div class="month-card">
-      <div class="month-header">Mes 11 - 12</div>
-      <div class="month-body">
-        <h3>🚀 Arquitectura SEO y Creación de Agencias</h3>
-        <p>Diseño de posicionamiento SEO para sus propias organizaciones. Tu hijo aprenderá a monetizar sus ideas, ser CEO de su propia agencia y administrar su imperio digital desde temprana edad.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- PRECIOS -->
+    <section id="precios" style="background: rgba(5, 8, 20, 0.8);">
+        <div class="container">
+            <h2 class="section-title serif reveal">Inversión para tu <span class="gold-text">Nuevo Futuro</span></h2>
+            <p class="section-subtitle reveal">Capacidad total de la escuela: <strong>300 alumnos</strong>. La <strong>Inscripción de $150 USD es obligatoria para todos los planes</strong>.</p>
 
-<!-- PRECIOS -->
-<section id="precios">
-  <h2 class="sec-title">Inversión en el Futuro</h2>
-  <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
-  
-  <div class="pricing-grid">
-    <!-- Regular -->
-    <div class="price-card">
-      <h3>Cupo Regular</h3>
-      <div class="price-val">$99<span>.99/mes</span></div>
-      <div class="price-note">Acceso total a la plataforma de élite</div>
-      <ul class="price-features">
-        <li>1,001 formas de aprender inglés (7 módulos)</li>
-        <li>Asistente de voz "Sofía" y Chat DeepSeek</li>
-        <li>Crossroads Café y Cyber Arcade</li>
-        <li>Acceso a las Carreras Tech (Mes 9+)</li>
-      </ul>
-      <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Cupo</button>
-    </div>
+            <div class="pricing-container">
+                <!-- Tarjeta 1: Regulares -->
+                <div class="price-card normal reveal">
+                    <div>
+                        <h3 class="price-title">Precio Regular</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;">Del alumno 101 al 300</p>
+                        <div class="price-amount" style="margin-top: 25px;">$99.99<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Plan Inglés (Base)</p>
+                        <ul class="price-features">
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
+                            <li>Acceso al Módulo de Inglés</li>
+                            <li>Tutoría IA 24/7 + Cyber Arcade</li>
+                            <li>Idiomas adicionales (Mes 6+): <strong>$29.99/mes c/u</strong></li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" style="display: block; padding: 18px; border: 1px solid #475569; color: var(--text-main); text-decoration: none; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">Reservar Cupo</a>
+                </div>
 
-    <!-- Elite Global -->
-    <div class="price-card premium">
-      <h3>Paquete Elite Global</h3>
-      <div class="price-val">$149<span>.99/mes</span></div>
-      <div class="price-note">Los 4 idiomas y todas las carreras</div>
-      <ul class="price-features">
-        <li>Todo lo del plan Regular</li>
-        <li>Mandarín, Alemán y Francés (Mes 6+ sin costo extra)</li>
-        <li>Carreras Tech completas (Ciber, SEO, Data)</li>
-        <li>Prioridad en asignación de becas futuras</li>
-      </ul>
-      <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Cupo Global</button>
-    </div>
-  </div>
-  <p style="text-align:center; color:var(--text-muted); margin-top:15px; font-size:12px;">* Idiomas extra (Mandarín, Alemán, Francés) en el plan Regular tienen un costo de $29.99/mes c/u a partir del mes 6.</p>
-</section>
+                <!-- Tarjeta 2: Fundadores -->
+                <div class="price-card founder reveal" style="transition-delay: 0.1s;">
+                    <div class="badge-founder">Solo 100 Cupos</div>
+                    <div>
+                        <h3 class="price-title gold-text">Membresía Fundador</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;">Del alumno 1 al 100</p>
+                        <div class="price-amount" style="margin-top: 25px;">$69.99<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Plan Inglés (Precio Congelado)</p>
+                        <ul class="price-features" style="color: var(--text-main);">
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
+                            <li><strong>Acceso completo a Inglés + Cyber Arcade</strong></li>
+                            <li><span class="highlight-text">VENTAJA FUNDADOR:</span> Cualquier idioma adicional costará solo <strong>$29.99/mes</strong>.</li>
+                            <li>Reportes VIP semanales por WhatsApp</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="btn-gold" style="display: block; width: 100%; border-radius: 8px;">Asegurar Precio Fundador</a>
+                </div>
 
-<!-- FRASE FINAL -->
-<div class="final-quote">
-  "Regálale lo mejor. Invierte en el futuro de tu hijo."
-</div>
+                <!-- Tarjeta 3: Paquete 4 Idiomas -->
+                <div class="price-card pack reveal" style="transition-delay: 0.2s;">
+                    <div class="badge-pack">Elite Global</div>
+                    <div>
+                        <h3 class="price-title" style="color: var(--sky-blue);">Aprende los 4 Idiomas</h3>
+                        <p style="color: var(--text-muted); font-size: 14px;">Acceso Total Ilimitado</p>
+                        <div class="price-amount" style="margin-top: 25px;">$149.99<span>/mes</span></div>
+                        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Inglés + Mandarín + Alemán + Francés</p>
+                        <ul class="price-features">
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
+                            <li><strong>Acceso Inmediato a Inglés</strong></li>
+                            <li><span class="highlight-blue">A PARTIR DEL MES 6:</span> Se activan Mandarín, Alemán y Francés.</li>
+                            <li>Los <strong>4 idiomas completos por $149.99/mes</strong>.</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" style="display: block; padding: 18px; background: var(--sky-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: 800; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);">Adquirir Paquete Global</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- BECAS (El privilegio oculto al final) -->
-<section id="becas">
-  <div class="beca-container">
-    <div class="beca-top">
-      <h2>100 Becas de Excelencia</h2>
-      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
-    </div>
-    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
-    
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
-      <div class="progress-text">
-        <span id="becaContador">Becas asignadas: 0 / 100</span>
-        <span id="becaPorcentaje">0%</span>
-      </div>
-    </div>
+    <!-- EL IMPERIO / FUTURO -->
+    <section>
+        <div class="container reveal">
+            <div class="empire-box">
+                <h2 class="serif">Reyes de Imperios, no Empleados.</h2>
+                <p>El sistema educativo tradicional prepara a los niños para buscar un trabajo. En <strong>Erian Academy</strong>, estamos forjando a los <strong>futuros administradores de sus propias riquezas y dueños de agencias digitales.</strong></p>
+                <p>No vas a gastar en un curso. Vas a invertir en la mejor educación para tu hijo. Le vas a dar el poder de construir y administrar su propio imperio digital, sin depender de nadie.</p>
+                
+                <h3 class="tech-font" style="text-align: center; color: var(--gold); font-size: 26px; margin-top: 50px; margin-bottom: 30px;">Proyección de Carreras Élite (Mes 9 - Mes 12)</h3>
 
-    <ul class="req-list">
-      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
-      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
-      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
-      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
-      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
-    </ul>
+                <div class="future-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 9</div>
+                        <div class="timeline-content">
+                            <h3>🛡️ Ciberseguridad y Construcción Web</h3>
+                            <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 10</div>
+                        <div class="timeline-content">
+                            <h3>📊 Inteligencia de Datos y Finanzas Digitales</h3>
+                            <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 11 - 12</div>
+                        <div class="timeline-content">
+                            <h3>🚀 Arquitectura SEO y Creación de Agencias</h3>
+                            <p>Diseño de posicionamiento (SEO) para sus propias organizaciones. Tu hijo aprenderá a monetizar sus ideas, ser el <strong>Director General</strong> de su propia agencia y administrar su imperio digital desde temprana edad.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 40px; font-size: 20px; font-weight: 600; color: #FCA5A5; text-align: center;">
+                    "Regálale lo mejor. Invierte en el futuro de tu hijo."
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
-  </div>
-</section>
+    <!-- SECCIÓN DE HARDWARE / CAPACIDAD DE SERVIDORES -->
+    <section style="background: rgba(5, 8, 20, 0.9);">
+        <div class="container reveal">
+            <div class="capacity-alert">
+                <h2 class="tech-font">Tecnología de Nivel Militar <br><span class="gold-text">para solo 300 Alumnos</span></h2>
+                <p>No usamos servidores compartidos. Hemos invertido en una infraestructura física de última generación compuesta por <strong>Mac Studio, estaciones ASUS y Racks de Servidores NVIDIA de alta gama</strong>.</p>
+                <p>¿Por qué tanta potencia para tan pocos alumnos? Porque nuestra Inteligencia Artificial requiere una capacidad de lectura y procesamiento de datos <strong>nunca antes experimentada</strong>. Queremos optimizar cada milisegundo de respuesta para garantizar que el aprendizaje de tu hijo sea perfecto, sin latencia y totalmente personalizado.</p>
+                <p><strong>Una vez que se completen los 300 cupos, la capacidad de nuestros servidores estará al límite. Los siguientes interesados entrarán a una lista de espera prioritaria</strong> hasta que instalemos la próxima fase de nuestro hardware.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#contacto" style="color: #FCA5A5; font-weight: bold; text-decoration: underline; font-size: 18px;">Asegurar mi Cupo o Unirme a la Lista de Espera</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <p>Erian Technologies, C.A. · Socopó, Barinas</p>
-  <p style="margin-top:5px; opacity:0.6;">erianingles@gmail.com</p>
-</footer>
+    <!-- FORMULARIO DE CONTACTO VIP -->
+    <section id="contacto" style="background: rgba(15, 23, 42, 0.4);">
+        <div class="container reveal">
+            <h2 class="section-title serif">Asegure el Futuro de su <span class="gold-text">Hijo Hoy</span></h2>
+            <p class="section-subtitle">Déjenos sus datos. Si los 300 cupos están llenos, pasará automáticamente a la lista de espera prioritaria.</p>
 
-<!-- BOTÓN FLOTANTE WHATSAPP -->
-<!-- IMPORTANTE: Cambia TU_NUMERO_AQUI por tu número real (ej: 584241234567) -->
-<a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+            <form action="https://formsubmit.co/erianingles@gmail.com" method="POST" class="glass-card" style="max-width: 600px; margin: 0 auto; text-align: left; padding: 50px;">
+                <input type="hidden" name="_subject" value="Nuevo Candidato VIP - Erian Academy Socopó">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
 
-<!-- MODALES -->
-<div class="modal-overlay" id="modalBeca">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Postulación a Beca</h3>
-    <p>Completa los datos del niño. Solo contactaremos a los seleccionados.</p>
-    <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre" required></div>
-      <div class="form-group"><label>Edad</label><input type="number" name="Edad" min="9" max="80" required></div>
-      <div class="form-group"><label>Representante</label><input type="text" name="Representante" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
-      <div class="form-group"><label>¿Por qué merece la beca?</label><textarea name="Motivo" rows="3" required></textarea></div>
-      <button type="submit" class="form-submit gold">Enviar Postulación</button>
-    </form>
-  </div>
-</div>
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Nombre del Representante / Alumno</label>
+                    <input type="text" name="Nombre" required style="width: 100%; padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none; transition: 0.3s;">
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Correo Electrónico</label>
+                    <input type="email" name="Email" required style="width: 100%; padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none; transition: 0.3s;">
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Número de WhatsApp</label>
+                    <input type="tel" name="WhatsApp" required style="width: 100%; padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none; transition: 0.3s;">
+                </div>
+                <div style="margin-bottom: 40px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Nombre y Edad del Estudiante (9 a 80 años)</label>
+                    <input type="text" name="Estudiante" placeholder="Ej: Mateo, 10 años / Frank, 35 años" required style="width: 100%; padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none; transition: 0.3s;">
+                </div>
 
-<div class="modal-overlay" id="modalRegular">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Cupo Regular</h3>
-    <p>Te contactaremos para coordinar la inscripción de $150 y activar tu cuenta.</p>
-    <form id="formRegular" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="💳 Reserva Regular - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <div class="form-group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
-      <div class="form-group"><label>Cédula</label><input type="text" name="Cedula" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
-      <div class="form-group"><label>Email</label><input type="email" name="Email" required></div>
-      <button type="submit" class="form-submit">Enviar Reserva</button>
-    </form>
-  </div>
-</div>
+                <button type="submit" class="btn-gold" style="width: 100%; border-radius: 8px; font-size: 18px;">Solicitar Entrevista VIP</button>
+                <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 25px;">🔒 Sus datos están protegidos.</p>
+            </form>
+        </div>
+    </section>
 
-<div class="modal-overlay" id="modalElite">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Elite Global</h3>
-    <p>Acceso total a idiomas y futuras carreras tech. Coordinaremos el pago.</p>
-    <form id="formElite" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="👑 Reserva Elite - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <div class="form-group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
-      <div class="form-group"><label>Cédula</label><input type="text" name="Cedula" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
-      <div class="form-group"><label>Email</label><input type="email" name="Email" required></div>
-      <button type="submit" class="form-submit gold">Enviar Reserva</button>
-    </form>
-  </div>
-</div><script>
-const CONFIG = {
-  BECAS_TOTALES: 100,
-  BECAS_ASIGNADAS: 0
-};
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20deseo%20agendar%20una%20entrevista%20VIP%20para%20Erian%20Academy%20en%20Barinas." style="position: fixed; bottom: 30px; right: 30px; background: #0EA5E9; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5); z-index: 1000; text-decoration: none; transition: 0.3s;">
+        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
 
-function actualizarContadorBecas() {
-  const restantes = Math.max(0, CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS);
-  const porcentaje = Math.round((CONFIG.BECAS_ASIGNADAS / CONFIG.BECAS_TOTALES) * 100);
+    <!-- SCRIPT DE ANIMACIÓN AL HACER SCROLL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+            
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
 
-  const contador = document.getElementById('becaContador');
-  const pct = document.getElementById('becaPorcentaje');
-  const fill = document.getElementById('becaProgressFill');
-  const estado = document.getElementById('becaEstado');
-  const btnBeca = document.getElementById('btnPostularBeca');
-
-  if (!contador) return;
-
-  if (restantes > 0) {
-    contador.textContent = `Becas asignadas: ${CONFIG.BECAS_ASIGNADAS} / ${CONFIG.BECAS_TOTALES} · Quedan ${restantes}`;
-    estado.textContent = 'SELECCIÓN ACTIVA';
-    btnBeca.disabled = false;
-    btnBeca.style.opacity = '1';
-  } else {
-    contador.textContent = `Becas asignadas: ${CONFIG.BECAS_TOTALES} / ${CONFIG.BECAS_TOTALES} · CERRADAS`;
-    estado.textContent = 'BECAS CERRADAS';
-    estado.style.color = '#fda4af';
-    estado.style.background = 'rgba(253,164,175,0.1)';
-    btnBeca.disabled = true;
-    btnBeca.style.opacity = '0.5';
-    btnBeca.textContent = 'Becas Cerradas por este Año';
-  }
-
-  pct.textContent = `${porcentaje}%`;
-  setTimeout(() => { fill.style.width = `${porcentaje}%`; }, 300);
-}
-
-function abrirModal(id) {
-  const modal = document.getElementById(id);
-  if (!modal) return;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function cerrarModal(modal) {
-  if (!modal) return;
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  actualizarContadorBecas();
-
-  const btnBeca = document.getElementById('btnPostularBeca');
-  if (btnBeca) {
-    btnBeca.addEventListener('click', () => {
-      if ((CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS) <= 0) {
-        alert('Las becas de esta generación ya fueron asignadas.');
-        return;
-      }
-      abrirModal('modalBeca');
-    });
-  }
-
-  document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
-  document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
-
-  document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
-  });
-
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) cerrarModal(overlay);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
-    }
-  });
-
-  ['formBeca', 'formRegular', 'formElite'].forEach(formId => {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('.form-submit');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = '⏳ Enviando...';
-      }
-    });
-  });
-});
-
-window.actualizarBecas = function(n) {
-  CONFIG.BECAS_ASIGNADAS = Math.min(n, CONFIG.BECAS_TOTALES);
-  actualizarContadorBecas();
-  console.log(`✅ Becas actualizadas: ${CONFIG.BECAS_ASIGNADAS}/${CONFIG.BECAS_TOTALES}`);
-};
-</script>
-
-</body>
-</html>
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
