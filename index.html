@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Erian Academy | Aprende a Hablar Inglés</title>
+    <title>Erian Academy | Construye tu Imperio</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,6 +13,7 @@
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --sky-blue: #0EA5E9;
+            --empire-red: #991B1B;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -35,7 +36,7 @@
         .section-title { font-size: 38px; margin-bottom: 15px; text-align: center; }
         .section-subtitle { font-size: 16px; color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; }
 
-        /* HERO (Enfocado en Inglés) */
+        /* HERO */
         .hero {
             min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; background: radial-gradient(circle at top, #1E293B 0%, #0B1120 70%); position: relative;
@@ -47,14 +48,23 @@
         .hero h1 { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6; }
         
-        /* MÉTODO DE APRENDIZAJE */
+        /* POR QUÉ AHORA (La Urgencia) */
+        .why-now-box {
+            background: linear-gradient(135deg, #1E293B, #0F172A); border: 1px solid var(--gold); padding: 40px;
+            border-radius: 16px; max-width: 900px; margin: 0 auto; text-align: center; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .why-now-box h3 { font-size: 28px; color: var(--gold); margin-bottom: 20px; }
+        .why-now-box p { font-size: 17px; line-height: 1.8; color: var(--text-main); margin-bottom: 15px; }
+        .why-now-box strong { color: var(--sky-blue); }
+
+        /* MÉTODO */
         .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
         .method-card { background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid #334155; text-align: center; }
         .method-icon { font-size: 40px; margin-bottom: 15px; }
         .method-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--text-main); }
         .method-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
-        /* SECCIÓN DE PRECIOS */
+        /* PRECIOS */
         .pricing-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: stretch; margin-top: 40px; }
         .price-card {
             background: var(--bg-card); border-radius: 16px; padding: 35px 25px; flex: 1; min-width: 280px; max-width: 350px;
@@ -79,67 +89,86 @@
         .highlight-text { color: var(--gold); font-weight: 700; }
         .highlight-blue { color: var(--sky-blue); font-weight: 700; }
 
-        /* FUTURO ECOSISTEMA */
-        .ecosystem-box {
-            background: linear-gradient(135deg, #0F172A, #1E293B); padding: 50px 30px; border-radius: 16px; border: 1px solid var(--sky-blue);
-            max-width: 900px; margin: 0 auto; box-shadow: 0 20px 40px rgba(14, 165, 233, 0.1);
+        /* ECOSISTEMA DE IMPERIOS */
+        .empire-box {
+            background: radial-gradient(circle at top right, #2a0e0e, #0F172A); padding: 50px 30px; border-radius: 16px; border: 1px solid var(--empire-red);
+            max-width: 900px; margin: 0 auto; box-shadow: 0 20px 40px rgba(153, 27, 27, 0.2);
         }
-        .ecosystem-box h2 { text-align: center; font-size: 32px; margin-bottom: 20px; color: var(--sky-blue); }
-        .ecosystem-box p { font-size: 16px; line-height: 1.8; color: var(--text-main); margin-bottom: 20px; text-align: center; }
-        
-        .future-careers { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
-        .career-tag { background: rgba(14, 165, 233, 0.1); border: 1px solid var(--sky-blue); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 14px; }
+        .empire-box h2 { text-align: center; font-size: 36px; margin-bottom: 20px; color: #FCA5A5; }
+        .empire-box p { font-size: 17px; line-height: 1.8; color: var(--text-main); margin-bottom: 20px; text-align: center; }
+        .empire-box strong { color: #FCA5A5; }
+
+        .future-timeline { display: flex; flex-direction: column; gap: 15px; margin-top: 40px; }
+        .timeline-item { display: flex; background: rgba(255,255,255,0.03); border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+        .timeline-phase {
+            background: rgba(153, 27, 27, 0.3); color: #FCA5A5; padding: 20px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; min-width: 140px; font-size: 15px; border-right: 1px solid #334155; text-align: center;
+        }
+        .timeline-content { padding: 20px; }
+        .timeline-content h3 { font-size: 18px; margin-bottom: 5px; color: var(--text-main); }
+        .timeline-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; text-align: left; margin-bottom: 0; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 36px; }
             .price-card.founder { transform: none; }
+            .timeline-item { flex-direction: column; }
+            .timeline-phase { border-right: none; border-bottom: 1px solid #334155; }
         }
     </style>
-</head>    <!-- HERO (GANCHO: APRENDE A HABLAR INGLÉS) -->
+</head>
+<body>    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">Solo 100 Cupos de Fundador</div>
-            <h1 class="serif">Aprende a Hablar Inglés <br><span class="gold-text">como un Nativo.</span></h1>
-            <p>El sistema de inmersión lingüística más avanzado de Venezuela. No es un curso de gramática aburrido; es un ecosistema privado con Inteligencia Artificial que te obliga a hablar desde el primer día.</p>
-            <a href="#precios" class="btn-gold">Quiero Aprender Inglés Ahora</a>
+            <h1 class="serif">No es un Curso. <br>Es la Llave de tu <span class="gold-text">Imperio.</span></h1>
+            <p>El sistema de inmersión lingüística más avanzado de Venezuela. Prepárate para hablar inglés como un nativo y desbloquea el acceso a las carreras digitales que gobiernan el mundo.</p>
+            <a href="#precios" class="btn-gold">Quiero Entrar Ahora</a>
         </div>
     </section>
 
-    <!-- EL MÉTODO (CÓMO LO VAMOS A HACER HABLAR) -->
+    <!-- ¿POR QUÉ AHORA? -->
     <section style="background: #0F172A;">
         <div class="container">
+            <div class="why-now-box">
+                <h3>¿Por qué entrar HOY es la mejor decisión?</h3>
+                <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <strong>El inglés ya no es un lujo, es el código fuente del futuro.</strong></p>
+                <p>Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <strong>entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</strong> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section style="background: #0B1120;">
+        <div class="container">
             <h2 class="section-title serif">¿Cómo te convertiremos en <span class="gold-text">Bilingüe?</span></h2>
-            <p class="section-subtitle">Olvídate de memorizar listas de verbos. Nuestra IA, Sofía, te acompañará en un proceso de inmersión real.</p>
-            
             <div class="method-grid">
                 <div class="method-card">
                     <div class="method-icon">🗣️</div>
                     <h3>Conversación 24/7</h3>
-                    <p>Tendrás un tutor de IA con voz humana disponible a cualquier hora. Habla, equivócate, y recibe correcciones en tiempo real sin miedo a ser juzgado.</p>
+                    <p>Tendrás un tutor de IA con voz humana disponible a cualquier hora. Habla, equivócate, y recibe correcciones en tiempo real.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon">🧠</div>
                     <h3>Repetición Inteligente</h3>
-                    <p>El sistema analiza tus errores y diseña lecciones personalizadas para asegurar que el vocabulario se quede en tu memoria a largo plazo.</p>
+                    <p>El sistema analiza tus errores y diseña lecciones personalizadas para asegurar que el vocabulario se quede en tu memoria.</p>
                 </div>
                 <div class="method-card">
                     <div class="method-icon">🌎</div>
                     <h3>Acento Americano</h3>
-                    <p>Desde tu primer saludo, practicarás con el estándar American English. Te enseñamos a pensar en inglés, no a traducir en tu cabeza.</p>
+                    <p>Desde tu primer saludo, practicarás con el estándar American English. Te enseñamos a pensar en inglés.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE PRECIOS -->
-    <section id="precios" style="background: #0B1120;">
+    <!-- PRECIOS -->
+    <section id="precios" style="background: #0F172A;">
         <div class="container">
             <h2 class="section-title serif">Inversión para tu <span class="gold-text">Nuevo Futuro</span></h2>
-            <p class="section-subtitle">Capacidad total de la escuela: <strong>300 alumnos</strong>. Solo los primeros 100 aseguran el precio congelado de por vida.</p>
+            <p class="section-subtitle">Capacidad total de la escuela: <strong>300 alumnos</strong>. La <strong>Inscripción de $150 USD es obligatoria para todos los planes</strong>.</p>
 
             <div class="pricing-container">
-                
-                <!-- Tarjeta 1: Regulares (101-300) -->
+                <!-- Tarjeta 1: Regulares -->
                 <div class="price-card normal">
                     <div>
                         <h3 class="price-title">Precio Regular</h3>
@@ -147,16 +176,16 @@
                         <div class="price-amount" style="margin-top: 25px;">$99.99<span>/mes</span></div>
                         <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 15px;">Plan Inglés (Base)</p>
                         <ul class="price-features">
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
                             <li>Acceso al Módulo de Inglés</li>
-                            <li>Tutoría IA 24/7</li>
-                            <li>Acceso a los 12 juegos del Cyber Arcade</li>
+                            <li>Tutoría IA 24/7 + Cyber Arcade</li>
                             <li>Idiomas adicionales (Mes 6+): <strong>$29.99/mes c/u</strong></li>
                         </ul>
                     </div>
                     <a href="#contacto" style="display: block; padding: 15px; border: 1px solid #475569; color: var(--text-main); text-decoration: none; border-radius: 8px; font-weight: 600;">Reservar Cupo Regular</a>
                 </div>
 
-                <!-- Tarjeta 2: Fundadores (1-100) -->
+                <!-- Tarjeta 2: Fundadores -->
                 <div class="price-card founder">
                     <div class="badge-founder">Solo 100 Cupos</div>
                     <div>
@@ -165,62 +194,81 @@
                         <div class="price-amount" style="margin-top: 25px;">$69.99<span>/mes</span></div>
                         <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 15px;">Plan Inglés (Precio Congelado)</p>
                         <ul class="price-features" style="color: var(--text-main);">
-                            <li><strong>Inscripción de $150</strong> (Única vez)</li>
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
                             <li><strong>Acceso completo a Inglés + Cyber Arcade</strong></li>
-                            <li><span class="highlight-text">VENTAJA FUNDADOR:</span> Cualquier idioma adicional (Mandarín, Alemán, Francés) a partir del Mes 6 costará solo <strong>$29.99/mes</strong>.</li>
+                            <li><span class="highlight-text">VENTAJA FUNDADOR:</span> Cualquier idioma adicional a partir del Mes 6 costará solo <strong>$29.99/mes</strong>.</li>
                             <li>Reportes VIP semanales por WhatsApp</li>
                         </ul>
                     </div>
                     <a href="#contacto" class="btn-gold" style="display: block; width: 100%;">Asegurar Precio de Fundador</a>
                 </div>
 
-                <!-- Tarjeta 3: Paquete Completo (Todos los idiomas) -->
+                <!-- Tarjeta 3: Paquete 4 Idiomas -->
                 <div class="price-card pack">
                     <div class="badge-pack">Elite Global</div>
                     <div>
-                        <h3 class="price-title" style="color: var(--sky-blue);">Paquete Completo</h3>
+                        <h3 class="price-title" style="color: var(--sky-blue);">Aprende los 4 Idiomas</h3>
                         <p style="color: var(--text-muted); font-size: 13px;">Acceso Total Ilimitado</p>
                         <div class="price-amount" style="margin-top: 25px;">$149.99<span>/mes</span></div>
-                        <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 15px;">Inglés + Futuros Idiomas</p>
+                        <p style="color: var(--text-muted); font-size: 12px; margin-bottom: 15px;">Inglés + Mandarín + Alemán + Francés</p>
                         <ul class="price-features">
-                            <li><strong>Acceso Inmediato a Inglés</strong></li>
-                            <li><span class="highlight-blue">BONO GLOBAL:</span> Incluye Mandarín, Alemán y Francés SIN COSTO ADICIONAL a partir del Mes 6.</li>
-                            <li>Sin pagos extra por idiomas</li>
-                            <li>Soporte prioritario 24/7</li>
+                            <li><strong>Inscripción de $150</strong> (Pago único)</li>
+                            <li><strong>Acceso Inmediato a Inglés + Cyber Arcade</strong></li>
+                            <li><span class="highlight-blue">A PARTIR DEL MES 6:</span> Se activan los módulos de Mandarín, Alemán y Francés.</li>
+                            <li>Los <strong>4 idiomas completos por $149.99/mes</strong> (sin costos extra).</li>
                         </ul>
                     </div>
                     <a href="#contacto" style="display: block; padding: 15px; background: var(--sky-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: 800;">Adquirir Paquete Global</a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- EL GRAN SECRETO: EL NUEVO ECOSISTEMA EXISTENCIAL -->
-    <section style="background: #0F172A;">
+    <!-- ECOSISTEMA DE IMPERIOS -->
+    <section style="background: #0B1120;">
         <div class="container">
-            <div class="ecosystem-box">
-                <h2 class="serif">Bienvenido a tu Nueva Universidad</h2>
-                <p>Al adquirir tu plan de inglés hoy, no solo estás comprando un curso de idiomas. Estás comprando un <strong>pasaporte vitalicio a Erian Academy</strong>, el nuevo ecosistema educativo que está redefiniendo el futuro.</p>
-                <p>Mientras las universidades tradicionales se quedan obsoletas, nosotros estamos construyendo el hogar de los líderes del mañana. Una vez que domines el inglés, tendrás acceso preferencial a nuestras futuras facultades tecnológicas:</p>
+            <div class="empire-box">
+                <h2 class="serif">Reyes de Imperios, no Empleados.</h2>
+                <p>El sistema educativo tradicional prepara a los niños para buscar un trabajo. En <strong>Erian Academy</strong>, estamos forjando a los <strong>futuros administradores de sus propias riquezas.</strong></p>
+                <p>No vas a gastar en un curso. Vas a invertir en la mejor educación para tu hijo. Le vas a dar el poder de construir y administrar su propio imperio digital, sin depender de nadie.</p>
                 
-                <div class="future-careers">
-                    <div class="career-tag">🛡️ Ciberseguridad</div>
-                    <div class="career-tag">🤖 Arquitectura de IA</div>
-                    <div class="career-tag">📊 Data Science</div>
-                    <div class="career-tag">💻 Desarrollo de Software</div>
-                    <div class="career-tag">🚀 Innovación Tecnológica</div>
+                <h3 style="text-align: center; color: var(--gold); font-size: 22px; margin-top: 40px; margin-bottom: 20px;">Proyección de Carreras Élite (Mes 9 - Mes 12)</h3>
+
+                <div class="future-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 9</div>
+                        <div class="timeline-content">
+                            <h3>🛡️ Ciberseguridad y Construcción Web</h3>
+                            <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 10</div>
+                        <div class="timeline-content">
+                            <h3>📊 Inteligencia de Datos y Finanzas Digitales</h3>
+                            <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-phase">Mes 11 - 12</div>
+                        <div class="timeline-content">
+                            <h3>🚀 Arquitectura SEO y Creación de Agencias</h3>
+                            <p>Diseño de posicionamiento SEO para sus propias organizaciones. Tu hijo aprenderá a monetizar sus ideas, ser CEO de su propia agencia y administrar su imperio digital desde temprana edad.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <p style="margin-top: 30px; font-size: 14px; color: var(--text-muted); font-style: italic;">"No estás comprando una suscripción. Estás asegurando tu estabilidad dentro del nuevo orden mundial."</p>
+                <p style="margin-top: 30px; font-size: 18px; font-weight: 600; color: #FCA5A5; text-align: center;">
+                    "Regálale lo mejor. Invierte en el futuro de tu hijo."
+                </p>
             </div>
         </div>
     </section>
 
     <!-- FORMULARIO DE CONTACTO VIP -->
-    <section id="contacto" style="text-align: center; background: #0B1120;">
+    <section id="contacto" style="text-align: center; background: #0F172A;">
         <div class="container">
-            <h2 class="section-title serif">Solicite su <span class="gold-text">Entrevista Privada</span></h2>
+            <h2 class="section-title serif">Asegure el Futuro de su <span class="gold-text">Hijo Hoy</span></h2>
             <p class="section-subtitle">Déjenos sus datos. Nuestro equipo se comunicará con usted para agendar su demostración en vivo y validar su cupo.</p>
 
             <form action="https://formsubmit.co/erianingles@gmail.com" method="POST" style="max-width: 500px; margin: 0 auto; background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid #334155; text-align: left;">
@@ -257,4 +305,3 @@
     </a>
 </body>
 </html>
-<body>
