@@ -138,7 +138,7 @@
   .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
   @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-  /* NUEVA SECCIÓN: MOVILIDAD (EDUCACIÓN SIN FRONTERAS) */
+  /* NUEVA SECCIÓN: MOVILIDAD */
   .mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
   @media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
   .mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
@@ -421,16 +421,18 @@
   <p class="sec-subtitle">Con Erian Academy, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
   
   <div class="mobility-grid">
+    <!-- Tarjeta 1: En Casa -->
     <div class="mobility-card">
-      <img src="https://previews.123rf.com/images/choreograph/choreograph1601/choreograph160100081/50572454-child-little-girl-with-a-laptop-computer-at-home-happy-little-child-plays-indoors-using-pc.jpg" alt="Niña aprendiendo desde casa con laptop">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Niño aprendiendo desde casa">
       <div class="mobility-overlay">
         <h4><span>💻</span> En Casa</h4>
         <p>Acceso total al ecosistema desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
       </div>
     </div>
 
+    <!-- Tarjeta 2: En el Carro -->
     <div class="mobility-card">
-      <img src="https://images.unsplash.com/photo-1543165366-593a2107ca52?q=80&w=800&auto=format&fit=crop" alt="Niño aprendiendo desde el carro con audífonos">
+      <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=800&auto=format&fit=crop" alt="Niño aprendiendo desde el carro">
       <div class="mobility-overlay">
         <h4><span>🚗</span> En el Camino</h4>
         <p>Con la app móvil y sus audífonos, puede practicar conversación con "Sofía" o repasar vocabulario en el tráfico. La educación de élite va contigo a cualquier parte del mundo.</p>
@@ -707,6 +709,7 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
+  <!-- BINANCE -->
   <div class="binance-premium-card">
     <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
       <g fill="#F3BA2F">
@@ -958,5 +961,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
-    }
+      document.querySelectorAll('.modal-overlay').forEach(m => cer
