@@ -136,7 +136,18 @@
   @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
   .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
   .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
-  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }  /* =========================================
+  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+  /* NUEVA SECCIÓN: MOVILIDAD (EDUCACIÓN SIN FRONTERAS) */
+  .mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+  @media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
+  .mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
+  .mobility-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.8); }
+  .mobility-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+  .mobility-overlay { position: relative; z-index: 2; width: 100%; background: linear-gradient(0deg, rgba(11,19,32,0.98) 0%, rgba(11,19,32,0.8) 60%, transparent 100%); padding: 35px 25px 25px; }
+  .mobility-overlay h4 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .mobility-overlay h4 span { font-size: 24px; }
+  .mobility-overlay p { color: var(--text-muted); font-size: 14.5px; line-height: 1.5; }  /* =========================================
      TERMINALES MATRIX (CARRERAS DEL FUTURO)
      ========================================= */
   .matrix-section {
@@ -404,6 +415,32 @@
   </div>
 </section>
 
+<!-- NUEVA SECCIÓN: MOVILIDAD (EDUCACIÓN SIN FRONTERAS) -->
+<section>
+  <h2 class="sec-title">La Educación no tiene Fronteras</h2>
+  <p class="sec-subtitle">Con Erian Academy, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
+  
+  <div class="mobility-grid">
+    <!-- Tarjeta 1: En Casa -->
+    <div class="mobility-card">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Niño aprendiendo desde casa">
+      <div class="mobility-overlay">
+        <h4><span>💻</span> En Casa</h4>
+        <p>Acceso total al ecosistema desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2: En el Carro -->
+    <div class="mobility-card">
+      <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=800&auto=format&fit=crop" alt="Niño aprendiendo desde el carro con audífonos">
+      <div class="mobility-overlay">
+        <h4><span>🚗</span> En el Camino</h4>
+        <p>Con la app móvil y sus audífonos, puede practicar conversación con "Sofía" o repasar vocabulario en el tráfico. La educación de élite va contigo a cualquier parte del mundo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RUTA DE APRENDIZAJE -->
 <section>
   <h2 class="sec-title">La Ruta hacia la Maestría en Inglés</h2>
@@ -538,9 +575,7 @@
       <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs (Claude, DeepSeek, OpenAI) analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
-</section>
-
-<!-- EL FUTURO (CARRERAS) - DISEÑO TERMINAL MATRIX -->
+</section><!-- EL FUTURO (CARRERAS) - DISEÑO TERMINAL MATRIX -->
 <section class="matrix-section">
   <h2 class="sec-title">Las Carreras del Futuro</h2>
   <p class="sec-subtitle">
@@ -607,7 +642,9 @@
     </div>
 
   </div>
-</section><!-- PRECIOS Y CONTADOR -->
+</section>
+
+<!-- PRECIOS Y CONTADOR -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
@@ -672,7 +709,6 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
-  <!-- BINANCE -->
   <div class="binance-premium-card">
     <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
       <g fill="#F3BA2F">
@@ -926,21 +962,3 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
     }
-  });
-
-  ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('.form-submit');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = '⏳ Enviando...';
-      }
-    });
-  });
-});
-</script>
-
-</body>
-</html>
