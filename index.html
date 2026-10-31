@@ -33,15 +33,6 @@
     background-size: 50px 50px;
   }
 
-  /* ANIMACIONES DE SCROLL (Efecto App Premium) */
-  .reveal {
-    opacity: 0; transform: translateY(40px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  .reveal.active {
-    opacity: 1; transform: translateY(0);
-  }
-
   /* HEADER */
   header {
     position: sticky; top: 0; z-index: 100;
@@ -66,13 +57,13 @@
   .header-cta:hover { background: var(--gold); color: var(--bg-main); }
 
   /* HERO */
-  .hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
+  .hero { padding: 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
   
   /* Bandera Americana Grande */
   .flag-container {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 80px; height: 50px; border-radius: 6px; overflow: hidden;
-    margin-bottom: 25px; box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    width: 90px; height: 55px; border-radius: 8px; overflow: hidden;
+    margin-bottom: 25px; box-shadow: 0 0 25px rgba(255,255,255,0.15);
   }
   .flag-container svg { width: 100%; height: 100%; object-fit: cover; }
 
@@ -97,7 +88,7 @@
   .btn-secondary:hover { border-color: var(--text-muted); }
 
   /* SECCIONES */
-  section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+  section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
   .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 20px; color: var(--gold); line-height: 1.2; }
   .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
   
@@ -131,7 +122,7 @@
   @media(min-width: 768px) { .levels-grid { grid-template-columns: 1fr 1fr; } }
   .level-card {
     background: var(--bg-card); border: 1px solid var(--border-glass);
-    padding: 25px; border-radius: 12px; position: relative;
+    padding: 25px; border-radius: 12px; position: relative; margin-top: 10px;
   }
   .level-badge {
     position: absolute; top: -12px; left: 20px;
@@ -217,7 +208,7 @@
   .regular-urgency p { color: var(--text-main); font-size: 15px; margin-bottom: 15px; font-weight: 700; }
   .regular-urgency p span { color: var(--cyan); }
   .regular-urgency .progress-bar { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-  .regular-urgency .progress-fill { height: 100%; background: var(--cyan); width: 0%; transition: width 1s ease; box-shadow: 0 0 10px rgba(56,189,248,0.5); }
+  .regular-urgency .progress-fill { height: 100%; background: var(--cyan); width: 16.5%; transition: width 1s ease; box-shadow: 0 0 10px rgba(56,189,248,0.5); }
 
   /* PRECIOS */
   .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1050px; margin: 0 auto; }
@@ -242,7 +233,7 @@
   }
   .pricing-note strong { color: var(--gold); }
 
-  /* NUEVA SECCIÓN PREMIUM DE BINANCE PAY */
+  /* SECCIÓN PREMIUM DE BINANCE PAY */
   .binance-premium-card {
     max-width: 600px; margin: 40px auto 0;
     background: linear-gradient(145deg, #181a20, #0b0e11);
@@ -280,7 +271,7 @@
   
   .progress-wrap { margin: 20px 0 30px; }
   .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
-  .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 1s ease; }
+  .progress-fill { height: 100%; background: var(--gold); width: 12%; transition: width 1s ease; }
   .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
 
   .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
@@ -326,7 +317,396 @@
   .form-submit.gold { background: var(--gold); }
 </style>
 </head>
-<body>index.html (Continuación)<script>
+<body><!-- HEADER -->
+<header>
+  <div class="logo"><div class="logo-mark">E</div> ERIAN ACADEMY</div>
+  <a href="#precios" class="header-cta">Reservar Cupo</a>
+</header>
+
+<!-- HERO CON BANDERA AMERICANA -->
+<section class="hero">
+  <!-- Bandera de USA en SVG -->
+  <div class="flag-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900">
+      <path fill="#b22234" d="M0,0H7410V300H0Zm0,600H7410V900H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
+      <path fill="#fff" d="M0,300H7410V600H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
+      <path fill="#3c3b6e" d="M0,0H2964V2100H0Z"/>
+    </svg>
+  </div>
+  <div class="hero-badge">ACCESO RESTRINGIDO · ESTADO BARINAS</div>
+  <h1>Si esto llegó a ti, es porque eres parte de la <span class="gold-text">Élite</span>.</h1>
+  <p class="sub">No enviamos esta invitación al azar. Erian Academy es el ecosistema de aprendizaje reservado exclusivamente para las familias con visión de imperio en <strong>Socopó, Santa Bárbara y Pedraza</strong>. No formamos empleados, formamos Reyes. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
+  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+    <a href="#precios" class="btn btn-primary">Reclamar mi Privilegio</a>
+  </div>
+</section>
+
+<!-- LA NECESIDAD -->
+<section>
+  <h2 class="sec-title">¿Por qué dominar el Inglés HOY es la mejor decisión?</h2>
+  <div class="decision-box">
+    <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <span class="text-cyan">El inglés ya no es un lujo, es el código fuente del futuro.</span></p>
+    <p>Nuestro enfoque principal es que tu hijo domine el inglés para desarrollar la base del aprendizaje y el contenido informático y digital que dominará el mañana.</p>
+  </div>
+</section>
+
+<!-- ESTRATEGIA DE EXCLUSIVIDAD -->
+<section>
+  <div class="strategy-box">
+    <h3>La Élite de Barinas no se queda atrás. Tus hijos hablarán Inglés.</h3>
+    <p>Sabemos que las familias de élite de <strong>Santa Bárbara, Pedraza y Socopó</strong> no pueden permitir que sus hijos se queden rezagados en un mundo dominado por la tecnología y los negocios globales. Erian Academy es el ecosistema de aprendizaje definitivo para asegurar su futuro.</p>
+    
+    <div class="strategy-secret">
+      <p>⚠️ <strong>Nuestra Estrategia de Exclusividad:</strong> Aunque nuestra infraestructura en la nube y servidores (Mac M5, ASUS GX10, NVIDIA) tiene la capacidad técnica para soportar hasta 2,000 alumnos, hemos decidido cerrar estrictamente esta primera generación en <strong>300 personas</strong>.</p>
+      <p style="margin-top: 8px;">¿Por qué? Porque la verdadera élite no comparte el aula con multitudes. Este tope de 300 nos permite garantizar cero latencia, atención personalizada con IA y un círculo social de alto nivel. Si no estás dentro de los 300, estás fuera del círculo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RUTA DE APRENDIZAJE -->
+<section>
+  <h2 class="sec-title">La Ruta hacia la Maestría en Inglés</h2>
+  <p class="sec-subtitle">Nuestro programa anual está diseñado para llevar a tu hijo desde cero hasta un dominio total del idioma, superando 4 niveles trimestrales:</p>
+  
+  <div class="levels-grid">
+    <div class="level-card">
+      <div class="level-badge">Trimestre 1</div>
+      <h4>Fundamentos y 200+ Palabras</h4>
+      <p>Inmersión inicial con nuestras Flashcards inteligentes. Dominio del verbo To Be, vocabulario esencial y las bases para empezar a pensar en inglés.</p>
+    </div>
+    
+    <div class="level-card">
+      <div class="level-badge">Trimestre 2</div>
+      <h4>Construcción y Conversación</h4>
+      <p>Estructuras gramaticales complejas. El alumno empieza a sostener diálogos con el Asistente "Sofía" y a corregir sus textos con el Chat de IA.</p>
+    </div>
+
+    <div class="level-card">
+      <div class="level-badge">Trimestre 3</div>
+      <h4>Fluidez e Inmersión Cultural</h4>
+      <p>Comprensión auditiva avanzada con Crossroads Café. Práctica intensiva de pronunciación, escritura bilingüe y expansión de vocabulario técnico.</p>
+    </div>
+
+    <div class="level-card">
+      <div class="level-badge">Trimestre 4</div>
+      <h4>Maestría y Negocios</h4>
+      <p>Perfeccionamiento del idioma. El alumno adquiere la capacidad de debatir, negociar y entender terminologías de tecnología, SEO y finanzas en inglés.</p>
+    </div>
+  </div>
+
+  <div class="mastery-box">
+    <h3>El Resultado al Final del Año</h3>
+    <p>Al completar los 4 trimestres, tu hijo no solo "sabrá inglés". Tendrá un <strong>dominio total del idioma (Nivel Avanzado/Maestría)</strong>, siendo capaz de comunicarse con fluidez, entender textos técnicos y sostener conversaciones de negocios sin depender de traductores.</p>
+  </div>
+</section>
+
+<!-- ESCUELA DE IDIOMAS -->
+<section>
+  <h2 class="sec-title">Escuela de Idiomas: Expansión Global</h2>
+  <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras:</p>
+  
+  <div class="lang-grid">
+    <div class="lang-card">
+      <span class="lang-flag">🇨🇳</span>
+      <h4>Mandarín (Chino)</h4>
+      <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
+      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
+    </div>
+    
+    <div class="lang-card">
+      <span class="lang-flag">🇩🇪</span>
+      <h4>Alemán</h4>
+      <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
+      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
+    </div>
+
+    <div class="lang-card">
+      <span class="lang-flag">🇫🇷</span>
+      <h4>Francés</h4>
+      <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional.</p>
+      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAS 1,001 FORMAS -->
+<section>
+  <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
+  <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
+  
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-icon">🗣️</div>
+      <div>
+        <h4>Asistente "Sofía" (Voice)</h4>
+        <p>Práctica de conversación con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🧠</div>
+      <div>
+        <h4>Flashcards Inteligentes</h4>
+        <p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🎬</div>
+      <div>
+        <h4>Inmersión Cinematográfica</h4>
+        <p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">💬</div>
+      <div>
+        <h4>Chat con IA (Claude & DeepSeek)</h4>
+        <p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con las IAs más avanzadas y recibir evaluaciones instantáneas.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🎮</div>
+      <div>
+        <h4>Cyber Arcade</h4>
+        <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">✍️</div>
+      <div>
+        <h4>Módulo de Escritura</h4>
+        <p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRAESTRUCTURA -->
+<section>
+  <h2 class="sec-title">Tecnología de Nivel Dios</h2>
+  <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
+  
+  <div class="infra-grid">
+    <div class="infra-card">
+      <h4>Cluster Mac M5</h4>
+      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia de Silicon Valley.</p>
+    </div>
+    <div class="infra-card">
+      <h4>Rack NVIDIA</h4>
+      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
+    </div>
+    <div class="infra-card">
+      <h4>Cluster ASUS GX10</h4>
+      <p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
+    </div>
+    <div class="infra-card">
+      <h4>Servidores en la Nube</h4>
+      <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs (Claude, DeepSeek, OpenAI) analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EL FUTURO (CARRERAS) -->
+<section>
+  <h2 class="sec-title">Las Carreras del Futuro</h2>
+  <p class="sec-subtitle">
+    A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual de la carrera sin inglés: $99.99/mes).
+  </p>
+  
+  <div class="timeline">
+    <div class="month-card">
+      <div class="month-header">Mes 9</div>
+      <div class="month-body">
+        <h3>🛡️ Ciberseguridad <span class="price-tag-small">+$29.99/mes</span></h3>
+        <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
+      </div>
+    </div>
+    <div class="month-card">
+      <div class="month-header">Mes 10</div>
+      <div class="month-body">
+        <h3>📊 Inteligencia de Datos y Finanzas <span class="price-tag-small">+$29.99/mes</span></h3>
+        <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
+      </div>
+    </div>
+    <div class="month-card">
+      <div class="month-header">Mes 11 - 12</div>
+      <div class="month-body">
+        <h3>🚀 Arquitectura SEO y Agencias <span class="price-tag-small">+$29.99/mes</span></h3>
+        <p>Diseño de posicionamiento SEO para sus propias organizaciones. Tu hijo aprenderá a monetizar sus ideas, ser CEO de su propia agencia y administrar su imperio digital desde temprana edad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS Y CONTADOR -->
+<section id="precios">
+  <h2 class="sec-title">Inversión en el Futuro</h2>
+  <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
+  
+  <div class="regular-urgency">
+    <p>Ya tenemos <span>33 alumnos regulares</span> inscritos. ¡Solo quedan <span>167 cupos</span> de los 200 disponibles!</p>
+    <div class="progress-bar"><div class="progress-fill" id="regularProgressFill"></div></div>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div>
+        <h3>Plan Inglés (Base)</h3>
+        <div class="price-val">$99<span>.99/mes</span></div>
+        <div class="price-note">El enfoque principal</div>
+        <ul class="price-features">
+          <li>Las 1,001 formas de aprender inglés</li>
+          <li>Asistente "Sofía" y Chat con IAs</li>
+          <li>Crossroads Café y Cyber Arcade</li>
+          <li>Opción a Idiomas Extra (+$29.99)</li>
+          <li>Opción a Carreras Tech (+$29.99)</li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Inglés</button>
+    </div>
+
+    <div class="price-card premium">
+      <div>
+        <h3>Elite Global (4 Idiomas)</h3>
+        <div class="price-val">$149<span>.99/mes</span></div>
+        <div class="price-note">Disponible a partir del Mes 6</div>
+        <ul class="price-features">
+          <li>Acceso total al Plan de Inglés</li>
+          <li><strong>Mandarín (Chino)</strong></li>
+          <li><strong>Alemán</strong></li>
+          <li><strong>Francés</strong></li>
+          <li>Opción a Carreras Tech (+$29.99)</li>
+        </ul>
+      </div>
+      <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Elite Global</button>
+    </div>
+
+    <div class="price-card career">
+      <div>
+        <h3>Carreras Tech (Individual)</h3>
+        <div class="price-val">$99<span>.99/mes</span></div>
+        <div class="price-note">Si no cursas el plan de inglés</div>
+        <ul class="price-features">
+          <li><strong>Ciberseguridad (Mes 9)</strong></li>
+          <li><strong>Inteligencia de Datos (Mes 10)</strong></li>
+          <li><strong>Arquitectura SEO (Mes 11-12)</strong></li>
+          <li>Clases con IA y proyectos reales</li>
+          <li>Opción a Inglés (+$29.99)</li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" style="width:100%; border-color:var(--cyan); color:var(--cyan);" id="btnReservarCarrera">Reservar Carrera</button>
+    </div>
+  </div>
+
+  <div class="pricing-note">
+    <strong>Nota Importante de Ventas Cruzadas:</strong><br>
+    Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
+  </div>
+
+  <!-- SECCIÓN PREMIUM DE BINANCE -->
+  <div class="binance-premium-card">
+    <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#F3BA2F">
+        <path d="M38.73 53.2L63.3 28.62 87.9 53.2l14.28-14.28L63.3 0 24.45 38.92z"/>
+        <path d="M0 63.3l14.28-14.28L28.56 63.3 14.28 77.58z"/>
+        <path d="M38.73 73.41L63.3 97.99 87.9 73.41l14.28 14.28L63.3 126.61 24.45 87.69z"/>
+        <path d="M98.05 63.3l14.28-14.28 14.28 14.28-14.28 14.28z"/>
+        <path d="M77.66 63.3L63.3 48.95 52.8 59.46l-1.19 1.18-2.56 2.56-14.28 14.28L63.3 106.03l28.64-28.64z"/>
+      </g>
+    </svg>
+    <h4>Pagos Seguros y Globales</h4>
+    <p>Aceptamos pagos de inscripción y mensualidades a través de <strong>Binance Pay</strong>. La red de pagos de criptomonedas más grande del mundo, garantizando velocidad, seguridad y cero fronteras para nuestra élite.</p>
+  </div>
+</section>
+
+<!-- FRASE FINAL -->
+<div class="final-quote">
+  "Regálale lo mejor. Invierte en el futuro de tu hijo."
+</div>
+
+<!-- BECAS -->
+<section id="becas">
+  <div class="beca-container">
+    <div class="beca-top">
+      <h2>100 Becas de Excelencia</h2>
+      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
+    </div>
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
+    
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
+      <div class="progress-text">
+        <span id="becaContador">Becas asignadas: 12 / 100 · Quedan 88</span>
+        <span id="becaPorcentaje">12%</span>
+      </div>
+    </div>
+
+    <ul class="req-list">
+      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
+      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
+      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
+      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
+      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
+    </ul>
+
+    <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
+  </div>
+</section>
+
+<!-- CONTACTO DIRECTO -->
+<div class="contact-section">
+  <h3>¿Tienes dudas o quieres dejar tus datos para que te contactemos?</h3>
+  <p>Escríbenos directamente a nuestro correo oficial. Te responderemos en los próximos días con todos los detalles de la academia.</p>
+  <a href="mailto:erianingles@gmail.com?subject=Quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" class="contact-email">
+    erianingles@gmail.com
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Erian Technologies, C.A. · Socopó, Barinas</p>
+  <p style="margin-top:5px;">Todos los derechos reservados © 2024</p>
+  <p style="margin-top:10px; font-size:11px; opacity:0.7;">
+    * Los precios mostrados no están exentos de IVA. Se debe añadir la alícuota correspondiente del 16%.
+  </p>
+</footer>
+
+<!-- MODALES -->
+<div class="modal-overlay" id="modalBeca">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3>Postulación a Beca</h3>
+    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+    <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
+      
+      <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
+      <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
+      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
+      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="17" required></div>
+      <div class="form-group"><label>¿Tienes más niños para postular? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años), María (10 años)"></textarea></div>
+      <div class="form-group"><label>¿Por qué merece la beca?</label><textarea name="Motivo" rows="2" required></textarea></div>
+      <button type="submit" class="form-submit gold">Enviar Postulación</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalRegular">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3>Reservar Plan Inglés</h3>
+    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+    <form id="formRegular" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="💳 Reserva Inglés - Erian Academy">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
+      
+      <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
+      <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
+      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
+      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="80" required></div>
+      <div class="form-group"><label>¿Tienes más niños para inscribir? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años)<script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 12,
@@ -386,19 +766,6 @@ function cerrarModal(modal) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- EFECTO DE SCROLL PREMIUM (Intersection Observer) ---
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target); // Solo animar una vez
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-  reveals.forEach(reveal => observer.observe(reveal));
-
   // Mostrar alerta de éxito si viene de FormSubmit
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('exito') === 'true') {
