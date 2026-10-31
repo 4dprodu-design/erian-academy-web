@@ -7,676 +7,369 @@
 <meta name="description" content="No formamos empleados. Formamos Reyes de Imperios y Administradores de Riquezas. 100 Becas de Excelencia + 200 Cupos Regulares.">
 <style>
   :root {
-    --bg: #050810;
-    --cyan: #00e5ff;
-    --gold: #ffd700;
-    --violet: #7c3aed;
-    --glass: rgba(255,255,255,0.05);
-    --glass-b: rgba(0,229,255,0.2);
-    --text: #e8eaf0;
-    --muted: #8892a8;
-    --danger: #ff3d57;
+    /* Paleta de colores basada en tus capturas */
+    --bg-main: #0b1320;       /* Azul marino profundo */
+    --bg-card: #111c2e;       /* Fondo de tarjetas */
+    --bg-maroon: #3b1616;     /* Rojo vino para meses */
+    --border-maroon: #642525;
+    --gold: #dfb646;          /* Dorado elegante */
+    --cyan: #38bdf8;          /* Cian suave */
+    --coral: #fda4af;         /* Coral para la frase final */
+    --text-main: #e2e8f0;     /* Blanco roto para lectura */
+    --text-muted: #94a3b8;    /* Gris azulado */
+    --glass: rgba(255,255,255,0.03);
+    --border-glass: rgba(255,255,255,0.08);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
-    background: var(--bg); color: var(--text);
-    overflow-x: hidden; line-height: 1.6;
-  }
-  /* Fondo Cyberpunk Original */
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
-    background-size: 44px 44px;
-    z-index: -1; pointer-events: none;
-  }
-  body::after {
-    content: ''; position: fixed; inset: 0;
-    background: radial-gradient(circle at 20% 10%, rgba(124,58,237,0.18), transparent 45%),
-                radial-gradient(circle at 80% 90%, rgba(0,229,255,0.14), transparent 45%);
-    z-index: -1; pointer-events: none;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-main); 
+    color: var(--text-main);
+    overflow-x: hidden; line-height: 1.7;
+    /* Fondo de cuadrícula sutil */
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
   
-  /* HEADER ARREGLADO PARA MÓVIL */
+  /* HEADER */
   header {
     position: sticky; top: 0; z-index: 100;
-    padding: 12px 16px;
+    padding: 15px 20px;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(5,8,16,0.75);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(0,229,255,0.12);
+    background: rgba(11, 19, 32, 0.9);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-glass);
   }
-  .logo {
-    display: flex; align-items: center; gap: 8px;
-    font-weight: 900; font-size: 15px; letter-spacing: 1px;
-  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
   .logo-mark {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    display: grid; place-items: center;
-    font-size: 14px; color: #000; font-weight: 900;
-    box-shadow: 0 0 15px rgba(0,229,255,0.5);
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--gold); color: var(--bg-main);
+    display: grid; place-items: center; font-size: 16px; font-weight: 900;
   }
-  .logo span { color: var(--cyan); }
   .header-cta {
-    padding: 8px 14px; border-radius: 30px;
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    color: #000; font-weight: 800; text-decoration: none;
-    font-size: 11px; letter-spacing: 0.5px; transition: transform 0.2s;
-    white-space: nowrap;
+    padding: 8px 16px; border-radius: 8px;
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); font-weight: 600; text-decoration: none; font-size: 13px;
+    transition: all 0.3s;
   }
-  .header-cta:active { transform: scale(0.95); }
-  
-  /* HERO ORIGINAL */
-  .hero {
-    padding: 70px 22px 60px; text-align: center;
-    max-width: 900px; margin: 0 auto;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 6px 14px; border-radius: 30px;
-    background: rgba(0,229,255,0.1);
-    border: 1px solid rgba(0,229,255,0.35);
-    color: var(--cyan); font-size: 11px; font-weight: 700;
-    letter-spacing: 1.5px; margin-bottom: 24px;
-  }
-  .hero-badge::before {
-    content: ''; width: 7px; height: 7px; border-radius: 50%;
-    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
-    animation: pulse 1.8s infinite;
-  }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-  
-  .hero h1 {
-    font-size: clamp(28px, 6vw, 52px);
-    font-weight: 900; line-height: 1.08;
-    letter-spacing: -1.5px; margin-bottom: 20px;
-  }
-  .hero h1 .accent {
-    background: linear-gradient(135deg, var(--cyan), var(--gold));
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .hero p.sub {
-    font-size: clamp(14px, 2.4vw, 17px);
-    color: var(--muted); max-width: 620px; margin: 0 auto 32px;
-  }
-  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .header-cta:hover { background: var(--gold); color: var(--bg-main); }
+
+  /* HERO */
+  .hero { padding: 80px 20px 50px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+  .hero h1 .gold-text { color: var(--gold); }
+  .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
   
   .btn {
-    padding: 15px 28px; border-radius: 14px;
-    font-weight: 800; font-size: 14px; letter-spacing: 0.5px;
-    text-decoration: none; cursor: pointer; border: none; transition: all 0.25s;
+    padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block;
   }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    color: #000; box-shadow: 0 8px 30px rgba(0,229,255,0.35);
-  }
-  .btn-primary:active { transform: scale(0.97); }
-  .btn-secondary { background: var(--glass); border: 1.5px solid var(--glass-b); color: var(--text); }
-  .btn-secondary:active { transform: scale(0.97); }
-  
-  .stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 12px; max-width: 760px; margin: 50px auto 0; padding: 0 22px;
-  }
-  .stat {
-    background: var(--glass); border: 1px solid var(--glass-b);
-    border-radius: 16px; padding: 20px 12px;
-    text-align: center; backdrop-filter: blur(10px);
-  }
-  .stat-num { font-size: 26px; font-weight: 900; color: var(--cyan); line-height: 1; }
-  .stat-num.gold { color: var(--gold); }
-  .stat-lbl {
-    font-size: 10px; color: var(--muted); text-transform: uppercase;
-    letter-spacing: 1.5px; margin-top: 8px; font-weight: 700;
-  }
-  
-  section { padding: 70px 22px; max-width: 1100px; margin: 0 auto; }
-  .sec-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--cyan); margin-bottom: 12px; }
-  .sec-tag.gold { color: var(--gold); }
-  .sec-title {
-    font-size: clamp(24px, 5vw, 38px); font-weight: 900;
-    letter-spacing: -0.8px; margin-bottom: 14px; line-height: 1.15;
-  }
-  .sec-desc { font-size: 15px; color: var(--muted); max-width: 680px; margin-bottom: 34px; }
-  
-  /* BECAS ORIGINAL */
-  .beca-card {
-    background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(124,58,237,0.08));
-    border: 1.5px solid rgba(255,215,0,0.35); border-radius: 22px;
-    padding: 30px 24px; position: relative; overflow: hidden;
-  }
-  .beca-card::before {
-    content: ''; position: absolute; top: 0; right: 0;
-    width: 180px; height: 180px;
-    background: radial-gradient(circle, rgba(255,215,0,0.18), transparent 70%);
-    pointer-events: none;
-  }
-  .beca-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    gap: 14px; flex-wrap: wrap; margin-bottom: 20px; position: relative; z-index: 1;
-  }
-  .beca-title { font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: -0.5px; }
-  .beca-badge {
-    padding: 5px 12px; border-radius: 20px;
-    background: rgba(255,215,0,0.15); border: 1px solid var(--gold);
-    color: var(--gold); font-size: 10px; font-weight: 800;
-    letter-spacing: 1.5px; white-space: nowrap;
-  }
-  .beca-badge.closed { background: rgba(255,61,87,0.15); border-color: var(--danger); color: var(--danger); }
-  .beca-progress-wrap { margin: 22px 0 16px; position: relative; z-index: 1; }
-  .beca-progress-info { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; font-weight: 700; }
-  .beca-progress-info span:first-child { color: var(--gold); }
-  .beca-progress-info span:last-child { color: var(--muted); }
-  .progress-bar { height: 10px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,215,0,0.25); }
-  .progress-fill {
-    height: 100%; background: linear-gradient(90deg, var(--gold), #ff9500);
-    border-radius: 10px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: 0 0 12px rgba(255,215,0,0.6);
-  }
-  .beca-criterios { display: grid; gap: 10px; margin-top: 24px; position: relative; z-index: 1; }
-  .criterio {
-    display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px;
-    background: rgba(0,0,0,0.25); border-radius: 12px; border-left: 3px solid var(--gold);
-  }
-  .criterio-num {
-    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
-    background: rgba(255,215,0,0.15); color: var(--gold);
-    display: grid; place-items: center; font-size: 12px; font-weight: 900;
-  }
-  .criterio-body strong { color: var(--gold); font-size: 13px; display: block; margin-bottom: 2px; }
-  .criterio-body span { font-size: 12px; color: var(--muted); line-height: 1.4; }
-  .beca-cta {
-    margin-top: 22px; position: relative; z-index: 1; width: 100%; padding: 14px;
-    border-radius: 12px; background: linear-gradient(135deg, var(--gold), #ff9500);
-    color: #000; font-weight: 900; font-size: 14px; border: none; cursor: pointer;
-    letter-spacing: 0.5px; transition: transform 0.2s;
-  }
-  .beca-cta:active { transform: scale(0.97); }
-  .beca-cta:disabled { background: rgba(255,255,255,0.08); color: var(--muted); cursor: not-allowed; box-shadow: none; }
-  
-  /* PRECIOS ORIGINAL */
-  .precio-card {
-    background: linear-gradient(160deg, rgba(0,229,255,0.08), rgba(124,58,237,0.06));
-    border: 1.5px solid rgba(0,229,255,0.3); border-radius: 22px;
-    padding: 32px 24px; text-align: center; max-width: 480px; margin: 0 auto; position: relative;
-  }
-  .precio-card::before {
-    content: ''; position: absolute; inset: 0; border-radius: 22px; padding: 1.5px;
-    background: linear-gradient(135deg, var(--cyan), transparent, var(--violet));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-  }
-  .precio-tag {
-    display: inline-block; padding: 5px 14px; border-radius: 20px;
-    background: rgba(0,229,255,0.15); border: 1px solid var(--cyan);
-    color: var(--cyan); font-size: 10px; font-weight: 800; letter-spacing: 2px; margin-bottom: 18px;
-  }
-  .precio-amount { font-size: 54px; font-weight: 900; letter-spacing: -2px; line-height: 1; color: var(--cyan); }
-  .precio-amount sup { font-size: 22px; vertical-align: super; font-weight: 700; margin-right: 3px; }
-  .precio-amount small { font-size: 16px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
-  .precio-desc { font-size: 13px; color: var(--muted); margin: 10px 0 22px; }
-  .precio-features { text-align: left; display: grid; gap: 9px; margin-bottom: 24px; padding: 0 8px; }
-  .precio-features li { display: flex; gap: 10px; font-size: 13px; list-style: none; }
-  .precio-features li::before {
-    content: '✓'; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
-    background: rgba(0,229,255,0.15); color: var(--cyan);
-    display: grid; place-items: center; font-size: 12px; font-weight: 900;
-  }
-  .precio-inscripcion {
-    font-size: 11px; color: var(--muted); background: rgba(0,0,0,0.3);
-    padding: 10px 14px; border-radius: 10px; margin-bottom: 18px;
-  }
-  .precio-inscripcion strong { color: var(--gold); }
-  .precio-cta {
-    width: 100%; padding: 15px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    color: #000; font-weight: 900; font-size: 14px; border: none; cursor: pointer;
-    letter-spacing: 0.5px; transition: transform 0.2s;
-  }
-  .precio-cta:active { transform: scale(0.97); }
+  .btn-primary { background: var(--cyan); color: #000; }
+  .btn-primary:hover { background: #7dd3fc; }
+  .btn-secondary { background: transparent; border: 1px solid var(--border-glass); color: var(--text-main); }
+  .btn-secondary:hover { border-color: var(--text-muted); }
 
-  /* ECOSISTEMA ORIGINAL */
-  .ecosistema-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-bottom: 28px; }
-  @media (min-width: 720px) { .ecosistema-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .eco-card {
-    background: var(--glass); border: 1px solid var(--glass-b);
-    border-radius: 18px; padding: 22px 18px; position: relative; overflow: hidden; backdrop-filter: blur(10px);
-  }
-  .eco-card.gold { border-color: rgba(255,215,0,0.4); background: linear-gradient(160deg, rgba(255,215,0,0.08), transparent); }
-  .eco-card.cyan { border-color: rgba(0,229,255,0.4); background: linear-gradient(160deg, rgba(0,229,255,0.08), transparent); }
-  .eco-card.violet { border-color: rgba(124,58,237,0.4); background: linear-gradient(160deg, rgba(124,58,237,0.1), transparent); }
-  .eco-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-size: 20px; margin-bottom: 14px; }
-  .eco-icon.gold { background: rgba(255,215,0,0.15); color: var(--gold); }
-  .eco-icon.cyan { background: rgba(0,229,255,0.15); color: var(--cyan); }
-  .eco-icon.violet { background: rgba(124,58,237,0.18); color: #a78bfa; }
-  .eco-num { font-size: 30px; font-weight: 900; letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
-  .eco-card.gold .eco-num { color: var(--gold); }
-  .eco-card.cyan .eco-num { color: var(--cyan); }
-  .eco-card.violet .eco-num { color: #a78bfa; }
-  .eco-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 10px; }
-  .eco-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .eco-total {
-    background: linear-gradient(135deg, rgba(0,229,255,0.12), rgba(124,58,237,0.12));
-    border: 1.5px solid rgba(0,229,255,0.4); border-radius: 18px; padding: 24px 20px; text-align: center;
-  }
-  .eco-total-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); font-weight: 800; margin-bottom: 8px; }
-  .eco-total-amount {
-    font-size: 38px; font-weight: 900; letter-spacing: -1.5px;
-    background: linear-gradient(135deg, var(--cyan), var(--gold));
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    line-height: 1; margin-bottom: 8px;
-  }
-  .eco-total-sub { font-size: 12px; color: var(--muted); max-width: 540px; margin: 0 auto; line-height: 1.6; }
-  .eco-note {
-    margin-top: 20px; padding: 14px 18px; background: rgba(255,215,0,0.06);
-    border-left: 3px solid var(--gold); border-radius: 10px; font-size: 12.5px; color: var(--muted); line-height: 1.6;
-  }
-  .eco-note strong { color: var(--gold); }
+  /* SECCIONES */
+  section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
+  .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--gold); line-height: 1.2; }
   
-  /* MANIFIESTO Y FOOTER */
-  .manifiesto { text-align: center; padding: 70px 22px; max-width: 820px; margin: 0 auto; }
-  .manifiesto-quote { font-size: clamp(20px, 4vw, 28px); font-weight: 800; line-height: 1.4; letter-spacing: -0.5px; margin-bottom: 24px; }
-  .manifiesto-quote .gold { color: var(--gold); }
-  .manifiesto-quote .cyan { color: var(--cyan); }
-  .manifiesto-author { font-size: 12px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
-  footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 22px 30px; text-align: center; font-size: 12px; color: var(--muted); }
-  footer .footer-brand { font-weight: 900; font-size: 16px; letter-spacing: 2px; margin-bottom: 8px; color: var(--text); }
-  footer .footer-brand span { color: var(--cyan); }
-  footer .footer-line { margin: 6px 0; font-size: 11px; }
-  footer a { color: var(--cyan); text-decoration: none; margin: 0 6px; }
-  footer .footer-legal {
-    margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06);
-    font-size: 10px; line-height: 1.7; color: #5a6478; max-width: 720px; margin-left: auto; margin-right: auto;
+  /* TEXTO CENTRAL (¿Por qué entrar hoy?) */
+  .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
+  .decision-box p { margin-bottom: 25px; }
+  .text-cyan { color: var(--cyan); font-weight: 600; }
+  .text-gold { color: var(--gold); font-weight: 600; }
+
+  /* TIMELINE (Meses) */
+  .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
+  .month-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-maroon);
+    border-radius: 12px;
+    overflow: hidden;
   }
+  .month-header {
+    background: var(--bg-maroon);
+    padding: 12px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--coral);
+    font-size: 16px;
+    border-bottom: 1px solid var(--border-maroon);
+  }
+  .month-body { padding: 24px; }
+  .month-body h3 { font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; }
+  .month-body p { color: var(--text-muted); font-size: 15px; }
+
+  /* BECAS */
+  .beca-container {
+    background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%);
+    border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px;
+    max-width: 700px; margin: 0 auto;
+  }
+  .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+  .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
+  .badge { padding: 6px 12px; border-radius: 20px; background: rgba(223,182,70,0.1); color: var(--gold); font-size: 12px; font-weight: 700; }
   
-  /* MODALES ARREGLADOS (margin: auto evita que se corten en el celular) */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 1000; display: none; padding: 20px; overflow-y: auto;
+  .progress-wrap { margin: 20px 0 30px; }
+  .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
+  .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 1s ease; }
+  .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+
+  .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
+  .req-list li { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--gold); }
+
+  /* PRECIOS */
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
+  @media(min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
+  .price-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px; text-align: center; }
+  .price-card.premium { border-color: rgba(223,182,70,0.4); background: linear-gradient(180deg, rgba(223,182,70,0.05), var(--bg-card)); }
+  .price-card h3 { font-size: 18px; color: var(--cyan); margin-bottom: 10px; }
+  .price-card.premium h3 { color: var(--gold); }
+  .price-val { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+  .price-val span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+  .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 14px; display: grid; gap: 10px; color: var(--text-muted); }
+  .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
+  .price-card.premium .price-features li::before { color: var(--gold); }
+
+  /* FRASE FINAL */
+  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px; line-height: 1.4; }
+
+  /* WHATSAPP BUTTON (Como en tu captura) */
+  .wa-btn {
+    position: fixed; bottom: 25px; right: 25px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+    display: grid; place-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s;
   }
+  .wa-btn:hover { transform: scale(1.1); }
+  .wa-btn svg { width: 35px; height: 35px; fill: #fff; }
+
+  /* MODALES ARREGLADOS */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; overflow-y: auto; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal {
-    background: linear-gradient(160deg, #0d1220, #060810);
-    border: 1.5px solid rgba(0,229,255,0.3);
-    border-radius: 22px; padding: 30px 24px;
-    max-width: 520px; width: 100%; position: relative;
-    animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1);
-    margin: auto;
+    background: var(--bg-main); border: 1px solid var(--border-glass);
+    border-radius: 16px; padding: 30px; max-width: 480px; width: 100%;
+    margin: auto; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   }
-  @keyframes modalIn {
-    from { opacity: 0; transform: scale(0.94) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  .modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: rgba(255,255,255,0.08);
-    border: none; color: var(--text);
-    width: 32px; height: 32px; border-radius: 50%;
-    cursor: pointer; font-size: 18px;
-    display: grid; place-items: center;
-    transition: background 0.2s;
-  }
-  .modal-close:active { background: rgba(255,61,87,0.3); }
-  .modal-tag {
-    display: inline-block; padding: 5px 12px; border-radius: 20px;
-    font-size: 10px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 14px;
-  }
-  .modal-tag.gold { background: rgba(255,215,0,0.15); border: 1px solid var(--gold); color: var(--gold); }
-  .modal-tag.cyan { background: rgba(0,229,255,0.15); border: 1px solid var(--cyan); color: var(--cyan); }
-  .modal h3 { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 8px; }
-  .modal p.modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; line-height: 1.5; }
-  .form-group { margin-bottom: 14px; }
-  .form-group label {
-    display: block; font-size: 11px; color: var(--muted);
-    font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; margin-bottom: 6px;
-  }
+  .modal-close { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+  .modal h3 { font-size: 22px; margin-bottom: 10px; color: #fff; }
+  .modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+  .form-group { margin-bottom: 15px; }
+  .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
   .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 13px 14px; border-radius: 11px;
-    background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.1);
-    color: var(--text); font-size: 14px; font-family: inherit; transition: border 0.2s;
+    width: 100%; padding: 12px; border-radius: 8px; background: var(--bg-card);
+    border: 1px solid var(--border-glass); color: #fff; font-family: inherit; font-size: 14px;
   }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    outline: none; border-color: var(--cyan); background: rgba(0,229,255,0.04);
-  }
-  .form-group textarea { resize: vertical; min-height: 80px; }
-  .form-submit {
-    width: 100%; padding: 15px; border-radius: 12px;
-    color: #000; font-weight: 900; font-size: 14px;
-    border: none; cursor: pointer; letter-spacing: 0.5px;
-    margin-top: 8px; transition: transform 0.2s;
-  }
-  .form-submit.gold { background: linear-gradient(135deg, var(--gold), #ff9500); }
-  .form-submit.cyan { background: linear-gradient(135deg, var(--cyan), var(--violet)); }
-  .form-submit:active { transform: scale(0.97); }
-  .form-submit:disabled { background: rgba(255,255,255,0.1); color: var(--muted); cursor: not-allowed; }
-  .form-note { font-size: 10.5px; color: #5a6478; margin-top: 12px; line-height: 1.5; text-align: center; }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--cyan); }
+  .form-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--cyan); color: #000; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
+  .form-submit.gold { background: var(--gold); }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); }
 </style>
 </head>
-<body><header>
-  <div class="logo">
-    <div class="logo-mark">E</div>
-    ERIAN<span>·</span>ACADEMY
-  </div>
-  <a href="#precio" class="header-cta">Reservar Cupo</a>
+<body><!-- HEADER -->
+<header>
+  <div class="logo"><div class="logo-mark">E</div> ERIAN ACADEMY</div>
+  <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">SOCopó · BARINAS · VENEZUELA</div>
-  <h1>Donde el <span class="accent">Talento</span><br>Importa Más<br>que el Dinero.</h1>
-  <p class="sub">
-    Ecosistema educativo élite de idiomas y tecnología con inteligencia artificial.
-    Solo <strong style="color:var(--gold)">300 plazas</strong> en toda la Fase 1.
-    De ellas, <strong style="color:var(--gold)">100 son becas de mérito</strong> para niños excepcionales.
-  </p>
-  <div class="hero-ctas">
-    <a href="#becas" class="btn btn-secondary">Ver Programa de Becas</a>
-    <a href="#precio" class="btn btn-primary">Reservar Cupo Regular</a>
+  <h1>No formamos empleados.<br>Formamos <span class="gold-text">Reyes de Imperios</span>.</h1>
+  <p class="sub">Esta no es una escuela de idiomas. Es la Llave del Imperio. El mismo ecosistema educativo y de inteligencia artificial que usan las grandes potencias para preparar a sus hijos.</p>
+  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+    <a href="#becas" class="btn btn-secondary">Ver Becas (100)</a>
+    <a href="#precios" class="btn btn-primary">Comprar Cupo</a>
   </div>
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num gold">100</div>
-      <div class="stat-lbl">Becas por Mérito</div>
+</section>
+
+<!-- SECCIÓN DE LA CAPTURA: ¿POR QUÉ ENTRAR HOY? -->
+<section>
+  <h2 class="sec-title">¿Por qué entrar HOY es la mejor decisión?</h2>
+  <div class="decision-box">
+    <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <span class="text-cyan">El inglés ya no es un lujo, es el código fuente del futuro.</span></p>
+    
+    <p>Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <span class="text-cyan">entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</span> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.</p>
+  </div>
+</section>
+
+<!-- SECCIÓN DE LA CAPTURA: TIMELINE (Meses) -->
+<section>
+  <div class="timeline">
+    <!-- Mes 9 (Inferido del corte superior) -->
+    <div class="month-card">
+      <div class="month-header">Mes 9</div>
+      <div class="month-body">
+        <h3>🛡️ Ciberseguridad</h3>
+        <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">200</div>
-      <div class="stat-lbl">Cupos Regulares</div>
+    
+    <!-- Mes 10 -->
+    <div class="month-card">
+      <div class="month-header">Mes 10</div>
+      <div class="month-body">
+        <h3>📊 Inteligencia de Datos y Finanzas Digitales</h3>
+        <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">300</div>
-      <div class="stat-lbl">Plazas Totales</div>
+
+    <!-- Mes 11 - 12 -->
+    <div class="month-card">
+      <div class="month-header">Mes 11 - 12</div>
+      <div class="month-body">
+        <h3>🚀 Arquitectura SEO y Creación de Agencias</h3>
+        <p>Diseño de posicionamiento SEO para sus propias organizaciones. Tu hijo aprenderá a monetizar sus ideas, ser CEO de su propia agencia y administrar su imperio digital desde temprana edad.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="becas" class="reveal">
-  <div class="sec-tag gold">PROGRAMA DE EXCELENCIA ERIAN</div>
-  <h2 class="sec-title">100 Becas de Mérito.<br>No se compran. <span style="color:var(--gold)">Se ganan.</span></h2>
-  <p class="sec-desc">
-    En Erian no creemos que el talento tenga precio. Por eso reservamos 100 de nuestras 300 plazas
-    para niños y jóvenes de Barinas y Socopó con excelencia académica, talento especial o historias
-    de superación. La diferencia de precio es financiada por Erian Technologies, C.A.
-  </p>
-  <div class="beca-card">
-    <div class="beca-header">
-      <div class="beca-title">Becas de Excelencia Erian</div>
-      <div class="beca-badge" id="becaEstado">SELECCIÓN ACTIVA</div>
+<!-- BECAS -->
+<section id="becas">
+  <div class="beca-container">
+    <div class="beca-top">
+      <h2>100 Becas de Mérito</h2>
+      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
     </div>
-    <div class="beca-progress-wrap">
-      <div class="beca-progress-info">
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional.</p>
+    
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
+      <div class="progress-text">
         <span id="becaContador">Becas asignadas: 0 / 100</span>
         <span id="becaPorcentaje">0%</span>
       </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="becaProgressFill" style="width: 0%"></div>
-      </div>
     </div>
-    <div class="beca-criterios">
-      <div class="criterio">
-        <div class="criterio-num">1</div>
-        <div class="criterio-body">
-          <strong>Excelencia Académica (30%)</strong>
-          <span>Boleta de calificaciones con promedio destacado y verificado.</span>
-        </div>
-      </div>
-      <div class="criterio">
-        <div class="criterio-num">2</div>
-        <div class="criterio-body">
-          <strong>Talento Especial (25%)</strong>
-          <span>Carta de recomendación de docente, entrenador o mentor.</span>
-        </div>
-      </div>
-      <div class="criterio">
-        <div class="criterio-num">3</div>
-        <div class="criterio-body">
-          <strong>Historia de Superación (20%)</strong>
-          <span>Ensayo breve escrito por el niño o su representante.</span>
-        </div>
-      </div>
-      <div class="criterio">
-        <div class="criterio-num">4</div>
-        <div class="criterio-body">
-          <strong>Compromiso Familiar (15%)</strong>
-          <span>Carta del representante explicando el porqué de la oportunidad.</span>
-        </div>
-      </div>
-      <div class="criterio">
-        <div class="criterio-num">5</div>
-        <div class="criterio-body">
-          <strong>Visión de Futuro (10%)</strong>
-          <span>Entrevista corta con el niño o representante (10 min).</span>
-        </div>
-      </div>
-    </div>
-    <button class="beca-cta" id="btnPostularBeca">
-      Postular a mi Hijo para Beca →
-    </button>
-  </div>
-</section>
 
-<section id="precio" class="reveal">
-  <div class="sec-tag">CUPO REGULAR · FASE 1</div>
-  <h2 class="sec-title">Acceso Completo a la Plataforma</h2>
-  <p class="sec-desc">
-    Apertura limitada a 200 cupos regulares. Al llenarse las 300 plazas totales,
-    Erian Academy cierra inscripciones hasta ampliar infraestructura.
-  </p>
-  <div class="precio-card">
-    <div class="precio-tag">PLAN REGULAR</div>
-    <div class="precio-amount"><sup>$</sup>99<small>.99 /mes</small></div>
-    <div class="precio-desc">Acceso completo a todos los módulos de inglés con IA</div>
-    <ul class="precio-features">
-      <li>7 módulos completos de inglés con IA</li>
-      <li>200+ flashcards con audio premium</li>
-      <li>Chat con DeepSeek y corrección bilingüe</li>
-      <li>Asistente de voz "Sofía" (voz humana)</li>
-      <li>Crossroads Café (26 episodios)</li>
-      <li>Cyber Arcade + Erian Nexus V11</li>
-      <li>Acceso a las futuras carreras (mes 9+)</li>
+    <ul class="req-list">
+      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
+      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
+      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
+      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
+      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
     </ul>
-    <div class="precio-inscripcion">
-      Inscripción única: <strong>$150 USD</strong> · Mensualidad: <strong>$99.99 USD</strong>
-    </div>
-    <button class="precio-cta" id="btnReservarRegular">
-      Reservar mi Cupo Ahora →
-    </button>
+
+    <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
   </div>
 </section>
 
-<section id="ecosistema" class="reveal">
-  <div class="sec-tag gold">EQUILIBRIO ECOSISTÉMICO</div>
-  <h2 class="sec-title">Cómo se Sostiene Este Modelo</h2>
-  <p class="sec-desc">
-    Cada beca tiene un costo real que Erian Technologies asume. La estructura económica está diseñada
-    para que el programa sea sostenible a largo plazo, sin depender de donaciones externas ni subsidios.
-  </p>
-  <div class="ecosistema-grid">
-    <div class="eco-card gold">
-      <div class="eco-icon gold">🎓</div>
-      <div class="eco-num">100</div>
-      <div class="eco-lbl">Becados</div>
-      <div class="eco-desc">Aportan $69.99/mes (tarifa beca congelada de por vida).</div>
+<!-- PRECIOS -->
+<section id="precios">
+  <h2 class="sec-title">Inversión en el Futuro</h2>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:14px;">Solo 300 plazas. 200 regulares. Inscripción única: $150 USD.</p>
+  
+  <div class="pricing-grid">
+    <!-- Regular -->
+    <div class="price-card">
+      <h3>Cupo Regular</h3>
+      <div class="price-val">$99<span>.99/mes</span></div>
+      <ul class="price-features">
+        <li>7 Módulos de Idiomas con IA</li>
+        <li>Asistente de voz "Sofía"</li>
+        <li>Crossroads Café (26 eps)</li>
+        <li>Cyber Arcade (Erian Nexus)</li>
+      </ul>
+      <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Cupo</button>
     </div>
-    <div class="eco-card cyan">
-      <div class="eco-icon cyan">👥</div>
-      <div class="eco-num">200</div>
-      <div class="eco-lbl">Regulares</div>
-      <div class="eco-desc">Aportan $99.99/mes (tarifa estándar de Fase 1).</div>
+
+    <!-- Elite Global -->
+    <div class="price-card premium">
+      <h3>Paquete Elite Global</h3>
+      <div class="price-val">$149<span>.99/mes</span></div>
+      <ul class="price-features">
+        <li>Todo lo del plan Regular</li>
+        <li>Mandarín, Alemán y Francés (Mes 6+)</li>
+        <li>Carreras Tech: Ciberseguridad, SEO, Data (Mes 9+)</li>
+        <li>Prioridad en asignación de becas futuras</li>
+      </ul>
+      <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Cupo Global</button>
     </div>
-    <div class="eco-card violet">
-      <div class="eco-icon violet">🖥️</div>
-      <div class="eco-num">300</div>
-      <div class="eco-lbl">Plazas</div>
-      <div class="eco-desc">Tope máximo por capacidad de servidores e IA dedicada.</div>
-    </div>
-  </div>
-  <div class="eco-total">
-    <div class="eco-total-label">Ingreso Mensual Recurrente · Fase 1</div>
-    <div class="eco-total-amount">$26,997 USD</div>
-    <div class="eco-total-sub">
-      100 becados × $69.99 + 200 regulares × $99.99 = $26,997/mes sostenidos.<br>
-      Esto financia infraestructura Mac Studio M4/M5, servidores NVIDIA, IAs premium y voz neuronal.
-    </div>
-  </div>
-  <div class="eco-note">
-    <strong>Transparencia:</strong> El descuento de $30/mes por cada becado ($3,000 mensuales en total)
-    es financiado directamente por Erian Technologies, C.A. como inversión en talento regional.
-    No existe subsidio público ni patrocinio externo. La operación completa se sostiene con los aportes
-    de los 200 cupos regulares y los 100 becados. Este es el equilibrio que permite que el programa
-    exista en el largo plazo.
   </div>
 </section>
 
-<section class="manifiesto reveal">
-  <div class="manifiesto-quote">
-    "No somos una escuela para ricos.<br>
-    Somos una escuela para <span class="gold">talentos</span>.<br>
-    Y a veces, el talento vive en el lugar<br>
-    donde nadie lo estaba buscando."
-  </div>
-  <div class="manifiesto-author">— ERIAN TECHNOLOGIES, C.A.</div>
-</section>
+<!-- FRASE FINAL (De tu captura) -->
+<div class="final-quote">
+  "Regálale lo mejor. Invierte en el futuro de tu hijo."
+</div>
 
 <footer>
-  <div class="footer-brand">ERIAN<span>·</span>ACADEMY</div>
-  <div class="footer-line">Socopó · Estado Barinas · Venezuela</div>
-  <div class="footer-line">
-    <a href="mailto:erianingles@gmail.com">erianingles@gmail.com</a>
-  </div>
-  <div class="footer-legal">
-    Erian Technologies, C.A. es una empresa de tecnología dedicada al licenciamiento de software
-    de inteligencia artificial. Erian Academy es una herramienta complementaria de estudio y NO
-    constituye una institución educativa ni emite certificaciones oficiales. Los resultados dependen
-    del esfuerzo individual de cada licenciatario. Tope de 300 plazas activas en Fase 1.
-  </div>
+  <p>Erian Technologies, C.A. · Socopó, Barinas</p>
+  <p style="margin-top:5px; opacity:0.6;">erianingles@gmail.com</p>
 </footer>
 
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/584240000000?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- MODAL BECA -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
-    <div class="modal-tag gold">POSTULACIÓN A BECA</div>
-    <h3>Programa de Excelencia Erian</h3>
-    <p class="modal-sub">
-      Completa este formulario para iniciar el proceso de evaluación.
-      Solo serán contactados los postulantes que avancen a la siguiente fase.
-    </p>
+    <h3>Postulación a Beca</h3>
+    <p>Completa los datos del niño. Solo contactaremos a los seleccionados.</p>
     <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <div class="form-group">
-        <label>Nombre del Niño / Niña</label>
-        <input type="text" name="Nombre del nino" required>
-      </div>
-      <div class="form-group">
-        <label>Edad del Niño</label>
-        <input type="number" name="Edad" min="9" max="17" required>
-      </div>
-      <div class="form-group">
-        <label>Nombre del Representante</label>
-        <input type="text" name="Nombre del representante" required>
-      </div>
-      <div class="form-group">
-        <label>WhatsApp del Representante</label>
-        <input type="tel" name="WhatsApp" placeholder="+58 4XX-XXXXXXX" required>
-      </div>
-      <div class="form-group">
-        <label>Email (opcional)</label>
-        <input type="email" name="Email">
-      </div>
-      <div class="form-group">
-        <label>Comunidad / Sector</label>
-        <input type="text" name="Comunidad" placeholder="Ej: Socopó, Barinas" required>
-      </div>
-      <div class="form-group">
-        <label>¿Qué hace especial a este niño? (breve)</label>
-        <textarea name="Talento destacado" placeholder="Cuéntanos en 2-3 líneas por qué crees que merece la beca" required></textarea>
-      </div>
-      <button type="submit" class="form-submit gold">Enviar Postulación →</button>
-      <p class="form-note">
-        Al enviar aceptas que Erian Technologies, C.A. evalúe esta postulación.
-        Las becas son por mérito y NO garantizan admisión.
-      </p>
+      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre" required></div>
+      <div class="form-group"><label>Edad</label><input type="number" name="Edad" min="9" max="17" required></div>
+      <div class="form-group"><label>Representante</label><input type="text" name="Representante" required></div>
+      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
+      <div class="form-group"><label>¿Por qué merece la beca?</label><textarea name="Motivo" rows="3" required></textarea></div>
+      <button type="submit" class="form-submit gold">Enviar Postulación</button>
     </form>
   </div>
 </div>
 
+<!-- MODAL REGULAR -->
 <div class="modal-overlay" id="modalRegular">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
-    <div class="modal-tag cyan">RESERVA DE CUPO</div>
     <h3>Reservar Cupo Regular</h3>
-    <p class="modal-sub">
-      Completa tus datos y nos pondremos en contacto por WhatsApp en las próximas 24 horas
-      para coordinar el pago de la inscripción ($150) y activar tu acceso.
-    </p>
+    <p>Te contactaremos para coordinar la inscripción de $150 y activar tu cuenta.</p>
     <form id="formRegular" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="💳 Reserva Cupo Regular - Erian Academy">
+      <input type="hidden" name="_subject" value="💳 Reserva Regular - Erian Academy">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <div class="form-group">
-        <label>Nombre Completo</label>
-        <input type="text" name="Nombre" required>
-      </div>
-      <div class="form-group">
-        <label>Cédula de Identidad</label>
-        <input type="text" name="Cedula" required>
-      </div>
-      <div class="form-group">
-        <label>WhatsApp</label>
-        <input type="tel" name="WhatsApp" placeholder="+58 4XX-XXXXXXX" required>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="Email" required>
-      </div>
-      <div class="form-group">
-        <label>Plan de Interés</label>
-        <select name="Plan">
-          <option value="Regular $99.99">Regular — $99.99/mes</option>
-          <option value="Elite Global $149.99">Elite Global (4 idiomas) — $149.99/mes</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>¿Para quién es la licencia?</label>
-        <select name="Para quien">
-          <option value="Para mi">Para mí</option>
-          <option value="Para mi hijo/a">Para mi hijo/a</option>
-          <option value="Para otra persona">Para otra persona</option>
-        </select>
-      </div>
-      <button type="submit" class="form-submit cyan">Reservar Mi Cupo →</button>
-      <p class="form-note">
-        Al enviar aceptas los términos de la licencia de uso.
-        La reserva no es efectiva hasta confirmar el pago.
-      </p>
+      <div class="form-group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
+      <div class="form-group"><label>Cédula</label><input type="text" name="Cedula" required></div>
+      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
+      <div class="form-group"><label>Email</label><input type="email" name="Email" required></div>
+      <button type="submit" class="form-submit">Enviar Reserva</button>
     </form>
   </div>
-</div><script>
+</div>
+
+<!-- MODAL ELITE -->
+<div class="modal-overlay" id="modalElite">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3>Reservar Elite Global</h3>
+    <p>Acceso total a idiomas y futuras carreras tech. Coordinaremos el pago.</p>
+    <form id="formElite" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="👑 Reserva Elite - Erian Academy">
+      <input type="hidden" name="_template" value="table">
+      <div class="form-group"><label>Nombre Completo</label><input type="text" name="Nombre" required></div>
+      <div class="form-group"><label>Cédula</label><input type="text" name="Cedula" required></div>
+      <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
+      <div class="form-group"><label>Email</label><input type="email" name="Email" required></div>
+      <button type="submit" class="form-submit gold">Enviar Reserva</button>
+    </form>
+  </div>
+  </div><script>
 const CONFIG = {
   BECAS_TOTALES: 100,
-  BECAS_ASIGNADAS: 0,
-  CUPOS_TOTALES: 300,
-  CUPOS_OCUPADOS: 0,
-  PRECIO_BECA: 69.99,
-  PRECIO_REGULAR: 99.99
+  BECAS_ASIGNADAS: 0
 };
 
 function actualizarContadorBecas() {
-  const { BECAS_TOTALES, BECAS_ASIGNADAS } = CONFIG;
-  const restantes = Math.max(0, BECAS_TOTALES - BECAS_ASIGNADAS);
-  const porcentaje = Math.round((BECAS_ASIGNADAS / BECAS_TOTALES) * 100);
+  const restantes = Math.max(0, CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS);
+  const porcentaje = Math.round((CONFIG.BECAS_ASIGNADAS / CONFIG.BECAS_TOTALES) * 100);
 
   const contador = document.getElementById('becaContador');
   const pct = document.getElementById('becaPorcentaje');
@@ -687,17 +380,18 @@ function actualizarContadorBecas() {
   if (!contador) return;
 
   if (restantes > 0) {
-    contador.textContent = `Becas asignadas: ${BECAS_ASIGNADAS} / ${BECAS_TOTALES} · Quedan ${restantes}`;
+    contador.textContent = `Becas asignadas: ${CONFIG.BECAS_ASIGNADAS} / ${CONFIG.BECAS_TOTALES} · Quedan ${restantes}`;
     estado.textContent = 'SELECCIÓN ACTIVA';
-    estado.className = 'beca-badge';
     btnBeca.disabled = false;
-    btnBeca.textContent = 'Postular a mi Hijo para Beca →';
+    btnBeca.style.opacity = '1';
   } else {
-    contador.textContent = `Becas asignadas: ${BECAS_TOTALES} / ${BECAS_TOTALES} · CERRADAS`;
+    contador.textContent = `Becas asignadas: ${CONFIG.BECAS_TOTALES} / ${CONFIG.BECAS_TOTALES} · CERRADAS`;
     estado.textContent = 'BECAS CERRADAS';
-    estado.className = 'beca-badge closed';
+    estado.style.color = '#fda4af';
+    estado.style.background = 'rgba(253,164,175,0.1)';
     btnBeca.disabled = true;
-    btnBeca.textContent = '🔒 Becas de Esta Generación: Cerradas';
+    btnBeca.style.opacity = '0.5';
+    btnBeca.textContent = 'Becas Cerradas por este Año';
   }
 
   pct.textContent = `${porcentaje}%`;
@@ -717,36 +411,28 @@ function cerrarModal(modal) {
   document.body.style.overflow = '';
 }
 
-function cerrarTodosLosModales() {
-  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
-  document.body.style.overflow = '';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   actualizarContadorBecas();
 
+  // Botón Beca
   const btnBeca = document.getElementById('btnPostularBeca');
   if (btnBeca) {
     btnBeca.addEventListener('click', () => {
-      const restantes = CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS;
-      if (restantes <= 0) {
-        alert('Las becas de esta generación han sido cerradas. Puedes reservar un cupo regular o esperar a la próxima convocatoria.');
+      if ((CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS) <= 0) {
+        alert('Las becas de esta generación ya fueron asignadas.');
         return;
       }
       abrirModal('modalBeca');
     });
   }
 
-  const btnRegular = document.getElementById('btnReservarRegular');
-  if (btnRegular) {
-    btnRegular.addEventListener('click', () => abrirModal('modalRegular'));
-  }
+  // Botones de Reserva
+  document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
+  document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
 
+  // Cerrar Modales
   document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modal = btn.closest('.modal-overlay');
-      cerrarModal(modal);
-    });
+    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
   });
 
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
@@ -756,35 +442,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') cerrarTodosLosModales();
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
+    }
   });
 
-  const revealElements = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealElements.forEach(el => observer.observe(el));
-  } else {
-    revealElements.forEach(el => el.classList.add('visible'));
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  ['formBeca', 'formRegular'].forEach(formId => {
+  // Evitar envíos dobles
+  ['formBeca', 'formRegular', 'formElite'].forEach(formId => {
     const form = document.getElementById(formId);
     if (!form) return;
     form.addEventListener('submit', () => {
@@ -797,15 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Función por si necesitas actualizar desde consola: actualizarBecas(15)
 window.actualizarBecas = function(n) {
   CONFIG.BECAS_ASIGNADAS = Math.min(n, CONFIG.BECAS_TOTALES);
   actualizarContadorBecas();
   console.log(`✅ Becas actualizadas: ${CONFIG.BECAS_ASIGNADAS}/${CONFIG.BECAS_TOTALES}`);
-};
-
-window.actualizarCupos = function(n) {
-  CONFIG.CUPOS_OCUPADOS = Math.min(n, CONFIG.CUPOS_TOTALES);
-  console.log(`✅ Cupos actualizados: ${CONFIG.CUPOS_OCUPADOS}/${CONFIG.CUPOS_TOTALES}`);
 };
 </script>
 
