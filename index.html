@@ -59,13 +59,38 @@
   /* HERO */
   .hero { padding: 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
   
-  /* Bandera Americana Grande */
+  /* --- BANDERA 3D ONDEABLE --- */
   .flag-container {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 90px; height: 55px; border-radius: 8px; overflow: hidden;
-    margin-bottom: 25px; box-shadow: 0 0 25px rgba(255,255,255,0.15);
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 25px;
+    perspective: 1000px; /* Crea la profundidad 3D */
   }
-  .flag-container svg { width: 100%; height: 100%; object-fit: cover; }
+  .flag-3d {
+    width: 152px;  /* Bandera más grande */
+    height: 80px;  /* Proporción 1.9 exacta */
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: -10px 15px 25px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1);
+    animation: waveFlag 5s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  /* Reflejo de luz para dar efecto de tela */
+  .flag-3d::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 70%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+    animation: lightSweep 5s ease-in-out infinite alternate;
+  }
+  @keyframes waveFlag {
+    0% { transform: rotateY(-15deg) rotateX(5deg) skewY(-2deg); }
+    100% { transform: rotateY(15deg) rotateX(-5deg) skewY(2deg); }
+  }
+  @keyframes lightSweep {
+    0% { transform: translateX(-20%); }
+    100% { transform: translateX(20%); }
+  }
+  .flag-3d svg { width: 100%; height: 100%; object-fit: cover; }
 
   .hero-badge {
     display: inline-block; padding: 6px 16px; border-radius: 30px;
@@ -323,16 +348,49 @@
   <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
-<!-- HERO CON BANDERA AMERICANA -->
+<!-- HERO CON BANDERA 3D -->
 <section class="hero">
-  <!-- Bandera de USA en SVG -->
+  <!-- Bandera de USA 3D con Estrellas -->
   <div class="flag-container">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900">
-      <path fill="#b22234" d="M0,0H7410V300H0Zm0,600H7410V900H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
-      <path fill="#fff" d="M0,300H7410V600H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
-      <path fill="#3c3b6e" d="M0,0H2964V2100H0Z"/>
-    </svg>
+    <div class="flag-3d">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" width="100%" height="100%">
+        <!-- 13 Franjas Rojas y Blancas -->
+        <rect width="7410" height="3900" fill="#B22234"/>
+        <path fill="#FFFFFF" d="M0,300h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0z"/>
+        
+        <!-- Cantón Azul -->
+        <rect width="2964" height="2100" fill="#3C3B6E"/>
+        
+        <!-- Definición de la Estrella -->
+        <defs>
+          <g id="star">
+            <polygon points="0,-40 11.8,-12.3 41,-12.3 17.7,6.7 26.9,35.4 0,18.5 -26.9,35.4 -17.7,6.7 -41,-12.3 -11.8,-12.3" fill="#FFFFFF"/>
+          </g>
+        </defs>
+        
+        <!-- Las 50 Estrellas (9 filas) -->
+        <!-- Fila 1 (6 estrellas) -->
+        <use href="#star" x="200" y="116"/><use href="#star" x="570" y="116"/><use href="#star" x="940" y="116"/><use href="#star" x="1310" y="116"/><use href="#star" x="1680" y="116"/><use href="#star" x="2050" y="116"/>
+        <!-- Fila 2 (5 estrellas) -->
+        <use href="#star" x="385" y="350"/><use href="#star" x="755" y="350"/><use href="#star" x="1125" y="350"/><use href="#star" x="1495" y="350"/><use href="#star" x="1865" y="350"/>
+        <!-- Fila 3 (6 estrellas) -->
+        <use href="#star" x="200" y="583"/><use href="#star" x="570" y="583"/><use href="#star" x="940" y="583"/><use href="#star" x="1310" y="583"/><use href="#star" x="1680" y="583"/><use href="#star" x="2050" y="583"/>
+        <!-- Fila 4 (5 estrellas) -->
+        <use href="#star" x="385" y="816"/><use href="#star" x="755" y="816"/><use href="#star" x="1125" y="816"/><use href="#star" x="1495" y="816"/><use href="#star" x="1865" y="816"/>
+        <!-- Fila 5 (6 estrellas) -->
+        <use href="#star" x="200" y="1050"/><use href="#star" x="570" y="1050"/><use href="#star" x="940" y="1050"/><use href="#star" x="1310" y="1050"/><use href="#star" x="1680" y="1050"/><use href="#star" x="2050" y="1050"/>
+        <!-- Fila 6 (5 estrellas) -->
+        <use href="#star" x="385" y="1283"/><use href="#star" x="755" y="1283"/><use href="#star" x="1125" y="1283"/><use href="#star" x="1495" y="1283"/><use href="#star" x="1865" y="1283"/>
+        <!-- Fila 7 (6 estrellas) -->
+        <use href="#star" x="200" y="1516"/><use href="#star" x="570" y="1516"/><use href="#star" x="940" y="1516"/><use href="#star" x="1310" y="1516"/><use href="#star" x="1680" y="1516"/><use href="#star" x="2050" y="1516"/>
+        <!-- Fila 8 (5 estrellas) -->
+        <use href="#star" x="385" y="1750"/><use href="#star" x="755" y="1750"/><use href="#star" x="1125" y="1750"/><use href="#star" x="1495" y="1750"/><use href="#star" x="1865" y="1750"/>
+        <!-- Fila 9 (6 estrellas) -->
+        <use href="#star" x="200" y="1983"/><use href="#star" x="570" y="1983"/><use href="#star" x="940" y="1983"/><use href="#star" x="1310" y="1983"/><use href="#star" x="1680" y="1983"/><use href="#star" x="2050" y="1983"/>
+      </svg>
+    </div>
   </div>
+  
   <div class="hero-badge">ACCESO RESTRINGIDO · ESTADO BARINAS</div>
   <h1>Si esto llegó a ti, es porque eres parte de la <span class="gold-text">Élite</span>.</h1>
   <p class="sub">No enviamos esta invitación al azar. Erian Academy es el ecosistema de aprendizaje reservado exclusivamente para las familias con visión de imperio en <strong>Socopó, Santa Bárbara y Pedraza</strong>. No formamos empleados, formamos Reyes. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
@@ -675,38 +733,7 @@
   <div class="modal">
     <button class="modal-close" data-close>×</button>
     <h3>Postulación a Beca</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
-    <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
-      <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
-      <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
-      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
-      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="17" required></div>
-      <div class="form-group"><label>¿Tienes más niños para postular? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años), María (10 años)"></textarea></div>
-      <div class="form-group"><label>¿Por qué merece la beca?</label><textarea name="Motivo" rows="2" required></textarea></div>
-      <button type="submit" class="form-submit gold">Enviar Postulación</button>
-    </form>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modalRegular">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Plan Inglés</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
-    <form id="formRegular" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="💳 Reserva Inglés - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
-      <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
-      <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
-      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
-      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="80" required></div>
-      <div class="form-group"><label>¿Tienes más niños para inscribir? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años)<script>
+    <p>Dé<script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 12,
