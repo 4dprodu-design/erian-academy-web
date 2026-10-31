@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Erian Academy — La Llave del Imperio</title>
-<meta name="description" content="Ecosistema educativo élite con IA. No formamos empleados, formamos Reyes de Imperios. 100 Becas y 200 Cupos Regulares.">
+<meta name="description" content="Aprende inglés con IA y domina las carreras del futuro. No formamos empleados, formamos Reyes de Imperios. 100 Becas y 200 Cupos Regulares.">
 <style>
   :root {
-    --bg-main: #0b1320;       /* Azul marino profundo */
-    --bg-card: #111c2e;       /* Fondo de tarjetas */
-    --bg-maroon: #3b1616;     /* Rojo vino para meses */
+    --bg-main: #0b1320;       
+    --bg-card: #111c2e;       
+    --bg-maroon: #3b1616;     
     --border-maroon: #642525;
-    --gold: #dfb646;          /* Dorado elegante */
-    --cyan: #38bdf8;          /* Cian suave */
-    --coral: #fda4af;         /* Coral para la frase final */
-    --text-main: #e2e8f0;     /* Blanco roto */
-    --text-muted: #94a3b8;    /* Gris azulado */
+    --gold: #dfb646;          
+    --cyan: #38bdf8;          
+    --coral: #fda4af;         
+    --text-main: #e2e8f0;     
+    --text-muted: #94a3b8;    
     --glass: rgba(255,255,255,0.03);
     --border-glass: rgba(255,255,255,0.08);
   }
@@ -79,7 +79,20 @@
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
 
-  /* TIMELINE (Meses) */
+  /* NUEVA SECCIÓN: 1,001 FORMAS */
+  .method-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto; }
+  @media(min-width: 768px) { .method-grid { grid-template-columns: 1fr 1fr; } }
+  .method-card {
+    background: var(--bg-card); border: 1px solid var(--border-glass);
+    padding: 20px; border-radius: 12px; display: flex; gap: 15px; align-items: flex-start;
+    transition: transform 0.3s;
+  }
+  .method-card:hover { transform: translateY(-3px); border-color: var(--cyan); }
+  .method-icon { font-size: 24px; }
+  .method-card h4 { color: #fff; font-size: 16px; margin-bottom: 5px; }
+  .method-card p { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+
+  /* NUEVA SECCIÓN: TIMELINE (Meses) */
   .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
   .month-card {
     background: var(--bg-card); border: 1px solid var(--border-maroon);
@@ -92,24 +105,6 @@
   .month-body { padding: 24px; }
   .month-body h3 { font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; }
   .month-body p { color: var(--text-muted); font-size: 15px; }
-
-  /* BECAS */
-  .beca-container {
-    background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%);
-    border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px;
-    max-width: 700px; margin: 0 auto; backdrop-filter: blur(10px);
-  }
-  .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-  .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
-  .badge { padding: 6px 12px; border-radius: 20px; background: rgba(223,182,70,0.1); color: var(--gold); font-size: 12px; font-weight: 700; }
-  
-  .progress-wrap { margin: 20px 0 30px; }
-  .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
-  .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 1s ease; }
-  .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
-
-  .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
-  .req-list li { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--gold); }
 
   /* PRECIOS */
   .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 800px; margin: 0 auto; }
@@ -132,9 +127,27 @@
   .hw-card h4 { color: var(--cyan); margin-bottom: 10px; font-size: 16px; }
   .hw-card p { font-size: 13px; color: var(--text-muted); }
 
+  /* BECAS */
+  .beca-container {
+    background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%);
+    border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px;
+    max-width: 700px; margin: 40px auto 0; backdrop-filter: blur(10px);
+  }
+  .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+  .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
+  .badge { padding: 6px 12px; border-radius: 20px; background: rgba(223,182,70,0.1); color: var(--gold); font-size: 12px; font-weight: 700; }
+  
+  .progress-wrap { margin: 20px 0 30px; }
+  .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
+  .progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 1s ease; }
+  .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+
+  .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
+  .req-list li { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--gold); }
+
   /* FRASE FINAL Y FOOTER */
-  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px; line-height: 1.4; }
-  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); }
+  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px 20px; line-height: 1.4; }
+  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); margin-top: 40px; }
 
   /* WHATSAPP BUTTON */
   .wa-btn {
@@ -146,7 +159,7 @@
   .wa-btn:hover { transform: scale(1.1); }
   .wa-btn svg { width: 35px; height: 35px; fill: #fff; }
 
-  /* MODALES (Arreglados para móvil) */
+  /* MODALES */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; overflow-y: auto; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal {
@@ -179,8 +192,7 @@
   <h1>No formamos empleados.<br>Formamos <span class="gold-text">Reyes de Imperios</span>.</h1>
   <p class="sub">Esta no es una escuela de idiomas. Es la Llave del Imperio. El mismo ecosistema educativo y de inteligencia artificial que usan las grandes potencias para preparar a sus hijos.</p>
   <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-    <a href="#becas" class="btn btn-secondary">Ver Becas (100)</a>
-    <a href="#precios" class="btn btn-primary">Comprar Cupo</a>
+    <a href="#precios" class="btn btn-primary">Ver Precios y Reservar</a>
   </div>
 </section>
 
@@ -193,8 +205,62 @@
   </div>
 </section>
 
-<!-- TIMELINE (Meses 9 al 12) -->
+<!-- LAS 1,001 FORMAS DE APRENDER INGLÉS (El Método) -->
 <section>
+  <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">Olvídate de los libros aburridos y las clases monótonas. Nuestro ecosistema de Inteligencia Artificial se adapta a tu hijo para que aprenda inglés de la forma que más le apasione:</p>
+  
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-icon">🗣️</div>
+      <div>
+        <h4>Inmersión Conversacional</h4>
+        <p>Chat inteligente que corrige su pronunciación y lo ayuda a pensar en inglés en tiempo real, 24/7.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🤖</div>
+      <div>
+        <h4>Asistente "Sofía" (Voz Humana)</h4>
+        <p>Práctica de speaking con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🧠</div>
+      <div>
+        <h4>Repetición Espaciada (Flashcards)</h4>
+        <p>Más de 200 palabras diseñadas para que el cerebro las retenga de forma natural sin memorizar.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🎬</div>
+      <div>
+        <h4>Inmersión Cinematográfica</h4>
+        <p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🎮</div>
+      <div>
+        <h4>Gamificación (Cyber Arcade)</h4>
+        <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">✍️</div>
+      <div>
+        <h4>Corrección Bilingüe en Vivo</h4>
+        <p>Módulo de redacción que traduce y corrige sus textos con inteligencia artificial avanzada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL FUTURO: MÓDULOS DE ÉLITE (Timeline) -->
+<section>
+  <h2 class="sec-title">El Futuro del Ecosistema</h2>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">Aprender inglés es solo el comienzo. A partir del mes 9, tu hijo accede a los módulos exclusivos de tecnología y negocios:</p>
+  
   <div class="timeline">
     <div class="month-card">
       <div class="month-header">Mes 9</div>
@@ -220,51 +286,22 @@
   </div>
 </section>
 
-<!-- BECAS (100 Fundadores con descuento/Beca) -->
-<section id="becas">
-  <div class="beca-container">
-    <div class="beca-top">
-      <h2>100 Becas de Excelencia</h2>
-      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
-    </div>
-    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
-    
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
-      <div class="progress-text">
-        <span id="becaContador">Becas asignadas: 0 / 100</span>
-        <span id="becaPorcentaje">0%</span>
-      </div>
-    </div>
-
-    <ul class="req-list">
-      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
-      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
-      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
-      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
-      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
-    </ul>
-
-    <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
-  </div>
-</section>
-
 <!-- PRECIOS -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:14px;">Solo 300 plazas en total (100 Becas + 200 Regulares).<br>Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:15px;">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
   
   <div class="pricing-grid">
     <!-- Regular -->
     <div class="price-card">
       <h3>Cupo Regular</h3>
       <div class="price-val">$99<span>.99/mes</span></div>
-      <div class="price-note">Quedan 200 cupos a este precio</div>
+      <div class="price-note">Acceso total a la plataforma de élite</div>
       <ul class="price-features">
-        <li>7 Módulos de Idiomas con IA</li>
-        <li>Asistente de voz "Sofía"</li>
-        <li>Crossroads Café (26 eps)</li>
-        <li>Cyber Arcade (Erian Nexus V11)</li>
+        <li>Las 1,001 formas de aprender inglés</li>
+        <li>Asistente de voz "Sofía" y Chat DeepSeek</li>
+        <li>Crossroads Café y Cyber Arcade</li>
+        <li>Acceso a las Carreras Tech (Mes 9+)</li>
       </ul>
       <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Cupo</button>
     </div>
@@ -277,7 +314,7 @@
       <ul class="price-features">
         <li>Todo lo del plan Regular</li>
         <li>Mandarín, Alemán y Francés (Mes 6+)</li>
-        <li>Carreras Tech: Ciberseguridad, SEO, Data (Mes 9+)</li>
+        <li>Carreras Tech completas (Ciber, SEO, Data)</li>
         <li>Prioridad en asignación de becas futuras</li>
       </ul>
       <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Cupo Global</button>
@@ -311,18 +348,46 @@
   "Regálale lo mejor. Invierte en el futuro de tu hijo."
 </div>
 
+<!-- BECAS (Al final del todo) -->
+<section id="becas">
+  <div class="beca-container">
+    <div class="beca-top">
+      <h2>100 Becas de Excelencia</h2>
+      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
+    </div>
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
+    
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
+      <div class="progress-text">
+        <span id="becaContador">Becas asignadas: 0 / 100</span>
+        <span id="becaPorcentaje">0%</span>
+      </div>
+    </div>
+
+    <ul class="req-list">
+      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
+      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
+      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
+      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
+      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
+    </ul>
+
+    <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
+  </div>
+</section>
+
 <footer>
   <p>Erian Technologies, C.A. · Socopó, Barinas</p>
   <p style="margin-top:5px; opacity:0.6;">erianingles@gmail.com</p>
 </footer>
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
-<!-- IMPORTANTE: Cambia TU_NUMERO_AQUI por tu número real (ej: 584241234567) -->
 <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<!-- MODALES -->
+<!-- MODALES (Se mantienen igual) -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -373,7 +438,7 @@
       <button type="submit" class="form-submit gold">Enviar Reserva</button>
     </form>
   </div>
-</div><script>
+    </div><script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 0
@@ -426,7 +491,6 @@ function cerrarModal(modal) {
 document.addEventListener('DOMContentLoaded', () => {
   actualizarContadorBecas();
 
-  // Botón Beca
   const btnBeca = document.getElementById('btnPostularBeca');
   if (btnBeca) {
     btnBeca.addEventListener('click', () => {
@@ -438,11 +502,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Botones de Reserva
   document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
   document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
 
-  // Cerrar Modales
   document.querySelectorAll('[data-close]').forEach(btn => {
     btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
   });
@@ -459,7 +521,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Evitar envíos dobles
   ['formBeca', 'formRegular', 'formElite'].forEach(formId => {
     const form = document.getElementById(formId);
     if (!form) return;
@@ -473,7 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Función por si necesitas actualizar desde consola: actualizarBecas(15)
 window.actualizarBecas = function(n) {
   CONFIG.BECAS_ASIGNADAS = Math.min(n, CONFIG.BECAS_TOTALES);
   actualizarContadorBecas();
