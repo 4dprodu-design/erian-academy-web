@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Erian Academy | Universidad Privada de Élite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Erian Academy | Elite Tech & Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* PALETA ELEGIDA */
-            --bg-main: #0b1320;       /* Azul marino profundo */
-            --bg-card: #111c2e;       /* Azul más oscuro para tarjetas */
-            --gold: #dfb646;          /* Dorado elegante */
-            --cyan: #38bdf8;          /* Cian suave */
-            --wine-bg: #3b1616;       /* Fondo rojo vino para el futuro */
-            --coral: #fda4af;         /* Letras coral para el futuro */
-            --text-main: #e2e8f0;     /* Blanco roto */
-            --text-muted: #8892a8;    /* Gris azulado */
+            --bg-main: #0b1320;
+            --bg-card: #111c2e;
+            --gold: #dfb646;
+            --cyan: #38bdf8;
+            --neon-cyan: #00F0FF;
+            --wine-bg: #3b1616;
+            --coral: #fda4af;
+            --text-main: #e2e8f0;
+            --text-muted: #8892a8;
             --border: rgba(223, 182, 70, 0.2);
+            
+            /* Tech Colors */
+            --tech-bg: #050b14;
+            --tech-green: #10B981;
+            --tech-red: #EF4444;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; position: relative; }
 
-        /* CUADRÍCULA SUTIL DE FONDO */
         .grid-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
             background-image: 
@@ -33,16 +37,16 @@
         }
 
         .serif { font-family: 'Playfair Display', serif; }
+        .tech-font { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
         .gold-text { color: var(--gold); }
         .cyan-text { color: var(--cyan); }
 
-        /* BOTONES */
         .btn-gold {
             background: linear-gradient(135deg, var(--gold), #c49b2a);
             color: #0b1320; padding: 16px 35px; border-radius: 4px;
             font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
             text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(223, 182, 70, 0.2); transition: 0.4s;
-            border: none; cursor: pointer; text-align: center; position: relative; overflow: hidden;
+            border: none; cursor: pointer; text-align: center;
         }
         .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(223, 182, 70, 0.4); }
 
@@ -59,7 +63,6 @@
         .section-title { font-size: 40px; margin-bottom: 15px; text-align: center; font-weight: 700; letter-spacing: -1px; }
         .section-subtitle { font-size: 17px; color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; font-weight: 300; }
 
-        /* ANIMACIONES SCROLL */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -72,23 +75,109 @@
         .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .logo-header { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
         .logo-header span { color: var(--gold); }
-        .flag {
-            width: 30px; height: 20px; background-image: linear-gradient(180deg, #B22234 8.33%, #FFFFFF 8.33%, #FFFFFF 16.66%, #B22234 16.66%, #B22234 25%, #FFFFFF 25%, #FFFFFF 33.33%, #B22234 33.33%, #B22234 41.66%, #FFFFFF 41.66%, #FFFFFF 50%, #B22234 50%, #B22234 58.33%, #FFFFFF 58.33%, #FFFFFF 66.66%, #B22234 66.66%, #B22234 75%, #FFFFFF 75%, #FFFFFF 83.33%, #B22234 83.33%, #B22234 91.66%, #FFFFFF 91.66%, #FFFFFF 100%); position: relative; border-radius: 3px; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
+        .flag { width: 30px; height: 20px; background-image: linear-gradient(180deg, #B22234 8.33%, #FFFFFF 8.33%, #FFFFFF 16.66%, #B22234 16.66%, #B22234 25%, #FFFFFF 25%, #FFFFFF 33.33%, #B22234 33.33%, #B22234 41.66%, #FFFFFF 41.66%, #FFFFFF 50%, #B22234 50%, #B22234 58.33%, #FFFFFF 58.33%, #FFFFFF 66.66%, #B22234 66.66%, #B22234 75%, #FFFFFF 75%, #FFFFFF 83.33%, #B22234 83.33%, #B22234 91.66%, #FFFFFF 91.66%, #FFFFFF 100%); position: relative; border-radius: 3px; display: inline-block; }
         .flag::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 53.84%; background-color: #3C3B6E; background-image: radial-gradient(#FFF 15%, transparent 16%); background-size: 4px 4px; }
-        
-        .btn-header { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 8px 16px; border-radius: 4px; font-size: 12px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-header { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 8px 16px; border-radius: 4px; font-size: 12px; font-weight: 700; text-decoration: none; text-transform: uppercase; }
 
         /* HERO */
         .hero { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-top: 40px; }
         .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -1.5px; color: #FFF; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; line-height: 1.6; font-weight: 300; }
         .badge { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 6px 20px; border-radius: 30px; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; }
+
+        /* =========================================
+           DISEÑO CYBER-TECH (EL FUTURO)
+           ========================================= */
+        .cyber-section {
+            background: var(--tech-bg);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        /* Rejilla de fondo Cyberpunk */
+        .cyber-section::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            perspective: 500px;
+            transform: rotateX(60deg) scale(2) translateY(-100px);
+            opacity: 0.3; pointer-events: none;
+        }
+
+        .cyber-title {
+            color: #FFF; text-align: center; font-size: 42px; font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase; letter-spacing: 4px; position: relative; z-index: 1;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        .cyber-subtitle {
+            color: var(--neon-cyan); text-align: center; font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 2px; margin-bottom: 50px; position: relative; z-index: 1; text-transform: uppercase;
+        }
+
+        .tech-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+            position: relative; z-index: 1; max-width: 1000px; margin: 0 auto;
+        }
+
+        .tech-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+        .tech-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.3);
+        }
+        
+        /* Línea de escaneo en las tarjetas */
+        .tech-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);
+            animation: scan 3s infinite linear; opacity: 0.5;
+        }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+        .tech-card h3 {
+            font-family: 'Rajdhani', sans-serif; font-size: 22px; color: #FFF;
+            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;
+        }
+        .tech-card h3 svg { width: 24px; height: 24px; color: var(--neon-cyan); }
+        .tech-card p { font-size: 14px; color: #94A3B8; line-height: 1.6; }
+        .tech-tag {
+            display: inline-block; background: rgba(0, 240, 255, 0.1); color: var(--neon-cyan);
+            padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; letter-spacing: 1px; margin-top: 15px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        /* Terminal de Código */
+        .terminal-window {
+            background: #000; border: 1px solid #334155; border-radius: 8px; margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; z-index: 1;
+        }
+        .terminal-header {
+            background: #1E293B; padding: 10px 15px; border-radius: 8px 8px 0 0;
+            display: flex; gap: 8px; align-items: center; border-bottom: 1px solid #334155;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #EF4444; } .dot.yellow { background: #FBBF24; } .dot.green { background: #10B981; }
+        .terminal-body { padding: 20px; font-family: monospace; font-size: 13px; line-height: 1.6; color: #10B981; overflow-x: auto; }
+        .terminal-body .command { color: #38BDF8; }
+        .terminal-body .comment { color: #64748B; }
+        .terminal-body .error { color: #EF4444; }
     </style>
 </head>
 <body>
     <div class="grid-bg"></div>
-    <!-- Header -->
     <div class="header">
         <div class="header-inner">
             <div class="logo-header">
@@ -130,80 +219,116 @@
     </div>
 </section>
 
-<!-- PRECIOS -->
+<!-- SECCIÓN DE IDIOMAS Y PRECIOS -->
 <section id="precios">
     <div class="container reveal">
-        <h2 class="section-title serif">Inversión y <span class="gold-text">Capacidad</span></h2>
-        <p class="section-subtitle">Capacidad total de la escuela: <strong>300 alumnos</strong>. La <strong>Inscripción de $150 USD es obligatoria</strong> para todos los planes (pago único de admisión).</p>
+        <h2 class="section-title serif">Expansión de Idiomas <span class="gold-text">(A partir del Mes 6)</span></h2>
+        <p class="section-subtitle">Inicia tu camino dominando el inglés. Al cumplir 6 meses en la academia, desbloquea el poder de comunicarte con el mundo entero. Elige tu próximo idioma o el paquete completo.</p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1000px; margin: 0 auto;">
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 1000px; margin: 0 auto;">
             
-            <!-- Regular -->
-            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px 30px; flex: 1; min-width: 280px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- Tarjeta 1: Un Idioma Individual -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px 30px; flex: 1; min-width: 300px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="font-size: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Precio Regular</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Del alumno 101 al 300</p>
-                    <div style="font-size: 48px; font-weight: 800; color: #FFF; margin-bottom: 5px;">$99.99<span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
-                    <ul style="list-style: none; text-align: left; margin: 25px 0; font-size: 14px; color: var(--text-muted); line-height: 1.8;">
-                        <li>✓ Inscripción de $150 (Pago único)</li>
-                        <li>✓ Acceso completo a Inglés</li>
-                        <li>✓ Tutoría IA 24/7 + Cyber Arcade</li>
-                        <li>✓ Idiomas extra (Mes 6+): $29.99/mes</li>
+                    <div style="font-size: 14px; font-weight: 800; color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px;">Módulo Individual</div>
+                    <h3 style="font-size: 22px; font-weight: 800; color: #FFF; margin-bottom: 20px;">Aprende un Nuevo Idioma</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">Elige <strong>Mandarín Chino, Alemán o Francés</strong> y agrégalo a tu plan actual.</p>
+                    
+                    <div style="font-size: 54px; font-weight: 900; color: var(--gold); margin-bottom: 5px;">$29.99<span style="font-size: 16px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">Por cada idioma adicional</p>
+                    
+                    <ul style="list-style: none; text-align: left; margin: 20px 0; font-size: 15px; color: var(--text-main); line-height: 1.8;">
+                        <li>✓ Acceso completo al módulo del idioma elegido.</li>
+                        <li>✓ Tutoría de IA personalizada.</li>
+                        <li>✓ Disponible a partir del mes 6.</li>
                     </ul>
                 </div>
-                <a href="#contacto" class="btn-cyan" style="width: 100%;">Reservar Cupo Regular</a>
+                <a href="#contacto" class="btn-cyan" style="width: 100%;">Adquirir Módulo</a>
             </div>
 
-            <!-- Paquete Global -->
-            <div style="background: var(--bg-card); border: 2px solid var(--cyan); border-radius: 12px; padding: 40px 30px; flex: 1; min-width: 280px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(56, 189, 248, 0.1);">
+            <!-- Tarjeta 2: Combo Completo (Los 4 Idiomas) -->
+            <div style="background: linear-gradient(145deg, var(--bg-card), #0d1625); border: 2px solid var(--gold); border-radius: 12px; padding: 40px 30px; flex: 1; min-width: 300px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(223, 182, 70, 0.15); transform: scale(1.02);">
                 <div>
-                    <h3 style="font-size: 20px; text-transform: uppercase; letter-spacing: 1px; color: var(--cyan);">Paquete Global</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Acceso Ilimitado a Futuro</p>
-                    <div style="font-size: 48px; font-weight: 800; color: #FFF; margin-bottom: 5px;">$149.99<span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
-                    <ul style="list-style: none; text-align: left; margin: 25px 0; font-size: 14px; color: var(--text-muted); line-height: 1.8;">
-                        <li>✓ Inscripción de $150 (Pago único)</li>
-                        <li>✓ Acceso inmediato a Inglés</li>
-                        <li>✓ <strong>A partir del Mes 6:</strong> Mandarín, Alemán y Francés incluidos.</li>
-                        <li>✓ Sin costos extra por idiomas</li>
+                    <div style="font-size: 14px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px;">El Combo Maestro</div>
+                    <h3 style="font-size: 22px; font-weight: 800; color: #FFF; margin-bottom: 20px;">El Imperio de los 4 Idiomas</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">Aprende <strong>Inglés + Mandarín + Francés + Alemán</strong> en un solo paquete global.</p>
+                    
+                    <div style="font-size: 54px; font-weight: 900; color: var(--gold); margin-bottom: 5px;">$149.99<span style="font-size: 16px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">Acceso ilimitado a los 4 idiomas</p>
+                    
+                    <ul style="list-style: none; text-align: left; margin: 20px 0; font-size: 15px; color: var(--text-main); line-height: 1.8;">
+                        <li>✓ Los 4 idiomas incluidos sin costos extra.</li>
+                        <li>✓ Acceso total a las futuras carreras tecnológicas.</li>
+                        <li>✓ Ahorro masivo frente a pagar por separado.</li>
+                        <li>✓ Disponible a partir del mes 6.</li>
                     </ul>
                 </div>
-                <a href="#contacto" class="btn-cyan" style="width: 100%; background: var(--cyan); color: var(--bg-main);">Adquirir Global</a>
+                <a href="#contacto" class="btn-gold" style="width: 100%;">Adquirir Combo Completo</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EL FUTURO (MESES 9-12: BORGOÑA/CORAL) -->
-<section style="background: var(--wine-bg);">
+<!-- =========================================
+     EL FUTURO: DISEÑO CYBER-TECH (INCREÍBLE)
+     ========================================= -->
+<section class="cyber-section">
     <div class="container reveal">
-        <h2 class="section-title serif" style="color: var(--coral);">El Futuro: <span class="gold-text">Carreras Élite</span></h2>
-        <p class="section-subtitle" style="color: var(--coral);">No solo aprenderán idiomas. A partir del mes 9, se convertirán en arquitectos digitales y administradores de riquezas.</p>
+        <h2 class="cyber-title">El Futuro: <span style="color: var(--neon-cyan);">División de Tecnología</span></h2>
+        <p class="cyber-subtitle">No solo idiomas. A partir del Mes 9, desbloqueamos las carreras que dominarán el planeta.</p>
 
-        <div style="display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 0 auto;">
-            <div style="display: flex; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(253, 164, 175, 0.2);">
-                <div style="padding: 20px; width: 130px; text-align: center; font-weight: 800; color: var(--coral); border-right: 1px solid rgba(253, 164, 175, 0.2); display: flex; align-items: center; justify-content: center;">Mes 9</div>
-                <div style="padding: 20px;">
-                    <h3 style="font-size: 18px; margin-bottom: 5px; color: #FFF;">🛡️ Ciberseguridad y Construcción Web</h3>
-                    <p style="font-size: 14px; color: var(--coral);">Protección de activos y arquitectura de páginas web para sus futuros negocios.</p>
-                </div>
+        <div class="tech-grid">
+            <!-- Tarjeta 1: Ciberseguridad -->
+            <div class="tech-card">
+                <h3>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Ciberseguridad
+                </h3>
+                <p>Arquitectura de defensa digital. Aprenderán a proteger infraestructuras, auditar sistemas y blindar los activos de sus futuras corporaciones.</p>
+                <span class="tech-tag">MES 9</span>
             </div>
-            <div style="display: flex; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(253, 164, 175, 0.2);">
-                <div style="padding: 20px; width: 130px; text-align: center; font-weight: 800; color: var(--coral); border-right: 1px solid rgba(253, 164, 175, 0.2); display: flex; align-items: center; justify-content: center;">Mes 10</div>
-                <div style="padding: 20px;">
-                    <h3 style="font-size: 18px; margin-bottom: 5px; color: #FFF;">📊 Inteligencia de Datos y Finanzas</h3>
-                    <p style="font-size: 14px; color: var(--coral);">Análisis de data, lenguaje algorítmico y manejo de recursos financieros propios.</p>
-                </div>
+
+            <!-- Tarjeta 2: Inteligencia de Datos -->
+            <div class="tech-card">
+                <h3>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    Inteligencia de Datos
+                </h3>
+                <p>Análisis algorítmico y manejo de bases de datos masivas. El lenguaje que usan los fondos de inversión para tomar decisiones millonarias.</p>
+                <span class="tech-tag">MES 10</span>
             </div>
-            <div style="display: flex; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(253, 164, 175, 0.2);">
-                <div style="padding: 20px; width: 130px; text-align: center; font-weight: 800; color: var(--coral); border-right: 1px solid rgba(253, 164, 175, 0.2); display: flex; align-items: center; justify-content: center;">Mes 11-12</div>
-                <div style="padding: 20px;">
-                    <h3 style="font-size: 18px; margin-bottom: 5px; color: #FFF;">🚀 SEO y Creación de Agencias</h3>
-                    <p style="font-size: 14px; color: var(--coral);">Posicionamiento web para ser el Director General de su propia agencia digital.</p>
-                </div>
+
+            <!-- Tarjeta 3: SEO y Agencias -->
+            <div class="tech-card">
+                <h3>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    SEO & Agencias
+                </h3>
+                <p>Posicionamiento web de élite y creación de agencias digitales. El arte de monetizar ideas y construir un imperio desde cero.</p>
+                <span class="tech-tag">MES 11 - 12</span>
+            </div>
+        </div>
+
+        <!-- Terminal de Código Simulada -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                <span style="color: #64748B; font-family: monospace; font-size: 12px; margin-left: 10px;">root@erian-defense-system:~#</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="command">$</span> run system_init.py --mode=elite</div>
+                <div class="comment"># Iniciando protocolo de defensa Erian...</div>
+                <div><span class="command">></span> Cargando módulos de Ciberseguridad [OK]</div>
+                <div><span class="command">></span> Estableciendo enlace con servidores NVIDIA [OK]</div>
+                <div><span class="command">></span> Encriptando data del estudiante [AES-256]</div>
+                <div><span class="command">$</span> status --check</div>
+                <div class="error">[SISTEMA BLINDADO] Ningún intruso detectado.</div>
+                <div class="comment"># Esperando nueva generación de líderes...</div>
+                <div><span class="command">_</span> <span style="animation: blink 1s infinite;">|</span></div>
             </div>
         </div>
     </div>
-</section>    <!-- BECAS DE EXCELENCIA (EL SECRETO AL FINAL) -->
+</section>    <!-- BECAS DE EXCELENCIA -->
     <section style="background: rgba(17, 28, 46, 0.5); border-top: 2px solid var(--gold);">
         <div class="container reveal">
             <div style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -221,7 +346,7 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO (ENVÍA A erianingles@gmail.com) -->
+    <!-- FORMULARIO DE CONTACTO (SIN WHATSAPP, SOLO CORREO) -->
     <section id="contacto" style="background: var(--bg-main); padding-bottom: 50px;">
         <div class="container reveal">
             <h2 class="section-title serif" style="text-align: center;">Solicite su <span class="gold-text">Entrevista Privada</span></h2>
@@ -277,26 +402,25 @@
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-            // 2. Contador Dinámico de Becas (Falso para Urgencia)
-            // Empieza en 100 y baja aleatoriamente hasta 84 para crear escasez.
+            // 2. Contador Dinámico de Becas
             const contadorEl = document.getElementById('contador-becas');
             let becasRestantes = 100;
-            
-            // Simulamos que 3 personas ya aplicaron hoy
             setTimeout(() => {
                 const interval = setInterval(() => {
                     if (becasRestantes > 84) {
-                        // A veces baja, a veces se queda (simula actividad real)
                         if(Math.random() > 0.7) {
                             becasRestantes--;
                             contadorEl.innerText = becasRestantes;
                         }
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, 4000); // Cambia cada 4 segundos
+                    } else { clearInterval(interval); }
+                }, 4000);
             }, 2000);
         });
+        
+        // Cursor parpadeante para la terminal
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }`;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
