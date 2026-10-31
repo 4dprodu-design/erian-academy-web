@@ -110,9 +110,7 @@
   .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
   .strategy-box p strong { color: var(--cyan); }
   .strategy-secret { background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral); padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left; }
-  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
-
-  /* METAVERSO (AVATARES 3D) */
+  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }  /* METAVERSO (AVATARES 3D) */
   .metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
   .metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
   .metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
@@ -248,7 +246,13 @@
   .modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
   .form-group { margin-bottom: 15px; }
   .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-  .form-group in<!-- HEADER -->
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border-glass); color: #fff; font-family: inherit; font-size: 14px; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--cyan); }
+  .form-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--cyan); color: #000; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
+  .form-submit.gold { background: var(--gold); }
+</style>
+</head>
+<body><!-- HEADER -->
 <header>
   <div class="logo"><div class="logo-mark">E</div> ERIAN ACADEMY</div>
   <a href="#precios" class="header-cta">Reservar Cupo</a>
@@ -393,9 +397,7 @@
       <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
     </div>
   </div>
-</section>
-
-<!-- LAS 1,001 FORMAS -->
+</section><!-- LAS 1,001 FORMAS -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
@@ -469,6 +471,8 @@
       <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs (Claude, DeepSeek, OpenAI) analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
+</section>
+
 <!-- EL FUTURO (CARRERAS) -->
 <section>
   <h2 class="sec-title">Las Carreras del Futuro</h2>
@@ -566,7 +570,6 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
-  <!-- BINANCE -->
   <div class="binance-premium-card">
     <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
       <g fill="#F3BA2F">
@@ -802,39 +805,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
-  document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
-  document.getElementById('btnReservarCarrera')?.addEventListener('click', () => abrirModal('modalCarrera'));
-
-  document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
-  });
-
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) cerrarModal(overlay);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
-    }
-  });
-
-  ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('.form-submit');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = '⏳ Enviando...';
-      }
-    });
-  });
-});
-</script>
-
-</body>
-</html>
+  document.getElementById('btnR
