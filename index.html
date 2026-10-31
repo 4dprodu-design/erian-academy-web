@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erian Academy — La Llave del Imperio</title>
-<meta name="description" content="Aprende inglés con IA y domina las carreras del futuro. No formamos empleados, formamos Reyes de Imperios. 100 Becas y 200 Cupos Regulares.">
+<title>Erian Academy — Universidad Privada de Élite</title>
+<meta name="description" content="El único ecosistema educativo de élite en Barinas. Más de $100,000 USD en infraestructura dedicada exclusivamente a 300 personas.">
 <style>
   :root {
     --bg-main: #0b1320;       
@@ -73,14 +73,31 @@
   /* SECCIONES */
   section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
   .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--gold); line-height: 1.2; }
+  .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
   
   /* TEXTO DECISIÓN */
   .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
+  .text-gold { color: var(--gold); font-weight: 600; }
 
-  /* NUEVA SECCIÓN: 1,001 FORMAS */
-  .method-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto; }
+  /* INFRAESTRUCTURA ($100,000 USD) */
+  .infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+  @media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .infra-card {
+    background: var(--bg-card); border: 1px solid var(--border-glass);
+    padding: 30px 20px; border-radius: 12px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .infra-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--cyan));
+  }
+  .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
+  .infra-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* ECOSISTEMA (1,001 formas) */
+  .method-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
   @media(min-width: 768px) { .method-grid { grid-template-columns: 1fr 1fr; } }
   .method-card {
     background: var(--bg-card); border: 1px solid var(--border-glass);
@@ -92,7 +109,7 @@
   .method-card h4 { color: #fff; font-size: 16px; margin-bottom: 5px; }
   .method-card p { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
 
-  /* NUEVA SECCIÓN: TIMELINE (Meses) */
+  /* TIMELINE (Meses 9 al 12) */
   .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
   .month-card {
     background: var(--bg-card); border: 1px solid var(--border-maroon);
@@ -119,13 +136,6 @@
   .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 14px; display: grid; gap: 10px; color: var(--text-muted); }
   .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
   .price-card.premium .price-features li::before { color: var(--gold); }
-
-  /* HARDWARE */
-  .hardware-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto; }
-  @media(min-width: 768px) { .hardware-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .hw-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 20px; border-radius: 12px; text-align: center; }
-  .hw-card h4 { color: var(--cyan); margin-bottom: 10px; font-size: 16px; }
-  .hw-card p { font-size: 13px; color: var(--text-muted); }
 
   /* BECAS */
   .beca-container {
@@ -189,10 +199,10 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>No formamos empleados.<br>Formamos <span class="gold-text">Reyes de Imperios</span>.</h1>
-  <p class="sub">Esta no es una escuela de idiomas. Es la Llave del Imperio. El mismo ecosistema educativo y de inteligencia artificial que usan las grandes potencias para preparar a sus hijos.</p>
+  <h1>La Única Universidad Privada<br>de <span class="gold-text">Élite</span> en Barinas.</h1>
+  <p class="sub">Un privilegio único para muy pocas personas. No formamos empleados. Formamos Reyes de Imperios y Administradores de Riquezas con Inteligencia Artificial de nivel global.</p>
   <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-    <a href="#precios" class="btn btn-primary">Ver Precios y Reservar</a>
+    <a href="#precios" class="btn btn-primary">Asegurar mi Cupo</a>
   </div>
 </section>
 
@@ -205,31 +215,45 @@
   </div>
 </section>
 
-<!-- LAS 1,001 FORMAS DE APRENDER INGLÉS (El Método) -->
+<!-- LA INFRAESTRUCTURA DE $100,000 USD (El gran diferenciador) -->
 <section>
-  <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">Olvídate de los libros aburridos y las clases monótonas. Nuestro ecosistema de Inteligencia Artificial se adapta a tu hijo para que aprenda inglés de la forma que más le apasione:</p>
+  <h2 class="sec-title">Tecnología de Nivel Dios</h2>
+  <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura dedicada exclusivamente para los alumnos de Erian Academy:</p>
+  
+  <div class="infra-grid">
+    <div class="infra-card">
+      <h4>Mac Studio M4/M5</h4>
+      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia que usan los estudios de Silicon Valley.</p>
+    </div>
+    <div class="infra-card">
+      <h4>Racks NVIDIA</h4>
+      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
+    </div>
+    <div class="infra-card">
+      <h4>Laptops ASUS</h4>
+      <p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LAS 1,001 FORMAS DE APRENDER INGLÉS (El Ecosistema) -->
+<section>
+  <h2 class="sec-title">1,001 Formas de Aprender</h2>
+  <p class="sec-subtitle">Olvídate de los libros aburridos. Nuestro ecosistema de Inteligencia Artificial (DeepSeek, OpenAI, Groq) se adapta a tu hijo para que aprenda inglés de la forma que más le apasione. Diseñado para edades de 9 a 80 años (solo necesitas leer y escribir).</p>
   
   <div class="method-grid">
     <div class="method-card">
       <div class="method-icon">🗣️</div>
       <div>
-        <h4>Inmersión Conversacional</h4>
-        <p>Chat inteligente que corrige su pronunciación y lo ayuda a pensar en inglés en tiempo real, 24/7.</p>
-      </div>
-    </div>
-    <div class="method-card">
-      <div class="method-icon">🤖</div>
-      <div>
-        <h4>Asistente "Sofía" (Voz Humana)</h4>
-        <p>Práctica de speaking con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p>
+        <h4>Asistente "Sofía" (Voice)</h4>
+        <p>Práctica de conversación con voces neuronales premium (Edge TTS / ElevenLabs). Habla con una IA indistinguible de un humano real.</p>
       </div>
     </div>
     <div class="method-card">
       <div class="method-icon">🧠</div>
       <div>
-        <h4>Repetición Espaciada (Flashcards)</h4>
-        <p>Más de 200 palabras diseñadas para que el cerebro las retenga de forma natural sin memorizar.</p>
+        <h4>Flashcards Inteligentes</h4>
+        <p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p>
       </div>
     </div>
     <div class="method-card">
@@ -240,17 +264,24 @@
       </div>
     </div>
     <div class="method-card">
+      <div class="method-icon">💬</div>
+      <div>
+        <h4>Chat con IA (DeepSeek)</h4>
+        <p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con la IA y recibir evaluaciones instantáneas.</p>
+      </div>
+    </div>
+    <div class="method-card">
       <div class="method-icon">🎮</div>
       <div>
-        <h4>Gamificación (Cyber Arcade)</h4>
+        <h4>Cyber Arcade</h4>
         <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
       </div>
     </div>
     <div class="method-card">
       <div class="method-icon">✍️</div>
       <div>
-        <h4>Corrección Bilingüe en Vivo</h4>
-        <p>Módulo de redacción que traduce y corrige sus textos con inteligencia artificial avanzada.</p>
+        <h4>Módulo de Escritura</h4>
+        <p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p>
       </div>
     </div>
   </div>
@@ -258,8 +289,8 @@
 
 <!-- EL FUTURO: MÓDULOS DE ÉLITE (Timeline) -->
 <section>
-  <h2 class="sec-title">El Futuro del Ecosistema</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">Aprender inglés es solo el comienzo. A partir del mes 9, tu hijo accede a los módulos exclusivos de tecnología y negocios:</p>
+  <h2 class="sec-title">Las Carreras del Futuro</h2>
+  <p class="sec-subtitle">Aprender inglés es solo el comienzo. A partir del mes 9, tu hijo accede a los módulos exclusivos de tecnología y negocios:</p>
   
   <div class="timeline">
     <div class="month-card">
@@ -289,7 +320,7 @@
 <!-- PRECIOS -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:15px;">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
+  <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
   
   <div class="pricing-grid">
     <!-- Regular -->
@@ -298,7 +329,7 @@
       <div class="price-val">$99<span>.99/mes</span></div>
       <div class="price-note">Acceso total a la plataforma de élite</div>
       <ul class="price-features">
-        <li>Las 1,001 formas de aprender inglés</li>
+        <li>1,001 formas de aprender inglés (7 módulos)</li>
         <li>Asistente de voz "Sofía" y Chat DeepSeek</li>
         <li>Crossroads Café y Cyber Arcade</li>
         <li>Acceso a las Carreras Tech (Mes 9+)</li>
@@ -313,34 +344,14 @@
       <div class="price-note">Los 4 idiomas y todas las carreras</div>
       <ul class="price-features">
         <li>Todo lo del plan Regular</li>
-        <li>Mandarín, Alemán y Francés (Mes 6+)</li>
+        <li>Mandarín, Alemán y Francés (Mes 6+ sin costo extra)</li>
         <li>Carreras Tech completas (Ciber, SEO, Data)</li>
         <li>Prioridad en asignación de becas futuras</li>
       </ul>
       <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Cupo Global</button>
     </div>
   </div>
-</section>
-
-<!-- HARDWARE DE NIVEL DIOS -->
-<section>
-  <h2 class="sec-title">Tecnología de Nivel Dios</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">¿Por qué el límite es estrictamente 300 alumnos? Porque no usamos servidores compartidos. Tu hijo tendrá acceso exclusivo a:</p>
-  
-  <div class="hardware-grid">
-    <div class="hw-card">
-      <h4>Mac Studio M4/M5</h4>
-      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia.</p>
-    </div>
-    <div class="hw-card">
-      <h4>Racks NVIDIA</h4>
-      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase.</p>
-    </div>
-    <div class="hw-card">
-      <h4>Laptops ASUS</h4>
-      <p>Equipos de alto rendimiento dedicados a la creación de los módulos que consumen los alumnos.</p>
-    </div>
-  </div>
+  <p style="text-align:center; color:var(--text-muted); margin-top:15px; font-size:12px;">* Idiomas extra (Mandarín, Alemán, Francés) en el plan Regular tienen un costo de $29.99/mes c/u a partir del mes 6.</p>
 </section>
 
 <!-- FRASE FINAL -->
@@ -348,7 +359,7 @@
   "Regálale lo mejor. Invierte en el futuro de tu hijo."
 </div>
 
-<!-- BECAS (Al final del todo) -->
+<!-- BECAS (El privilegio oculto al final) -->
 <section id="becas">
   <div class="beca-container">
     <div class="beca-top">
@@ -383,11 +394,12 @@
 </footer>
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
+<!-- IMPORTANTE: Cambia TU_NUMERO_AQUI por tu número real (ej: 584241234567) -->
 <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<!-- MODALES (Se mantienen igual) -->
+<!-- MODALES -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -397,7 +409,7 @@
       <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
       <input type="hidden" name="_template" value="table">
       <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre" required></div>
-      <div class="form-group"><label>Edad</label><input type="number" name="Edad" min="9" max="17" required></div>
+      <div class="form-group"><label>Edad</label><input type="number" name="Edad" min="9" max="80" required></div>
       <div class="form-group"><label>Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>WhatsApp</label><input type="tel" name="WhatsApp" required></div>
       <div class="form-group"><label>¿Por qué merece la beca?</label><textarea name="Motivo" rows="3" required></textarea></div>
@@ -438,7 +450,7 @@
       <button type="submit" class="form-submit gold">Enviar Reserva</button>
     </form>
   </div>
-    </div><script>
+</div><script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 0
