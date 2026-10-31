@@ -56,8 +56,10 @@
   }
   .header-cta:hover { background: var(--gold); color: var(--bg-main); }
 
-  /* HERO CON BANDERA 3D */
+  /* HERO */
   .hero { padding: 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
+  
+  /* BANDERA 3D ONDEABLE */
   .flag-container { display: flex; justify-content: center; align-items: center; margin-bottom: 25px; perspective: 1000px; }
   .flag-3d {
     width: 152px; height: 80px; border-radius: 4px; overflow: hidden;
@@ -79,7 +81,6 @@
     color: var(--gold); font-size: 12px; font-weight: 800;
     letter-spacing: 1.5px; margin-bottom: 25px; text-transform: uppercase;
   }
-
   .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
   .hero h1 .gold-text { color: var(--gold); }
   .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
@@ -98,51 +99,32 @@
   .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 20px; color: var(--gold); line-height: 1.2; }
   .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
   
-  /* TEXTO DECISIÓN */
   .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
 
-  /* ESTRATEGIA Y EXCLUSIVIDAD */
-  .strategy-box {
-    background: linear-gradient(135deg, rgba(223,182,70,0.08), rgba(11,19,32,0.5));
-    border: 1px solid var(--gold); border-radius: 16px;
-    padding: 35px 25px; max-width: 850px; margin: 0 auto; text-align: center;
-    position: relative; overflow: hidden;
-  }
+  /* ESTRATEGIA */
+  .strategy-box { background: linear-gradient(135deg, rgba(223,182,70,0.08), rgba(11,19,32,0.5)); border: 1px solid var(--gold); border-radius: 16px; padding: 35px 25px; max-width: 850px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; }
   .strategy-box::before { content: '👑'; position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.05; transform: rotate(15deg); }
   .strategy-box h3 { color: var(--gold); font-size: clamp(22px, 4vw, 28px); font-weight: 900; margin-bottom: 15px; line-height: 1.2; }
   .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
   .strategy-box p strong { color: var(--cyan); }
-  .strategy-secret {
-    background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral);
-    padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left;
-  }
+  .strategy-secret { background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral); padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left; }
   .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
 
   /* METAVERSO (AVATARES 3D) */
   .metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
-  .metaverse-screen {
-    background: radial-gradient(circle at center, #101c36 0%, #050810 100%);
-    border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative;
-    overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1);
-    display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d;
-  }
-  .metaverse-floor {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 150px;
-    background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px);
-    background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom;
-    animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5;
-  }
+  .metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
+  .metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
   @keyframes moveFloor { 0% { background-position: 0 0; } 100% { background-position: 0 30px; } }
   .avatar-3d { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; animation: floatAvatar 3s ease-in-out infinite alternate; }
-  .avatar-3d:nth-child(3) { animation-delay: 0.5s; transform: scale(1.1) translateZ(50px); z-index: 3; } /* Centro */
+  .avatar-3d:nth-child(3) { animation-delay: 0.5s; transform: scale(1.1) translateZ(50px); z-index: 3; }
   .avatar-3d:nth-child(4) { animation-delay: 1s; }
   @keyframes floatAvatar { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
   .avatar-3d:nth-child(3) { animation-name: floatAvatarCenter; }
   @keyframes floatAvatarCenter { 0% { transform: translateY(0px) scale(1.1) translateZ(50px); } 100% { transform: translateY(-15px) scale(1.1) translateZ(50px); } }
   .avatar-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.6); background: #000; }
-  .avatar-3d:nth-child(2) .avatar-img { border-color: #dfb646; box-shadow: 0 0 20px rgba(223,182,70,0.6); } /* Profesor */
+  .avatar-3d:nth-child(2) .avatar-img { border-color: #dfb646; box-shadow: 0 0 20px rgba(223,182,70,0.6); }
   .voice-wave { display: flex; gap: 4px; margin-top: 15px; height: 20px; align-items: center; }
   .voice-wave span { display: block; width: 4px; background: #38bdf8; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
   .avatar-3d:nth-child(2) .voice-wave span { background: #dfb646; animation-duration: 1.2s; }
@@ -152,11 +134,7 @@
   .voice-wave span:nth-child(4) { height: 20px; animation-delay: 0.4s; }
   .voice-wave span:nth-child(5) { height: 8px; animation-delay: 0.15s; }
   @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
-  .live-badge {
-    position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px;
-    background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px;
-    border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff;
-  }
+  .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
   .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
   @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
@@ -198,7 +176,7 @@
   .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 17px; font-weight: 800; }
   .infra-card p { font-size: 13px; color: var(--text-muted); }
 
-  /* TIMELINE (Meses 9 al 12) */
+  /* TIMELINE */
   .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
   .month-card { background: var(--bg-card); border: 1px solid var(--border-maroon); border-radius: 12px; overflow: hidden; }
   .month-header { background: var(--bg-maroon); padding: 12px; text-align: center; font-weight: 700; color: var(--coral); font-size: 16px; border-bottom: 1px solid var(--border-maroon); }
@@ -207,7 +185,7 @@
   .price-tag-small { font-size: 12px; color: var(--gold); background: rgba(223,182,70,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(223,182,70,0.3); white-space: nowrap; }
   .month-body p { color: var(--text-muted); font-size: 15px; }
 
-  /* CONTADOR DE REGULARES */
+  /* CONTADOR REGULARES */
   .regular-urgency { background: var(--bg-card); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 20px; max-width: 800px; margin: 0 auto 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
   .regular-urgency p { color: var(--text-main); font-size: 15px; margin-bottom: 15px; font-weight: 700; }
   .regular-urgency p span { color: var(--cyan); }
@@ -229,11 +207,10 @@
   .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 13px; display: grid; gap: 10px; color: var(--text-main); }
   .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
   .price-card.premium .price-features li::before { color: var(--gold); }
-  
   .pricing-note { text-align: center; margin-top: 30px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-glass); padding: 20px; border-radius: 12px; font-size: 14px; color: var(--text-muted); }
   .pricing-note strong { color: var(--gold); }
 
-  /* SECCIÓN PREMIUM DE BINANCE PAY */
+  /* BINANCE */
   .binance-premium-card { max-width: 600px; margin: 40px auto 0; background: linear-gradient(145deg, #181a20, #0b0e11); border: 1px solid rgba(240, 185, 11, 0.3); border-radius: 20px; padding: 30px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(240,185,11,0.05); }
   .binance-premium-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--binance-yellow), transparent); }
   .binance-logo { width: 60px; height: 60px; margin: 0 auto 15px; filter: drop-shadow(0 0 10px rgba(240,185,11,0.4)); }
@@ -269,7 +246,9 @@
   .modal-close { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
   .modal h3 { font-size: 22px; margin-bottom: 10px; color: #fff; }
   .modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
-  .form-group { margin-bottom: 1<!-- HEADER -->
+  .form-group { margin-bottom: 15px; }
+  .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+  .form-group in<!-- HEADER -->
 <header>
   <div class="logo"><div class="logo-mark">E</div> ERIAN ACADEMY</div>
   <a href="#precios" class="header-cta">Reservar Cupo</a>
@@ -316,7 +295,7 @@
   </div>
 </section>
 
-<!-- ESTRATEGIA DE EXCLUSIVIDAD -->
+<!-- ESTRATEGIA -->
 <section>
   <div class="strategy-box">
     <h3>La Élite de Barinas no se queda atrás. Tus hijos hablarán Inglés.</h3>
@@ -329,38 +308,29 @@
   </div>
 </section>
 
-<!-- SECCIÓN METAVERSO (AVATARES 3D EN EL MEDIO) -->
+<!-- METAVERSO (AVATARES 3D) -->
 <section>
   <h2 class="sec-title">El Metaverso Educativo</h2>
   <p class="sec-subtitle">Así se ve una clase en Erian Academy. Avatares hiperrealistas, procesados en nuestros servidores Mac, interactuando en tiempo real.</p>
 
   <div class="metaverse-container">
     <div class="metaverse-screen">
-      
       <div class="live-badge">
         <div class="live-dot"></div> CONECTANDO AL CAMPUS VIRTUAL
       </div>
-
       <div class="metaverse-floor"></div>
-
-      <!-- Avatar 1 (Izquierda) -->
       <div class="avatar-3d">
         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Profesor IA">
         <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-
-      <!-- Avatar 2 (Centro) -->
       <div class="avatar-3d">
         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 1">
         <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-
-      <!-- Avatar 3 (Derecha) -->
       <div class="avatar-3d">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 2">
         <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -376,26 +346,22 @@
       <h4>Fundamentos y 200+ Palabras</h4>
       <p>Inmersión inicial con nuestras Flashcards inteligentes. Dominio del verbo To Be, vocabulario esencial y las bases para empezar a pensar en inglés.</p>
     </div>
-    
     <div class="level-card">
       <div class="level-badge">Trimestre 2</div>
       <h4>Construcción y Conversación</h4>
       <p>Estructuras gramaticales complejas. El alumno empieza a sostener diálogos con el Asistente "Sofía" y a corregir sus textos con el Chat de IA.</p>
     </div>
-
     <div class="level-card">
       <div class="level-badge">Trimestre 3</div>
       <h4>Fluidez e Inmersión Cultural</h4>
       <p>Comprensión auditiva avanzada con Crossroads Café. Práctica intensiva de pronunciación, escritura bilingüe y expansión de vocabulario técnico.</p>
     </div>
-
     <div class="level-card">
       <div class="level-badge">Trimestre 4</div>
       <h4>Maestría y Negocios</h4>
       <p>Perfeccionamiento del idioma. El alumno adquiere la capacidad de debatir, negociar y entender terminologías de tecnología, SEO y finanzas en inglés.</p>
     </div>
   </div>
-
   <div class="mastery-box">
     <h3>El Resultado al Final del Año</h3>
     <p>Al completar los 4 trimestres, tu hijo no solo "sabrá inglés". Tendrá un <strong>dominio total del idioma (Nivel Avanzado/Maestría)</strong>, siendo capaz de comunicarse con fluidez, entender textos técnicos y sostener conversaciones de negocios sin depender de traductores.</p>
@@ -414,14 +380,12 @@
       <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
       <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
     </div>
-    
     <div class="lang-card">
       <span class="lang-flag">🇩🇪</span>
       <h4>Alemán</h4>
       <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
       <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
     </div>
-
     <div class="lang-card">
       <span class="lang-flag">🇫🇷</span>
       <h4>Francés</h4>
@@ -429,7 +393,9 @@
       <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
     </div>
   </div>
-</section><!-- LAS 1,001 FORMAS -->
+</section>
+
+<!-- LAS 1,001 FORMAS -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
@@ -503,9 +469,7 @@
       <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs (Claude, DeepSeek, OpenAI) analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
-</section>
-
-<!-- EL FUTURO (CARRERAS) -->
+</section><!-- EL FUTURO (CARRERAS) -->
 <section>
   <h2 class="sec-title">Las Carreras del Futuro</h2>
   <p class="sec-subtitle">
@@ -602,7 +566,7 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
-  <!-- SECCIÓN PREMIUM DE BINANCE -->
+  <!-- BINANCE -->
   <div class="binance-premium-card">
     <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
       <g fill="#F3BA2F">
@@ -652,7 +616,7 @@
   </div>
 </section>
 
-<!-- CONTACTO DIRECTO -->
+<!-- CONTACTO -->
 <div class="contact-section">
   <h3>¿Tienes dudas o quieres dejar tus datos para que te contactemos?</h3>
   <p>Escríbenos directamente a nuestro correo oficial. Te responderemos en los próximos días con todos los detalles de la academia.</p>
@@ -834,4 +798,43 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Las becas de esta generación ya fueron asignadas.');
         return;
       }
-      abrirModal('modalBeca')
+      abrirModal('modalBeca');
+    });
+  }
+
+  document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
+  document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
+  document.getElementById('btnReservarCarrera')?.addEventListener('click', () => abrirModal('modalCarrera'));
+
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) cerrarModal(overlay);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
+    }
+  });
+
+  ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      const btn = form.querySelector('.form-submit');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = '⏳ Enviando...';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
