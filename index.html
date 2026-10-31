@@ -116,16 +116,6 @@
         .tech-list li { margin-bottom: 15px; font-size: 15px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
         .tech-list li span { color: var(--sky-blue); font-weight: bold; }
 
-        /* ALERTA DE CAPACIDAD */
-        .capacity-alert {
-            background: linear-gradient(135deg, rgba(153, 27, 27, 0.4), rgba(15, 23, 42, 0.9));
-            border: 2px solid var(--empire-red); border-radius: 20px; padding: 50px 40px; max-width: 1000px; margin: 0 auto;
-            text-align: center; box-shadow: 0 0 40px rgba(153, 27, 27, 0.3); backdrop-filter: blur(10px);
-        }
-        .capacity-alert h2 { font-size: 36px; color: #FCA5A5; margin-bottom: 20px; }
-        .capacity-alert p { font-size: 18px; color: var(--text-main); line-height: 1.8; margin-bottom: 20px; }
-        .capacity-alert strong { color: #FCA5A5; }
-
         /* PRECIOS */
         .pricing-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: stretch; margin-top: 50px; }
         .price-card {
@@ -168,6 +158,16 @@
         .timeline-content h3 { font-size: 22px; margin-bottom: 10px; color: #FFF; font-weight: 800; }
         .timeline-content p { font-size: 16px; color: var(--text-muted); line-height: 1.6; text-align: left; margin-bottom: 0; }
 
+        /* TECH CAPACITY ALERT (AHORA AL FINAL) */
+        .capacity-alert {
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.4), rgba(15, 23, 42, 0.9));
+            border: 2px solid var(--empire-red); border-radius: 20px; padding: 60px 40px; max-width: 1000px; margin: 0 auto;
+            text-align: center; box-shadow: 0 0 50px rgba(153, 27, 27, 0.4); backdrop-filter: blur(10px);
+        }
+        .capacity-alert h2 { font-size: 38px; color: #FCA5A5; margin-bottom: 20px; }
+        .capacity-alert p { font-size: 18px; color: var(--text-main); line-height: 1.8; margin-bottom: 20px; }
+        .capacity-alert strong { color: #FCA5A5; }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 42px; }
             .price-card.founder { transform: none; }
@@ -189,15 +189,42 @@
         </div>
     </section>
 
-    <!-- LA ADVERTENCIA DE CAPACIDAD (NUEVA SECCIÓN COMPLETA) -->
+    <!-- POR QUÉ AHORA -->
     <section style="background: rgba(5, 8, 20, 0.8);">
         <div class="container reveal">
-            <div class="capacity-alert">
-                <h2 class="tech-font">Capacidad de Servidores: <span class="gold-text">Máximo 300 Alumnos</span></h2>
-                <p>En Erian Academy no masificamos la educación. Nuestra infraestructura física combina la potencia de los <strong>Servidores NVIDIA, la arquitectura Mac y el diseño ASUS</strong>. Esta combinación de hardware nos permite brindar una atención personalizada con Inteligencia Artificial a un máximo garantizado de <strong>300 estudiantes</strong> en nuestra fase inicial.</p>
-                <p>Una vez que se llenen estos 300 cupos, cerraremos el acceso. Los siguientes interesados entrarán a una <strong>Lista de Espera</strong> hasta que instalemos los próximos servidores. No aceptamos más alumnos de los que nuestro hardware puede atender con la máxima calidad.</p>
-                <div style="margin-top: 30px;">
-                    <a href="#contacto" style="color: #FCA5A5; font-weight: bold; text-decoration: underline; font-size: 18px;">Unirme a la lista de espera si los cupos están llenos</a>
+            <div class="glass-card" style="max-width: 900px; margin: 0 auto; text-align: center; border-color: var(--gold);">
+                <h3 class="tech-font" style="color: var(--gold); font-size: 28px; margin-bottom: 20px;">¿Por qué entrar HOY es la mejor decisión?</h3>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-main); margin-bottom: 15px;">
+                    El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <strong>El inglés ya no es un lujo, es el código fuente del futuro.</strong>
+                </p>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-muted);">
+                    Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <strong>entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</strong> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL MÉTODO (GLASS CARDS) -->
+    <section style="background: rgba(15, 23, 42, 0.4);">
+        <div class="container">
+            <h2 class="section-title serif reveal">Ingeniería del <span class="gold-text">Aprendizaje</span></h2>
+            <p class="section-subtitle reveal">No memorizamos, construimos. Nuestra IA, Sofía, te acompañará en un proceso de inmersión real.</p>
+            
+            <div class="grid-3">
+                <div class="glass-card reveal">
+                    <div class="icon-box">🗣️</div>
+                    <h3>Conversación 24/7</h3>
+                    <p>Tendrás un tutor de IA con voz humana disponible a cualquier hora. Habla, equivócate, y recibe correcciones en tiempo real.</p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 0.1s;">
+                    <div class="icon-box">🧠</div>
+                    <h3>Repetición Inteligente</h3>
+                    <p>El sistema analiza tus errores y diseña lecciones personalizadas para asegurar que el vocabulario se quede en tu memoria.</p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 0.2s;">
+                    <div class="icon-box">🌎</div>
+                    <h3>Acento Americano</h3>
+                    <p>Desde tu primer saludo, practicarás con el estándar American English. Te enseñamos a pensar en inglés.</p>
                 </div>
             </div>
         </div>
@@ -230,18 +257,6 @@
                         <li><span>Modulación Adaptativa:</span> La IA habla más despacio si detecta confusión.</li>
                         <li><span>Multi-Acento:</span> Práctica con acento Americano, Británico y Australiano.</li>
                     </ul>
-                </div>
-
-                <!-- Servidores NVIDIA -->
-                <div class="glass-card reveal" style="border-left: 4px solid var(--nvidia-green);">
-                    <h3 style="color: var(--nvidia-green);">Servidores NVIDIA Dedicados</h3>
-                    <p>Racks de GPUs NVIDIA de última generación. La misma potencia que entrena a los modelos globales, dedicada exclusivamente a nuestros estudiantes. Sin compartir ancho de banda con el mundo.</p>
-                </div>
-
-                <!-- Respaldo Nube -->
-                <div class="glass-card reveal" style="border-left: 4px solid #8B5CF6;">
-                    <h3 style="color: #8B5CF6;">Respaldo en la Nube (Failover)</h3>
-                    <p>Tu información vive en 3 centros de datos simultáneos. Si un servidor falla, otro toma el control en 0.2 segundos. Alta disponibilidad y cero caídas: el aprendizaje de tu hijo nunca se detiene.</p>
                 </div>
             </div>
         </div>
@@ -351,11 +366,26 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO VIP (Y LISTA DE ESPERA) -->
-    <section id="contacto" style="background: rgba(5, 8, 20, 0.9);">
+    <!-- SECCIÓN DE HARDWARE / CAPACIDAD DE SERVIDORES (EL GRAN FLEX FINAL) -->
+    <section style="background: rgba(5, 8, 20, 0.9);">
+        <div class="container reveal">
+            <div class="capacity-alert">
+                <h2 class="tech-font">Tecnología de Nivel Militar <br><span class="gold-text">para solo 300 Alumnos</span></h2>
+                <p>No usamos servidores compartidos. Hemos invertido en una infraestructura física de última generación compuesta por <strong>Mac Studio, estaciones ASUS y Racks de Servidores NVIDIA de alta gama</strong>.</p>
+                <p>¿Por qué tanta potencia para tan pocos alumnos? Porque nuestra Inteligencia Artificial requiere una capacidad de lectura y procesamiento de datos <strong>nunca antes experimentada</strong>. Queremos optimizar cada milisegundo de respuesta para garantizar que el aprendizaje de tu hijo sea perfecto, sin latencia y totalmente personalizado.</p>
+                <p><strong>Una vez que se completen los 300 cupos, la capacidad de nuestros servidores estará al límite. Los siguientes interesados entrarán a una lista de espera prioritaria</strong> hasta que instalemos la próxima fase de nuestro hardware.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#contacto" style="color: #FCA5A5; font-weight: bold; text-decoration: underline; font-size: 18px;">Asegurar mi Cupo o Unirme a la Lista de Espera</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO VIP -->
+    <section id="contacto" style="background: rgba(15, 23, 42, 0.4);">
         <div class="container reveal">
             <h2 class="section-title serif">Asegure el Futuro de su <span class="gold-text">Hijo Hoy</span></h2>
-            <p class="section-subtitle">Déjenos sus datos. Si los 300 cupos están llenos, pasará automáticamente a la lista de espera prioritaria para la próxima instalación de servidores.</p>
+            <p class="section-subtitle">Déjenos sus datos. Si los 300 cupos están llenos, pasará automáticamente a la lista de espera prioritaria.</p>
 
             <form action="https://formsubmit.co/erianingles@gmail.com" method="POST" class="glass-card" style="max-width: 600px; margin: 0 auto; text-align: left; padding: 50px;">
                 <input type="hidden" name="_subject" value="Nuevo Candidato VIP - Erian Academy Socopó">
@@ -379,8 +409,8 @@
                     <input type="text" name="Estudiante" placeholder="Ej: Mateo, 10 años / Frank, 35 años" required style="width: 100%; padding: 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none; transition: 0.3s;">
                 </div>
 
-                <button type="submit" class="btn-gold" style="width: 100%; border-radius: 8px; font-size: 18px;">Solicitar Entrevista VIP / Lista de Espera</button>
-                <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 25px;">🔒 Sus datos están protegidos. Solo los primeros 300 serán contactados.</p>
+                <button type="submit" class="btn-gold" style="width: 100%; border-radius: 8px; font-size: 18px;">Solicitar Entrevista VIP</button>
+                <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 25px;">🔒 Sus datos están protegidos.</p>
             </form>
         </div>
     </section>
@@ -409,8 +439,4 @@
 
             reveals.forEach(reveal => {
                 revealOnScroll.observe(reveal);
-            });
-        });
-    </script>
-</body>
-</html>
+      
