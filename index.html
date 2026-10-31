@@ -110,7 +110,9 @@
   .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
   .strategy-box p strong { color: var(--cyan); }
   .strategy-secret { background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral); padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left; }
-  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }  /* METAVERSO (AVATARES 3D) */
+  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
+
+  /* METAVERSO (AVATARES 3D) */
   .metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
   .metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
   .metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
@@ -134,7 +136,79 @@
   @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
   .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
   .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
-  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }  /* =========================================
+     TERMINALES MATRIX (CARRERAS DEL FUTURO)
+     ========================================= */
+  .matrix-section {
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%);
+  }
+  .matrix-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
+  @media(min-width: 768px) { .matrix-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .term-card {
+    background: #050810;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05);
+    transition: all 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .term-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.05);
+    transform: translateY(-5px);
+  }
+
+  .term-header {
+    background: #0d1220; padding: 10px 15px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-dot.red { background: #ff5f56; }
+  .term-dot.yellow { background: #ffbd2e; }
+  .term-dot.green { background: #27c93f; }
+  .term-title { color: #666; font-family: 'Courier New', monospace; font-size: 11px; margin-left: auto; }
+
+  .term-body {
+    padding: 20px; font-family: 'Courier New', Courier, monospace;
+    font-size: 12px; line-height: 1.6; color: #a8b2c1;
+    flex-grow: 1; position: relative;
+  }
+  
+  .term-body .line { margin-bottom: 4px; display: block; white-space: pre-wrap; }
+  .term-body .line-num { color: #4a5568; display: inline-block; width: 20px; user-select: none; }
+  .tag-cyan { color: var(--cyan); font-weight: bold; }
+  .tag-gold { color: var(--gold); }
+  .tag-green { color: #00ff41; }
+  .tag-red { color: #ff3d57; }
+  .tag-purple { color: #a78bfa; }
+  
+  .cursor {
+    display: inline-block; width: 8px; height: 15px; background: #00ff41;
+    animation: blink 1s step-end infinite; vertical-align: middle;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .term-card::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%; opacity: 0.3;
+  }
+
+  .term-footer {
+    background: #0d1220; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+  .term-footer h3 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+  .term-footer p { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
+  .term-price {
+    font-family: 'Courier New', monospace; font-size: 13px; font-weight: 800;
+    color: #00ff41; background: rgba(0, 255, 65, 0.1);
+    padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0, 255, 65, 0.3);
+  }
 
   /* RUTA DE APRENDIZAJE */
   .levels-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
@@ -173,15 +247,6 @@
   .infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
   .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 17px; font-weight: 800; }
   .infra-card p { font-size: 13px; color: var(--text-muted); }
-
-  /* TIMELINE */
-  .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
-  .month-card { background: var(--bg-card); border: 1px solid var(--border-maroon); border-radius: 12px; overflow: hidden; }
-  .month-header { background: var(--bg-maroon); padding: 12px; text-align: center; font-weight: 700; color: var(--coral); font-size: 16px; border-bottom: 1px solid var(--border-maroon); }
-  .month-body { padding: 24px; }
-  .month-body h3 { font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #fff; flex-wrap: wrap; }
-  .price-tag-small { font-size: 12px; color: var(--gold); background: rgba(223,182,70,0.1); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(223,182,70,0.3); white-space: nowrap; }
-  .month-body p { color: var(--text-muted); font-size: 15px; }
 
   /* CONTADOR REGULARES */
   .regular-urgency { background: var(--bg-card); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 20px; max-width: 800px; margin: 0 auto 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -397,7 +462,9 @@
       <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
     </div>
   </div>
-</section><!-- LAS 1,001 FORMAS -->
+</section>
+
+<!-- LAS 1,001 FORMAS -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
@@ -473,90 +540,74 @@
   </div>
 </section>
 
-<!-- EL FUTURO (CARRERAS) -->
-<section>
-  /* =========================================
-   TERMINALES MATRIX (CARRERAS DEL FUTURO)
-   ========================================= */
-.matrix-section {
-  position: relative; overflow: hidden;
-  background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%);
-}
-.matrix-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
-@media(min-width: 768px) { .matrix-grid { grid-template-columns: 1fr 1fr 1fr; } }
+<!-- EL FUTURO (CARRERAS) - DISEÑO TERMINAL MATRIX -->
+<section class="matrix-section">
+  <h2 class="sec-title">Las Carreras del Futuro</h2>
+  <p class="sec-subtitle">
+    A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual: $99.99/mes).
+  </p>
+  
+  <div class="matrix-grid">
+    
+    <div class="term-card">
+      <div class="term-header">
+        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
+        <div class="term-title">root@erian:~/cybersec</div>
+      </div>
+      <div class="term-body">
+        <span class="line"><span class="line-num">1</span><span class="tag-cyan">sudo</span> access mainframe</span>
+        <span class="line"><span class="line-num">2</span>Bypassing firewall...</span>
+        <span class="line"><span class="line-num">3</span><span class="tag-green">[OK]</span> Vulnerabilities patched.</span>
+        <span class="line"><span class="line-num">4</span>Status: <span class="tag-gold">SYSTEM SECURE</span></span>
+        <span class="line"><span class="line-num">5</span>Protocol: <span class="tag-purple">AES-256</span> active <span class="cursor"></span></span>
+      </div>
+      <div class="term-footer">
+        <h3>Módulo 9: Ciberseguridad</h3>
+        <p>Protección de activos y arquitectura web. Formamos a los guardianes del imperio digital.</p>
+        <div class="term-price">+$29.99/mes</div>
+      </div>
+    </div>
 
-/* Ventana de Terminal */
-.term-card {
-  background: #050810;
-  border: 1px solid rgba(0, 255, 65, 0.2); /* Verde matrix sutil */
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05);
-  transition: all 0.3s ease;
-  display: flex; flex-direction: column;
-}
-.term-card:hover {
-  border-color: var(--cyan);
-  box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.05);
-  transform: translateY(-5px);
-}
+    <div class="term-card">
+      <div class="term-header">
+        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
+        <div class="term-title">admin@erian:~/data_science</div>
+      </div>
+      <div class="term-body">
+        <span class="line"><span class="line-num">1</span><span class="tag-cyan">import</span> pandas <span class="tag-cyan">as</span> pd</span>
+        <span class="line"><span class="line-num">2</span>df = pd.read_csv(<span class="tag-gold">'wealth.csv'</span>)</span>
+        <span class="line"><span class="line-num">3</span>df.<span class="tag-cyan">drop</span>(columns=[<span class="tag-gold">'poverty'</span>])</span>
+        <span class="line"><span class="line-num">4</span><span class="tag-cyan">print</span>(<span class="tag-gold">'Empire Status: GROWING'</span>)</span>
+        <span class="line"><span class="line-num">5</span>Running algorithm... <span class="tag-green">Done.</span> <span class="cursor"></span></span>
+      </div>
+      <div class="term-footer">
+        <h3>Módulo 10: Datos y Finanzas</h3>
+        <p>Análisis algorítmico y manejo de recursos. Aquí formamos a los líderes financieros.</p>
+        <div class="term-price">+$29.99/mes</div>
+      </div>
+    </div>
 
-/* Barra superior estilo Mac/Windows */
-.term-header {
-  background: #0d1220; padding: 10px 15px;
-  display: flex; align-items: center; gap: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.term-dot { width: 10px; height: 10px; border-radius: 50%; }
-.term-dot.red { background: #ff5f56; }
-.term-dot.yellow { background: #ffbd2e; }
-.term-dot.green { background: #27c93f; }
-.term-title { color: #666; font-family: 'Courier New', monospace; font-size: 11px; margin-left: auto; }
+    <div class="term-card">
+      <div class="term-header">
+        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
+        <div class="term-title">ceo@erian:~/agency_build</div>
+      </div>
+      <div class="term-body">
+        <span class="line"><span class="line-num">1</span><span class="tag-cyan">&lt;meta</span> name=<span class="tag-gold">"description"</span> <span class="tag-cyan">&gt;</span></span>
+        <span class="line"><span class="line-num">2</span><span class="tag-cyan">&lt;title&gt;</span>CEO Empire<span class="tag-cyan">&lt;/title&gt;</span></span>
+        <span class="line"><span class="line-num">3</span>Ranking domain #1...</span>
+        <span class="line"><span class="line-num">4</span><span class="tag-green">SUCCESS:</span> Traffic +400%</span>
+        <span class="line"><span class="line-num">5</span>Monetizing ideas... <span class="tag-purple">$$$</span> <span class="cursor"></span></span>
+      </div>
+      <div class="term-footer">
+        <h3>Módulo 11-12: SEO y Agencias</h3>
+        <p>Posicionamiento global y creación de agencias. El paso final para ser CEO de tu imperio.</p>
+        <div class="term-price">+$29.99/mes</div>
+      </div>
+    </div>
 
-/* Cuerpo del Código */
-.term-body {
-  padding: 20px; font-family: 'Courier New', Courier, monospace;
-  font-size: 12px; line-height: 1.6; color: #a8b2c1;
-  flex-grow: 1; position: relative;
-}
-
-/* Código y Sintaxis */
-.term-body .line { margin-bottom: 4px; display: block; white-space: pre-wrap; }
-.term-body .line-num { color: #4a5568; display: inline-block; width: 20px; user-select: none; }
-.tag-cyan { color: var(--cyan); font-weight: bold; }
-.tag-gold { color: var(--gold); }
-.tag-green { color: #00ff41; }
-.tag-red { color: #ff3d57; }
-.tag-purple { color: #a78bfa; }
-
-/* Cursor parpadeante */
-.cursor {
-  display: inline-block; width: 8px; height: 15px; background: #00ff41;
-  animation: blink 1s step-end infinite; vertical-align: middle;
-}
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* Overlay de escaneo (Scanline) */
-.term-card::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 4px, 6px 100%; opacity: 0.3;
-}
-
-/* Footer de la tarjeta */
-.term-footer {
-  background: #0d1220; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05);
-  text-align: center;
-}
-.term-footer h3 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 5px; }
-.term-footer p { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
-.term-price {
-  font-family: 'Courier New', monospace; font-size: 13px; font-weight: 800;
-  color: #00ff41; background: rgba(0, 255, 65, 0.1);
-  padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0, 255, 65, 0.3);
-}</section>
-
-<!-- PRECIOS Y CONTADOR -->
+  </div>
+</section><!-- PRECIOS Y CONTADOR -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
@@ -621,6 +672,7 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
+  <!-- BINANCE -->
   <div class="binance-premium-card">
     <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
       <g fill="#F3BA2F">
@@ -856,4 +908,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.getElementById('btnR
+  document.getElementById('btnReservarRegular')?.addEventListener('click', () => abrirModal('modalRegular'));
+  document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
+  document.getElementById('btnReservarCarrera')?.addEventListener('click', () => abrirModal('modalCarrera'));
+
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) cerrarModal(overlay);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
+    }
+  });
+
+  ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      const btn = form.querySelector('.form-submit');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = '⏳ Enviando...';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
