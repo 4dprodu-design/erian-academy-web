@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Erian Academy — La Llave del Imperio</title>
-<meta name="description" content="No formamos empleados. Formamos Reyes de Imperios y Administradores de Riquezas. 100 Becas de Excelencia + 200 Cupos Regulares.">
+<meta name="description" content="Ecosistema educativo élite con IA. No formamos empleados, formamos Reyes de Imperios. 100 Becas y 200 Cupos Regulares.">
 <style>
   :root {
-    /* Paleta de colores basada en tus capturas */
     --bg-main: #0b1320;       /* Azul marino profundo */
     --bg-card: #111c2e;       /* Fondo de tarjetas */
     --bg-maroon: #3b1616;     /* Rojo vino para meses */
@@ -15,7 +14,7 @@
     --gold: #dfb646;          /* Dorado elegante */
     --cyan: #38bdf8;          /* Cian suave */
     --coral: #fda4af;         /* Coral para la frase final */
-    --text-main: #e2e8f0;     /* Blanco roto para lectura */
+    --text-main: #e2e8f0;     /* Blanco roto */
     --text-muted: #94a3b8;    /* Gris azulado */
     --glass: rgba(255,255,255,0.03);
     --border-glass: rgba(255,255,255,0.08);
@@ -27,7 +26,6 @@
     background-color: var(--bg-main); 
     color: var(--text-main);
     overflow-x: hidden; line-height: 1.7;
-    /* Fondo de cuadrícula sutil */
     background-image: 
       linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
@@ -39,8 +37,8 @@
     position: sticky; top: 0; z-index: 100;
     padding: 15px 20px;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(11, 19, 32, 0.9);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    background: rgba(11, 19, 32, 0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-glass);
   }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; letter-spacing: 1px; }
@@ -58,7 +56,7 @@
   .header-cta:hover { background: var(--gold); color: var(--bg-main); }
 
   /* HERO */
-  .hero { padding: 80px 20px 50px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
   .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
   .hero h1 .gold-text { color: var(--gold); }
   .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
@@ -67,37 +65,29 @@
     padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px;
     text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block;
   }
-  .btn-primary { background: var(--cyan); color: #000; }
+  .btn-primary { background: var(--cyan); color: #000; box-shadow: 0 4px 15px rgba(56,189,248,0.3); }
   .btn-primary:hover { background: #7dd3fc; }
-  .btn-secondary { background: transparent; border: 1px solid var(--border-glass); color: var(--text-main); }
+  .btn-secondary { background: var(--glass); border: 1px solid var(--border-glass); color: var(--text-main); backdrop-filter: blur(5px); }
   .btn-secondary:hover { border-color: var(--text-muted); }
 
   /* SECCIONES */
   section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
   .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 30px; color: var(--gold); line-height: 1.2; }
   
-  /* TEXTO CENTRAL (¿Por qué entrar hoy?) */
+  /* TEXTO DECISIÓN */
   .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
-  .text-gold { color: var(--gold); font-weight: 600; }
 
   /* TIMELINE (Meses) */
   .timeline { display: grid; gap: 20px; max-width: 700px; margin: 0 auto; }
   .month-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-maroon);
-    border-radius: 12px;
-    overflow: hidden;
+    background: var(--bg-card); border: 1px solid var(--border-maroon);
+    border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px);
   }
   .month-header {
-    background: var(--bg-maroon);
-    padding: 12px;
-    text-align: center;
-    font-weight: 700;
-    color: var(--coral);
-    font-size: 16px;
-    border-bottom: 1px solid var(--border-maroon);
+    background: var(--bg-maroon); padding: 12px; text-align: center;
+    font-weight: 700; color: var(--coral); font-size: 16px; border-bottom: 1px solid var(--border-maroon);
   }
   .month-body { padding: 24px; }
   .month-body h3 { font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; }
@@ -107,7 +97,7 @@
   .beca-container {
     background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%);
     border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px;
-    max-width: 700px; margin: 0 auto;
+    max-width: 700px; margin: 0 auto; backdrop-filter: blur(10px);
   }
   .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
   .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
@@ -128,16 +118,25 @@
   .price-card.premium { border-color: rgba(223,182,70,0.4); background: linear-gradient(180deg, rgba(223,182,70,0.05), var(--bg-card)); }
   .price-card h3 { font-size: 18px; color: var(--cyan); margin-bottom: 10px; }
   .price-card.premium h3 { color: var(--gold); }
-  .price-val { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+  .price-val { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 5px; }
   .price-val span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+  .price-note { font-size: 12px; color: var(--gold); margin-bottom: 20px; }
   .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 14px; display: grid; gap: 10px; color: var(--text-muted); }
   .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
   .price-card.premium .price-features li::before { color: var(--gold); }
 
-  /* FRASE FINAL */
-  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px; line-height: 1.4; }
+  /* HARDWARE */
+  .hardware-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 800px; margin: 0 auto; }
+  @media(min-width: 768px) { .hardware-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .hw-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 20px; border-radius: 12px; text-align: center; }
+  .hw-card h4 { color: var(--cyan); margin-bottom: 10px; font-size: 16px; }
+  .hw-card p { font-size: 13px; color: var(--text-muted); }
 
-  /* WHATSAPP BUTTON (Como en tu captura) */
+  /* FRASE FINAL Y FOOTER */
+  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px; line-height: 1.4; }
+  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); }
+
+  /* WHATSAPP BUTTON */
   .wa-btn {
     position: fixed; bottom: 25px; right: 25px; z-index: 999;
     width: 60px; height: 60px; border-radius: 50%; background: #25D366;
@@ -147,7 +146,7 @@
   .wa-btn:hover { transform: scale(1.1); }
   .wa-btn svg { width: 35px; height: 35px; fill: #fff; }
 
-  /* MODALES ARREGLADOS */
+  /* MODALES (Arreglados para móvil) */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; overflow-y: auto; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal {
@@ -167,9 +166,6 @@
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--cyan); }
   .form-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--cyan); color: #000; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
   .form-submit.gold { background: var(--gold); }
-
-  /* FOOTER */
-  footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-glass); font-size: 12px; color: var(--text-muted); }
 </style>
 </head>
 <body><!-- HEADER -->
@@ -188,20 +184,18 @@
   </div>
 </section>
 
-<!-- SECCIÓN DE LA CAPTURA: ¿POR QUÉ ENTRAR HOY? -->
+<!-- ¿POR QUÉ ENTRAR HOY? -->
 <section>
   <h2 class="sec-title">¿Por qué entrar HOY es la mejor decisión?</h2>
   <div class="decision-box">
     <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <span class="text-cyan">El inglés ya no es un lujo, es el código fuente del futuro.</span></p>
-    
     <p>Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <span class="text-cyan">entender la data, construir arquitecturas web, posicionar marcas con SEO y dominar el lenguaje de los negocios globales.</span> El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.</p>
   </div>
 </section>
 
-<!-- SECCIÓN DE LA CAPTURA: TIMELINE (Meses) -->
+<!-- TIMELINE (Meses 9 al 12) -->
 <section>
   <div class="timeline">
-    <!-- Mes 9 (Inferido del corte superior) -->
     <div class="month-card">
       <div class="month-header">Mes 9</div>
       <div class="month-body">
@@ -209,8 +203,6 @@
         <p>Protección de activos y arquitectura de páginas web. Aprenderán a construir la infraestructura digital de sus futuros negocios.</p>
       </div>
     </div>
-    
-    <!-- Mes 10 -->
     <div class="month-card">
       <div class="month-header">Mes 10</div>
       <div class="month-body">
@@ -218,8 +210,6 @@
         <p>Análisis de data, construcción de lenguaje algorítmico y el manejo de recursos financieros propios. Aquí formamos a los líderes financieros.</p>
       </div>
     </div>
-
-    <!-- Mes 11 - 12 -->
     <div class="month-card">
       <div class="month-header">Mes 11 - 12</div>
       <div class="month-body">
@@ -230,14 +220,14 @@
   </div>
 </section>
 
-<!-- BECAS -->
+<!-- BECAS (100 Fundadores con descuento/Beca) -->
 <section id="becas">
   <div class="beca-container">
     <div class="beca-top">
-      <h2>100 Becas de Mérito</h2>
+      <h2>100 Becas de Excelencia</h2>
       <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
     </div>
-    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional.</p>
+    <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
     
     <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
@@ -262,18 +252,19 @@
 <!-- PRECIOS -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
-  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:14px;">Solo 300 plazas. 200 regulares. Inscripción única: $150 USD.</p>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:14px;">Solo 300 plazas en total (100 Becas + 200 Regulares).<br>Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
   
   <div class="pricing-grid">
     <!-- Regular -->
     <div class="price-card">
       <h3>Cupo Regular</h3>
       <div class="price-val">$99<span>.99/mes</span></div>
+      <div class="price-note">Quedan 200 cupos a este precio</div>
       <ul class="price-features">
         <li>7 Módulos de Idiomas con IA</li>
         <li>Asistente de voz "Sofía"</li>
         <li>Crossroads Café (26 eps)</li>
-        <li>Cyber Arcade (Erian Nexus)</li>
+        <li>Cyber Arcade (Erian Nexus V11)</li>
       </ul>
       <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Cupo</button>
     </div>
@@ -282,6 +273,7 @@
     <div class="price-card premium">
       <h3>Paquete Elite Global</h3>
       <div class="price-val">$149<span>.99/mes</span></div>
+      <div class="price-note">Los 4 idiomas y todas las carreras</div>
       <ul class="price-features">
         <li>Todo lo del plan Regular</li>
         <li>Mandarín, Alemán y Francés (Mes 6+)</li>
@@ -293,7 +285,28 @@
   </div>
 </section>
 
-<!-- FRASE FINAL (De tu captura) -->
+<!-- HARDWARE DE NIVEL DIOS -->
+<section>
+  <h2 class="sec-title">Tecnología de Nivel Dios</h2>
+  <p style="text-align:center; color:var(--text-muted); margin-bottom:30px; font-size:15px; max-width:700px; margin-left:auto; margin-right:auto;">¿Por qué el límite es estrictamente 300 alumnos? Porque no usamos servidores compartidos. Tu hijo tendrá acceso exclusivo a:</p>
+  
+  <div class="hardware-grid">
+    <div class="hw-card">
+      <h4>Mac Studio M4/M5</h4>
+      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia.</p>
+    </div>
+    <div class="hw-card">
+      <h4>Racks NVIDIA</h4>
+      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase.</p>
+    </div>
+    <div class="hw-card">
+      <h4>Laptops ASUS</h4>
+      <p>Equipos de alto rendimiento dedicados a la creación de los módulos que consumen los alumnos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FRASE FINAL -->
 <div class="final-quote">
   "Regálale lo mejor. Invierte en el futuro de tu hijo."
 </div>
@@ -304,11 +317,12 @@
 </footer>
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
-<a href="https://wa.me/584240000000?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
+<!-- IMPORTANTE: Cambia TU_NUMERO_AQUI por tu número real (ej: 584241234567) -->
+<a href="https://wa.me/TU_NUMERO_AQUI?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" target="_blank" class="wa-btn">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<!-- MODAL BECA -->
+<!-- MODALES -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -327,7 +341,6 @@
   </div>
 </div>
 
-<!-- MODAL REGULAR -->
 <div class="modal-overlay" id="modalRegular">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -345,7 +358,6 @@
   </div>
 </div>
 
-<!-- MODAL ELITE -->
 <div class="modal-overlay" id="modalElite">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -361,7 +373,7 @@
       <button type="submit" class="form-submit gold">Enviar Reserva</button>
     </form>
   </div>
-  </div><script>
+</div><script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 0
