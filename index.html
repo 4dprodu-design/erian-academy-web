@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erian Academy — Domina el Inglés con Tecnología de Élite</title>
+<title>Erian Academy — La Llave del Imperio</title>
 <meta name="description" content="La Universidad Privada de Barinas. Aprende inglés con IA y domina las carreras del futuro. Infraestructura de $100,000 USD para 300 personas.">
 <style>
   :root {
@@ -14,6 +14,7 @@
     --gold: #dfb646;          
     --cyan: #38bdf8;          
     --coral: #fda4af;         
+    --binance-yellow: #F0B90B;
     --text-main: #e2e8f0;     
     --text-muted: #94a3b8;    
     --glass: rgba(255,255,255,0.03);
@@ -31,7 +32,16 @@
       linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 50px 50px;
   }
-  
+
+  /* ANIMACIONES DE SCROLL (Efecto App Premium) */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.active {
+    opacity: 1; transform: translateY(0);
+  }
+
   /* HEADER */
   header {
     position: sticky; top: 0; z-index: 100;
@@ -56,8 +66,16 @@
   .header-cta:hover { background: var(--gold); color: var(--bg-main); }
 
   /* HERO */
-  .hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .hero { padding: 80px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
   
+  /* Bandera Americana Grande */
+  .flag-container {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 80px; height: 50px; border-radius: 6px; overflow: hidden;
+    margin-bottom: 25px; box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  }
+  .flag-container svg { width: 100%; height: 100%; object-fit: cover; }
+
   .hero-badge {
     display: inline-block; padding: 6px 16px; border-radius: 30px;
     background: rgba(223,182,70,0.1); border: 1px solid var(--gold);
@@ -87,6 +105,26 @@
   .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
+
+  /* ESTRATEGIA Y EXCLUSIVIDAD */
+  .strategy-box {
+    background: linear-gradient(135deg, rgba(223,182,70,0.08), rgba(11,19,32,0.5));
+    border: 1px solid var(--gold); border-radius: 16px;
+    padding: 35px 25px; max-width: 850px; margin: 0 auto; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .strategy-box::before {
+    content: '👑'; position: absolute; top: -20px; right: -20px;
+    font-size: 100px; opacity: 0.05; transform: rotate(15deg);
+  }
+  .strategy-box h3 { color: var(--gold); font-size: clamp(22px, 4vw, 28px); font-weight: 900; margin-bottom: 15px; line-height: 1.2; }
+  .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
+  .strategy-box p strong { color: var(--cyan); }
+  .strategy-secret {
+    background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral);
+    padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left;
+  }
+  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
 
   /* RUTA DE APRENDIZAJE */
   .levels-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
@@ -176,17 +214,10 @@
     border-radius: 12px; padding: 20px; max-width: 800px; margin: 0 auto 40px;
     text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
-  .regular-urgency p {
-    color: var(--text-main); font-size: 15px; margin-bottom: 15px; font-weight: 700;
-  }
+  .regular-urgency p { color: var(--text-main); font-size: 15px; margin-bottom: 15px; font-weight: 700; }
   .regular-urgency p span { color: var(--cyan); }
-  .regular-urgency .progress-bar {
-    height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
-  }
-  .regular-urgency .progress-fill {
-    height: 100%; background: var(--cyan); width: 0%;
-    transition: width 1s ease; box-shadow: 0 0 10px rgba(56,189,248,0.5);
-  }
+  .regular-urgency .progress-bar { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+  .regular-urgency .progress-fill { height: 100%; background: var(--cyan); width: 0%; transition: width 1s ease; box-shadow: 0 0 10px rgba(56,189,248,0.5); }
 
   /* PRECIOS */
   .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1050px; margin: 0 auto; }
@@ -211,17 +242,31 @@
   }
   .pricing-note strong { color: var(--gold); }
 
-  /* BANNER BINANCE PAY */
-  .binance-banner {
-    background: linear-gradient(90deg, rgba(240,185,11,0.1), rgba(0,0,0,0));
-    border-left: 4px solid #F0B90B; border-radius: 8px;
-    padding: 20px; margin: 30px auto 0; max-width: 800px;
-    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
-    justify-content: center; text-align: center;
+  /* NUEVA SECCIÓN PREMIUM DE BINANCE PAY */
+  .binance-premium-card {
+    max-width: 600px; margin: 40px auto 0;
+    background: linear-gradient(145deg, #181a20, #0b0e11);
+    border: 1px solid rgba(240, 185, 11, 0.3);
+    border-radius: 20px; padding: 30px;
+    text-align: center; position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(240,185,11,0.05);
   }
-  .binance-banner span { font-size: 24px; }
-  .binance-banner p { color: #fff; font-size: 15px; margin: 0; }
-  .binance-banner strong { color: #F0B90B; }
+  .binance-premium-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--binance-yellow), transparent);
+  }
+  .binance-logo {
+    width: 60px; height: 60px; margin: 0 auto 15px;
+    filter: drop-shadow(0 0 10px rgba(240,185,11,0.4));
+  }
+  .binance-premium-card h4 {
+    color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .binance-premium-card p {
+    color: var(--text-muted); font-size: 14px; margin-bottom: 0; line-height: 1.6;
+  }
+  .binance-premium-card p strong { color: var(--binance-yellow); }
 
   /* BECAS */
   .beca-container {
@@ -287,18 +332,26 @@
   <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
-<!-- HERO: NUEVO MENSAJE DE ÉLITE -->
-<section class="hero">
+<!-- HERO CON BANDERA AMERICANA -->
+<section class="hero reveal">
+  <!-- Bandera de USA en SVG -->
+  <div class="flag-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900">
+      <path fill="#b22234" d="M0,0H7410V300H0Zm0,600H7410V900H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
+      <path fill="#fff" d="M0,300H7410V600H0Zm0,600H7410V1500H0Zm0,600H7410V2100H0Zm0,600H7410V2700H0Zm0,600H7410V3300H0Zm0,600H7410V3900H0Z"/>
+      <path fill="#3c3b6e" d="M0,0H2964V2100H0Z"/>
+    </svg>
+  </div>
   <div class="hero-badge">ACCESO RESTRINGIDO · ESTADO BARINAS</div>
   <h1>Si esto llegó a ti, es porque eres parte de la <span class="gold-text">Élite</span>.</h1>
-  <p class="sub">No enviamos esta invitación al azar. Erian Academy es la Universidad Privada reservada exclusivamente para las familias con la visión de construir un imperio. No formamos empleados, formamos Reyes y Administradores de Riquezas. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
+  <p class="sub">No enviamos esta invitación al azar. Erian Academy es el ecosistema de aprendizaje reservado exclusivamente para las familias con visión de imperio en <strong>Socopó, Santa Bárbara y Pedraza</strong>. No formamos empleados, formamos Reyes. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
   <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
     <a href="#precios" class="btn btn-primary">Reclamar mi Privilegio</a>
   </div>
 </section>
 
 <!-- LA NECESIDAD -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">¿Por qué dominar el Inglés HOY es la mejor decisión?</h2>
   <div class="decision-box">
     <p>El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. <span class="text-cyan">El inglés ya no es un lujo, es el código fuente del futuro.</span></p>
@@ -306,8 +359,21 @@
   </div>
 </section>
 
+<!-- NUEVA SECCIÓN: LA ESTRATEGIA DE LOS 300 (EL SECRETO) -->
+<section class="reveal">
+  <div class="strategy-box">
+    <h3>La Élite de Barinas no se queda atrás. Tus hijos hablarán Inglés.</h3>
+    <p>Sabemos que las familias de élite de <strong>Santa Bárbara, Pedraza y Socopó</strong> no pueden permitir que sus hijos se queden rezagados en un mundo dominado por la tecnología y los negocios globales. Erian Academy es el ecosistema de aprendizaje definitivo para asegurar su futuro.</p>
+    
+    <div class="strategy-secret">
+      <p>⚠️ <strong>Nuestra Estrategia de Exclusividad:</strong> Aunque nuestra infraestructura en la nube y servidores (Mac M5, ASUS GX10, NVIDIA) tiene la capacidad técnica para soportar hasta 2,000 alumnos, hemos decidido cerrar estrictamente esta primera generación en <strong>300 personas</strong>.</p>
+      <p style="margin-top: 8px;">¿Por qué? Porque la verdadera élite no comparte el aula con multitudes. Este tope de 300 nos permite garantizar cero latencia, atención personalizada con IA y un círculo social de alto nivel. Si no estás dentro de los 300, estás fuera del círculo.</p>
+    </div>
+  </div>
+</section>
+
 <!-- RUTA DE APRENDIZAJE -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">La Ruta hacia la Maestría en Inglés</h2>
   <p class="sec-subtitle">Nuestro programa anual está diseñado para llevar a tu hijo desde cero hasta un dominio total del idioma, superando 4 niveles trimestrales:</p>
   
@@ -344,7 +410,7 @@
 </section>
 
 <!-- ESCUELA DE IDIOMAS -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">Escuela de Idiomas: Expansión Global</h2>
   <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras:</p>
   
@@ -373,7 +439,7 @@
 </section>
 
 <!-- LAS 1,001 FORMAS -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
   
@@ -424,7 +490,7 @@
 </section>
 
 <!-- INFRAESTRUCTURA -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">Tecnología de Nivel Dios</h2>
   <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
   
@@ -449,7 +515,7 @@
 </section>
 
 <!-- EL FUTURO (CARRERAS) -->
-<section>
+<section class="reveal">
   <h2 class="sec-title">Las Carreras del Futuro</h2>
   <p class="sec-subtitle">
     A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual de la carrera sin inglés: $99.99/mes).
@@ -480,8 +546,8 @@
   </div>
 </section>
 
-<!-- PRECIOS CON CONTADOR DE 33 REGULARES -->
-<section id="precios">
+<!-- PRECIOS Y CONTADOR -->
+<section id="precios" class="reveal">
   <h2 class="sec-title">Inversión en el Futuro</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
   
@@ -491,7 +557,6 @@
   </div>
 
   <div class="pricing-grid">
-    <!-- Opción 1: Inglés -->
     <div class="price-card">
       <div>
         <h3>Plan Inglés (Base)</h3>
@@ -508,7 +573,6 @@
       <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Inglés</button>
     </div>
 
-    <!-- Opción 2: Paquete Idiomas -->
     <div class="price-card premium">
       <div>
         <h3>Elite Global (4 Idiomas)</h3>
@@ -525,7 +589,6 @@
       <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Elite Global</button>
     </div>
 
-    <!-- Opción 3: Carreras Tech -->
     <div class="price-card career">
       <div>
         <h3>Carreras Tech (Individual)</h3>
@@ -548,19 +611,30 @@
     Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
   </div>
 
-  <div class="binance-banner">
-    <span>🟡</span>
-    <p>Los pagos de inscripción y mensualidades se procesan de forma rápida y segura a través de <strong>Binance Pay</strong>.</p>
+  <!-- NUEVA SECCIÓN PREMIUM DE BINANCE -->
+  <div class="binance-premium-card">
+    <!-- Logo oficial de Binance en SVG -->
+    <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#F3BA2F">
+        <path d="M38.73 53.2L63.3 28.62 87.9 53.2l14.28-14.28L63.3 0 24.45 38.92z"/>
+        <path d="M0 63.3l14.28-14.28L28.56 63.3 14.28 77.58z"/>
+        <path d="M38.73 73.41L63.3 97.99 87.9 73.41l14.28 14.28L63.3 126.61 24.45 87.69z"/>
+        <path d="M98.05 63.3l14.28-14.28 14.28 14.28-14.28 14.28z"/>
+        <path d="M77.66 63.3L63.3 48.95 52.8 59.46l-1.19 1.18-2.56 2.56-14.28 14.28L63.3 106.03l28.64-28.64z"/>
+      </g>
+    </svg>
+    <h4>Pagos Seguros y Globales</h4>
+    <p>Aceptamos pagos de inscripción y mensualidades a través de <strong>Binance Pay</strong>. La red de pagos de criptomonedas más grande del mundo, garantizando velocidad, seguridad y cero fronteras para nuestra élite.</p>
   </div>
 </section>
 
 <!-- FRASE FINAL -->
-<div class="final-quote">
+<div class="final-quote reveal">
   "Regálale lo mejor. Invierte en el futuro de tu hijo."
 </div>
 
-<!-- BECAS (12/100) -->
-<section id="becas">
+<!-- BECAS -->
+<section id="becas" class="reveal">
   <div class="beca-container">
     <div class="beca-top">
       <h2>100 Becas de Excelencia</h2>
@@ -589,7 +663,7 @@
 </section>
 
 <!-- CONTACTO DIRECTO -->
-<div class="contact-section">
+<div class="contact-section reveal">
   <h3>¿Tienes dudas o quieres dejar tus datos para que te contactemos?</h3>
   <p>Escríbenos directamente a nuestro correo oficial. Te responderemos en los próximos días con todos los detalles de la academia.</p>
   <a href="mailto:erianingles@gmail.com?subject=Quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" class="contact-email">
@@ -597,7 +671,7 @@
   </a>
 </div>
 
-<!-- FOOTER CON IVA -->
+<!-- FOOTER -->
 <footer>
   <p>Erian Technologies, C.A. · Socopó, Barinas</p>
   <p style="margin-top:5px;">Todos los derechos reservados © 2024</p>
@@ -606,7 +680,7 @@
   </p>
 </footer>
 
-<!-- MODALES CON LA DATA EXACTA Y REDIRECCIÓN (_next) -->
+<!-- MODALES -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -615,7 +689,6 @@
     <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
       <input type="hidden" name="_template" value="table">
-      <!-- Redirigir a tu misma página al terminar -->
       <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
       
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
@@ -642,41 +715,7 @@
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
       <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
-      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="80" required></div>
-      <div class="form-group"><label>¿Tienes más niños para inscribir? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años), María (10 años)"></textarea></div>
-      <div class="form-group"><label>Email (Opcional)</label><input type="email" name="Email"></div>
-      <button type="submit" class="form-submit">Enviar Reserva</button>
-    </form>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modalElite">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Elite Global</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
-    <form id="formElite" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="👑 Reserva Elite Global - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
-      <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
-      <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
-      <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
-      <div class="form-group"><label>Edad del Niño/a</label><input type="number" name="Edad_Nino" min="9" max="80" required></div>
-      <div class="form-group"><label>¿Tienes más niños para inscribir? (Opcional)</label><textarea name="Otros_Ninos" rows="2" placeholder="Ej: Juan (12 años), María (10 años)"></textarea></div>
-      <div class="form-group"><label>Email (Opcional)</label><input type="email" name="Email"></div>
-      <button type="submit" class="form-submit gold">Enviar Reserva</button>
-    </form>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modalCarrera">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Carrera Individual</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
-    <form id="formCarrera" action="https://formsubmit.co/erianingles@gmail.com" method="POST"><script>
+      <div clas<script>
 const CONFIG = {
   BECAS_TOTALES: 100,
   BECAS_ASIGNADAS: 12,
@@ -715,9 +754,7 @@ function actualizarContadores() {
   }
 
   // 2. Actualizar Regulares
-  const restantesRegulares = Math.max(0, CONFIG.REGULARES_TOTALES - CONFIG.REGULARES_OCUPADOS);
   const porcentajeRegulares = Math.round((CONFIG.REGULARES_OCUPADOS / CONFIG.REGULARES_TOTALES) * 100);
-  
   const fillRegulares = document.getElementById('regularProgressFill');
   if (fillRegulares) {
     setTimeout(() => { fillRegulares.style.width = `${porcentajeRegulares}%`; }, 300);
@@ -738,11 +775,23 @@ function cerrarModal(modal) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // --- EFECTO DE SCROLL PREMIUM (Intersection Observer) ---
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // Solo animar una vez
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  reveals.forEach(reveal => observer.observe(reveal));
+
   // Mostrar alerta de éxito si viene de FormSubmit
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('exito') === 'true') {
     alert('¡Excelente! Tus datos han sido enviados correctamente. Nos pondremos en contacto contigo muy pronto.');
-    // Limpiar la URL para que no se repita la alerta al recargar
     window.history.replaceState({}, document.title, window.location.pathname);
   }
 
@@ -791,20 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-// Funciones para actualizar desde la consola
-window.actualizarBecas = function(n) {
-  CONFIG.BECAS_ASIGNADAS = Math.min(n, CONFIG.BECAS_TOTALES);
-  actualizarContadores();
-  console.log(`✅ Becas actualizadas: ${CONFIG.BECAS_ASIGNADAS}/${CONFIG.BECAS_TOTALES}`);
-};
-
-window.actualizarRegulares = function(n) {
-  CONFIG.REGULARES_OCUPADOS = Math.min(n, CONFIG.REGULARES_TOTALES);
-  actualizarContadores();
-  console.log(`✅ Regulares actualizados: ${CONFIG.REGULARES_OCUPADOS}/${CONFIG.REGULARES_TOTALES}`);
-};
 </script>
 
 </body>
-    </html>
+</html>
