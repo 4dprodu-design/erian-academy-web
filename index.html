@@ -136,128 +136,86 @@
   @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
   .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
   .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
-  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }/* MOVILIDAD */
+.mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+@media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
+.mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
+.mobility-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.8); }
+.mobility-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+.mobility-overlay { position: relative; z-index: 2; width: 100%; background: linear-gradient(0deg, rgba(11,19,32,0.98) 0%, rgba(11,19,32,0.8) 60%, transparent 100%); padding: 35px 25px 25px; }
+.mobility-overlay h4 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.mobility-overlay h4 span { font-size: 24px; }
+.mobility-overlay p { color: var(--text-muted); font-size: 14.5px; line-height: 1.5; }
 
-  /* NUEVA SECCIÓN: MOVILIDAD */
-  .mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-  @media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
-  .mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
-  .mobility-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.8); }
-  .mobility-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
-  .mobility-overlay { position: relative; z-index: 2; width: 100%; background: linear-gradient(0deg, rgba(11,19,32,0.98) 0%, rgba(11,19,32,0.8) 60%, transparent 100%); padding: 35px 25px 25px; }
-  .mobility-overlay h4 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-  .mobility-overlay h4 span { font-size: 24px; }
-  .mobility-overlay p { color: var(--text-muted); font-size: 14.5px; line-height: 1.5; }  /* =========================================
+/* RUTA DE APRENDIZAJE */
+.levels-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
+@media(min-width: 768px) { .levels-grid { grid-template-columns: 1fr 1fr; } }
+.level-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 25px; border-radius: 12px; position: relative; margin-top: 10px; }
+.level-badge { position: absolute; top: -12px; left: 20px; background: var(--gold); color: #000; font-weight: 800; font-size: 12px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+.level-card h4 { color: var(--cyan); margin-top: 10px; margin-bottom: 10px; font-size: 18px; }
+.level-card p { font-size: 14px; color: var(--text-muted); }
+.mastery-box { background: linear-gradient(135deg, rgba(223,182,70,0.1), transparent); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; text-align: center; margin-top: 30px; }
+.mastery-box h3 { color: var(--gold); font-size: 22px; margin-bottom: 10px; }
+.mastery-box p { color: var(--text-main); font-size: 16px; font-weight: 500; }
+
+/* NUEVA SECCIÓN DE IDIOMAS (REALISTA) */
+.lang-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+@media(min-width: 768px) { .lang-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.lang-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; position: relative; }
+.lang-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(223,182,70,0.1); }
+.lang-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--gold)); z-index: 2; }
+.lang-header-img { height: 200px; width: 100%; object-fit: cover; filter: brightness(0.8) grayscale(20%); transition: all 0.3s; }
+.lang-card:hover .lang-header-img { filter: brightness(1) grayscale(0%); }
+.lang-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.lang-content h4 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
+.lang-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+.lang-price-tag { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--gold); background: rgba(223,182,70,0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(223,182,70,0.3); text-align: center; }
+
+/* NUEVA SECCIÓN 1,001 FORMAS (HUD TECNOLÓGICO) */
+.tech-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 950px; margin: 0 auto; }
+@media(min-width: 768px) { .tech-grid { grid-template-columns: 1fr 1fr; } }
+.tech-card { background: rgba(17, 28, 46, 0.6); border: 1px solid var(--border-glass); border-left: 3px solid var(--cyan); padding: 22px; border-radius: 8px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.3s; backdrop-filter: blur(5px); }
+.tech-card:hover { background: rgba(17, 28, 46, 0.9); border-left-color: var(--gold); }
+.tech-icon-svg { width: 32px; height: 32px; flex-shrink: 0; fill: var(--cyan); filter: drop-shadow(0 0 5px rgba(56,189,248,0.5)); }
+.tech-card:hover .tech-icon-svg { fill: var(--gold); filter: drop-shadow(0 0 5px rgba(223,182,70,0.5)); }
+.tech-info h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 5px; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
+.tech-info p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+
+/* HARDWARE (LOGOS REALES) */
+.infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+@media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr; } }
+.infra-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+.infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
+.brand-logo { height: 40px; width: auto; margin-bottom: 20px; fill: #fff; opacity: 0.8; }
+.infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
+.infra-card p { font-size: 13.5px; color: var(--text-muted); }  /* =========================================
      TERMINALES MATRIX (CARRERAS DEL FUTURO)
      ========================================= */
-  .matrix-section {
-    position: relative; overflow: hidden;
-    background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%);
-  }
+  .matrix-section { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%); }
   .matrix-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
   @media(min-width: 768px) { .matrix-grid { grid-template-columns: 1fr 1fr 1fr; } }
-
-  .term-card {
-    background: #050810;
-    border: 1px solid rgba(0, 255, 65, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05);
-    transition: all 0.3s ease;
-    display: flex; flex-direction: column;
-  }
-  .term-card:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.05);
-    transform: translateY(-5px);
-  }
-
-  .term-header {
-    background: #0d1220; padding: 10px 15px;
-    display: flex; align-items: center; gap: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
+  .term-card { background: #050810; border: 1px solid rgba(0, 255, 65, 0.2); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05); transition: all 0.3s ease; display: flex; flex-direction: column; }
+  .term-card:hover { border-color: var(--cyan); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.05); transform: translateY(-5px); }
+  .term-header { background: #0d1220; padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .term-dot { width: 10px; height: 10px; border-radius: 50%; }
   .term-dot.red { background: #ff5f56; }
   .term-dot.yellow { background: #ffbd2e; }
   .term-dot.green { background: #27c93f; }
   .term-title { color: #666; font-family: 'Courier New', monospace; font-size: 11px; margin-left: auto; }
-
-  .term-body {
-    padding: 20px; font-family: 'Courier New', Courier, monospace;
-    font-size: 12px; line-height: 1.6; color: #a8b2c1;
-    flex-grow: 1; position: relative;
-  }
-  
+  .term-body { padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.6; color: #a8b2c1; flex-grow: 1; position: relative; }
   .term-body .line { margin-bottom: 4px; display: block; white-space: pre-wrap; }
   .term-body .line-num { color: #4a5568; display: inline-block; width: 20px; user-select: none; }
   .tag-cyan { color: var(--cyan); font-weight: bold; }
   .tag-gold { color: var(--gold); }
   .tag-green { color: #00ff41; }
-  .tag-red { color: #ff3d57; }
   .tag-purple { color: #a78bfa; }
-  
-  .cursor {
-    display: inline-block; width: 8px; height: 15px; background: #00ff41;
-    animation: blink 1s step-end infinite; vertical-align: middle;
-  }
+  .cursor { display: inline-block; width: 8px; height: 15px; background: #00ff41; animation: blink 1s step-end infinite; vertical-align: middle; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-  .term-card::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 4px, 6px 100%; opacity: 0.3;
-  }
-
-  .term-footer {
-    background: #0d1220; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05);
-    text-align: center;
-  }
+  .term-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 6px 100%; opacity: 0.3; }
+  .term-footer { background: #0d1220; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
   .term-footer h3 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 5px; }
   .term-footer p { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
-  .term-price {
-    font-family: 'Courier New', monospace; font-size: 13px; font-weight: 800;
-    color: #00ff41; background: rgba(0, 255, 65, 0.1);
-    padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0, 255, 65, 0.3);
-  }
-
-  /* RUTA DE APRENDIZAJE */
-  .levels-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .levels-grid { grid-template-columns: 1fr 1fr; } }
-  .level-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 25px; border-radius: 12px; position: relative; margin-top: 10px; }
-  .level-badge { position: absolute; top: -12px; left: 20px; background: var(--gold); color: #000; font-weight: 800; font-size: 12px; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
-  .level-card h4 { color: var(--cyan); margin-top: 10px; margin-bottom: 10px; font-size: 18px; }
-  .level-card p { font-size: 14px; color: var(--text-muted); }
-  .mastery-box { background: linear-gradient(135deg, rgba(223,182,70,0.1), transparent); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; text-align: center; margin-top: 30px; }
-  .mastery-box h3 { color: var(--gold); font-size: 22px; margin-bottom: 10px; }
-  .mastery-box p { color: var(--text-main); font-size: 16px; font-weight: 500; }
-
-  /* ESCUELA DE IDIOMAS */
-  .lang-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .lang-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .lang-card { background: var(--bg-card); border: 1px solid var(--border-maroon); border-radius: 12px; padding: 25px 20px; text-align: center; transition: transform 0.3s; }
-  .lang-card:hover { transform: translateY(-5px); border-color: var(--coral); }
-  .lang-flag { font-size: 40px; margin-bottom: 15px; display: block; }
-  .lang-card h4 { color: #fff; font-size: 18px; margin-bottom: 8px; }
-  .lang-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; }
-  .lang-card .lang-price { color: var(--coral); font-weight: 800; font-size: 14px; }
-
-  /* LAS 1,001 FORMAS */
-  .method-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .method-grid { grid-template-columns: 1fr 1fr; } }
-  .method-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 20px; border-radius: 12px; display: flex; gap: 15px; align-items: flex-start; }
-  .method-icon { font-size: 24px; }
-  .method-card h4 { color: #fff; font-size: 16px; margin-bottom: 5px; }
-  .method-card p { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
-
-  /* INFRAESTRUCTURA */
-  .infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-  @media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr; } }
-  @media(min-width: 1024px) { .infra-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
-  .infra-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 30px 20px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; }
-  .infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
-  .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 17px; font-weight: 800; }
-  .infra-card p { font-size: 13px; color: var(--text-muted); }
+  .term-price { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 800; color: #00ff41; background: rgba(0, 255, 65, 0.1); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0, 255, 65, 0.3); }
 
   /* CONTADOR REGULARES */
   .regular-urgency { background: var(--bg-card); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 20px; max-width: 800px; margin: 0 auto 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -415,7 +373,7 @@
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: MOVILIDAD (EDUCACIÓN SIN FRONTERAS) -->
+<!-- MOVILIDAD (FOTOS DE GITHUB) -->
 <section>
   <h2 class="sec-title">La Educación no tiene Fronteras</h2>
   <p class="sec-subtitle">Con Erian Academy, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
@@ -423,7 +381,6 @@
   <div class="mobility-grid">
     <!-- Tarjeta 1: En Casa -->
     <div class="mobility-card">
-      <!-- Archivo de la niña en casa con laptop -->
       <img src="IMG_ed736ea1-796c-45ba-884a-27f1cf723664.jpg" alt="Niña aprendiendo desde casa con laptop">
       <div class="mobility-overlay">
         <h4><span>💻</span> En Casa</h4>
@@ -433,7 +390,6 @@
 
     <!-- Tarjeta 2: En el Carro -->
     <div class="mobility-card">
-      <!-- Archivo del niño en el carro con tablet -->
       <img src="IMG_bcf321fd-de2e-4c50-a349-8cd0520a1426.jpg" alt="Niño aprendiendo desde el carro con tablet">
       <div class="mobility-overlay">
         <h4><span>🚗</span> En el Camino</h4>
@@ -476,108 +432,125 @@
   </div>
 </section>
 
-<!-- ESCUELA DE IDIOMAS -->
+<!-- NUEVA SECCIÓN: ESCUELA DE IDIOMAS (DISEÑO REALISTA) -->
 <section>
   <h2 class="sec-title">Escuela de Idiomas: Expansión Global</h2>
   <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras:</p>
   
   <div class="lang-grid">
+    
+    <!-- Mandarín -->
     <div class="lang-card">
-      <span class="lang-flag">🇨🇳</span>
-      <h4>Mandarín (Chino)</h4>
-      <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
-      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutora de Mandarín">
+      <div class="lang-content">
+        <h4>Mandarín <span style="font-size:12px; color:var(--cyan);">NODE_CN</span></h4>
+        <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
+        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+      </div>
     </div>
-    <div class="lang-card">
-      <span class="lang-flag">🇩🇪</span>
-      <h4>Alemán</h4>
-      <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
-      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
-    </div>
-    <div class="lang-card">
-      <span class="lang-flag">🇫🇷</span>
-      <h4>Francés</h4>
-      <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional.</p>
-      <div class="lang-price">+$29.99/mes (Alumnos de Inglés)</div>
-    </div>
-  </div>
-</section>
 
-<!-- LAS 1,001 FORMAS -->
+    <!-- Alemán -->
+    <div class="lang-card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutor de Alemán">
+      <div class="lang-content">
+        <h4>Alemán <span style="font-size:12px; color:var(--cyan);">NODE_DE</span></h4>
+        <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
+        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+      </div>
+    </div>
+
+    <!-- Francés -->
+    <div class="lang-card">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutora de Francés">
+      <div class="lang-content">
+        <h4>Francés <span style="font-size:12px; color:var(--cyan);">NODE_FR</span></h4>
+        <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional.</p>
+        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- NUEVA SECCIÓN: 1,001 FORMAS (HUD TECNOLÓGICO) -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
   
-  <div class="method-grid">
-    <div class="method-card">
-      <div class="method-icon">🗣️</div>
-      <div>
-        <h4>Asistente "Sofía" (Voice)</h4>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <div class="tech-info">
+        <h4>> MODULE: VOICE_AI</h4>
         <p>Práctica de conversación con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p>
       </div>
     </div>
-    <div class="method-card">
-      <div class="method-icon">🧠</div>
-      <div>
-        <h4>Flashcards Inteligentes</h4>
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM3 18V6h18v12H3zm16-6h-2v2h2v2h-2v2h-2v-6h4v2zM7 8h2v8H7V8zm4 0h2v8h-2V8z"/></svg>
+      <div class="tech-info">
+        <h4>> DATA: FLASHCARDS</h4>
         <p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p>
       </div>
     </div>
-    <div class="method-card">
-      <div class="method-icon">🎬</div>
-      <div>
-        <h4>Inmersión Cinematográfica</h4>
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+      <div class="tech-info">
+        <h4>> STREAM: CINEMA_ENG</h4>
         <p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p>
       </div>
     </div>
-    <div class="method-card">
-      <div class="method-icon">💬</div>
-      <div>
-        <h4>Chat con IA (Claude & DeepSeek)</h4>
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+      <div class="tech-info">
+        <h4>> ENGINE: CHAT_AI</h4>
         <p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con las IAs más avanzadas y recibir evaluaciones instantáneas.</p>
       </div>
     </div>
-    <div class="method-card">
-      <div class="method-icon">🎮</div>
-      <div>
-        <h4>Cyber Arcade</h4>
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <div class="tech-info">
+        <h4>> ARCADE: 3D_GAME</h4>
         <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
       </div>
     </div>
-    <div class="method-card">
-      <div class="method-icon">✍️</div>
-      <div>
-        <h4>Módulo de Escritura</h4>
+    <div class="tech-card">
+      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+      <div class="tech-info">
+        <h4>> EDITOR: WRITING_AI</h4>
         <p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INFRAESTRUCTURA -->
+<!-- NUEVA SECCIÓN: INFRAESTRUCTURA (LOGOS REALES) -->
 <section>
   <h2 class="sec-title">Tecnología de Nivel Dios</h2>
   <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
   
   <div class="infra-grid">
     <div class="infra-card">
+      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.4 12.36,4.18 13,3.5Z"/></svg>
       <h4>Cluster Mac M5</h4>
       <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia de Silicon Valley.</p>
     </div>
     <div class="infra-card">
+      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.09,4.56c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,1.95,14.25,4.56,12.09,4.56z M12.09,9.16c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,6.55,14.25,9.16,12.09,9.16z M12.09,13.76c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,11.15,14.25,13.76,12.09,13.76z M24,7.35l-5.69,5.5l5.69,5.5v-11z M0,12.85l5.69-5.5l-5.69-5.5v11z"/></svg>
       <h4>Rack NVIDIA</h4>
       <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
     </div>
     <div class="infra-card">
+      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04,1.23L0.4,22.77h23.2L12.04,1.23z M12.04,8.45l5.57,10.25H6.47L12.04,8.45z M12.04,11.54l-1.83,3.36h3.67L12.04,11.54z"/></svg>
       <h4>Cluster ASUS GX10</h4>
       <p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
     </div>
     <div class="infra-card">
+      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
       <h4>Servidores en la Nube</h4>
-      <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs (Claude, DeepSeek, OpenAI) analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
+      <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
-</section><!-- EL FUTURO (CARRERAS) - DISEÑO TERMINAL MATRIX -->
+</section>
+
+<!-- CARRERAS MATRIX -->
 <section class="matrix-section">
   <h2 class="sec-title">Las Carreras del Futuro</h2>
   <p class="sec-subtitle">
@@ -585,7 +558,6 @@
   </p>
   
   <div class="matrix-grid">
-    
     <div class="term-card">
       <div class="term-header">
         <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
@@ -642,7 +614,6 @@
         <div class="term-price">+$29.99/mes</div>
       </div>
     </div>
-
   </div>
 </section>
 
