@@ -4,101 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Erian Academy — La Llave del Imperio</title>
-<meta name="description" content="La Universidad Privada de Barinas. Aprende inglés con IA y domina las carreras del futuro. Infraestructura de $100,000 USD para 300 personas.">
+<meta name="description" content="La Universidad Privada de Barinas. Aprende inglés con IA y domina las carreras del futuro.">
 <style>
   :root {
-    --bg-main: #0b1320;       
-    --bg-card: #111c2e;       
-    --bg-maroon: #3b1616;     
-    --border-maroon: #642525;
-    --gold: #dfb646;          
-    --cyan: #38bdf8;          
-    --coral: #fda4af;         
-    --binance-yellow: #F0B90B;
-    --text-main: #e2e8f0;     
-    --text-muted: #94a3b8;    
-    --glass: rgba(255,255,255,0.03);
-    --border-glass: rgba(255,255,255,0.08);
+    --bg-main: #0b1320; --bg-card: #111c2e; --gold: #dfb646; --cyan: #38bdf8; --coral: #fda4af;
+    --text-main: #e2e8f0; --text-muted: #94a3b8; --glass: rgba(255,255,255,0.03); --border-glass: rgba(255,255,255,0.08);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-main); 
-    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-main); color: var(--text-main);
     overflow-x: hidden; line-height: 1.7;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
   /* HEADER */
-  header {
-    position: sticky; top: 0; z-index: 100;
-    padding: 15px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(11, 19, 32, 0.85);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-glass);
-  }
+  header { position: sticky; top: 0; z-index: 100; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 19, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-glass); }
   .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; letter-spacing: 1px; white-space: nowrap; }
-  .logo-mark {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: var(--gold); color: var(--bg-main);
-    display: grid; place-items: center; font-size: 15px; font-weight: 900;
-  }
-  .header-cta {
-    padding: 8px 14px; border-radius: 8px;
-    background: transparent; border: 1px solid var(--gold);
-    color: var(--gold); font-weight: 600; text-decoration: none; font-size: 12px;
-    transition: all 0.3s; white-space: nowrap;
-  }
+  .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--gold); color: var(--bg-main); display: grid; place-items: center; font-size: 15px; font-weight: 900; }
+  .header-cta { padding: 8px 14px; border-radius: 8px; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-weight: 600; text-decoration: none; font-size: 12px; transition: all 0.3s; }
   .header-cta:hover { background: var(--gold); color: var(--bg-main); }
 
   /* HERO */
   .hero { padding: 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
-  
-  /* BANDERA 3D ONDEABLE */
   .flag-container { display: flex; justify-content: center; align-items: center; margin-bottom: 25px; perspective: 1000px; }
-  .flag-3d {
-    width: 152px; height: 80px; border-radius: 4px; overflow: hidden;
-    box-shadow: -10px 15px 25px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1);
-    animation: waveFlag 5s ease-in-out infinite alternate; transform-style: preserve-3d; position: relative;
-  }
-  .flag-3d::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 70%, rgba(0,0,0,0.3) 100%);
-    pointer-events: none; animation: lightSweep 5s ease-in-out infinite alternate;
-  }
+  .flag-3d { width: 152px; height: 80px; border-radius: 4px; overflow: hidden; box-shadow: -10px 15px 25px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1); animation: waveFlag 5s ease-in-out infinite alternate; transform-style: preserve-3d; position: relative; }
+  .flag-3d::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 70%, rgba(0,0,0,0.3) 100%); pointer-events: none; animation: lightSweep 5s ease-in-out infinite alternate; }
   @keyframes waveFlag { 0% { transform: rotateY(-15deg) rotateX(5deg) skewY(-2deg); } 100% { transform: rotateY(15deg) rotateX(-5deg) skewY(2deg); } }
   @keyframes lightSweep { 0% { transform: translateX(-20%); } 100% { transform: translateX(20%); } }
   .flag-3d svg { width: 100%; height: 100%; object-fit: cover; }
-
-  .hero-badge {
-    display: inline-block; padding: 6px 16px; border-radius: 30px;
-    background: rgba(223,182,70,0.1); border: 1px solid var(--gold);
-    color: var(--gold); font-size: 12px; font-weight: 800;
-    letter-spacing: 1.5px; margin-bottom: 25px; text-transform: uppercase;
-  }
+  .hero-badge { display: inline-block; padding: 6px 16px; border-radius: 30px; background: rgba(223,182,70,0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 25px; text-transform: uppercase; }
   .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
   .hero h1 .gold-text { color: var(--gold); }
   .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-  
-  .btn {
-    padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px;
-    text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block;
-  }
+  .btn { padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block; }
   .btn-primary { background: var(--cyan); color: #000; box-shadow: 0 4px 15px rgba(56,189,248,0.3); }
-  .btn-primary:hover { background: #7dd3fc; }
   .btn-secondary { background: var(--glass); border: 1px solid var(--border-glass); color: var(--text-main); backdrop-filter: blur(5px); }
-  .btn-secondary:hover { border-color: var(--text-muted); }
 
-  /* SECCIONES */
+  /* SECCIONES BASE */
   section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
   .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 20px; color: var(--gold); line-height: 1.2; }
   .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
-  
   .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
@@ -144,7 +91,6 @@
 .mobility-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
 .mobility-overlay { position: relative; z-index: 2; width: 100%; background: linear-gradient(0deg, rgba(11,19,32,0.98) 0%, rgba(11,19,32,0.8) 60%, transparent 100%); padding: 35px 25px 25px; }
 .mobility-overlay h4 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-.mobility-overlay h4 span { font-size: 24px; }
 .mobility-overlay p { color: var(--text-muted); font-size: 14.5px; line-height: 1.5; }
 
 /* RUTA DE APRENDIZAJE */
@@ -158,20 +104,21 @@
 .mastery-box h3 { color: var(--gold); font-size: 22px; margin-bottom: 10px; }
 .mastery-box p { color: var(--text-main); font-size: 16px; font-weight: 500; }
 
-/* NUEVA SECCIÓN DE IDIOMAS (REALISTA) */
+/* ESCUELA DE IDIOMAS (AVATARES CIRCULARES) */
 .lang-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
 @media(min-width: 768px) { .lang-grid { grid-template-columns: 1fr 1fr 1fr; } }
-.lang-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; position: relative; }
+.lang-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, border-color 0.3s; position: relative; }
 .lang-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(223,182,70,0.1); }
-.lang-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--gold)); z-index: 2; }
-.lang-header-img { height: 200px; width: 100%; object-fit: cover; filter: brightness(0.8) grayscale(20%); transition: all 0.3s; }
-.lang-card:hover .lang-header-img { filter: brightness(1) grayscale(0%); }
-.lang-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
-.lang-content h4 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
-.lang-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
-.lang-price-tag { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--gold); background: rgba(223,182,70,0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(223,182,70,0.3); text-align: center; }
+.lang-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 16px 16px 0 0; }
+.lang-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cyan); box-shadow: 0 0 20px rgba(56,189,248,0.6); margin-bottom: 15px; background: #000; }
+.lang-card:nth-child(1) .lang-avatar { border-color: #ff3d57; box-shadow: 0 0 15px rgba(255,61,87,0.5); }
+.lang-card:nth-child(2) .lang-avatar { border-color: #ffd700; box-shadow: 0 0 15px rgba(255,215,0,0.5); }
+.lang-card:nth-child(3) .lang-avatar { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56,189,248,0.5); }
+.lang-content h4 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+.lang-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; min-height: 60px; }
+.lang-price-tag { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--gold); background: rgba(223,182,70,0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(223,182,70,0.3); text-align: center; width: 100%; }
 
-/* NUEVA SECCIÓN 1,001 FORMAS (HUD TECNOLÓGICO) */
+/* 1,001 FORMAS (HUD TECNOLÓGICO) */
 .tech-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 950px; margin: 0 auto; }
 @media(min-width: 768px) { .tech-grid { grid-template-columns: 1fr 1fr; } }
 .tech-card { background: rgba(17, 28, 46, 0.6); border: 1px solid var(--border-glass); border-left: 3px solid var(--cyan); padding: 22px; border-radius: 8px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.3s; backdrop-filter: blur(5px); }
@@ -179,36 +126,29 @@
 .tech-icon-svg { width: 32px; height: 32px; flex-shrink: 0; fill: var(--cyan); filter: drop-shadow(0 0 5px rgba(56,189,248,0.5)); }
 .tech-card:hover .tech-icon-svg { fill: var(--gold); filter: drop-shadow(0 0 5px rgba(223,182,70,0.5)); }
 .tech-info h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 5px; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
-.tech-info p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+.tech-info p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }  /* HARDWARE (LOGOS REALES) */
+  .infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+  @media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr; } }
+  .infra-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+  .infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
+  .brand-logo { height: 40px; width: auto; margin-bottom: 20px; fill: #fff; opacity: 0.8; }
+  .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
+  .infra-card p { font-size: 13.5px; color: var(--text-muted); }
 
-/* HARDWARE (LOGOS REALES) */
-.infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-@media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr; } }
-.infra-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
-.infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
-.brand-logo { height: 40px; width: auto; margin-bottom: 20px; fill: #fff; opacity: 0.8; }
-.infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
-.infra-card p { font-size: 13.5px; color: var(--text-muted); }  /* =========================================
-     TERMINALES MATRIX (CARRERAS DEL FUTURO)
-     ========================================= */
+  /* CARRERAS MATRIX (SIMULACIÓN EN VIVO) */
   .matrix-section { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%); }
   .matrix-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
   @media(min-width: 768px) { .matrix-grid { grid-template-columns: 1fr 1fr 1fr; } }
   .term-card { background: #050810; border: 1px solid rgba(0, 255, 65, 0.2); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05); transition: all 0.3s ease; display: flex; flex-direction: column; }
-  .term-card:hover { border-color: var(--cyan); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.05); transform: translateY(-5px); }
+  .term-card:hover { border-color: var(--cyan); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2); transform: translateY(-5px); }
   .term-header { background: #0d1220; padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
   .term-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .term-dot.red { background: #ff5f56; }
-  .term-dot.yellow { background: #ffbd2e; }
-  .term-dot.green { background: #27c93f; }
+  .term-dot.red { background: #ff5f56; } .term-dot.yellow { background: #ffbd2e; } .term-dot.green { background: #27c93f; }
   .term-title { color: #666; font-family: 'Courier New', monospace; font-size: 11px; margin-left: auto; }
-  .term-body { padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.6; color: #a8b2c1; flex-grow: 1; position: relative; }
+  .term-body { padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.6; color: #a8b2c1; flex-grow: 1; position: relative; height: 220px; overflow-y: auto; }
   .term-body .line { margin-bottom: 4px; display: block; white-space: pre-wrap; }
   .term-body .line-num { color: #4a5568; display: inline-block; width: 20px; user-select: none; }
-  .tag-cyan { color: var(--cyan); font-weight: bold; }
-  .tag-gold { color: var(--gold); }
-  .tag-green { color: #00ff41; }
-  .tag-purple { color: #a78bfa; }
+  .tag-cyan { color: var(--cyan); font-weight: bold; } .tag-gold { color: var(--gold); } .tag-green { color: #00ff41; } .tag-purple { color: #a78bfa; }
   .cursor { display: inline-block; width: 8px; height: 15px; background: #00ff41; animation: blink 1s step-end infinite; vertical-align: middle; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   .term-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 6px 100%; opacity: 0.3; }
@@ -244,11 +184,11 @@
 
   /* BINANCE */
   .binance-premium-card { max-width: 600px; margin: 40px auto 0; background: linear-gradient(145deg, #181a20, #0b0e11); border: 1px solid rgba(240, 185, 11, 0.3); border-radius: 20px; padding: 30px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(240,185,11,0.05); }
-  .binance-premium-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--binance-yellow), transparent); }
+  .binance-premium-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .binance-logo { width: 60px; height: 60px; margin: 0 auto 15px; filter: drop-shadow(0 0 10px rgba(240,185,11,0.4)); }
-  .binance-premium-card h4 { color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.5px; }
-  .binance-premium-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 0; line-height: 1.6; }
-  .binance-premium-card p strong { color: var(--binance-yellow); }
+  .binance-premium-card h4 { color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+  .binance-premium-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+  .binance-premium-card p strong { color: var(--gold); }
 
   /* BECAS */
   .beca-container { background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%); border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px; max-width: 700px; margin: 40px auto 0; }
@@ -292,7 +232,7 @@
   <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
-<!-- HERO CON BANDERA 3D -->
+<!-- HERO -->
 <section class="hero">
   <div class="flag-container">
     <div class="flag-3d">
@@ -300,9 +240,7 @@
         <rect width="7410" height="3900" fill="#B22234"/>
         <path fill="#FFFFFF" d="M0,300h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0z"/>
         <rect width="2964" height="2100" fill="#3C3B6E"/>
-        <defs>
-          <g id="star"><polygon points="0,-40 11.8,-12.3 41,-12.3 17.7,6.7 26.9,35.4 0,18.5 -26.9,35.4 -17.7,6.7 -41,-12.3 -11.8,-12.3" fill="#FFFFFF"/></g>
-        </defs>
+        <defs><g id="star"><polygon points="0,-40 11.8,-12.3 41,-12.3 17.7,6.7 26.9,35.4 0,18.5 -26.9,35.4 -17.7,6.7 -41,-12.3 -11.8,-12.3" fill="#FFFFFF"/></g></defs>
         <use href="#star" x="200" y="116"/><use href="#star" x="570" y="116"/><use href="#star" x="940" y="116"/><use href="#star" x="1310" y="116"/><use href="#star" x="1680" y="116"/><use href="#star" x="2050" y="116"/>
         <use href="#star" x="385" y="350"/><use href="#star" x="755" y="350"/><use href="#star" x="1125" y="350"/><use href="#star" x="1495" y="350"/><use href="#star" x="1865" y="350"/>
         <use href="#star" x="200" y="583"/><use href="#star" x="570" y="583"/><use href="#star" x="940" y="583"/><use href="#star" x="1310" y="583"/><use href="#star" x="1680" y="583"/><use href="#star" x="2050" y="583"/>
@@ -315,13 +253,10 @@
       </svg>
     </div>
   </div>
-  
   <div class="hero-badge">ACCESO RESTRINGIDO · ESTADO BARINAS</div>
   <h1>Si esto llegó a ti, es porque eres parte de la <span class="gold-text">Élite</span>.</h1>
   <p class="sub">No enviamos esta invitación al azar. Erian Academy es el ecosistema de aprendizaje reservado exclusivamente para las familias con visión de imperio en <strong>Socopó, Santa Bárbara y Pedraza</strong>. No formamos empleados, formamos Reyes. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
-  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
-    <a href="#precios" class="btn btn-primary">Reclamar mi Privilegio</a>
-  </div>
+  <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;"><a href="#precios" class="btn btn-primary">Reclamar mi Privilegio</a></div>
 </section>
 
 <!-- LA NECESIDAD -->
@@ -338,7 +273,6 @@
   <div class="strategy-box">
     <h3>La Élite de Barinas no se queda atrás. Tus hijos hablarán Inglés.</h3>
     <p>Sabemos que las familias de élite de <strong>Santa Bárbara, Pedraza y Socopó</strong> no pueden permitir que sus hijos se queden rezagados en un mundo dominado por la tecnología y los negocios globales. Erian Academy es el ecosistema de aprendizaje definitivo para asegurar su futuro.</p>
-    
     <div class="strategy-secret">
       <p>⚠️ <strong>Nuestra Estrategia de Exclusividad:</strong> Aunque nuestra infraestructura en la nube y servidores (Mac M5, ASUS GX10, NVIDIA) tiene la capacidad técnica para soportar hasta 2,000 alumnos, hemos decidido cerrar estrictamente esta primera generación en <strong>300 personas</strong>.</p>
       <p style="margin-top: 8px;">¿Por qué? Porque la verdadera élite no comparte el aula con multitudes. Este tope de 300 nos permite garantizar cero latencia, atención personalizada con IA y un círculo social de alto nivel. Si no estás dentro de los 300, estás fuera del círculo.</p>
@@ -346,40 +280,26 @@
   </div>
 </section>
 
-<!-- METAVERSO (AVATARES 3D) -->
+<!-- METAVERSO -->
 <section>
   <h2 class="sec-title">El Metaverso Educativo</h2>
   <p class="sec-subtitle">Así se ve una clase en Erian Academy. Avatares hiperrealistas, procesados en nuestros servidores Mac, interactuando en tiempo real.</p>
-
   <div class="metaverse-container">
     <div class="metaverse-screen">
-      <div class="live-badge">
-        <div class="live-dot"></div> CONECTANDO AL CAMPUS VIRTUAL
-      </div>
+      <div class="live-badge"><div class="live-dot"></div> CONECTANDO AL CAMPUS VIRTUAL</div>
       <div class="metaverse-floor"></div>
-      <div class="avatar-3d">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Profesor IA">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
-      <div class="avatar-3d">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 1">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
-      <div class="avatar-3d">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 2">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
+      <div class="avatar-3d"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Profesor IA"><div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="avatar-3d"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 1"><div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="avatar-3d"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 2"><div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div></div>
     </div>
   </div>
 </section>
 
-<!-- MOVILIDAD (FOTOS DE GITHUB) -->
+<!-- MOVILIDAD (CON TUS FOTOS DE GITHUB) -->
 <section>
   <h2 class="sec-title">La Educación no tiene Fronteras</h2>
   <p class="sec-subtitle">Con Erian Academy, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
-  
   <div class="mobility-grid">
-    <!-- Tarjeta 1: En Casa -->
     <div class="mobility-card">
       <img src="IMG_ed736ea1-796c-45ba-884a-27f1cf723664.jpg" alt="Niña aprendiendo desde casa con laptop">
       <div class="mobility-overlay">
@@ -387,8 +307,6 @@
         <p>Acceso total al ecosistema desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
       </div>
     </div>
-
-    <!-- Tarjeta 2: En el Carro -->
     <div class="mobility-card">
       <img src="IMG_bcf321fd-de2e-4c50-a349-8cd0520a1426.jpg" alt="Niño aprendiendo desde el carro con tablet">
       <div class="mobility-overlay">
@@ -397,34 +315,15 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- RUTA DE APRENDIZAJE -->
+</section><!-- RUTA DE APRENDIZAJE -->
 <section>
   <h2 class="sec-title">La Ruta hacia la Maestría en Inglés</h2>
   <p class="sec-subtitle">Nuestro programa anual está diseñado para llevar a tu hijo desde cero hasta un dominio total del idioma, superando 4 niveles trimestrales:</p>
-  
   <div class="levels-grid">
-    <div class="level-card">
-      <div class="level-badge">Trimestre 1</div>
-      <h4>Fundamentos y 200+ Palabras</h4>
-      <p>Inmersión inicial con nuestras Flashcards inteligentes. Dominio del verbo To Be, vocabulario esencial y las bases para empezar a pensar en inglés.</p>
-    </div>
-    <div class="level-card">
-      <div class="level-badge">Trimestre 2</div>
-      <h4>Construcción y Conversación</h4>
-      <p>Estructuras gramaticales complejas. El alumno empieza a sostener diálogos con el Asistente "Sofía" y a corregir sus textos con el Chat de IA.</p>
-    </div>
-    <div class="level-card">
-      <div class="level-badge">Trimestre 3</div>
-      <h4>Fluidez e Inmersión Cultural</h4>
-      <p>Comprensión auditiva avanzada con Crossroads Café. Práctica intensiva de pronunciación, escritura bilingüe y expansión de vocabulario técnico.</p>
-    </div>
-    <div class="level-card">
-      <div class="level-badge">Trimestre 4</div>
-      <h4>Maestría y Negocios</h4>
-      <p>Perfeccionamiento del idioma. El alumno adquiere la capacidad de debatir, negociar y entender terminologías de tecnología, SEO y finanzas en inglés.</p>
-    </div>
+    <div class="level-card"><div class="level-badge">Trimestre 1</div><h4>Fundamentos y 200+ Palabras</h4><p>Inmersión inicial con nuestras Flashcards inteligentes. Dominio del verbo To Be, vocabulario esencial y las bases para empezar a pensar en inglés.</p></div>
+    <div class="level-card"><div class="level-badge">Trimestre 2</div><h4>Construcción y Conversación</h4><p>Estructuras gramaticales complejas. El alumno empieza a sostener diálogos con el Asistente "Sofía" y a corregir sus textos con el Chat de IA.</p></div>
+    <div class="level-card"><div class="level-badge">Trimestre 3</div><h4>Fluidez e Inmersión Cultural</h4><p>Comprensión auditiva avanzada con Crossroads Café. Práctica intensiva de pronunciación, escritura bilingüe y expansión de vocabulario técnico.</p></div>
+    <div class="level-card"><div class="level-badge">Trimestre 4</div><h4>Maestría y Negocios</h4><p>Perfeccionamiento del idioma. El alumno adquiere la capacidad de debatir, negociar y entender terminologías de tecnología, SEO y finanzas en inglés.</p></div>
   </div>
   <div class="mastery-box">
     <h3>El Resultado al Final del Año</h3>
@@ -432,332 +331,181 @@
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: ESCUELA DE IDIOMAS (DISEÑO REALISTA) -->
+<!-- IDIOMAS (AVATARES CIRCULARES) -->
 <section>
   <h2 class="sec-title">Escuela de Idiomas: Expansión Global</h2>
   <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras:</p>
-  
   <div class="lang-grid">
-    
-    <!-- Mandarín -->
     <div class="lang-card">
-      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutora de Mandarín">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutora de Mandarín">
       <div class="lang-content">
-        <h4>Mandarín <span style="font-size:12px; color:var(--cyan);">NODE_CN</span></h4>
+        <h4>Mandarín <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_CN</span></h4>
         <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
-        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+        <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
-
-    <!-- Alemán -->
     <div class="lang-card">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutor de Alemán">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutor de Alemán">
       <div class="lang-content">
-        <h4>Alemán <span style="font-size:12px; color:var(--cyan);">NODE_DE</span></h4>
+        <h4>Alemán <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_DE</span></h4>
         <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
-        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+        <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
-
-    <!-- Francés -->
     <div class="lang-card">
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" class="lang-header-img" alt="Tutora de Francés">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutora de Francés">
       <div class="lang-content">
-        <h4>Francés <span style="font-size:12px; color:var(--cyan);">NODE_FR</span></h4>
+        <h4>Francés <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_FR</span></h4>
         <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional.</p>
-        <div class="lang-price-tag">+$29.99/mes (Alumnos)</div>
+        <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
-
   </div>
-</section><!-- NUEVA SECCIÓN: 1,001 FORMAS (HUD TECNOLÓGICO) -->
+</section>
+
+<!-- 1,001 FORMAS (HUD) -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
   <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
-  
   <div class="tech-grid">
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      <div class="tech-info">
-        <h4>> MODULE: VOICE_AI</h4>
-        <p>Práctica de conversación con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <div class="tech-info"><h4>> MODULE: VOICE_AI</h4><p>Práctica de conversación con voces neuronales premium. Habla con una IA indistinguible de un humano real.</p></div>
     </div>
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM3 18V6h18v12H3zm16-6h-2v2h2v2h-2v2h-2v-6h4v2zM7 8h2v8H7V8zm4 0h2v8h-2V8z"/></svg>
-      <div class="tech-info">
-        <h4>> DATA: FLASHCARDS</h4>
-        <p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM3 18V6h18v12H3zm16-6h-2v2h2v2h-2v2h-2v-6h4v2zM7 8h2v8H7V8zm4 0h2v8h-2V8z"/></svg>
+      <div class="tech-info"><h4>> DATA: FLASHCARDS</h4><p>Más de 200 palabras diseñadas con repetición espaciada para que el cerebro las retenga de forma natural.</p></div>
     </div>
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
-      <div class="tech-info">
-        <h4>> STREAM: CINEMA_ENG</h4>
-        <p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+      <div class="tech-info"><h4>> STREAM: CINEMA_ENG</h4><p>Crossroads Café: 26 episodios interactivos para aprender inglés con contexto real y cultural.</p></div>
     </div>
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-      <div class="tech-info">
-        <h4>> ENGINE: CHAT_AI</h4>
-        <p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con las IAs más avanzadas y recibir evaluaciones instantáneas.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+      <div class="tech-info"><h4>> ENGINE: CHAT_AI</h4><p>Corrección bilingüe en tiempo real. Tu hijo puede chatear con las IAs más avanzadas y recibir evaluaciones instantáneas.</p></div>
     </div>
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-      <div class="tech-info">
-        <h4>> ARCADE: 3D_GAME</h4>
-        <p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <div class="tech-info"><h4>> ARCADE: 3D_GAME</h4><p>Videojuegos en 3D como Erian Nexus V11 (Word Shooter). Aprender inglés disparando y jugando.</p></div>
     </div>
     <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-      <div class="tech-info">
-        <h4>> EDITOR: WRITING_AI</h4>
-        <p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p>
-      </div>
+      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+      <div class="tech-info"><h4>> EDITOR: WRITING_AI</h4><p>Corrección de redacción bilingüe y evaluaciones del verbo To Be con ayuda de IA.</p></div>
     </div>
   </div>
 </section>
 
-<!-- NUEVA SECCIÓN: INFRAESTRUCTURA (LOGOS REALES) -->
+<!-- HARDWARE (LOGOS) -->
 <section>
   <h2 class="sec-title">Tecnología de Nivel Dios</h2>
   <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
-  
   <div class="infra-grid">
     <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.4 12.36,4.18 13,3.5Z"/></svg>
-      <h4>Cluster Mac M5</h4>
-      <p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia de Silicon Valley.</p>
+      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.4 12.36,4.18 13,3.5Z"/></svg>
+      <h4>Cluster Mac M5</h4><p>Procesamiento de élite para diseño, desarrollo y fluidez total sin latencia. La misma potencia de Silicon Valley.</p>
     </div>
     <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.09,4.56c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,1.95,14.25,4.56,12.09,4.56z M12.09,9.16c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,6.55,14.25,9.16,12.09,9.16z M12.09,13.76c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,11.15,14.25,13.76,12.09,13.76z M24,7.35l-5.69,5.5l5.69,5.5v-11z M0,12.85l5.69-5.5l-5.69-5.5v11z"/></svg>
-      <h4>Rack NVIDIA</h4>
-      <p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
+      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M12.09,4.56c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,1.95,14.25,4.56,12.09,4.56z M12.09,9.16c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,6.55,14.25,9.16,12.09,9.16z M12.09,13.76c-0.37,0-0.73,0.01-1.09,0.02v2.07c0.36-0.01,0.72-0.02,1.09-0.02c1.26,0,2.5,0.08,3.7,0.23c1.8-1.75,3.16-3.58,3.16-3.58C16.73,11.15,14.25,13.76,12.09,13.76z M24,7.35l-5.69,5.5l5.69,5.5v-11z M0,12.85l5.69-5.5l-5.69-5.5v11z"/></svg>
+      <h4>Rack NVIDIA</h4><p>Alta capacidad de lectura de IA. La potencia militar detrás de la personalización de cada clase y el procesamiento de datos.</p>
     </div>
     <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04,1.23L0.4,22.77h23.2L12.04,1.23z M12.04,8.45l5.57,10.25H6.47L12.04,8.45z M12.04,11.54l-1.83,3.36h3.67L12.04,11.54z"/></svg>
-      <h4>Cluster ASUS GX10</h4>
-      <p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
+      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M12.04,1.23L0.4,22.77h23.2L12.04,1.23z M12.04,8.45l5.57,10.25H6.47L12.04,8.45z M12.04,11.54l-1.83,3.36h3.67L12.04,11.54z"/></svg>
+      <h4>Cluster ASUS GX10</h4><p>Equipos de alto rendimiento dedicados a la creación y soporte de los módulos interactivos que consumen los alumnos.</p>
     </div>
     <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
-      <h4>Servidores en la Nube</h4>
-      <p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
+      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+      <h4>Servidores en la Nube</h4><p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
 </section>
 
-<!-- CARRERAS MATRIX -->
+<!-- CARRERAS MATRIX (SIMULACIÓN) -->
 <section class="matrix-section">
   <h2 class="sec-title">Las Carreras del Futuro</h2>
-  <p class="sec-subtitle">
-    A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual: $99.99/mes).
-  </p>
-  
+  <p class="sec-subtitle">A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual: $99.99/mes).</p>
   <div class="matrix-grid">
     <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">root@erian:~/cybersec</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-cyan">sudo</span> access mainframe</span>
-        <span class="line"><span class="line-num">2</span>Bypassing firewall...</span>
-        <span class="line"><span class="line-num">3</span><span class="tag-green">[OK]</span> Vulnerabilities patched.</span>
-        <span class="line"><span class="line-num">4</span>Status: <span class="tag-gold">SYSTEM SECURE</span></span>
-        <span class="line"><span class="line-num">5</span>Protocol: <span class="tag-purple">AES-256</span> active <span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>Módulo 9: Ciberseguridad</h3>
-        <p>Protección de activos y arquitectura web. Formamos a los guardianes del imperio digital.</p>
-        <div class="term-price">+$29.99/mes</div>
-      </div>
+      <div class="term-header"><div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div><div class="term-title">root@erian:~/cybersec</div></div>
+      <div class="term-body" id="term-cyber"></div>
+      <div class="term-footer"><h3>Módulo 9: Ciberseguridad</h3><p>Protección de activos y arquitectura web. Formamos a los guardianes del imperio digital.</p><div class="term-price">+$29.99/mes</div></div>
     </div>
-
     <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">admin@erian:~/data_science</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-cyan">import</span> pandas <span class="tag-cyan">as</span> pd</span>
-        <span class="line"><span class="line-num">2</span>df = pd.read_csv(<span class="tag-gold">'wealth.csv'</span>)</span>
-        <span class="line"><span class="line-num">3</span>df.<span class="tag-cyan">drop</span>(columns=[<span class="tag-gold">'poverty'</span>])</span>
-        <span class="line"><span class="line-num">4</span><span class="tag-cyan">print</span>(<span class="tag-gold">'Empire Status: GROWING'</span>)</span>
-        <span class="line"><span class="line-num">5</span>Running algorithm... <span class="tag-green">Done.</span> <span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>Módulo 10: Datos y Finanzas</h3>
-        <p>Análisis algorítmico y manejo de recursos. Aquí formamos a los líderes financieros.</p>
-        <div class="term-price">+$29.99/mes</div>
-      </div>
+      <div class="term-header"><div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div><div class="term-title">admin@erian:~/data_science</div></div>
+      <div class="term-body" id="term-data"></div>
+      <div class="term-footer"><h3>Módulo 10: Datos y Finanzas</h3><p>Análisis algorítmico y manejo de recursos. Aquí formamos a los líderes financieros.</p><div class="term-price">+$29.99/mes</div></div>
     </div>
-
     <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">ceo@erian:~/agency_build</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-cyan">&lt;meta</span> name=<span class="tag-gold">"description"</span> <span class="tag-cyan">&gt;</span></span>
-        <span class="line"><span class="line-num">2</span><span class="tag-cyan">&lt;title&gt;</span>CEO Empire<span class="tag-cyan">&lt;/title&gt;</span></span>
-        <span class="line"><span class="line-num">3</span>Ranking domain #1...</span>
-        <span class="line"><span class="line-num">4</span><span class="tag-green">SUCCESS:</span> Traffic +400%</span>
-        <span class="line"><span class="line-num">5</span>Monetizing ideas... <span class="tag-purple">$$$</span> <span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>Módulo 11-12: SEO y Agencias</h3>
-        <p>Posicionamiento global y creación de agencias. El paso final para ser CEO de tu imperio.</p>
-        <div class="term-price">+$29.99/mes</div>
-      </div>
+      <div class="term-header"><div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div><div class="term-title">ceo@erian:~/agency_build</div></div>
+      <div class="term-body" id="term-seo"></div>
+      <div class="term-footer"><h3>Módulo 11-12: SEO y Agencias</h3><p>Posicionamiento global y creación de agencias. El paso final para ser CEO de tu imperio.</p><div class="term-price">+$29.99/mes</div></div>
     </div>
   </div>
-</section>
-
-<!-- PRECIOS Y CONTADOR -->
+</section><!-- PRECIOS Y CONTADOR -->
 <section id="precios">
   <h2 class="sec-title">Inversión en el Futuro</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
-  
   <div class="regular-urgency">
     <p>Ya tenemos <span>33 alumnos regulares</span> inscritos. ¡Solo quedan <span>167 cupos</span> de los 200 disponibles!</p>
     <div class="progress-bar"><div class="progress-fill" id="regularProgressFill"></div></div>
   </div>
-
   <div class="pricing-grid">
     <div class="price-card">
-      <div>
-        <h3>Plan Inglés (Base)</h3>
-        <div class="price-val">$99<span>.99/mes</span></div>
-        <div class="price-note">El enfoque principal</div>
-        <ul class="price-features">
-          <li>Las 1,001 formas de aprender inglés</li>
-          <li>Asistente "Sofía" y Chat con IAs</li>
-          <li>Crossroads Café y Cyber Arcade</li>
-          <li>Opción a Idiomas Extra (+$29.99)</li>
-          <li>Opción a Carreras Tech (+$29.99)</li>
-        </ul>
-      </div>
+      <div><h3>Plan Inglés (Base)</h3><div class="price-val">$99<span>.99/mes</span></div><div class="price-note">El enfoque principal</div>
+      <ul class="price-features"><li>Las 1,001 formas de aprender inglés</li><li>Asistente "Sofía" y Chat con IAs</li><li>Crossroads Café y Cyber Arcade</li><li>Opción a Idiomas Extra (+$29.99)</li><li>Opción a Carreras Tech (+$29.99)</li></ul></div>
       <button class="btn btn-secondary" style="width:100%;" id="btnReservarRegular">Reservar Inglés</button>
     </div>
-
     <div class="price-card premium">
-      <div>
-        <h3>Elite Global (4 Idiomas)</h3>
-        <div class="price-val">$149<span>.99/mes</span></div>
-        <div class="price-note">Disponible a partir del Mes 6</div>
-        <ul class="price-features">
-          <li>Acceso total al Plan de Inglés</li>
-          <li><strong>Mandarín (Chino)</strong></li>
-          <li><strong>Alemán</strong></li>
-          <li><strong>Francés</strong></li>
-          <li>Opción a Carreras Tech (+$29.99)</li>
-        </ul>
-      </div>
+      <div><h3>Elite Global (4 Idiomas)</h3><div class="price-val">$149<span>.99/mes</span></div><div class="price-note">Disponible a partir del Mes 6</div>
+      <ul class="price-features"><li>Acceso total al Plan de Inglés</li><li><strong>Mandarín (Chino)</strong></li><li><strong>Alemán</strong></li><li><strong>Francés</strong></li><li>Opción a Carreras Tech (+$29.99)</li></ul></div>
       <button class="btn btn-primary" style="width:100%;" id="btnReservarElite">Reservar Elite Global</button>
     </div>
-
     <div class="price-card career">
-      <div>
-        <h3>Carreras Tech (Individual)</h3>
-        <div class="price-val">$99<span>.99/mes</span></div>
-        <div class="price-note">Si no cursas el plan de inglés</div>
-        <ul class="price-features">
-          <li><strong>Ciberseguridad (Mes 9)</strong></li>
-          <li><strong>Inteligencia de Datos (Mes 10)</strong></li>
-          <li><strong>Arquitectura SEO (Mes 11-12)</strong></li>
-          <li>Clases con IA y proyectos reales</li>
-          <li>Opción a Inglés (+$29.99)</li>
-        </ul>
-      </div>
+      <div><h3>Carreras Tech (Individual)</h3><div class="price-val">$99<span>.99/mes</span></div><div class="price-note">Si no cursas el plan de inglés</div>
+      <ul class="price-features"><li><strong>Ciberseguridad (Mes 9)</strong></li><li><strong>Inteligencia de Datos (Mes 10)</strong></li><li><strong>Arquitectura SEO (Mes 11-12)</strong></li><li>Clases con IA y proyectos reales</li><li>Opción a Inglés (+$29.99)</li></ul></div>
       <button class="btn btn-secondary" style="width:100%; border-color:var(--cyan); color:var(--cyan);" id="btnReservarCarrera">Reservar Carrera</button>
     </div>
   </div>
-
-  <div class="pricing-note">
-    <strong>Nota Importante de Ventas Cruzadas:</strong><br>
-    Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> (Ciberseguridad, Data, SEO) o <strong>cualquier idioma extra</strong> (Mandarín, Alemán, Francés) pagando solo <strong>+$29.99/mes</strong> por cada uno.
-  </div>
-
+  <div class="pricing-note"><strong>Nota Importante de Ventas Cruzadas:</strong><br>Si ya estás suscrito al Plan de Inglés ($99.99) o al Elite Global ($149.99), puedes añadir <strong>cualquier carrera</strong> o <strong>cualquier idioma extra</strong> pagando solo <strong>+$29.99/mes</strong> por cada uno.</div>
   <div class="binance-premium-card">
-    <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg">
-      <g fill="#F3BA2F">
-        <path d="M38.73 53.2L63.3 28.62 87.9 53.2l14.28-14.28L63.3 0 24.45 38.92z"/>
-        <path d="M0 63.3l14.28-14.28L28.56 63.3 14.28 77.58z"/>
-        <path d="M38.73 73.41L63.3 97.99 87.9 73.41l14.28 14.28L63.3 126.61 24.45 87.69z"/>
-        <path d="M98.05 63.3l14.28-14.28 14.28 14.28-14.28 14.28z"/>
-        <path d="M77.66 63.3L63.3 48.95 52.8 59.46l-1.19 1.18-2.56 2.56-14.28 14.28L63.3 106.03l28.64-28.64z"/>
-      </g>
-    </svg>
-    <h4>Pagos Seguros y Globales</h4>
-    <p>Aceptamos pagos de inscripción y mensualidades a través de <strong>Binance Pay</strong>. La red de pagos de criptomonedas más grande del mundo, garantizando velocidad, seguridad y cero fronteras para nuestra élite.</p>
+    <svg class="binance-logo" viewBox="0 0 126.61 126.61" xmlns="http://www.w3.org/2000/svg"><g fill="#F3BA2F"><path d="M38.73 53.2L63.3 28.62 87.9 53.2l14.28-14.28L63.3 0 24.45 38.92z"/><path d="M0 63.3l14.28-14.28L28.56 63.3 14.28 77.58z"/><path d="M38.73 73.41L63.3 97.99 87.9 73.41l14.28 14.28L63.3 126.61 24.45 87.69z"/><path d="M98.05 63.3l14.28-14.28 14.28 14.28-14.28 14.28z"/><path d="M77.66 63.3L63.3 48.95 52.8 59.46l-1.19 1.18-2.56 2.56-14.28 14.28L63.3 106.03l28.64-28.64z"/></g></svg>
+    <h4>Pagos Seguros y Globales</h4><p>Aceptamos pagos de inscripción y mensualidades a través de <strong>Binance Pay</strong>. La red de pagos de criptomonedas más grande del mundo, garantizando velocidad, seguridad y cero fronteras para nuestra élite.</p>
   </div>
 </section>
 
 <!-- FRASE FINAL -->
-<div class="final-quote">
-  "Regálale lo mejor. Invierte en el futuro de tu hijo."
-</div>
+<div class="final-quote">"Regálale lo mejor. Invierte en el futuro de tu hijo."</div>
 
 <!-- BECAS -->
 <section id="becas">
   <div class="beca-container">
-    <div class="beca-top">
-      <h2>100 Becas de Excelencia</h2>
-      <div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div>
-    </div>
+    <div class="beca-top"><h2>100 Becas de Excelencia</h2><div class="badge" id="becaEstado">SELECCIÓN ACTIVA</div></div>
     <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">El talento no tiene precio. Hemos reservado 100 de nuestras 300 plazas para niños con excelencia académica o talento excepcional. Ellos pagan solo $69.99/mes, ya que Erian Technologies financia la diferencia de por vida.</p>
-    
     <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="becaProgressFill"></div></div>
-      <div class="progress-text">
-        <span id="becaContador">Becas asignadas: 12 / 100 · Quedan 88</span>
-        <span id="becaPorcentaje">12%</span>
-      </div>
+      <div class="progress-text"><span id="becaContador">Becas asignadas: 12 / 100 · Quedan 88</span><span id="becaPorcentaje">12%</span></div>
     </div>
-
-    <ul class="req-list">
-      <li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li>
-      <li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li>
-      <li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li>
-      <li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li>
-      <li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li>
-    </ul>
-
+    <ul class="req-list"><li><strong>Excelencia Académica (30%):</strong> Boleta de calificaciones.</li><li><strong>Talento Especial (25%):</strong> Carta de docente o mentor.</li><li><strong>Historia de Superación (20%):</strong> Ensayo breve.</li><li><strong>Compromiso Familiar (15%):</strong> Carta del representante.</li><li><strong>Visión de Futuro (10%):</strong> Entrevista corta.</li></ul>
     <button class="btn btn-secondary" style="width:100%; border-color:var(--gold); color:var(--gold);" id="btnPostularBeca">Postular a mi Hijo para Beca</button>
   </div>
 </section>
 
-<!-- CONTACTO -->
+<!-- CONTACTO Y FOOTER -->
 <div class="contact-section">
   <h3>¿Tienes dudas o quieres dejar tus datos para que te contactemos?</h3>
   <p>Escríbenos directamente a nuestro correo oficial. Te responderemos en los próximos días con todos los detalles de la academia.</p>
-  <a href="mailto:erianingles@gmail.com?subject=Quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" class="contact-email">
-    erianingles@gmail.com
-  </a>
+  <a href="mailto:erianingles@gmail.com?subject=Quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" class="contact-email">erianingles@gmail.com</a>
 </div>
-
-<!-- FOOTER -->
 <footer>
   <p>Erian Technologies, C.A. · Socopó, Barinas</p>
   <p style="margin-top:5px;">Todos los derechos reservados © 2024</p>
-  <p style="margin-top:10px; font-size:11px; opacity:0.7;">
-    * Los precios mostrados no están exentos de IVA. Se debe añadir la alícuota correspondiente del 16%.
-  </p>
-</footer><!-- MODALES -->
+  <p style="margin-top:10px; font-size:11px; opacity:0.7;">* Los precios mostrados no están exentos de IVA. Se debe añadir la alícuota correspondiente del 16%.</p>
+</footer>
+
+<!-- MODALES -->
 <div class="modal-overlay" id="modalBeca">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Postulación a Beca</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+  <div class="modal"><button class="modal-close" data-close>×</button><h3>Postulación a Beca</h3><p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
     <form id="formBeca" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
+      <input type="hidden" name="_subject" value="🎓 Postulación Beca - Erian Academy"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
       <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
@@ -770,15 +518,9 @@
 </div>
 
 <div class="modal-overlay" id="modalRegular">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Plan Inglés</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+  <div class="modal"><button class="modal-close" data-close>×</button><h3>Reservar Plan Inglés</h3><p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
     <form id="formRegular" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="💳 Reserva Inglés - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
+      <input type="hidden" name="_subject" value="💳 Reserva Inglés - Erian Academy"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
       <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
@@ -791,15 +533,9 @@
 </div>
 
 <div class="modal-overlay" id="modalElite">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Elite Global</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+  <div class="modal"><button class="modal-close" data-close>×</button><h3>Reservar Elite Global</h3><p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
     <form id="formElite" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="👑 Reserva Elite Global - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
+      <input type="hidden" name="_subject" value="👑 Reserva Elite Global - Erian Academy"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
       <div class="form-group"><label>Nombre del Niño/a</label><input type="text" name="Nombre_Nino" required></div>
@@ -812,41 +548,92 @@
 </div>
 
 <div class="modal-overlay" id="modalCarrera">
-  <div class="modal">
-    <button class="modal-close" data-close>×</button>
-    <h3>Reservar Carrera Individual</h3>
-    <p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
+  <div class="modal"><button class="modal-close" data-close>×</button><h3>Reservar Carrera Individual</h3><p>Déjanos tus datos y nos pondremos en contacto contigo en los próximos días.</p>
     <form id="formCarrera" action="https://formsubmit.co/erianingles@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="🚀 Reserva Carrera Individual - Erian Academy">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
-      
+      <input type="hidden" name="_subject" value="🚀 Reserva Carrera Individual - Erian Academy"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://erian-academy-web-1uyi.vercel.app/?exito=true">
       <div class="form-group"><label>Nombre del Representante</label><input type="text" name="Representante" required></div>
       <div class="form-group"><label>Número de Teléfono (WhatsApp)</label><input type="tel" name="Telefono" required></div>
       <div class="form-group"><label>Nombre del Niño/a (o Alumno)</label><input type="text" name="Nombre_Nino" required></div>
       <div class="form-group"><label>Edad</label><input type="number" name="Edad_Nino" min="9" max="80" required></div>
-      <div class="form-group">
-        <label>Carrera de Interés</label>
-        <select name="Carrera" required>
-          <option value="Ciberseguridad">Ciberseguridad</option>
-          <option value="Inteligencia de Datos">Inteligencia de Datos</option>
-          <option value="Arquitectura SEO">Arquitectura SEO</option>
-        </select>
-      </div>
+      <div class="form-group"><label>Carrera de Interés</label><select name="Carrera" required><option value="Ciberseguridad">Ciberseguridad</option><option value="Inteligencia de Datos">Inteligencia de Datos</option><option value="Arquitectura SEO">Arquitectura SEO</option></select></div>
       <button type="submit" class="form-submit" style="background:var(--cyan); color:#000;">Enviar Reserva</button>
     </form>
   </div>
 </div>
 
 <script>
-const CONFIG = {
-  BECAS_TOTALES: 100,
-  BECAS_ASIGNADAS: 12,
-  REGULARES_TOTALES: 200,
-  REGULARES_OCUPADOS: 33
+// SIMULACIÓN DE TERMINALES (CARRERAS)
+const terminalTexts = {
+  'term-cyber': [
+    { text: 'sudo access mainframe', tag: 'tag-cyan' },
+    { text: 'Bypassing firewall...', tag: '' },
+    { text: '[OK] Vulnerabilities patched.', tag: 'tag-green' },
+    { text: 'Status: SYSTEM SECURE', tag: 'tag-gold' },
+    { text: 'Protocol: AES-256 active', tag: 'tag-purple' }
+  ],
+  'term-data': [
+    { text: 'import pandas as pd', tag: 'tag-cyan' },
+    { text: "df = pd.read_csv('wealth.csv')", tag: '' },
+    { text: "df.drop(columns=['poverty'])", tag: '' },
+    { text: "print('Empire Status: GROWING')", tag: 'tag-gold' },
+    { text: 'Running algorithm... Done.', tag: 'tag-green' }
+  ],
+  'term-seo': [
+    { text: '<meta name="description" >', tag: 'tag-cyan' },
+    { text: '<title>CEO Empire</title>', tag: '' },
+    { text: 'Ranking domain #1...', tag: '' },
+    { text: 'SUCCESS: Traffic +400%', tag: 'tag-green' },
+    { text: 'Monetizing ideas... $$$', tag: 'tag-purple' }
+  ]
 };
 
-function actualizarContadores() {
+function typeTerminal(elementId, lines, lineIndex = 0, charIndex = 0) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  if (lineIndex < lines.length) {
+    if (!el.children[lineIndex]) {
+      const span = document.createElement('span');
+      span.className = 'line';
+      span.innerHTML = `<span class="line-num">${lineIndex + 1}</span><span class="${lines[lineIndex].tag}"></span><span class="cursor"></span>`;
+      el.appendChild(span);
+    }
+    
+    const currentLine = el.children[lineIndex];
+    const textSpan = currentLine.querySelector('span:not(.line-num):not(.cursor)');
+    const cursor = currentLine.querySelector('.cursor');
+
+    if (charIndex < lines[lineIndex].text.length) {
+      textSpan.textContent += lines[lineIndex].text[charIndex];
+      setTimeout(() => typeTerminal(elementId, lines, lineIndex, charIndex + 1), 30);
+    } else {
+      currentLine.removeChild(cursor); // Remove cursor from finished line
+      setTimeout(() => typeTerminal(elementId, lines, lineIndex + 1, 0), 300);
+    }
+  } else {
+    // Loop again
+    setTimeout(() => {
+      el.innerHTML = '';
+      typeTerminal(elementId, lines, 0, 0);
+    }, 5000);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Iniciar simulaciones
+  setTimeout(() => typeTerminal('term-cyber', terminalTexts['term-cyber']), 500);
+  setTimeout(() => typeTerminal('term-data', terminalTexts['term-data']), 1000);
+  setTimeout(() => typeTerminal('term-seo', terminalTexts['term-seo']), 1500);
+
+  // Lógica de FormSubmit redirección
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('exito') === 'true') {
+    alert('¡Excelente! Tus datos han sido enviados correctamente. Nos pondremos en contacto contigo muy pronto.');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  // Contadores
+  const CONFIG = { BECAS_TOTALES: 100, BECAS_ASIGNADAS: 12, REGULARES_TOTALES: 200, REGULARES_OCUPADOS: 33 };
   const restantesBecas = Math.max(0, CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS);
   const porcentajeBecas = Math.round((CONFIG.BECAS_ASIGNADAS / CONFIG.BECAS_TOTALES) * 100);
 
@@ -860,16 +647,11 @@ function actualizarContadores() {
     if (restantesBecas > 0) {
       contadorBecas.textContent = `Becas asignadas: ${CONFIG.BECAS_ASIGNADAS} / ${CONFIG.BECAS_TOTALES} · Quedan ${restantesBecas}`;
       estadoBeca.textContent = 'SELECCIÓN ACTIVA';
-      btnBeca.disabled = false;
-      btnBeca.style.opacity = '1';
     } else {
       contadorBecas.textContent = `Becas asignadas: ${CONFIG.BECAS_TOTALES} / ${CONFIG.BECAS_TOTALES} · CERRADAS`;
       estadoBeca.textContent = 'BECAS CERRADAS';
-      estadoBeca.style.color = '#fda4af';
-      estadoBeca.style.background = 'rgba(253,164,175,0.1)';
-      btnBeca.disabled = true;
-      btnBeca.style.opacity = '0.5';
-      btnBeca.textContent = 'Becas Cerradas por este Año';
+      estadoBeca.style.color = '#fda4af'; estadoBeca.style.background = 'rgba(253,164,175,0.1)';
+      btnBeca.disabled = true; btnBeca.style.opacity = '0.5'; btnBeca.textContent = 'Becas Cerradas por este Año';
     }
     pctBecas.textContent = `${porcentajeBecas}%`;
     setTimeout(() => { fillBecas.style.width = `${porcentajeBecas}%`; }, 300);
@@ -877,40 +659,15 @@ function actualizarContadores() {
 
   const porcentajeRegulares = Math.round((CONFIG.REGULARES_OCUPADOS / CONFIG.REGULARES_TOTALES) * 100);
   const fillRegulares = document.getElementById('regularProgressFill');
-  if (fillRegulares) {
-    setTimeout(() => { fillRegulares.style.width = `${porcentajeRegulares}%`; }, 300);
-  }
-}
+  if (fillRegulares) setTimeout(() => { fillRegulares.style.width = `${porcentajeRegulares}%`; }, 300);
 
-function abrirModal(id) {
-  const modal = document.getElementById(id);
-  if (!modal) return;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+  // Modales
+  function abrirModal(id) { const modal = document.getElementById(id); if (modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; } }
+  function cerrarModal(modal) { if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } }
 
-function cerrarModal(modal) {
-  if (!modal) return;
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('exito') === 'true') {
-    alert('¡Excelente! Tus datos han sido enviados correctamente. Nos pondremos en contacto contigo muy pronto.');
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-
-  actualizarContadores();
-
-  const btnBeca = document.getElementById('btnPostularBeca');
   if (btnBeca) {
     btnBeca.addEventListener('click', () => {
-      if ((CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS) <= 0) {
-        alert('Las becas de esta generación ya fueron asignadas.');
-        return;
-      }
+      if ((CONFIG.BECAS_TOTALES - CONFIG.BECAS_ASIGNADAS) <= 0) { alert('Las becas de esta generación ya fueron asignadas.'); return; }
       abrirModal('modalBeca');
     });
   }
@@ -919,32 +676,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btnReservarElite')?.addEventListener('click', () => abrirModal('modalElite'));
   document.getElementById('btnReservarCarrera')?.addEventListener('click', () => abrirModal('modalCarrera'));
 
-  document.querySelectorAll('[data-close]').forEach(btn => {
-    btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay')));
-  });
-
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) cerrarModal(overlay);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
-    }
-  });
+  document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => cerrarModal(btn.closest('.modal-overlay'))));
+  document.querySelectorAll('.modal-overlay').forEach(overlay => overlay.addEventListener('click', (e) => { if (e.target === overlay) cerrarModal(overlay); }));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m)); });
 
   ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
     const form = document.getElementById(formId);
-    if (!form) return;
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('.form-submit');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = '⏳ Enviando...';
-      }
-    });
+    if (form) {
+      form.addEventListener('submit', () => {
+        const btn = form.querySelector('.form-submit');
+        if (btn) { btn.disabled = true; btn.textContent = '⏳ Enviando...'; }
+      });
+    }
   });
 });
 </script>
