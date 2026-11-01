@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erian Academy — La Llave del Imperio</title>
-<meta name="description" content="La Universidad Privada de Barinas. Aprende inglés con IA y domina las carreras del futuro. Infraestructura de $100,000 USD para 300 personas.">
+<title>Erian Academy — La Escuela en Línea de Élite</title>
+<meta name="description" content="La primera Escuela 100% en Línea y de Élite en Barinas. Aprende inglés con IA y domina las carreras del futuro desde tu campus virtual.">
 <style>
   :root {
     --bg-main: #0b1320;       
@@ -107,33 +107,33 @@
   .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
   .strategy-box p strong { color: var(--cyan); }
   .strategy-secret { background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral); padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left; }
-  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
+  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }/* METAVERSO (CAMPUS VIRTUAL) */
+.metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
+.metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
+.metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
+@keyframes moveFloor { 0% { background-position: 0 0; } 100% { background-position: 0 30px; } }
+.avatar-3d { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; animation: floatAvatar 3s ease-in-out infinite alternate; }
+.avatar-3d:nth-child(3) { animation-delay: 0.5s; transform: scale(1.1) translateZ(50px); z-index: 3; }
+.avatar-3d:nth-child(4) { animation-delay: 1s; }
+@keyframes floatAvatar { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
+.avatar-3d:nth-child(3) { animation-name: floatAvatarCenter; }
+@keyframes floatAvatarCenter { 0% { transform: translateY(0px) scale(1.1) translateZ(50px); } 100% { transform: translateY(-15px) scale(1.1) translateZ(50px); } }
+.avatar-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.6); background: #000; }
+.avatar-3d:nth-child(2) .avatar-img { border-color: #dfb646; box-shadow: 0 0 20px rgba(223,182,70,0.6); }
+.voice-wave { display: flex; gap: 4px; margin-top: 15px; height: 20px; align-items: center; }
+.voice-wave span { display: block; width: 4px; background: #38bdf8; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
+.avatar-3d:nth-child(2) .voice-wave span { background: #dfb646; animation-duration: 1.2s; }
+.voice-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+.voice-wave span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+.voice-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+.voice-wave span:nth-child(4) { height: 20px; animation-delay: 0.4s; }
+.voice-wave span:nth-child(5) { height: 8px; animation-delay: 0.15s; }
+@keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
+.live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
+.live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
+@keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-  /* METAVERSO */
-  .metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
-  .metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
-  .metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
-  @keyframes moveFloor { 0% { background-position: 0 0; } 100% { background-position: 0 30px; } }
-  .avatar-3d { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; animation: floatAvatar 3s ease-in-out infinite alternate; }
-  .avatar-3d:nth-child(3) { animation-delay: 0.5s; transform: scale(1.1) translateZ(50px); z-index: 3; }
-  .avatar-3d:nth-child(4) { animation-delay: 1s; }
-  @keyframes floatAvatar { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
-  .avatar-3d:nth-child(3) { animation-name: floatAvatarCenter; }
-  @keyframes floatAvatarCenter { 0% { transform: translateY(0px) scale(1.1) translateZ(50px); } 100% { transform: translateY(-15px) scale(1.1) translateZ(50px); } }
-  .avatar-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.6); background: #000; }
-  .avatar-3d:nth-child(2) .avatar-img { border-color: #dfb646; box-shadow: 0 0 20px rgba(223,182,70,0.6); }
-  .voice-wave { display: flex; gap: 4px; margin-top: 15px; height: 20px; align-items: center; }
-  .voice-wave span { display: block; width: 4px; background: #38bdf8; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
-  .avatar-3d:nth-child(2) .voice-wave span { background: #dfb646; animation-duration: 1.2s; }
-  .voice-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
-  .voice-wave span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
-  .voice-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
-  .voice-wave span:nth-child(4) { height: 20px; animation-delay: 0.4s; }
-  .voice-wave span:nth-child(5) { height: 8px; animation-delay: 0.15s; }
-  @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
-  .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
-  .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
-  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }/* MOVILIDAD */
+/* MOVILIDAD */
 .mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
 @media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
 .mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
@@ -291,7 +291,7 @@
   <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
-<!-- HERO -->
+<!-- HERO (ENFOQUE ESCUELA EN LÍNEA) -->
 <section class="hero">
   <div class="flag-container">
     <div class="flag-3d">
@@ -312,9 +312,9 @@
       </svg>
     </div>
   </div>
-  <div class="hero-badge">ACCESO RESTRINGIDO · ESTADO BARINAS</div>
-  <h1>Si esto llegó a ti, es porque eres parte de la <span class="gold-text">Élite</span>.</h1>
-  <p class="sub">No enviamos esta invitación al azar. Erian Academy es el ecosistema de aprendizaje reservado exclusivamente para las familias con visión de imperio en <strong>Socopó, Santa Bárbara y Pedraza</strong>. No formamos empleados, formamos Reyes. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
+  <div class="hero-badge">ACCESO RESTRINGIDO · ESCUELA 100% EN LÍNEA</div>
+  <h1>La Única Escuela <span class="gold-text">100% en Línea</span> y de Élite en Barinas.</h1>
+  <p class="sub">No es un curso, es una <strong>Escuela en Línea</strong> con campus virtual, tutores IA y la infraestructura de Silicon Valley. Formamos Reyes de Imperios desde la comodidad de su hogar. ¿Estás listo para darle a tu hijo la Llave del Imperio?</p>
   <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;"><a href="#precios" class="btn btn-primary">Reclamar mi Privilegio</a></div>
 </section>
 
@@ -331,9 +331,9 @@
 <section>
   <div class="strategy-box">
     <h3>La Élite de Barinas no se queda atrás. Tus hijos hablarán Inglés.</h3>
-    <p>Sabemos que las familias de élite de <strong>Santa Bárbara, Pedraza y Socopó</strong> no pueden permitir que sus hijos se queden rezagados en un mundo dominado por la tecnología y los negocios globales. Erian Academy es el ecosistema de aprendizaje definitivo para asegurar su futuro.</p>
+    <p>Sabemos que las familias de élite de <strong>Santa Bárbara, Pedraza y Socopó</strong> no pueden permitir que sus hijos se queden rezagados en un mundo dominado por la tecnología y los negocios globales. Erian Academy es la Escuela en Línea definitiva para asegurar su futuro.</p>
     <div class="strategy-secret">
-      <p>⚠️ <strong>Nuestra Estrategia de Exclusividad:</strong> Aunque nuestra infraestructura en la nube y servidores (Mac M5, ASUS GX10, NVIDIA) tiene la capacidad técnica para soportar hasta 2,000 alumnos, hemos decidido cerrar estrictamente esta primera generación en <strong>300 personas</strong>.</p>
+      <p>⚠️ <strong>Nuestra Estrategia de Exclusividad:</strong> Aunque nuestra Escuela en Línea tiene la capacidad técnica para soportar hasta 2,000 alumnos, hemos decidido cerrar estrictamente esta primera generación en <strong>300 personas</strong>.</p>
       <p style="margin-top: 8px;">¿Por qué? Porque la verdadera élite no comparte el aula con multitudes. Este tope de 300 nos permite garantizar cero latencia, atención personalizada con IA y un círculo social de alto nivel. Si no estás dentro de los 300, estás fuera del círculo.</p>
     </div>
   </div>
@@ -341,8 +341,8 @@
 
 <!-- METAVERSO -->
 <section>
-  <h2 class="sec-title">El Metaverso Educativo</h2>
-  <p class="sec-subtitle">Así se ve una clase en Erian Academy. Avatares hiperrealistas, procesados en nuestros servidores Mac, interactuando en tiempo real.</p>
+  <h2 class="sec-title">Nuestro Campus Virtual en Línea</h2>
+  <p class="sec-subtitle">Así se ve una clase en la Escuela en Línea de Erian Academy. Avatares hiperrealistas, procesados en nuestros servidores Mac, interactuando en tiempo real.</p>
   <div class="metaverse-container">
     <div class="metaverse-screen">
       <div class="live-badge"><div class="live-dot"></div> CONECTANDO AL CAMPUS VIRTUAL</div>
@@ -356,27 +356,27 @@
 
 <!-- MOVILIDAD (FOTOS DE GITHUB) -->
 <section>
-  <h2 class="sec-title">La Educación no tiene Fronteras</h2>
-  <p class="sec-subtitle">Con Erian Academy, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
+  <h2 class="sec-title">La Escuela en Línea no tiene Fronteras</h2>
+  <p class="sec-subtitle">Al ser una Escuela 100% en Línea, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
   <div class="mobility-grid">
     <div class="mobility-card">
       <img src="IMG_ed736ea1-796c-45ba-884a-27f1cf723664.jpg" alt="Niña aprendiendo desde casa con laptop">
       <div class="mobility-overlay">
         <h4><span>💻</span> En Casa</h4>
-        <p>Acceso total al ecosistema desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
+        <p>Acceso total al campus virtual desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
       </div>
     </div>
     <div class="mobility-card">
       <img src="IMG_bcf321fd-de2e-4c50-a349-8cd0520a1426.jpg" alt="Niño aprendiendo desde el carro con tablet">
       <div class="mobility-overlay">
         <h4><span>🚗</span> En el Camino</h4>
-        <p>Con la app móvil y sus audífonos, puede practicar conversación con "Sofía" o repasar vocabulario en el tráfico. La educación de élite va contigo a cualquier parte del mundo.</p>
+        <p>Con la app móvil de nuestra Escuela en Línea y sus audífonos, puede practicar conversación con "Sofía" o repasar vocabulario en el tráfico. La educación de élite va contigo a cualquier parte del mundo.</p>
       </div>
     </div>
   </div>
 </section><!-- RUTA DE APRENDIZAJE INTERACTIVA -->
 <section>
-  <h2 class="sec-title">La Ruta hacia la Maestría en Inglés</h2>
+  <h2 class="sec-title">La Ruta Académica en Nuestra Escuela en Línea</h2>
   <p class="sec-subtitle">Nuestro programa anual está diseñado para llevar a tu hijo desde cero hasta un dominio total del idioma, superando 4 niveles trimestrales. <strong>(Toca cada nivel para ver los detalles)</strong></p>
   
   <div class="levels-grid">
@@ -415,21 +415,21 @@
   </div>
   <div class="mastery-box">
     <h3>El Resultado al Final del Año</h3>
-    <p>Al completar los 4 trimestres, tu hijo no solo "sabrá inglés". Tendrá un <strong>dominio total del idioma (Nivel Avanzado/Maestría)</strong>, siendo capaz de comunicarse con fluidez, entender textos técnicos y sostener conversaciones de negocios sin depender de traductores.</p>
+    <p>Al completar los 4 trimestres en nuestra Escuela en Línea, tu hijo no solo "sabrá inglés". Tendrá un <strong>dominio total del idioma (Nivel Avanzado/Maestría)</strong>, siendo capaz de comunicarse con fluidez, entender textos técnicos y sostener conversaciones de negocios sin depender de traductores.</p>
   </div>
 </section>
 
 <!-- IDIOMAS (AVATARES CIRCULARES) -->
 <section>
-  <h2 class="sec-title">Escuela de Idiomas: Expansión Global</h2>
-  <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras:</p>
+  <h2 class="sec-title">Departamento de Idiomas en Línea</h2>
+  <p class="sec-subtitle">Para los alumnos que desean ir más allá y dominar un tercer, cuarto o quinto idioma, Erian Academy abre las puertas de su departamento de lenguas extranjeras en línea:</p>
   <div class="lang-grid">
     <div class="lang-card">
       <div class="lang-ring"></div>
       <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutora de Mandarín">
       <div class="lang-content">
         <h4>Mandarín <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_CN</span></h4>
-        <p>El idioma de la economía del futuro. Clases interactivas con IA para dominar la pronunciación y los caracteres.</p>
+        <p>El idioma de la economía del futuro. Clases en línea interactivas con IA para dominar la pronunciación y los caracteres.</p>
         <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
@@ -438,7 +438,7 @@
       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutor de Alemán">
       <div class="lang-content">
         <h4>Alemán <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_DE</span></h4>
-        <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada.</p>
+        <p>La lengua de la ingeniería y la tecnología en Europa. Estructura gramatical y conversación avanzada en formato virtual.</p>
         <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
@@ -447,7 +447,7 @@
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="lang-avatar" alt="Tutora de Francés">
       <div class="lang-content">
         <h4>Francés <span style="font-size:10px; color:var(--cyan); font-family:monospace;">NODE_FR</span></h4>
-        <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional.</p>
+        <p>El idioma de la diplomacia y los negocios internacionales. Inmersión cultural y fluidez conversacional 100% en línea.</p>
         <div class="lang-price-tag">+$29.99/mes</div>
       </div>
     </div>
@@ -457,7 +457,7 @@
 <!-- 1,001 FORMAS (HUD) -->
 <section>
   <h2 class="sec-title">No hay una sola forma. Hay 1,001 formas.</h2>
-  <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
+  <p class="sec-subtitle">Nuestro ecosistema de Inteligencia Artificial (<strong>DeepSeek, OpenAI, Groq y Claude</strong>) se adapta a tu hijo para que aprenda de la forma que más le apasione en nuestra Escuela en Línea. Diseñado para edades de <strong>9 a 80 años</strong>.</p>
   <div class="tech-grid">
     <div class="tech-card">
       <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -512,7 +512,7 @@
 
 <!-- CARRERAS MATRIX -->
 <section class="matrix-section">
-  <h2 class="sec-title">Las Carreras del Futuro</h2>
+  <h2 class="sec-title">Las Carreras del Futuro en Línea</h2>
   <p class="sec-subtitle">A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual: $99.99/mes).</p>
   <div class="matrix-grid">
     <div class="term-card">
@@ -533,10 +533,10 @@
   </div>
 </section><!-- PRECIOS Y CONTADOR -->
 <section id="precios">
-  <h2 class="sec-title">Inversión en el Futuro</h2>
+  <h2 class="sec-title">Inscripción a la Escuela en Línea</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
   <div class="regular-urgency">
-    <p>Ya tenemos <span>33 alumnos regulares</span> inscritos. ¡Solo quedan <span>167 cupos</span> de los 200 disponibles!</p>
+    <p>Ya tenemos <span>33 alumnos regulares</span> inscritos en línea. ¡Solo quedan <span>167 cupos</span> de los 200 disponibles!</p>
     <div class="progress-bar"><div class="progress-fill" id="regularProgressFill"></div></div>
   </div>
   <div class="pricing-grid">
@@ -583,7 +583,7 @@
 
 <!-- CONTACTO Y FOOTER -->
 <div class="contact-section">
-  <h3>¿Tienes dudas o quieres dejar tus datos para que te contactemos?</h3>
+  <h3>¿Tienes dudas sobre nuestra Escuela en Línea?</h3>
   <p>Escríbenos directamente a nuestro correo oficial. Te responderemos en los próximos días con todos los detalles de la academia.</p>
   <a href="mailto:erianingles@gmail.com?subject=Quiero%20informaci%C3%B3n%20sobre%20Erian%20Academy" class="contact-email">erianingles@gmail.com</a>
 </div>
