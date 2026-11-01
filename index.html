@@ -100,6 +100,19 @@
   .decision-box p { margin-bottom: 25px; }
   .text-cyan { color: var(--cyan); font-weight: 600; }
 
+  /* NUEVA SECCIÓN: REVOLUCIÓN PEDAGÓGICA */
+  .revolution-box { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
+  @media(min-width: 768px) { .revolution-box { flex-direction: row; } }
+  .rev-column { flex: 1; padding: 30px 25px; border-radius: 16px; position: relative; }
+  .rev-archaic { background: rgba(255, 61, 87, 0.05); border: 1px solid rgba(255, 61, 87, 0.3); }
+  .rev-archaic h3 { color: var(--danger); margin-bottom: 15px; font-size: 20px; }
+  .rev-erian { background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.3); }
+  .rev-erian h3 { color: var(--cyan); margin-bottom: 15px; font-size: 20px; }
+  .rev-column ul { list-style: none; }
+  .rev-column ul li { margin-bottom: 12px; font-size: 14.5px; color: var(--text-muted); display: flex; gap: 10px; }
+  .rev-archaic ul li::before { content: '✖'; color: var(--danger); font-weight: bold; }
+  .rev-erian ul li::before { content: '✔'; color: var(--cyan); font-weight: bold; }
+
   /* ESTRATEGIA */
   .strategy-box { background: linear-gradient(135deg, rgba(223,182,70,0.08), rgba(11,19,32,0.5)); border: 1px solid var(--gold); border-radius: 16px; padding: 35px 25px; max-width: 850px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; }
   .strategy-box::before { content: '👑'; position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.05; transform: rotate(15deg); }
@@ -291,7 +304,7 @@
   <a href="#precios" class="header-cta">Reservar Cupo</a>
 </header>
 
-<!-- HERO (ENFOQUE ESCUELA EN LÍNEA) -->
+<!-- HERO -->
 <section class="hero">
   <div class="flag-container">
     <div class="flag-3d">
@@ -327,6 +340,35 @@
   </div>
 </section>
 
+<!-- REVOLUCIÓN PEDAGÓGICA (NUEVA SECCIÓN) -->
+<section>
+  <h2 class="sec-title">La Revolución Pedagógica: 1,001 Formas de Vencer</h2>
+  <p class="sec-subtitle">El sistema educativo tradicional está diseñado para fracasar. Erian Academy ha construido un ecosistema donde el éxito está garantizado porque la IA se adapta a tu hijo, no al revés.</p>
+  
+  <div class="revolution-box">
+    <div class="rev-column rev-archaic">
+      <h3>Sistema Arcaico</h3>
+      <ul>
+        <li>Un profesor para 30 alumnos.</li>
+        <li>Un solo método de enseñanza para todos.</li>
+        <li>Ritmo impuesto: si no aprendes, repites.</li>
+        <li>Cero personalización. Cero adaptación.</li>
+        <li>El fracaso se castiga, no se corrige.</li>
+      </ul>
+    </div>
+    <div class="rev-column rev-erian">
+      <h3>El Método Erian</h3>
+      <ul>
+        <li>La IA dedica 100% de su procesamiento a tu hijo.</li>
+        <li>1,001 formas de enseñar el mismo concepto.</li>
+        <li>El ritmo lo marca el cerebro del alumno.</li>
+        <li>Si un método falla, la IA cambia de estrategia al instante.</li>
+        <li>El fracaso es imposible: siempre hay otra puerta.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ESTRATEGIA -->
 <section>
   <div class="strategy-box">
@@ -352,9 +394,7 @@
       <div class="avatar-3d"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="avatar-img" alt="Estudiante 2"><div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div></div>
     </div>
   </div>
-</section>
-
-<!-- MOVILIDAD (FOTOS DE GITHUB) -->
+</section><!-- MOVILIDAD (FOTOS DE GITHUB) -->
 <section>
   <h2 class="sec-title">La Escuela en Línea no tiene Fronteras</h2>
   <p class="sec-subtitle">Al ser una Escuela 100% en Línea, el aula va a donde quiera que vaya tu hijo. Desde la potencia de una computadora en casa, hasta la practicidad de un teléfono inteligente en el carro.</p>
@@ -374,7 +414,9 @@
       </div>
     </div>
   </div>
-</section><!-- RUTA DE APRENDIZAJE INTERACTIVA -->
+</section>
+
+<!-- RUTA DE APRENDIZAJE INTERACTIVA -->
 <section>
   <h2 class="sec-title">La Ruta Académica en Nuestra Escuela en Línea</h2>
   <p class="sec-subtitle">Nuestro programa anual está diseñado para llevar a tu hijo desde cero hasta un dominio total del idioma, superando 4 niveles trimestrales. <strong>(Toca cada nivel para ver los detalles)</strong></p>
@@ -489,7 +531,7 @@
 <!-- HARDWARE (LOGOS) -->
 <section>
   <h2 class="sec-title">Tecnología de Nivel Dios</h2>
-  <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
+  <p class="sec-subtitle">¿Por qué el límite es estrictamente 300 alumnos en todo Barinas? Porque no usamos servidores compartidos. Tenemos más de <strong>$100,000 USD desplegados</strong> (fruto de todos mis ahorros) en infraestructura física y en la nube dedicada exclusivamente para garantizar que el inglés de tu hijo no tenga latencia:</p>
   <div class="infra-grid">
     <div class="infra-card">
       <svg class="brand-logo" viewBox="0 0 24 24"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.4 12.36,4.18 13,3.5Z"/></svg>
@@ -508,9 +550,7 @@
       <h4>Servidores en la Nube</h4><p>Infraestructura Cloud premium de alta disponibilidad. Permite que las IAs analicen parámetros a velocidades increíbles, sin caídas y con servicio prioritario.</p>
     </div>
   </div>
-</section>
-
-<!-- CARRERAS MATRIX -->
+</section><!-- CARRERAS MATRIX -->
 <section class="matrix-section">
   <h2 class="sec-title">Las Carreras del Futuro en Línea</h2>
   <p class="sec-subtitle">A partir del mes 9 abrimos las carreras de tecnología. <strong>Si ya eres alumno de inglés, puedes cursar cualquiera de estas carreras pagando solo +$29.99/mes.</strong> (Precio individual: $99.99/mes).</p>
@@ -531,7 +571,9 @@
       <div class="term-footer"><h3>Módulo 11-12: SEO y Agencias</h3><p>Posicionamiento global y creación de agencias. El paso final para ser CEO de tu imperio.</p><div class="term-price">+$29.99/mes</div></div>
     </div>
   </div>
-</section><!-- PRECIOS Y CONTADOR -->
+</section>
+
+<!-- PRECIOS Y CONTADOR -->
 <section id="precios">
   <h2 class="sec-title">Inscripción a la Escuela en Línea</h2>
   <p class="sec-subtitle">Solo 300 plazas en total. Inscripción única obligatoria: <strong>$150 USD</strong>.</p>
