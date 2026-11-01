@@ -423,7 +423,8 @@
   <div class="mobility-grid">
     <!-- Tarjeta 1: En Casa -->
     <div class="mobility-card">
-      <img src="https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Niño aprendiendo desde casa con laptop y audífonos">
+      <!-- Usando el primer Screenshot que subiste -->
+      <img src="Screenshot_20261031-194437.jpg" alt="Estudiando en casa">
       <div class="mobility-overlay">
         <h4><span>💻</span> En Casa</h4>
         <p>Acceso total al ecosistema desde su computadora. Audífonos puestos, máxima concentración y la potencia de nuestros servidores para las sesiones de IA y programación.</p>
@@ -432,7 +433,8 @@
 
     <!-- Tarjeta 2: En el Carro -->
     <div class="mobility-card">
-      <img src="https://images.pexels.com/photos/8422268/pexels-photo-8422268.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Niña aprendiendo desde el carro con tablet">
+      <!-- Usando el primer archivo IMG que subiste -->
+      <img src="IMG_47254c42-7ffa-4137-9251-a065ed6fa2ac.jpg" alt="Estudiando en el carro">
       <div class="mobility-overlay">
         <h4><span>🚗</span> En el Camino</h4>
         <p>Con la app móvil y sus audífonos, puede practicar conversación con "Sofía" o repasar vocabulario en el tráfico. La educación de élite va contigo a cualquier parte del mundo.</p>
@@ -774,9 +776,7 @@
   <p style="margin-top:10px; font-size:11px; opacity:0.7;">
     * Los precios mostrados no están exentos de IVA. Se debe añadir la alícuota correspondiente del 16%.
   </p>
-</footer>
-
-<!-- MODALES -->
+</footer><!-- MODALES -->
 <div class="modal-overlay" id="modalBeca">
   <div class="modal">
     <button class="modal-close" data-close>×</button>
@@ -962,3 +962,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay').forEach(m => cerrarModal(m));
     }
+  });
+
+  ['formBeca', 'formRegular', 'formElite', 'formCarrera'].forEach(formId => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', () => {
+      const btn = form.querySelector('.form-submit');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = '⏳ Enviando...';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
