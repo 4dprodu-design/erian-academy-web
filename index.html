@@ -1,802 +1,350 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Erian Tech — Plataforma de Simulación con Inteligencia Artificial</title>
-<meta name="description" content="Plataforma de acceso a herramientas de inteligencia artificial y simulación práctica para la optimización de procesos. No constituye institución educativa formal.">
-<style>
-  :root {
-    --bg-main: #0b1320;       
-    --bg-card: #111c2e;       
-    --bg-maroon: #3b1616;     
-    --gold: #dfb646;          
-    --cyan: #38bdf8;          
-    --coral: #fda4af;         
-    --binance-yellow: #F0B90B;
-    --text-main: #e2e8f0;     
-    --text-muted: #94a3b8;    
-    --glass: rgba(255,255,255,0.03);
-    --border-glass: rgba(255,255,255,0.08);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-main); 
-    color: var(--text-main);
-    overflow-x: hidden; line-height: 1.7;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-  header {
-    position: sticky; top: 0; z-index: 100;
-    padding: 15px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(11, 19, 32, 0.85);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-glass);
-  }
-  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 15px; letter-spacing: 1px; white-space: nowrap; }
-  .logo-mark {
-    width: 30px; height: 30px; border-radius: 8px;
-    background: var(--gold); color: var(--bg-main);
-    display: grid; place-items: center; font-size: 15px; font-weight: 900;
-  }
-  .header-cta {
-    padding: 8px 14px; border-radius: 8px;
-    background: transparent; border: 1px solid var(--gold);
-    color: var(--gold); font-weight: 600; text-decoration: none; font-size: 12px;
-    transition: all 0.3s; white-space: nowrap;
-  }
-  .header-cta:hover { background: var(--gold); color: var(--bg-main); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Erian Academy | Universidad Privada de Élite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b1320;       
+            --bg-card: #111c2e;       
+            --gold: #dfb646;          
+            --cyan: #38bdf8;          
+            --wine-bg: #2a1010;       
+            --coral: #fda4af;         
+            --text-main: #e2e8f0;     
+            --text-muted: #8892a8;    
+            --border: rgba(223, 182, 70, 0.2);
+        }
 
-  .hero { padding: 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; position: relative; }
-  .flag-container { display: flex; justify-content: center; align-items: center; margin-bottom: 25px; perspective: 1000px; }
-  .flag-3d {
-    width: 152px; height: 80px; border-radius: 4px; overflow: hidden;
-    box-shadow: -10px 15px 25px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1);
-    animation: waveFlag 5s ease-in-out infinite alternate; transform-style: preserve-3d; position: relative;
-  }
-  .flag-3d::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.1) 30%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 70%, rgba(0,0,0,0.3) 100%);
-    pointer-events: none; animation: lightSweep 5s ease-in-out infinite alternate;
-  }
-  @keyframes waveFlag { 0% { transform: rotateY(-15deg) rotateX(5deg) skewY(-2deg); } 100% { transform: rotateY(15deg) rotateX(-5deg) skewY(2deg); } }
-  @keyframes lightSweep { 0% { transform: translateX(-20%); } 100% { transform: translateX(20%); } }
-  .flag-3d svg { width: 100%; height: 100%; object-fit: cover; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; position: relative; }
 
-  .hero-badge {
-    display: inline-block; padding: 6px 16px; border-radius: 30px;
-    background: rgba(223,182,70,0.1); border: 1px solid var(--gold);
-    color: var(--gold); font-size: 12px; font-weight: 800;
-    letter-spacing: 1.5px; margin-bottom: 25px; text-transform: uppercase;
-  }
-  .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
-  .hero h1 .gold-text { color: var(--gold); }
-  .hero p.sub { font-size: clamp(16px, 2.5vw, 19px); color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-  
-  .btn {
-    padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px;
-    text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; display: inline-block;
-  }
-  .btn-primary { background: var(--cyan); color: #000; box-shadow: 0 4px 15px rgba(56,189,248,0.3); }
-  .btn-primary:hover { background: #7dd3fc; }
-  .btn-secondary { background: var(--glass); border: 1px solid var(--border-glass); color: var(--text-main); backdrop-filter: blur(5px); }
-  .btn-secondary:hover { border-color: var(--text-muted); }
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        }
 
-  section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-  .sec-title { font-size: clamp(26px, 4vw, 36px); font-weight: 800; text-align: center; margin-bottom: 20px; color: var(--gold); line-height: 1.2; }
-  .sec-subtitle { text-align:center; color:var(--text-muted); margin-bottom:40px; font-size:16px; max-width:750px; margin-left:auto; margin-right:auto; }
-  
-  .decision-box { text-align: center; max-width: 800px; margin: 0 auto; font-size: 18px; }
-  .decision-box p { margin-bottom: 25px; }
-  .text-cyan { color: var(--cyan); font-weight: 600; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .tech-font { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        .gold-text { color: var(--gold); }
+        .cyan-text { color: var(--cyan); }
 
-  .revolution-box { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .revolution-box { flex-direction: row; } }
-  .rev-column { flex: 1; padding: 30px 25px; border-radius: 16px; position: relative; }
-  .rev-archaic { background: rgba(255, 61, 87, 0.05); border: 1px solid rgba(255, 61, 87, 0.3); }
-  .rev-archaic h3 { color: #ff3d57; margin-bottom: 15px; font-size: 20px; }
-  .rev-erian { background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.3); }
-  .rev-erian h3 { color: var(--cyan); margin-bottom: 15px; font-size: 20px; }
-  .rev-column ul { list-style: none; }
-  .rev-column ul li { margin-bottom: 12px; font-size: 14.5px; color: var(--text-muted); display: flex; gap: 10px; }
-  .rev-archaic ul li::before { content: '✖'; color: #ff3d57; font-weight: bold; }
-  .rev-erian ul li::before { content: '✔'; color: var(--cyan); font-weight: bold; }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #c49b2a);
+            color: #0b1320; padding: 18px 40px; border-radius: 4px;
+            font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(223, 182, 70, 0.2); transition: 0.4s;
+            border: none; cursor: pointer; text-align: center;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(223, 182, 70, 0.4); }
 
-  .strategy-box { background: linear-gradient(135deg, rgba(223,182,70,0.08), rgba(11,19,32,0.5)); border: 1px solid var(--gold); border-radius: 16px; padding: 35px 25px; max-width: 850px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; }
-  .strategy-box::before { content: '👑'; position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.05; transform: rotate(15deg); }
-  .strategy-box h3 { color: var(--gold); font-size: clamp(22px, 4vw, 28px); font-weight: 900; margin-bottom: 15px; line-height: 1.2; }
-  .strategy-box p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; }
-  .strategy-box p strong { color: var(--cyan); }
-  .strategy-secret { background: rgba(0,0,0,0.4); border-left: 4px solid var(--coral); padding: 15px 20px; border-radius: 8px; margin-top: 25px; text-align: left; }
-  .strategy-secret p { font-size: 14px; color: var(--coral); margin: 0; font-weight: 600; }
+        .btn-cyan {
+            background: transparent; border: 1px solid var(--cyan); color: var(--cyan); padding: 18px 40px; border-radius: 4px;
+            font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            text-decoration: none; display: inline-block; transition: 0.4s; text-align: center; cursor: pointer;
+        }
+        .btn-cyan:hover { background: var(--cyan); color: #0b1320; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3); }
 
-  .metaverse-container { max-width: 900px; margin: 0 auto; padding: 10px 0; perspective: 1200px; text-align: center; }
-  .metaverse-screen { background: radial-gradient(circle at center, #101c36 0%, #050810 100%); border: 2px solid rgba(56, 189, 248, 0.3); border-radius: 20px; padding: 40px 20px; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(56,189,248,0.1); display: flex; justify-content: center; align-items: flex-end; gap: 20px; height: 380px; transform-style: preserve-3d; }
-  .metaverse-floor { position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background-image: linear-gradient(rgba(56, 189, 248, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.3) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: bottom; animation: moveFloor 2s linear infinite; z-index: 0; opacity: 0.5; }
-  @keyframes moveFloor { 0% { background-position: 0 0; } 100% { background-position: 0 30px; } }
-  .avatar-3d { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; animation: floatAvatar 3s ease-in-out infinite alternate; }
-  @keyframes floatAvatar { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
-  .avatar-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.6); background: #000; }
-  .avatar-3d:nth-child(2) .avatar-img { border-color: #dfb646; box-shadow: 0 0 20px rgba(223,182,70,0.6); }
-  .voice-wave { display: flex; gap: 4px; margin-top: 15px; height: 20px; align-items: center; }
-  .voice-wave span { display: block; width: 4px; background: #38bdf8; border-radius: 2px; animation: wave 1s ease-in-out infinite; }
-  .avatar-3d:nth-child(2) .voice-wave span { background: #dfb646; animation-duration: 1.2s; }
-  .voice-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
-  .voice-wave span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
-  .voice-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
-  .voice-wave span:nth-child(4) { height: 20px; animation-delay: 0.4s; }
-  .voice-wave span:nth-child(5) { height: 8px; animation-delay: 0.15s; }
-  @keyframes wave { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.5); } }
-  .live-badge { position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 61, 87, 0.5); font-size: 12px; font-weight: 800; color: #fff; }
-  .live-dot { width: 8px; height: 8px; background: #ff3d57; border-radius: 50%; animation: pulseLive 1s infinite; }
-  @keyframes pulseLive { 0% { opacity: 1; box-shadow: 0 0 10px #ff3d57; } 50% { opacity: 0.3; } 100% { opacity: 1; } }  .mobility-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-  @media(min-width: 768px) { .mobility-grid { grid-template-columns: 1fr 1fr; } }
-  .mobility-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 15px 40px rgba(0,0,0,0.6); height: 400px; display: flex; align-items: flex-end; }
-  .mobility-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.8); }
-  .mobility-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
-  .mobility-overlay { position: relative; z-index: 2; width: 100%; background: linear-gradient(0deg, rgba(11,19,32,0.98) 0%, rgba(11,19,32,0.8) 60%, transparent 100%); padding: 35px 25px 25px; }
-  .mobility-overlay h4 { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-  .mobility-overlay h4 span { font-size: 24px; }
-  .mobility-overlay p { color: var(--text-muted); font-size: 14.5px; line-height: 1.5; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        
+        .section-title { font-size: 42px; margin-bottom: 20px; text-align: center; font-weight: 700; letter-spacing: -1px; }
+        .section-subtitle { font-size: 18px; color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 60px auto; line-height: 1.6; font-weight: 300; }
 
-  .levels-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
-  @media(min-width: 768px) { .levels-grid { grid-template-columns: 1fr 1fr; } }
-  .level-card { background: rgba(17, 28, 46, 0.4); border: 1px solid var(--border-glass); border-radius: 16px; padding: 25px; position: relative; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; backdrop-filter: blur(10px); }
-  .level-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--cyan); opacity: 0.5; transition: all 0.3s; }
-  .level-card:hover, .level-card.active { background: rgba(17, 28, 46, 0.9); border-color: var(--cyan); box-shadow: 0 10px 30px rgba(56,189,248,0.15); transform: translateY(-5px); }
-  .level-card:hover::before, .level-card.active::before { opacity: 1; width: 6px; background: var(--gold); }
-  .level-badge { display: inline-block; background: rgba(56,189,248,0.1); color: var(--cyan); font-weight: 800; font-size: 12px; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; margin-bottom: 15px; border: 1px solid rgba(56,189,248,0.3); transition: all 0.3s; }
-  .level-card.active .level-badge { background: var(--gold); color: #000; border-color: var(--gold); }
-  .level-card h4 { color: #fff; margin-bottom: 10px; font-size: 20px; font-weight: 800; }
-  .level-card p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; }
-  .level-extra { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.4s ease; opacity: 0; }
-  .level-card.active .level-extra { max-height: 150px; opacity: 1; margin-top: 15px; }
-  .level-extra p { font-size: 13px; color: var(--cyan); border-top: 1px solid var(--border-glass); padding-top: 15px; font-family: 'Courier New', monospace; }
-  .mastery-box { background: linear-gradient(135deg, rgba(223,182,70,0.1), transparent); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; text-align: center; margin-top: 30px; }
-  .mastery-box h3 { color: var(--gold); font-size: 22px; margin-bottom: 10px; }
-  .mastery-box p { color: var(--text-main); font-size: 16px; font-weight: 500; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-  .lang-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-  @media(min-width: 768px) { .lang-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .lang-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; transition: all 0.4s; position: relative; overflow: hidden; }
-  .lang-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(223,182,70,0.1); }
-  .lang-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--gold)); }
-  .lang-avatar { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cyan); box-shadow: 0 0 20px rgba(56,189,248,0.6); margin-bottom: 15px; background: #000; position: relative; z-index: 2; }
-  .lang-card:nth-child(1) .lang-avatar { border-color: #ff3d57; box-shadow: 0 0 25px rgba(255,61,87,0.6); }
-  .lang-card:nth-child(2) .lang-avatar { border-color: #ffd700; box-shadow: 0 0 25px rgba(255,215,0,0.6); }
-  .lang-card:nth-child(3) .lang-avatar { border-color: #38bdf8; box-shadow: 0 0 25px rgba(56,189,248,0.6); }
-  .lang-ring { position: absolute; top: 25px; width: 120px; height: 120px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.3); animation: spin 10s linear infinite; z-index: 1; }
-  @keyframes spin { 100% { transform: rotate(360deg); } }
-  .lang-content h4 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 8px; }
-  .lang-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; min-height: 60px; }
-  .lang-price-tag { font-family: 'Courier New', monospace; font-size: 14px; font-weight: 800; color: var(--gold); background: rgba(223,182,70,0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(223,182,70,0.3); text-align: center; width: 100%; cursor: pointer; transition: all 0.3s; }
-  .lang-price-tag:hover { background: var(--gold); color: #000; }
+        .header {
+            width: 100%; padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(11, 19, 32, 0.9); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .logo-header { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+        .logo-header span { color: var(--gold); }
+        .flag { width: 35px; height: 22px; background-image: linear-gradient(180deg, #B22234 8.33%, #FFFFFF 8.33%, #FFFFFF 16.66%, #B22234 16.66%, #B22234 25%, #FFFFFF 25%, #FFFFFF 33.33%, #B22234 33.33%, #B22234 41.66%, #FFFFFF 41.66%, #FFFFFF 50%, #B22234 50%, #B22234 58.33%, #FFFFFF 58.33%, #FFFFFF 66.66%, #B22234 66.66%, #B22234 75%, #FFFFFF 75%, #FFFFFF 83.33%, #B22234 83.33%, #B22234 91.66%, #FFFFFF 91.66%, #FFFFFF 100%); position: relative; border-radius: 3px; display: inline-block; }
+        .flag::before { content: ''; position: absolute; top: 0; left: 0; width: 50%; height: 53.84%; background-color: #3C3B6E; background-image: radial-gradient(#FFF 15%, transparent 16%); background-size: 4px 4px; }
+        .btn-header { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; border-radius: 4px; font-size: 13px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-header:hover { background: var(--gold); color: #0b1320; }
 
-  .tech-grid { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 950px; margin: 0 auto; }
-  @media(min-width: 768px) { .tech-grid { grid-template-columns: 1fr 1fr; } }
-  .tech-card { background: rgba(17, 28, 46, 0.6); border: 1px solid var(--border-glass); border-left: 3px solid var(--cyan); padding: 22px; border-radius: 8px; display: flex; gap: 20px; align-items: flex-start; transition: background 0.3s; backdrop-filter: blur(5px); }
-  .tech-card:hover { background: rgba(17, 28, 46, 0.9); border-left-color: var(--gold); }
-  .tech-icon-svg { width: 32px; height: 32px; flex-shrink: 0; fill: var(--cyan); filter: drop-shadow(0 0 5px rgba(56,189,248,0.5)); }
-  .tech-card:hover .tech-icon-svg { fill: var(--gold); filter: drop-shadow(0 0 5px rgba(223,182,70,0.5)); }
-  .tech-info h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 5px; font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
-  .tech-info p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
-
-  .infra-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
-  @media(min-width: 768px) { .infra-grid { grid-template-columns: 1fr 1fr; } }
-  .infra-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
-  .infra-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--cyan)); }
-  .brand-logo { height: 40px; width: auto; margin-bottom: 20px; fill: #fff; opacity: 0.8; }
-  .infra-card h4 { color: #fff; margin-bottom: 10px; font-size: 18px; font-weight: 800; }
-  .infra-card p { font-size: 13.5px; color: var(--text-muted); }
-
-  .matrix-section { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(11,19,32,0) 0%, rgba(0,255,65,0.02) 50%, rgba(11,19,32,0) 100%); }
-  .matrix-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1050px; margin: 0 auto; position: relative; z-index: 2; }
-  @media(min-width: 768px) { .matrix-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .term-card { background: #050810; border: 1px solid rgba(0, 255, 65, 0.2); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,255,65,0.05); transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; }
-  .term-card:hover { border-color: var(--cyan); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2); transform: translateY(-5px); }
-  .term-header { background: #0d1220; padding: 10px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .term-dot.red { background: #ff5f56; } .term-dot.yellow { background: #ffbd2e; } .term-dot.green { background: #27c93f; }
-  .term-title { color: #666; font-family: 'Courier New', monospace; font-size: 11px; margin-left: auto; }
-  .term-body { padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 12px; line-height: 1.6; color: #a8b2c1; flex-grow: 1; position: relative; height: 220px; overflow-y: auto; }
-  .term-body .line { margin-bottom: 4px; display: block; white-space: pre-wrap; }
-  .term-body .line-num { color: #4a5568; display: inline-block; width: 20px; user-select: none; }
-  .tag-cyan { color: var(--cyan); font-weight: bold; } .tag-gold { color: var(--gold); } .tag-green { color: #00ff41; } .tag-purple { color: #a78bfa; }
-  .cursor { display: inline-block; width: 8px; height: 15px; background: #00ff41; animation: blink 1s step-end infinite; vertical-align: middle; }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-  .term-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 6px 100%; opacity: 0.3; }
-  .term-footer { background: #0d1220; padding: 15px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
-  .term-footer h3 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 5px; }
-  .term-footer p { color: var(--text-muted); font-size: 12px; margin-bottom: 15px; }
-  .term-price { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 800; color: #00ff41; background: rgba(0, 255, 65, 0.1); padding: 8px 12px; border-radius: 4px; border: 1px solid rgba(0, 255, 65, 0.3); }
-
-  .regular-urgency { background: var(--bg-card); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 20px; max-width: 800px; margin: 0 auto 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-  .regular-urgency p { color: var(--text-main); font-size: 15px; margin-bottom: 15px; font-weight: 700; }
-  .regular-urgency p span { color: var(--cyan); }
-  .regular-urgency .progress-bar { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-  .regular-urgency .progress-fill { height: 100%; background: var(--cyan); width: 16.5%; transition: width 1s ease; box-shadow: 0 0 10px rgba(56,189,248,0.5); }
-  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1050px; margin: 0 auto; }
-  @media(min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr 1fr; } }
-  .price-card { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-  .price-card.premium { border-color: rgba(223,182,70,0.4); background: linear-gradient(180deg, rgba(223,182,70,0.05), var(--bg-card)); }
-  .price-card.career { border-color: rgba(56,189,248,0.4); background: linear-gradient(180deg, rgba(56,189,248,0.05), var(--bg-card)); }
-  .price-card h3 { font-size: 18px; color: #fff; margin-bottom: 10px; }
-  .price-card.premium h3 { color: var(--gold); }
-  .price-card.career h3 { color: var(--cyan); }
-  .price-val { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-  .price-val span { font-size: 14px; color: var(--text-muted); font-weight: 400; }
-  .price-note { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; min-height: 36px; }
-  .price-features { list-style: none; text-align: left; margin-bottom: 25px; font-size: 13px; display: grid; gap: 10px; color: var(--text-main); }
-  .price-features li::before { content: '✓'; color: var(--cyan); margin-right: 8px; font-weight: bold; }
-  .price-card.premium .price-features li::before { color: var(--gold); }
-  .pricing-note { text-align: center; margin-top: 30px; background: rgba(255,255,255,0.03); border: 1px dashed var(--border-glass); padding: 20px; border-radius: 12px; font-size: 14px; color: var(--text-muted); }
-  .pricing-note strong { color: var(--gold); }
-
-  .binance-premium-card { max-width: 600px; margin: 40px auto 0; background: linear-gradient(145deg, #181a20, #0b0e11); border: 1px solid rgba(240, 185, 11, 0.3); border-radius: 20px; padding: 30px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(240,185,11,0.05); }
-  .binance-premium-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--binance-yellow), transparent); }
-  .binance-logo { width: 60px; height: 60px; margin: 0 auto 15px; filter: drop-shadow(0 0 10px rgba(240,185,11,0.4)); }
-  .binance-premium-card h4 { color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 10px; }
-  .binance-premium-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
-  .binance-premium-card p strong { color: var(--gold); }
-
-  .beca-container { background: linear-gradient(180deg, rgba(223,182,70,0.05) 0%, rgba(11,19,32,0) 100%); border: 1px solid rgba(223,182,70,0.3); border-radius: 16px; padding: 35px 25px; max-width: 700px; margin: 40px auto 0; }
-  .beca-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-  .beca-top h2 { font-size: 24px; color: var(--gold); font-weight: 800; }
-  .badge { padding: 6px 12px; border-radius: 20px; background: rgba(223,182,70,0.1); color: var(--gold); font-size: 12px; font-weight: 700; }
-  .progress-wrap { margin: 20px 0 30px; }
-  .progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
-  .progress-fill { height: 100%; background: var(--gold); width: 12%; transition: width 1s ease; }
-  .progress-text { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
-  .req-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
-  .req-list li { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 8px; font-size: 14px; border-left: 3px solid var(--gold); }
-
-  .final-quote { text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--coral); padding: 60px 20px 20px; line-height: 1.4; }
-  .contact-section { text-align: center; background: var(--bg-card); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass); padding: 40px 20px; margin-top: 40px; }
-  .contact-section h3 { color: #fff; font-size: 20px; margin-bottom: 10px; }
-  .contact-section p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-  .contact-email { display: inline-block; background: rgba(223,182,70,0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 18px; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; transition: all 0.3s; }
-  .contact-email:hover { background: var(--gold); color: var(--bg-main); }
-  footer { text-align: center; padding: 30px 20px; font-size: 12px; color: var(--text-muted); }
-  footer strong { color: var(--gold); }
-
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; overflow-y: auto; padding: 20px; }
-  .modal-overlay.active { display: flex; }
-  .modal { background: var(--bg-main); border: 1px solid var(--border-glass); border-radius: 16px; padding: 30px; max-width: 480px; width: 100%; margin: auto; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-  .modal-close { position: absolute; top: 15px; right: 15px; background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
-  .modal h3 { font-size: 22px; margin-bottom: 10px; color: #fff; }
-  .modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
-  .form-group { margin-bottom: 15px; }
-  .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border-glass); color: #fff; font-family: inherit; font-size: 14px; }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--cyan); }
-  .form-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--cyan); color: #000; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; }
-  .form-submit.gold { background: var(--gold); }
-</style>
+        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-top: 50px; }
+        .hero h1 { font-size: 60px; font-weight: 800; line-height: 1.05; margin-bottom: 30px; letter-spacing: -2px; color: #FFF; }
+        .hero p { font-size: 22px; color: var(--text-muted); max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; font-weight: 300; }
+        .badge { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 8px 25px; border-radius: 30px; font-size: 13px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; background: rgba(223, 182, 70, 0.1); box-shadow: 0 0 20px rgba(223, 182, 70, 0.1); }
+    </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
-  <div class="logo"><div class="logo-mark">E</div> ERIAN TECH</div>
-  <a href="#precios" class="header-cta">Reservar Acceso</a>
-</header>
-
-<!-- HERO -->
+    <div class="grid-bg"></div>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo-header">
+                <div class="flag"></div>
+                Erian <span>Academy</span>
+            </div>
+            <a href="#contacto" class="btn-header">Solicitar Entrevista</a>
+        </div>
+    </div><!-- HERO -->
 <section class="hero">
-  <div class="flag-container">
-    <div class="flag-3d">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900" width="100%" height="100%">
-        <rect width="7410" height="3900" fill="#B22234"></rect>
-        <path fill="#FFFFFF" d="M0,300h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0zm0,600h7410v300H0z"></path>
-        <rect width="2964" height="2100" fill="#3C3B6E"></rect>
-        <defs><g id="star"><polygon points="0,-40 11.8,-12.3 41,-12.3 17.7,6.7 26.9,35.4 0,18.5 -26.9,35.4 -17.7,6.7 -41,-12.3 -11.8,-12.3" fill="#FFFFFF"></polygon></g></defs>
-        <use href="#star" x="200" y="116"></use><use href="#star" x="570" y="116"></use><use href="#star" x="940" y="116"></use><use href="#star" x="1310" y="116"></use><use href="#star" x="1680" y="116"></use><use href="#star" x="2050" y="116"></use>
-        <use href="#star" x="385" y="350"></use><use href="#star" x="755" y="350"></use><use href="#star" x="1125" y="350"></use><use href="#star" x="1495" y="350"></use><use href="#star" x="1865" y="350"></use>
-        <use href="#star" x="200" y="583"></use><use href="#star" x="570" y="583"></use><use href="#star" x="940" y="583"></use><use href="#star" x="1310" y="583"></use><use href="#star" x="1680" y="583"></use><use href="#star" x="2050" y="583"></use>
-        <use href="#star" x="385" y="816"></use><use href="#star" x="755" y="816"></use><use href="#star" x="1125" y="816"></use><use href="#star" x="1495" y="816"></use><use href="#star" x="1865" y="816"></use>
-        <use href="#star" x="200" y="1050"></use><use href="#star" x="570" y="1050"></use><use href="#star" x="940" y="1050"></use><use href="#star" x="1310" y="1050"></use><use href="#star" x="1680" y="1050"></use><use href="#star" x="2050" y="1050"></use>
-        <use href="#star" x="385" y="1283"></use><use href="#star" x="755" y="1283"></use><use href="#star" x="1125" y="1283"></use><use href="#star" x="1495" y="1283"></use><use href="#star" x="1865" y="1283"></use>
-        <use href="#star" x="200" y="1516"></use><use href="#star" x="570" y="1516"></use><use href="#star" x="940" y="1516"></use><use href="#star" x="1310" y="1516"></use><use href="#star" x="1680" y="1516"></use><use href="#star" x="2050" y="1516"></use>
-        <use href="#star" x="385" y="1750"></use><use href="#star" x="755" y="1750"></use><use href="#star" x="1125" y="1750"></use><use href="#star" x="1495" y="1750"></use><use href="#star" x="1865" y="1750"></use>
-        <use href="#star" x="200" y="1983"></use><use href="#star" x="570" y="1983"></use><use href="#star" x="<!-- ESTRATEGIA / EXCLUSIVIDAD -->
-<section>
-  <div class="strategy-box">
-    <h3>La Estrategia de Élite: Solo 120 Accesos</h3>
-    <p>No competimos con plataformas masivas. <strong>Limitamos el acceso a solo 120 usuarios</strong> para garantizar que cada uno tenga la atención completa de la infraestructura. Una vez llenos los cupos, el acceso se cierra hasta el próximo ciclo.</p>
-    <div class="strategy-secret">
-      <p>⚠️ La exclusividad no es un adorno: es la única forma de que la IA dedique todo su procesamiento a tu operación. Cuando se llenen los 120 accesos, no habrá excepciones.</p>
+    <div class="container reveal">
+        <div class="badge">Exclusivo para la Élite de Barinas</div>
+        <h1 class="serif">No Formamos Empleados.<br>Formamos <span class="gold-text">Reyes de Imperios.</span></h1>
+        <p>La Universidad Privada de élite que trae la tecnología de Silicon Valley a Socopó. Un ecosistema diseñado para los futuros administradores de riquezas, dueños de agencias y líderes tecnológicos.</p>
+        <a href="#precios-ingles" class="btn-gold">Ver Inversión y Cupos</a>
     </div>
-  </div>
 </section>
 
-<!-- METAVERSO / ENTORNO DE SIMULACIÓN -->
-<section>
-  <h2 class="sec-title">Nuestro Entorno de Simulación 3D</h2>
-  <p class="sec-subtitle">Asistentes virtuales hiperrealistas disponibles 24/7 para interactuar con tus datos y procesos. No son profesores: son herramientas de consulta continua.</p>
-  
-  <div class="metaverse-container">
-    <div class="metaverse-screen">
-      <div class="live-badge"><div class="live-dot"></div> SIMULACIÓN ACTIVA</div>
-      <div class="metaverse-floor"></div>
-      <div class="avatar-3d">
-        <img src="https://i.pravatar.cc/300?img=5" alt="Asistente Virtual 1" class="avatar-img">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
-      <div class="avatar-3d">
-        <img src="https://i.pravatar.cc/300?img=12" alt="Asistente Virtual 2" class="avatar-img">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
-      <div class="avatar-3d">
-        <img src="https://i.pravatar.cc/300?img=33" alt="Asistente Virtual 3" class="avatar-img">
-        <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
+<!-- LA VISIÓN -->
+<section style="background: rgba(17, 28, 46, 0.3);">
+    <div class="container reveal">
+        <h2 class="section-title serif">¿Por qué entrar HOY es la mejor decisión?</h2>
+        <p class="section-subtitle">El mundo está cambiando a una velocidad brutal. La Inteligencia Artificial está borrando las carreras tradicionales. El inglés ya no es un lujo, es el código fuente del futuro.</p>
+        
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 40px; max-width: 900px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 18px; color: var(--text-main); line-height: 1.8; margin-bottom: 20px;">
+                Al entrar ahora, tu hijo no solo aprende un idioma. Está adquiriendo la capacidad de <strong>entender la data, construir arquitecturas web, posicionar marcas con SEO (Optimización en Buscadores) y dominar el lenguaje de los negocios globales.</strong>
+            </p>
+            <p style="font-size: 18px; color: var(--gold); font-weight: 700; line-height: 1.8;">
+                El idioma le abre las puertas al mundo, pero la tecnología que le enseñaremos lo hará dueño de ese mundo.
+            </p>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- MOVILIDAD -->
+<!-- EL MÉTODO -->
 <section>
-  <h2 class="sec-title">Tu Acceso Va Contigo</h2>
-  <p class="sec-subtitle">La plataforma no está atada a una sede física. Accede a tu entorno de simulación desde donde estés.</p>
-  
-  <div class="mobility-grid">
-    <div class="mobility-card">
-      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Acceso móvil">
-      <div class="mobility-overlay">
-        <h4><span>📱</span> Desde tu Dispositivo</h4>
-        <p>Accede a la plataforma de simulación desde tu laptop, tablet o smartphone. Sin restricciones de horario ni ubicación.</p>
-      </div>
+    <div class="container reveal">
+        <h2 class="section-title serif">¿Cómo te convertiremos en <span class="gold-text">Bilingüe?</span></h2>
+        <p class="section-subtitle">Olvídate de memorizar listas de verbos aburridas. Nuestra IA, Sofía, te acompañará en un proceso de inmersión real y personalizado.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
+            <div style="background: var(--bg-card); padding: 35px 25px; border-radius: 12px; border-top: 4px solid var(--cyan); text-align: center;">
+                <div style="font-size: 45px; margin-bottom: 15px;">🗣️</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #FFF;">Conversación 24/7</h3>
+                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">Tendrás un tutor de IA con voz humana disponible a cualquier hora. Habla, equivócate, y recibe correcciones en tiempo real sin miedo a ser juzgado.</p>
+            </div>
+            <div style="background: var(--bg-card); padding: 35px 25px; border-radius: 12px; border-top: 4px solid var(--gold); text-align: center;">
+                <div style="font-size: 45px; margin-bottom: 15px;">🧠</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #FFF;">Repetición Inteligente</h3>
+                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">El sistema analiza tus errores y diseña lecciones personalizadas para asegurar que el vocabulario se quede en tu memoria a largo plazo.</p>
+            </div>
+            <div style="background: var(--bg-card); padding: 35px 25px; border-radius: 12px; border-top: 4px solid #8B5CF6; text-align: center;">
+                <div style="font-size: 45px; margin-bottom: 15px;">🌎</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #FFF;">Acento Americano</h3>
+                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">Desde tu primer saludo, practicarás con el estándar American English. Te enseñamos a pensar en inglés, no a traducir en tu cabeza.</p>
+            </div>
+        </div>
     </div>
-    <div class="mobility-card">
-      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Acceso presencial">
-      <div class="mobility-overlay">
-        <h4><span>🏢</span> Desde Nuestra Sede</h4>
-        <p>Si prefieres el entorno físico, nuestra sede en Socopó ofrece estaciones de trabajo con acceso directo a la infraestructura de alto rendimiento.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MÓDULOS DE SIMULACIÓN -->
-<section>
-  <h2 class="sec-title">Módulos de Simulación</h2>
-  <p class="sec-subtitle">Cada módulo es una herramienta independiente. Tú eliges cuáles activar según tu operación. No hay un plan de estudios: hay herramientas.</p>
-  
-  <div class="levels-grid">
-    <div class="level-card active" onclick="this.classList.toggle('active')">
-      <div class="level-badge">Módulo 01</div>
-      <h4>Procesamiento de Lenguaje Natural</h4>
-      <p>Simula conversaciones con modelos de IA para analizar datos, generar reportes y automatizar respuestas. Acceso a motores avanzados de NLP.</p>
-      <div class="level-extra"><p>→ API: DeepSeek, OpenAI, Anthropic</p></div>
-    </div>
-    <div class="level-card" onclick="this.classList.toggle('active')">
-      <div class="level-badge">Módulo 02</div>
-      <h4>Análisis Predictivo</h4>
-      <p>Entrena modelos de analítica predictiva sobre tus propios datos. Genera dashboards, simulaciones de escenarios y proyecciones operativas.</p>
-      <div class="level-extra"><p>→ Stack: Python, Pandas, Scikit-learn</p></div>
-    </div>
-    <div class="level-card" onclick="this.classList.toggle('active')">
-      <div class="level-badge">Módulo 03</div>
-      <h4>Automatización de Procesos</h4>
-      <p>Conecta tus flujos de trabajo con agentes de IA que ejecutan tareas repetitivas. Desde gestión de inventario hasta control de producción.</p>
-      <div class="level-extra"><p>→ Integración: APIs REST, webhooks, MCP</p></div>
-    </div>
-    <div class="level-card" onclick="this.classList.toggle('active')">
-      <div class="level-badge">Módulo 04</div>
-      <h4>Generación de Contenido Sintético</h4>
-      <p>Herramientas de generación de imágenes, audio y video con IA. Incluye acceso a modelos de síntesis de voz y avatares hiperrealistas.</p>
-      <div class="level-extra"><p>→ Motores: ElevenLabs, HeyGen, MetaHuman</p></div>
-    </div>
-  </div>
-  
-  <div class="mastery-box">
-    <h3>Acceso Total al Ecosistema</h3>
-    <p>Al activar tu licencia, tienes acceso a los 4 módulos simultáneamente. No hay niveles, no hay aprobación, no hay títulos. Solo herramientas.</p>
-  </div>
-</section>
-
-<!-- IDIOMAS / AVATARES -->
-<section>
-  <h2 class="sec-title">Asistentes Virtuales Multilingües</h2>
-  <p class="sec-subtitle">Tres entornos de interacción disponibles. Cada uno con su propia configuración de voz, idioma y personalidad sintética.</p>
-  
-  <div class="lang-grid">
-    <div class="lang-card">
-      <div class="lang-ring"></div>
-      <img src="https://i.pravatar.cc/300?img=45" alt="Asistente Sofía" class="lang-avatar">
-      <div class="lang-content">
-        <h4>🇪🇸 Sofía ES</h4>
-        <p>Entorno de simulación en español. Configurada con voz nativa generada por IA (ElevenLabs).</p>
-        <div class="lang-price-tag">Incluido en tu Licencia</div>
-      </div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-ring"></div>
-      <img src="https://i.pravatar.cc/300?img=8" alt="Asistente Sofía EN" class="lang-avatar">
-      <div class="lang-content">
-        <h4>🇺🇸 Sofía EN</h4>
-        <p>Entorno de simulación en inglés. Voz nativa sintética con acento neutro americano.</p>
-        <div class="lang-price-tag">Incluido en tu Licencia</div>
-      </div>
-    </div>
-    <div class="lang-card">
-      <div class="lang-ring"></div>
-      <img src="https://i.pravatar.cc/300?img=25" alt="Asistente Técnico" class="lang-avatar">
-      <div class="lang-content">
-        <h4>🤖 Asistente Técnico</h4>
-        <p>Entorno técnico especializado en código, análisis y debugging. Sin personalidad, solo precisión.</p>
-        <div class="lang-price-tag">Incluido en tu Licencia</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 1,001 FORMAS / TECNOLOGÍAS -->
-<section>
-  <h2 class="sec-title">1,001 Formas de Procesar con IA</h2>
-  <p class="sec-subtitle">La plataforma no te enseña un método. Te entrega el acceso a todos los motores para que tú elijas cuál usar según tu operación.</p>
-  
-  <div class="tech-grid">
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      <div class="tech-info">
-        <h4>NLP Engine</h4>
-        <p>Motores de lenguaje natural para análisis de texto, resúmenes y generación de contenido.</p>
-      </div>
-    </div>
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-      <div class="tech-info">
-        <h4>Data Analytics</h4>
-        <p>Procesamiento de grandes volúmenes de datos con Python, Pandas y dashboards interactivos.</p>
-      </div>
-    </div>
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-      <div class="tech-info">
-        <h4>Automation Hub</h4>
-        <p>Agentes autónomos que ejecutan flujos de trabajo, desde gestión de inventario hasta control de producción.</p>
-      </div>
-    </div>
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-      <div class="tech-info">
-        <h4>Generative Media</h4>
-        <p>Síntesis de imágenes, audio y video con modelos avanzados. Incluye ElevenLabs, HeyGen, MetaHuman.</p>
-      </div>
-    </div>
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-      <div class="tech-info">
-        <h4>Predictive Models</h4>
-        <p>Modelos de analítica predictiva para proyecciones operativas y simulaciones de escenarios.</p>
-      </div>
-    </div>
-    <div class="tech-card">
-      <svg class="tech-icon-svg" viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
-      <div class="tech-info">
-        <h4>Fine-Tuning</h4>
-        <p>Entrenamiento nocturno de modelos personalizados sobre los datos de tu operación. Infraestructura dedicada.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- INFRAESTRUCTURA -->
-<section>
-  <h2 class="sec-title">Infraestructura de Alto Rendimiento</h2>
-  <p class="sec-subtitle">No usamos servidores compartidos de bajo costo. Nuestra plataforma corre sobre hardware dedicado que garantiza latencia mínima y procesamiento sin cuellos de botella.</p>
-  
-  <div class="infra-grid">
-    <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <h4>Apple Mac Studio M5 Ultra</h4>
-      <p>96 GB de RAM unificada. Procesamiento de inferencia IA en local sin dependencia de nube externa.</p>
+<section style="background: rgba(17, 28, 46, 0.3);">
+    <div class="container reveal">
+        <h2 class="section-title serif">Infraestructura de <span class="gold-text">$100,000 USD</span></h2>
+        <p class="section-subtitle">No usamos servidores compartidos. Hemos invertido en hardware de nivel corporativo para garantizar una experiencia perfecta, sin latencia y 100% personalizada para nuestros 300 alumnos.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
+            <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border-left: 3px solid #76B900;">
+                <h3 style="font-size: 20px; margin-bottom: 10px; color: #76B900;">🟩 Servidores NVIDIA</h3>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Racks de GPUs NVIDIA de alta gama. La misma potencia que entrena a los modelos de IA globales, dedicada exclusivamente a optimizar el aprendizaje de nuestros estudiantes.</p>
+            </div>
+            <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border-left: 3px solid var(--gold);">
+                <h3 style="font-size: 20px; margin-bottom: 10px; color: var(--gold);">💻 Tecnología Mac & ASUS</h3>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Estaciones de trabajo Mac Studio y laptops ASUS para el procesamiento local de datos y el desarrollo de código fuente propio, garantizando privacidad absoluta.</p>
+            </div>
+            <div style="background: var(--bg-card); padding: 30px; border-radius: 8px; border-left: 3px solid #8B5CF6;">
+                <h3 style="font-size: 20px; margin-bottom: 10px; color: #8B5CF6;">☁️ Arquitectura Cloud</h3>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Respaldo en 3 centros de datos simultáneos (Failover). Si un servidor falla, otro toma el control en 0.2 segundos. El aprendizaje de tu hijo nunca se detiene.</p>
+            </div>
+        </div>
     </div>
-    <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm2 2h2v2H8V8zm0 4h2v2H8v-2zm4-4h4v2h-4V8zm0 4h4v2h-4v-2z"/></svg>
-      <h4>ASUS Ascent GX10 (NVIDIA GB10)</h4>
-      <p>128 GB de RAM, 2 TB SSD. Servidor dedicado para fine-tuning nocturno de modelos personalizados.</p>
+</section><!-- PRECIOS DEL CURSO DE INGLÉS -->
+<section id="precios-ingles">
+    <div class="container reveal">
+        <h2 class="section-title serif">Invierte en tu <span class="gold-text">Nuevo Futuro</span></h2>
+        <p class="section-subtitle">Capacidad total de la escuela: <strong>300 alumnos</strong>. La <strong>Inscripción de $150 USD es obligatoria</strong> para todos los planes (pago único de admisión).</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 1000px; margin: 0 auto;">
+            
+            <!-- Fundadores -->
+            <div style="background: linear-gradient(145deg, var(--bg-card), #0d1625); border: 2px solid var(--gold); border-radius: 12px; padding: 45px 35px; flex: 1; min-width: 300px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(223, 182, 70, 0.15); transform: scale(1.02); position: relative;">
+                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #0b1320; font-weight: 900; font-size: 12px; padding: 5px 20px; border-radius: 20px; letter-spacing: 2px; text-transform: uppercase;">Solo 100 Cupos</div>
+                <div>
+                    <h3 style="font-size: 22px; font-weight: 800; color: #FFF; margin-bottom: 10px;">Membresía Fundador</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Del alumno 1 al 100</p>
+                    <div style="font-size: 56px; font-weight: 900; color: var(--gold); margin-bottom: 5px;">$69.99<span style="font-size: 16px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">Precio congelado de por vida</p>
+                    
+                    <ul style="list-style: none; text-align: left; margin: 20px 0; font-size: 15px; color: var(--text-main); line-height: 1.8;">
+                        <li>✓ <strong>Inscripción de $150</strong> (Pago único)</li>
+                        <li>✓ Acceso completo al Módulo de Inglés</li>
+                        <li>✓ Tutoría IA 24/7 + Cyber Arcade</li>
+                        <li>✓ Reportes VIP semanales</li>
+                    </ul>
+                </div>
+                <a href="#contacto" class="btn-gold" style="width: 100%;">Asegurar Precio Fundador</a>
+            </div>
+
+            <!-- Regulares -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 45px 35px; flex: 1; min-width: 300px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="font-size: 22px; font-weight: 800; color: #FFF; margin-bottom: 10px;">Precio Regular</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Del alumno 101 al 300</p>
+                    <div style="font-size: 56px; font-weight: 900; color: #FFF; margin-bottom: 5px;">$99.99<span style="font-size: 16px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">Acceso estándar</p>
+                    
+                    <ul style="list-style: none; text-align: left; margin: 20px 0; font-size: 15px; color: var(--text-muted); line-height: 1.8;">
+                        <li>✓ <strong>Inscripción de $150</strong> (Pago único)</li>
+                        <li>✓ Acceso completo al Módulo de Inglés</li>
+                        <li>✓ Tutoría IA 24/7 + Cyber Arcade</li>
+                        <li>✓ Reportes estándar</li>
+                    </ul>
+                </div>
+                <a href="#contacto" class="btn-cyan" style="width: 100%;">Reservar Cupo Regular</a>
+            </div>
+        </div>
     </div>
-    <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-      <h4>Lenovo ThinkPad P16</h4>
-      <p>i9, 64 GB RAM, RTX A4500. Estación de renderizado 3D para avatares y trabajo móvil.</p>
-    </div>
-    <div class="infra-card">
-      <svg class="brand-logo" viewBox="0 0 24 24"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM3 18V6h18v12H3zm2-2h14V8H5v8z"/></svg>
-      <h4>Synology DS925+ NAS (40 TB)</h4>
-      <p>Almacenamiento central en RAID 1. Datos de usuarios y renders pesados con redundancia total.</p>
-    </div>
-  </div>
-</section><!-- MATRIX / MÓDULOS TÉCNICOS -->
-<section class="matrix-section">
-  <h2 class="sec-title">Acceso vía Terminal</h2>
-  <p class="sec-subtitle">Cada módulo expone su propia API y línea de comandos. Los usuarios avanzados pueden integrar la plataforma con sus propios sistemas.</p>
-  
-  <div class="matrix-grid">
-    <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">nlp_engine.py</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-purple">from</span> <span class="tag-cyan">erian</span> <span class="tag-purple">import</span> NLP</span>
-        <span class="line"><span class="line-num">2</span></span>
-        <span class="line"><span class="line-num">3</span>engine = NLP(</span>
-        <span class="line"><span class="line-num">4</span>  model=<span class="tag-gold">"deepseek-v3"</span>,</span>
-        <span class="line"><span class="line-num">5</span>  temperature=<span class="tag-green">0.7</span></span>
-        <span class="line"><span class="line-num">6</span>)</span>
-        <span class="line"><span class="line-num">7</span>result = engine.<span class="tag-cyan">analyze</span>(data)</span>
-        <span class="line"><span class="line-num">8</span><span class="tag-purple">print</span>(result.summary)<span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>NLP Engine</h3>
-        <p>Procesamiento de lenguaje natural</p>
-        <div class="term-price">Incluido en Licencia</div>
-      </div>
-    </div>
-    <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">analytics.sh</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-green">$</span> erian analytics init</span>
-        <span class="line"><span class="line-num">2</span><span class="tag-green">$</span> erian analytics load data.csv</span>
-        <span class="line"><span class="line-num">3</span><span class="tag-cyan">→ Cargando 12,847 registros...</span></span>
-        <span class="line"><span class="line-num">4</span><span class="tag-green">$</span> erian analytics predict</span>
-        <span class="line"><span class="line-num">5</span><span class="tag-gold">→ Modelo entrenado: 94.3% accuracy</span></span>
-        <span class="line"><span class="line-num">6</span><span class="tag-green">$</span> erian analytics export --format=dashboard</span>
-        <span class="line"><span class="line-num">7</span><span class="tag-cyan">→ Dashboard generado ✓</span><span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>Analytics</h3>
-        <p>Análisis predictivo sobre tus datos</p>
-        <div class="term-price">Incluido en Licencia</div>
-      </div>
-    </div>
-    <div class="term-card">
-      <div class="term-header">
-        <div class="term-dot red"></div><div class="term-dot yellow"></div><div class="term-dot green"></div>
-        <div class="term-title">automation.js</div>
-      </div>
-      <div class="term-body">
-        <span class="line"><span class="line-num">1</span><span class="tag-purple">const</span> agent = <span class="tag-purple">new</span> <span class="tag-cyan">ErianAgent</span>({</span>
-        <span class="line"><span class="line-num">2</span>  apiKey: process.env.ERIAN_KEY,</span>
-        <span class="line"><span class="line-num">3</span>  model: <span class="tag-gold">"claude-sonnet-4"</span></span>
-        <span class="line"><span class="line-num">4</span>})</span>
-        <span class="line"><span class="line-num">5</span></span>
-        <span class="line"><span class="line-num">6</span><span class="tag-purple">await</span> agent.<span class="tag-cyan">execute</span>({</span>
-        <span class="line"><span class="line-num">7</span>  task: <span class="tag-gold">"optimize_inventory"</span>,</span>
-        <span class="line"><span class="line-num">8</span>  params: { threshold: <span class="tag-green">0.85</span> }<span class="cursor"></span></span>
-      </div>
-      <div class="term-footer">
-        <h3>Automation</h3>
-        <p>Agentes autónomos de flujo de trabajo</p>
-        <div class="term-price">Incluido en Licencia</div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- PRECIOS -->
-<section id="precios">
-  <h2 class="sec-title">Reserva tu Acceso a la Plataforma</h2>
-  <p class="sec-subtitle">Elige el plan de licencia según la intensidad de uso que necesites. Todos incluyen acceso completo a los 4 módulos. No hay niveles, no hay aprobación, no hay títulos.</p>
-  
-  <div class="regular-urgency">
-    <p>⚠️ Cupos disponibles: <span>20 de 120</span> reservados</p>
-    <div class="progress-bar"><div class="progress-fill"></div></div>
-  </div>
-  
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div>
-        <h3>Licencia Básica</h3>
-        <div class="price-val">$99<span>/mes</span></div>
-        <div class="price-note">Acceso individual a la plataforma</div>
-        <ul class="price-features">
-          <li>1 usuario autorizado</li>
-          <li>Acceso a los 4 módulos</li>
-          <li>Soporte técnico por email</li>
-          <li>50 horas de procesamiento/mes</li>
-          <li>Dashboard básico</li>
-        </ul>
-      </div>
-      <button class="btn btn-secondary" onclick="openModal('modal-basica')">Reservar</button>
+<!-- BÓVEDA VIP: EL FUTURO -->
+<section style="background: var(--wine-bg); border-top: 2px solid var(--coral); border-bottom: 2px solid var(--coral);">
+    <div class="container reveal">
+        <div style="display: table; margin: 0 auto 30px auto; background: rgba(253, 164, 175, 0.1); border: 1px solid var(--coral); color: var(--coral); padding: 10px 30px; border-radius: 30px; font-size: 14px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;">
+            Privilegio Exclusivo
+        </div>
+        <h2 class="section-title serif" style="color: #FFF;">El Futuro que <span class="gold-text">Solo los 300 Elegidos</span> Podrán Vivir.</h2>
+        <p class="section-subtitle" style="color: var(--coral); font-size: 20px;">No estás comprando solo un curso de inglés. Al asegurar tu cupo hoy, estás obteniendo el <strong>Pase de Acceso Vitalicio</strong> a todo el ecosistema universitario de Erian Academy.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+            
+            <!-- Expansión de Idiomas -->
+            <div style="background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border: 1px solid rgba(253, 164, 175, 0.2); border-radius: 12px; padding: 40px 30px; transition: 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 20px;">🌍</div>
+                <h3 style="font-size: 24px; font-weight: 800; color: #FFF; margin-bottom: 15px;">Expansión Global (Mes 6)</h3>
+                <p style="font-size: 15px; color: var(--coral); line-height: 1.6; margin-bottom: 25px;">Una vez que domines las bases del inglés, abriremos las puertas a las potencias económicas del mañana.</p>
+                
+                <ul style="list-style: none; font-size: 15px; color: var(--text-main); line-height: 1.8;">
+                    <li>★ <strong>Mandarín Chino:</strong> El idioma del comercio global.</li>
+                    <li>★ <strong>Alemán:</strong> El motor de la ingeniería europea.</li>
+                    <li>★ <strong>Francés:</strong> La puerta a la diplomacia y el arte.</li>
+                </ul>
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed rgba(253, 164, 175, 0.3); color: var(--gold); font-weight: 700; font-size: 14px; text-transform: uppercase;">
+                    Acceso prioritario garantizado para Fundadores.
+                </div>
+            </div>
+
+            <!-- Carreras Tecnológicas -->
+            <div style="background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border: 1px solid rgba(253, 164, 175, 0.2); border-radius: 12px; padding: 40px 30px; transition: 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 20px;">🚀</div>
+                <h3 style="font-size: 24px; font-weight: 800; color: #FFF; margin-bottom: 15px;">Elite Tech Academy (Mes 9)</h3>
+                <p style="font-size: 15px; color: var(--coral); line-height: 1.6; margin-bottom: 25px;">No formamos empleados. Formamos arquitectos digitales. Aprende las habilidades que están reemplazando las carreras tradicionales.</p>
+                
+                <ul style="list-style: none; font-size: 15px; color: var(--text-main); line-height: 1.8;">
+                    <li>★ <strong>Ciberseguridad:</strong> Protección de activos y defensa digital.</li>
+                    <li>★ <strong>Inteligencia de Datos:</strong> El lenguaje de los fondos de inversión.</li>
+                    <li>★ <strong>SEO & Agencias:</strong> Monetiza ideas y crea tu propio imperio.</li>
+                </ul>
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed rgba(253, 164, 175, 0.3); color: var(--cyan); font-weight: 700; font-size: 14px; text-transform: uppercase;">
+                    Reservado exclusivamente para la primera generación.
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center; background: rgba(223, 182, 70, 0.1); border: 1px dashed var(--gold); padding: 20px; border-radius: 8px; color: var(--gold); font-weight: 700; font-size: 18px; letter-spacing: 1px;">
+            🔒 Al inscribirte hoy en el curso de inglés, tu derecho de acceso a estas futuras facultades queda grabado en tu perfil. No tendrás que volver a postularte ni hacer fila.
+        </div>
     </div>
-    <div class="price-card career">
-      <div>
-        <h3>Licencia Profesional</h3>
-        <div class="price-val">$149<span>/mes</span></div>
-        <div class="price-note">Acceso intensivo a la plataforma</div>
-        <ul class="price-features">
-          <li>1 usuario autorizado</li>
-          <li>Acceso a los 4 módulos + API</li>
-          <li>Soporte prioritario</li>
-          <li>200 horas de procesamiento/mes</li>
-          <li>Fine-tuning nocturno incluido</li>
-          <li>Dashboard personalizado</li>
-        </ul>
-      </div>
-      <button class="btn btn-primary" onclick="openModal('modal-profesional')">Reservar</button>
-    </div>
-    <div class="price-card premium">
-      <div>
-        <h3>Licencia Élite</h3>
-        <div class="price-val">$299<span>/mes</span></div>
-        <div class="price-note">Acceso total + infraestructura dedicada</div>
-        <ul class="price-features">
-          <li>3 usuarios autorizados</li>
-          <li>Acceso a los 4 módulos + API + MCP</li>
-          <li>Soporte 24/7</li>
-          <li>Procesamiento ilimitado</li>
-          <li>Modelo personalizado entrenado</li>
-          <li>Estación física en nuestra sede</li>
-          <li>Integración con tus sistemas</li>
-        </ul>
-      </div>
-      <button class="btn btn-primary" onclick="openModal('modal-elite')">Reservar</button>
-    </div>
-  </div>
-  
-  <div class="pricing-note">
-    <strong>Nota importante:</strong> La licencia es de uso, no de propiedad. No incluye títulos, certificaciones ni garantía de resultados. El aprovechamiento de las herramientas es responsabilidad exclusiva del usuario.
-  </div>
-  
-  <!-- BINANCE -->
-  <div class="binance-premium-card">
-    <svg class="binance-logo" viewBox="0 0 126.61 126.61"><path fill="#F0B90B" d="M38.73 53.2l24.59-24.58 24.6 24.6 14.3-14.31L63.32 0 24.42 38.9l14.3 14.3zM0 63.3l14.31-14.3 14.3 14.3-14.3 14.31L0 63.3zm38.73 24.72l24.59 24.58 24.6-24.6 14.32 14.28-14.32 14.32-24.6 24.6-24.58-24.6-14.32-14.32 14.31-14.28zm63.57-24.7l14.31-14.3 14.3 14.3-14.3 14.32-14.31-14.32zM77.85 63.3l-14.53-14.54-10.75 10.75-1.23 1.24-2.55 2.55-.01.01.01.01 14.53 14.53 14.53-14.53.01-.01-.01-.01z"/></svg>
-    <h4>Pago con Binance / USDT</h4>
-    <p>Aceptamos <strong>USDT (TRC-20 / BEP-20)</strong> a través de Binance. Sin comisiones ocultas, sin intermediarios. La licencia se activa en menos de 24 horas tras la confirmación de la transacción.</p>
-  </div>
-</section>
+</section>    <!-- BECAS -->
+    <section style="background: rgba(17, 28, 46, 0.5);">
+        <div class="container reveal">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 class="section-title serif" style="color: var(--gold);">🎁 Becas de Excelencia Erian</h2>
+                <p class="section-subtitle" style="color: var(--text-main);">Como agradecimiento a las familias que leen hasta el final, hemos reservado <strong>100 Becas de Excelencia</strong> para niños con talento excepcional que quieran estudiar inglés.</p>
+                
+                <div style="background: var(--bg-card); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; display: inline-block; margin-bottom: 30px;">
+                    <div style="font-size: 16px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Costo mensual con Beca (En lugar de $99.99)</div>
+                    <div style="font-size: 54px; font-weight: 900; color: var(--gold); text-shadow: 0 0 20px rgba(223, 182, 70, 0.3);">$69.99<span style="font-size: 16px; color: var(--text-muted); font-weight: 400;">/mes</span></div>
+                    <div style="font-size: 14px; color: var(--accent); margin-top: 10px;">Cupos con Beca restantes: <strong id="contador-becas" style="color: var(--coral); font-size: 18px;">100</strong></div>
+                </div>
+                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px;">Para aplicar a una beca, llena el formulario de abajo. Nuestro equipo evaluará el perfil del estudiante. <em>*Sujeto a disponibilidad y mérito.</em></p>
+                <a href="#contacto" class="btn-gold">Aplicar a la Beca de Excelencia</a>
+            </div>
+        </div>
+    </section>
 
-<!-- BECAS -->
-<section>
-  <div class="beca-container">
-    <div class="beca-top">
-      <h2>🎓 Programa de Acceso Subsidiado</h2>
-      <span class="badge">CUPOS LIMITADOS</span>
-    </div>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">Erian Tech reserva un porcentaje de licencias con descuento para usuarios de alto potencial que no puedan cubrir el costo total. No es una beca académica: es un subsidio de acceso tecnológico.</p>
-    
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-      <div class="progress-text"><span>12 de 100 cupos asignados</span><span>88 disponibles</span></div>
-    </div>
-    
-    <ul class="req-list">
-      <li>✅ Ser mayor de 16 años o contar con autorización de representante legal</li>
-      <li>✅ Demostrar situación económica que justifique el subsidio</li>
-      <li>✅ Comprometerse a usar la plataforma al menos 20 horas/mes</li>
-      <li>✅ Aceptar el contrato de licencia de uso tecnológico</li>
-      <li>✅ No presentar la plataforma como institución educativa ante terceros</li>
-    </ul>
-    
-    <button class="btn btn-primary" style="width:100%;" onclick="openModal('modal-beca')">Solicitar Acceso Subsidiado</button>
-  </div>
-</section>
+    <!-- FORMULARIO DE CONTACTO (SOLO CORREO) -->
+    <section id="contacto" style="background: var(--bg-main); padding-bottom: 50px;">
+        <div class="container reveal">
+            <h2 class="section-title serif" style="text-align: center;">Solicite su <span class="gold-text">Entrevista Privada</span></h2>
+            <p class="section-subtitle" style="text-align: center;">Déjenos sus datos. Nuestro equipo directivo se comunicará con usted para agendar su demostración en vivo y validar su cupo.</p>
 
-<!-- QUOTE FINAL -->
-<div class="final-quote">
-  "El futuro no se espera.<br>Se procesa."
-</div>
+            <form action="https://formsubmit.co/erianingles@gmail.com" method="POST" style="max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
+                <!-- Configuración de FormSubmit -->
+                <input type="hidden" name="_subject" value="Nuevo Candidato VIP - Erian Academy">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
 
-<!-- CONTACTO -->
-<div class="contact-section">
-  <h3>¿Listo para reservar tu acceso?</h3>
-  <p>Escríbenos directamente. Respondemos en menos de 24 horas.</p>
-  <a href="mailto:erianingles@gmail.com" class="contact-email">erianingles@gmail.com</a>
-</div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Nombre del Representante</label>
+                    <input type="text" name="Nombre" required style="width: 100%; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-main); color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Correo Electrónico</label>
+                    <input type="email" name="Email" required style="width: 100%; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-main); color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Número de WhatsApp (Para contacto)</label>
+                    <input type="tel" name="WhatsApp_Contacto" required style="width: 100%; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-main); color: white; font-size: 15px; outline: none;">
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Nombre y Edad del Estudiante (9 a 80 años)</label>
+                    <input type="text" name="Estudiante" placeholder="Ej: Mateo, 10 años / Frank, 35 años" required style="width: 100%; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-main); color: white; font-size: 15px; outline: none;">
+                </div>
 
-<!-- FOOTER -->
-<footer>
-  <p style="margin-bottom:15px;"><strong>AVISO LEGAL:</strong> Erian Tech es una empresa de tecnología dedicada al desarrollo de software y la prestación de servicios de inteligencia artificial. <strong>No es una institución educativa, no emite títulos académicos oficiales y no sustituye la educación formal obligatoria.</strong> El acceso a la plataforma constituye una licencia de uso de herramientas tecnológicas, no una matrícula escolar. Los resultados del uso de las herramientas son responsabilidad exclusiva del usuario.</p>
-  <p>RIF: EN TRÁMITE | Socopó, Estado Barinas, Venezuela | erianingles@gmail.com</p>
-  <p style="margin-top:15px; font-size:11px;">© 2026 Erian Technologies, C.A. Todos los derechos reservados.</p>
-</footer>
+                <button type="submit" class="btn-gold" style="width: 100%;">Solicitar Entrevista / Aplicar a Beca</button>
+            </form>
+            <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 15px;">🔒 Sus datos están protegidos. Solo los candidatos seleccionados serán contactados.</p>
+        </div>
+    </section>
 
-<!-- MODALES -->
-<div class="modal-overlay" id="modal-basica">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-basica')">×</button>
-    <h3>Reservar Licencia Básica</h3>
-    <p>$99/mes · 1 usuario · 50 horas de procesamiento</p>
-    <form onsubmit="event.preventDefault(); alert('Solicitud enviada. Te contactaremos en menos de 24h.'); closeModal('modal-basica');">
-      <div class="form-group"><label>Nombre completo</label><input type="text" required></div>
-      <div class="form-group"><label>Cédula / Documento</label><input type="text" required></div>
-      <div class="form-group"><label>Email</label><input type="email" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-      <div class="form-group"><label>Uso previsto de la plataforma</label><textarea rows="3" required></textarea></div>
-      <button type="submit" class="form-submit">Enviar Solicitud</button>
-    </form>
-  </div>
-</div>
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 12px;">
+        <p>&copy; 2026 Erian Technologies, C.A. | Socopó, Barinas. Todos los derechos reservados.</p>
+        <p style="margin-top: 5px; font-style: italic;">"Regálale lo mejor. Invierte en el futuro de tu hijo."</p>
+    </footer>
 
-<div class="modal-overlay" id="modal-profesional">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-profesional')">×</button>
-    <h3>Reservar Licencia Profesional</h3>
-    <p>$149/mes · 1 usuario · 200 horas + API + Fine-tuning</p>
-    <form onsubmit="event.preventDefault(); alert('Solicitud enviada. Te contactaremos en menos de 24h.'); closeModal('modal-profesional');">
-      <div class="form-group"><label>Nombre completo</label><input type="text" required></div>
-      <div class="form-group"><label>Cédula / Documento</label><input type="text" required></div>
-      <div class="form-group"><label>Email</label><input type="email" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-      <div class="form-group"><label>Uso previsto de la plataforma</label><textarea rows="3" required></textarea></div>
-      <button type="submit" class="form-submit">Enviar Solicitud</button>
-    </form>
-  </div>
-</div>
+    <!-- SCRIPT DE ANIMACIÓN Y CONTADOR -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-<div class="modal-overlay" id="modal-elite">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-elite')">×</button>
-    <h3>Reservar Licencia Élite</h3>
-    <p>$299/mes · 3 usuarios · Ilimitado + Estación física</p>
-    <form onsubmit="event.preventDefault(); alert('Solicitud enviada. Te contactaremos en menos de 24h.'); closeModal('modal-elite');">
-      <div class="form-group"><label>Nombre completo</label><input type="text" required></div>
-      <div class="form-group"><label>Cédula / RIF</label><input type="text" required></div>
-      <div class="form-group"><label>Email</label><input type="email" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-      <div class="form-group"><label>Empresa / Operación</label><input type="text" required></div>
-      <div class="form-group"><label>Uso previsto de la plataforma</label><textarea rows="3" required></textarea></div>
-      <button type="submit" class="form-submit">Enviar Solicitud</button>
-    </form>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal-beca">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-beca')">×</button>
-    <h3>Solicitar Acceso Subsidiado</h3>
-    <p>Programa de acceso tecnológico con descuento</p>
-    <form onsubmit="event.preventDefault(); alert('Solicitud enviada. Evaluaremos tu caso en menos de 5 días hábiles.'); closeModal('modal-beca');">
-      <div class="form-group"><label>Nombre completo</label><input type="text" required></div>
-      <div class="form-group"><label>Cédula / Documento</label><input type="text" required></div>
-      <div class="form-group"><label>Email</label><input type="email" required></div>
-      <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-      <div class="form-group"><label>¿Por qué solicitas el subsidio?</label><textarea rows="4" required></textarea></div>
-      <button type="submit" class="form-submit gold">Enviar Solicitud</button>
-    </form>
-  </div>
-</div>
-
-<!-- JAVASCRIPT -->
-<script>
-  function openModal(id) {
-    document.getElementById(id).classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.active').forEach(m => {
-        m.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
-  });
-</script>
-
+            const contadorEl = document.getElementById('contador-becas');
+            let becasRestantes = 100;
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    if (becasRestantes > 84) {
+                        if(Math.random() > 0.7) {
+                            becasRestantes--;
+                            contadorEl.innerText = becasRestantes;
+                        }
+                    } else { clearInterval(interval); }
+                }, 4000);
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
